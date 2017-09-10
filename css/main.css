@@ -28,7 +28,8 @@ body {
     min-height:300px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0   rgba(0,0,0,.12);
     border-radius: 2px;
-    min-width: 30%;
+    min-width: 500px;
+    max-width: 300px;
     padding-right: 5px;
     padding-left: 5px;
     text-align: center;  
@@ -43,7 +44,7 @@ body {
 .box-title{
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }    
-form {
+.form-login {
 	width: 78%;
 	margin: 3em auto;
 	padding: 2em 2em 2em 2em;
@@ -52,7 +53,7 @@ form {
     box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
     overflow: hidden;
 }
-input {
+.input-login {
 	font-size: 16px;
 	padding: 10px 10px 10px 5px;
 	-webkit-appearance: none;
@@ -273,7 +274,7 @@ li.dropdown {
     background-color: #fff;
     border-color: #ccc;
 }
-
+/*lo que esta aca pasa cuando el ancho es menor a 904 px */
 @media screen and (max-width: 904px) {
     ul.topnav li.dropdown,
     ul.topnav li.right,
@@ -289,7 +290,35 @@ li.dropdown {
         width: 100%;
     }
     .navbar-form{
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 25%!important;
+        margin-right: 25%!important;
+    }
+}
+
+@media screen and (max-width: 681px) {
+    .navbar-form{
+        margin-left: 20%!important;
+        margin-right: 20%!important;
+    }
+}
+
+@media screen and (max-width: 566px) {
+    .navbar-form{
+        margin-left: 12%!important;
+        margin-right: 12%!important;
+    }
+}
+
+@media screen and (max-width: 448px) {
+    .navbar-form{
+        margin-left: 6%!important;
+        margin-right: 6%!important;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .navbar-form{
+        margin-left: -5%!important;
+        margin-right: -5%!important;
     }
 }
