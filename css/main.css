@@ -154,18 +154,15 @@ li.dropdown {
         float: none;
         display: list-item;
     }
-    .search {
-        width: 100%;
-    }
     .form-group {
-        max-width: 830px;
-        width: auto;
-        margin-right: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
     .form-control{
         width: 100%;
     }
-    .navbar-form {
-
+    .navbar-form{
+        margin-left: auto;
+        margin-right: auto;
     }
 }
