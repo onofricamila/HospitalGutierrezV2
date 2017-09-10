@@ -35,15 +35,6 @@ ul.topnav li.right {
     float: right;
 }
 
-@media screen and (max-width: 600px) {
-    ul.topnav li.dropdown,
-    ul.topnav li.right,
-    ul.topnav li {
-        float: none;
-        display: list-item;
-    }
-}
-
 li a,
 .dropbtn {
     display: inline-block;
@@ -154,4 +145,27 @@ li.dropdown {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
+}
+
+@media screen and (max-width: 904px) {
+    ul.topnav li.dropdown,
+    ul.topnav li.right,
+    ul.topnav li {
+        float: none;
+        display: list-item;
+    }
+    .search {
+        width: 100%;
+    }
+    .form-group {
+        max-width: 830px;
+        width: auto;
+        margin-right: 30px;
+    }
+    .form-control{
+        width: 100%;
+    }
+    .navbar-form {
+
+    }
 }
