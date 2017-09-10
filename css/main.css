@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-family: Helvetica;
-    margin: 0;
+    margin: 0px;
 }
 
 .darkBody {
@@ -184,8 +184,8 @@ li.dropdown {
     min-width: 300px;
     display: block;
     box-sizing: border-box;
-    margin-bottom: 6px;
-    margin-top: 6px;
+    margin-bottom: 4px;
+    margin-top: 5px;
     padding-right: 15px;
     padding-left: 15px;
     box-shadow: none;
@@ -262,6 +262,7 @@ li.dropdown {
 }
 
 .search-btn-div {
+    width: 260px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -270,7 +271,7 @@ li.dropdown {
 
 /*lo que esta aca pasa cuando el ancho es menor a 904 px */
 
-@media screen and (max-width: 1047px) {
+@media screen and (max-width: 1061px) {
     ul.topnav li.dropdown,
     ul.topnav li.right,
     ul.topnav li {
@@ -282,6 +283,9 @@ li.dropdown {
     }
     .form-control {
         width: calc(100% - 30px);
+    }
+    .search-btn-div {
+        width: initial;
     }
 }
 
@@ -390,7 +394,7 @@ li.dropdown {
 .img-div-inicio {
     display: block;
     width: 98%;
-    height: 300px;
+    height: 350px;
     float: none;
     margin-top: 25px;
     margin-left: auto;
@@ -403,8 +407,8 @@ li.dropdown {
 
 .logo {
     display: inline!important;
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
 }
 
 ul.topnav li .logoA {
@@ -413,6 +417,8 @@ ul.topnav li .logoA {
     text-decoration: none;
     margin: 0;
     padding: 0;
+    height: 46px;
+    width: 46px;
 }
 
 ul.topnav li .logoA:hover:not(.active) {
@@ -508,17 +514,18 @@ input:focus~.bar:after {
 /* Footer */
 
 footer {
-    background-color: #424558;
+    background-color: #f1f1f1;
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     height: 35px;
     text-align: center;
-    color: #CCC;
+    color: black;
+    box-sizing: border-box;
 }
 
 footer p {
+    box-sizing: border-box;
     padding: 10.5px;
     margin: 0px;
     line-height: 100%;
