@@ -381,7 +381,7 @@ li.dropdown {
     text-decoration: none;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 1062px) {
     .one-third-container {
         flex: 0 0 33.333333%;
         max-width: 33.333333%;
@@ -500,8 +500,6 @@ input:focus~.bar:after {
     width: 93%;
 }
 
-.search button {}
-
 .buttonOrange {
     background: #FF8800;
     border-bottom: 2px solid #B5871A;
@@ -531,7 +529,7 @@ footer p {
     line-height: 100%;
 }
 
-.img-container {
+.image-container {
     overflow: hidden;
 }
 
