@@ -257,8 +257,8 @@ li.dropdown {
 }
 
 .search-btn-div {
-    width: 260px;
-    max-width: 500px;
+    min-width: 270px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -552,4 +552,8 @@ footer p {
 
 .buttonSearch:hover{
     opacity: 1;
+}
+
+.logo-li {
+    float: left!important;
 }
