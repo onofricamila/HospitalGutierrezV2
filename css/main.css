@@ -181,7 +181,8 @@ ul.topnav li a:hover:not(.active) {
 }
 
 ul.topnav li a.active {
-    background-color: #7BC17E;
+    background-color: black;
+    color: white
 }
 
 ul.topnav li.right {
@@ -258,7 +259,9 @@ li.dropdown {
     margin-bottom: 0;
     display: inline-block;
 }
-
+.form-search{
+    background: transparent;
+}
 .form-control {
     height: 20px;
     padding: 6px 12px;
