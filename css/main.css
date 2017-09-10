@@ -4,7 +4,10 @@ body{
     font-family: 'Roboto', sans-serif;
     font-weight:500;
     font-family: Helvetica;
-	background: #eee;
+    margin: 0;
+}
+.darkBody{
+	background: #eee;    
 }
 html {
     line-height: 1.15;
@@ -19,9 +22,7 @@ html {
     padding-left: 15px;
     display: flex;
   }
-body {
-    margin: 0;
-}
+
 
 .box{
     background-color:#fff;
@@ -53,7 +54,7 @@ body {
     box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
     overflow: hidden;
 }
-.input-login {
+.input-google {
 	font-size: 16px;
 	padding: 10px 10px 10px 5px;
 	-webkit-appearance: none;
@@ -110,25 +111,28 @@ input:focus ~ .highlight {
   border: 0;
   cursor: pointer;
   transition: all 0.15s ease;
+  opacity: 0.95;  
 }
 .button:focus { outline: 0; }
+.button:hover {opacity: 1; }
 
 .buttonBlue {
-  background: #4a89dc;
-  text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
-  border-bottom: 2px solid #3160B6;  
+    background: #4a89dc;
+    text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+    border-bottom: 2px solid #3160B6;  
 }
-
-.buttonBlue:hover { background: #357bd8; }
 
 .buttonPink {
     background: #FF4081;
     border-bottom: 2px solid #9F30B6;
-    opacity: 0.95;
     text-shadow: 1px 1px 0 rgba(224, 77, 154, 0.50);
   }
-  
-  .buttonPink:hover {opacity: 1; }
+
+.buttonOrange{
+    background: #FF8800;
+    border-bottom: 2px solid #B5871A;
+    text-shadow: 1px 1px 0 rgba(235, 179, 19, 0.50);
+}
   
 ul.topnav {
     list-style-type: none;
