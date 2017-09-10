@@ -529,7 +529,7 @@ footer p {
 
 .image-container {
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 0;
 }
 
 .banner {
