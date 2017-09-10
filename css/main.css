@@ -28,66 +28,41 @@ html {
     min-width: 30%;
     padding-right: 5px;
     padding-left: 5px;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
+    text-align: center;  
     margin-top: 5%;
-    
+
 }
 
+.centered{
+    margin-right: auto;
+    margin-left: auto;
+}
 .box-title{
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    text-align: center;
 }    
 form {
-	width: 380px;
+	width: 78%;
 	margin: 3em auto;
 	padding: 2em 2em 2em 2em;
 	background: #fafafa;
 	border: 1px solid #ebebeb;
-	box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+    overflow: hidden;
 }
 input {
-	font-size: 18px;
+	font-size: 16px;
 	padding: 10px 10px 10px 5px;
 	-webkit-appearance: none;
 	display: block;
 	background: #fafafa;
 	color: #636363;
-	width: 100%;
+	width: 95%;
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #757575;
 }
 
 input:focus { outline: none; }
-
-
-/* Label */
-
-label {
-	color: #999; 
-	font-size: 18px;
-	font-weight: normal;
-	position: absolute;
-	pointer-events: none;
-	left: 5px;
-	top: 10px;
-	transition: all 0.2s ease;
-}
-
-
-/* active */
-
-input:focus ~ label, input.used ~ label {
-	top: -20px;
-  transform: scale(.75); left: -2px;
-	/* font-size: 14px; */
-	color: #4a89dc;
-}
-
-
-/* Underline */
 
 .bar {
 	position: relative;
@@ -109,34 +84,11 @@ input:focus ~ label, input.used ~ label {
 
 .bar:after { right: 50%; }
 
-
-/* active */
-
 input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
-
-
-/* Highlight */
-
-.highlight {
-	position: absolute;
-	height: 60%; 
-	width: 100px; 
-	top: 25%; 
-	left: 0;
-	pointer-events: none;
-	opacity: 0.5;
-}
-
-
-/* active */
 
 input:focus ~ .highlight {
 	animation: inputHighlighter 0.3s ease;
 }
-
-
-
-/* Button */
 
 .button {
   position: relative;
@@ -148,25 +100,29 @@ input:focus ~ .highlight {
   color: #fff;
   font-size: 16px;
   line-height: 20px;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   letter-spacing: 1px;
   background: transparent;
   border: 0;
-  border-bottom: 2px solid #3160B6;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 .button:focus { outline: 0; }
 
-
-/* Button modifiers */
-
 .buttonBlue {
   background: #4a89dc;
   text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+  border-bottom: 2px solid #3160B6;  
 }
 
 .buttonBlue:hover { background: #357bd8; }
 
-
+.buttonPink {
+    background: #FF4081;
+    border-bottom: 2px solid #9F30B6;
+    opacity: 0.95;
+    text-shadow: 1px 1px 0 rgba(224, 77, 154, 0.50);
+  }
+  
+  .buttonPink:hover {opacity: 1; }
+  
