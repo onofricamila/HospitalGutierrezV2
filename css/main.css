@@ -176,9 +176,6 @@ li.dropdown {
     display: block;
 }
 
-#dropdown-link {
-    text-align: left;
-}
 
 .navbar-form {
     min-width: 300px;
@@ -266,6 +263,10 @@ li.dropdown {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.dropdown-link {
+    text-align: left!important;
 }
 
 
