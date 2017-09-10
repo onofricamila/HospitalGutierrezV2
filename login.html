@@ -3,12 +3,31 @@
 
 <head>
     <title>Login</title>
-    <link href="header.html" rel="import" />
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="container">
-        
+        <div class="box centered">
+                <div class="container box-title">
+                    <h3 class="centered"><strong><small> INICIAR SESIÓN </small></strong></h3>
+                </div>
+                <div class="">
+
+                    <form action="procesarLogIn.php" method="post" target="_self" accept-charset="UTF-8" autocomplete="on" validate>
+                        <div class="group">
+                            <input type="text" placeholder="Nombre" required><span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <div class="group">
+                            <input type="email" placeholder="Email" required><span class="highlight"></span><span class="bar"></span>
+                        </div>
+                        <br>
+                        <button type="button" type="submit" class="button buttonBlue">Enviar</button>
+                        <button type="button" type="link" class="button buttonPink">Registrarme</button>
+                    </form>
+
+                </div>
+        </div>
     </div>
 </body>
 
