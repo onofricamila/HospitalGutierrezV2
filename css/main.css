@@ -301,6 +301,7 @@ li.dropdown {
     background-color: #fff;
     -webkit-tap-highlight-color: transparent;
     float: none;
+    margin-bottom: 50px;
 }
 
 .row {
@@ -496,3 +497,22 @@ input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
     color: white;
     outline: none;
 }
+
+/* Footer */
+
+footer{
+    background-color: #424558;
+    position: fixed;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     height: 35px;
+     text-align: center;
+     color: #CCC;
+ }
+ 
+ footer p {
+     padding: 10.5px;
+     margin: 0px;
+     line-height: 100%;
+ }
