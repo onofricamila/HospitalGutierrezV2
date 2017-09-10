@@ -237,6 +237,7 @@ li.dropdown {
 }
 
 .navbar-form {
+    min-width: 300px;
     display: block;
     box-sizing: border-box;
     margin-bottom: 6px;
@@ -299,7 +300,20 @@ li.dropdown {
     background-color: #fff;
     border-color: #ccc;
 }
-
+.search-div {
+    display: inline-block;
+}
+.btn-div {
+    display: inline-block;
+}
+.bar {
+    display: inline;
+}
+.search-btn-div {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*lo que esta aca pasa cuando el ancho es menor a 904 px */
 
@@ -310,37 +324,10 @@ li.dropdown {
         float: none;
         display: list-item;
     }
-    .navbar-form{
-        min-width: 300px;
-    }
-    .search-btn-div {
-        display: block;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
     .search-div {
         width: calc(100% - 75px);
-        height: 100%;
-        display: inline-block;
     }
     .form-control {
         width: calc(100% - 30px);
-    }
-    .input-google {
-    }
-    .btn-div {
-        width: 70px;
-        height: 100%;
-        display: inline-block;
-    }
-    .highlight {
-    }
-    .bar {
-        display: inline;
-    }
-    .btn {
-    }
-    .btn-default {
     }
 }
