@@ -504,8 +504,6 @@ input:focus~.bar:after {
     background: #FF8800;
     border-bottom: 2px solid #B5871A;
     text-shadow: 1px 1px 0 rgba(235, 179, 19, 0.50);
-    color: white;
-    outline: none;
 }
 
 
@@ -543,4 +541,17 @@ footer p {
     -ms-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
+}
+
+.buttonSearch{
+    background: #00bfa5   ;
+    border-bottom: 2px solid #1993B5;
+    text-shadow: 1px 1px 0 rgba(15, 147, 169, 0.50);
+    color: white;
+    outline: none;
+    opacity: 0.9;
+}
+
+.buttonSearch:hover{
+    opacity: 1;
 }
