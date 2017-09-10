@@ -59,57 +59,6 @@ html {
     overflow: hidden;
 }
 
-.input-google {
-    font-size: 16px;
-    padding: 10px 10px 10px 5px;
-    -webkit-appearance: none;
-    display: block;
-    background: #fafafa;
-    color: #636363;
-    width: 95%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #757575;
-}
-
-input:focus {
-    outline: none;
-}
-
-.bar {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-
-.bar:before,
-.bar:after {
-    content: '';
-    height: 2px;
-    width: 0;
-    bottom: 1px;
-    position: absolute;
-    background: #4a89dc;
-    transition: all 0.2s ease;
-}
-
-.bar:before {
-    left: 50%;
-}
-
-.bar:after {
-    right: 50%;
-}
-
-input:focus~.bar:before,
-input:focus~.bar:after {
-    width: 50%;
-}
-
-input:focus~.highlight {
-    animation: inputHighlighter 0.3s ease;
-}
-
 .button {
     position: relative;
     display: inline-block;
@@ -149,11 +98,6 @@ input:focus~.highlight {
     text-shadow: 1px 1px 0 rgba(224, 77, 154, 0.50);
 }
 
-.buttonOrange {
-    background: #FF8800;
-    border-bottom: 2px solid #B5871A;
-    text-shadow: 1px 1px 0 rgba(235, 179, 19, 0.50);
-}
 
 ul.topnav {
     list-style-type: none;
@@ -327,7 +271,7 @@ li.dropdown {
 
 /*lo que esta aca pasa cuando el ancho es menor a 904 px */
 
-@media screen and (max-width: 997px) {
+@media screen and (max-width: 1047px) {
     ul.topnav li.dropdown,
     ul.topnav li.right,
     ul.topnav li {
@@ -445,11 +389,110 @@ li.dropdown {
 
 .img-div-inicio {
     display: block;
-    width: 750px;
-    height: 350px;
+    width: 98%;
+    height: 300px;
     float: none;
     margin-top: 25px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
+}
+
+.banner{
+    width: 100%;
+    height: inherit;
+    overflow: hidden;    
+    box-shadow: 0 0px 0px 8px rgba(0, 0, 0, .14);
+    
+ }
+/* para el logo */
+ .logo{
+     display: inline!important;
+     width: 50px;
+     height: 50px;
+ }
+
+ ul.topnav li  .logoA{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.topnav li  .logoA:hover:not(.active) {
+    background-color: transparent;
+}
+ 
+ .highlight {
+	position: absolute;
+	height: 60%; 
+	width: 100px; 
+	top: 25%; 
+	left: 0;
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+
+input{
+	font-size: 14px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fafafa;
+	color: #636363;
+	width: 96%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #757575;
+}
+
+input:focus { outline: none; }
+
+/* Underline */
+
+.bar {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.bar:before, .bar:after {
+	content: '';
+	height: 2px; 
+	width: 0;
+	bottom: 1px; 
+	position: absolute;
+	background: #4a89dc; 
+	transition: all 0.2s ease;
+}
+
+.bar:before { left: 50%; }
+
+.bar:after { right: 50%; }
+
+/* active */
+
+input:focus ~ .highlight {
+	animation: inputHighlighter 0.3s ease;
+}
+/* active */
+
+input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
+
+.search input{
+    background: transparent;
+    width: 93%;
+}
+.search button{
+
+}
+
+.buttonOrange {
+    background: #FF8800;
+    border-bottom: 2px solid #B5871A;
+    text-shadow: 1px 1px 0 rgba(235, 179, 19, 0.50);
+    color: white;
+    outline: none;
 }

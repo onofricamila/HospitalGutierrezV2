@@ -6,28 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico" />
     <title>Document</title>
 </head>
 
 <body>
     <nav>
         <ul class="topnav">
-            <li><a href="#news"><small> <img src="" alt="LOGO"> </small></a></li>
+            <li>
+                <a href="#" class="logoA">
+                <img src="imgs/logo2.png" alt="logo" class="logo">
+                </a>
+            </li>
             <li>
                 <a class="active" href="#home"><small><strong>Hospital Dr. Ricardo Gutiérrez</strong></small></a>
             </li>
-            <li><a href="#news"><small> INICIO </small></a></li>
+            <li><a href="#"><small> INICIO </small></a></li>
             <li class="right"><a href="login.html"><small> LOGIN </small></a></li>
             <li class="right search">
                 <form class="navbar-form navbar-left">
                     <div class="search-btn-div">
                         <div class="search-div">
-                            <input type="text" class="form-control input-google" placeholder="Ingrese texto aqui">
+                            <input type="text" class="search input-google" placeholder="Ingrese texto aqui" required><span class="highlight"></span>
+                            <span class="bar"></span>
                         </div>
                         <div class="btn-div">
                             <span class="highlight"></span>
                             <span class="bar"></span>
-                            <button type="submit" class="btn btn-default">Buscar</button>
+                            <button type="submit" class=" btn btn-default buttonOrange">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -47,8 +53,11 @@
     </nav>
 
     <header>
-        <div class="img-div-inicio">
-            <img src="" alt="Aca voy a poner una imagen.">
+        <div class="container">
+            <div class="img-div-inicio">
+                <!-- <img src="" alt="Aca voy a poner una imagen."> -->
+                <IMG class="banner" SRC="imgs/medicina2.jpg">
+            </div>
         </div>
     </header>
 
@@ -58,7 +67,7 @@
                 <div class="row">
                     <div class="one-third-container">
                         <div class="card">
-                            <h4 class="card-header">El Hospital</h4>
+                            <h4 class="card-header"><small> EL HOSPITAL </small></h4>
                             <div class="card-body">
                                 <p class="card-text">Este centro de salud tiene un programa de residencias de primer nivel en el país. Se ofrecen
                                     oportunidades de práctica intensiva y supervisada en ámbitos profesionales y por la misma
@@ -72,7 +81,7 @@
                     </div>
                     <div class="one-third-container">
                         <div class="card">
-                            <h4 class="card-header">Guardia</h4>
+                            <h4 class="card-header"><small> GUARDIA </small></h4>
                             <div class="card-body">
                                 <p class="card-text">Hospital Dr. Ricardo Gutierrez de La Plata dispone de un sofisticado servicio de guardias
                                     médicas las 24 horas para la atención de distintas urgencias. La administración de la
@@ -87,7 +96,7 @@
                     </div>
                     <div class="one-third-container">
                         <div class="card">
-                            <h4 class="card-header">Especialidades</h4>
+                            <h4 class="card-header"><small> ESPECIALIDADES </small></h4>
                             <div class="card-body">
                                 <p class="card-text">Acorde a una respetable trayectoria en materia de medicina y salud, en Hospital Dr. Ricardo
                                     Gutierrez de La Plata podemos encontrar profesionales de las principales especialidades

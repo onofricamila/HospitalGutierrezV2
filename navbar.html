@@ -4,27 +4,35 @@
 <head>
 	<link rel="stylesheet" href="css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="imgs/favicon.ico" />
+	
 </head>
 
 <body>
 	<nav>
 		<ul class="topnav">
+				<li>
+						<a href="#" class="logoA">
+						<img src="imgs/logo2.png" alt="logo" class="logo">
+						</a>
+					</li>
 			<li>
 			<a class="active" href="#home"><small><strong>Hospital Dr. Ricardo Gutiérrez</strong></small></a>
 			</li>
-		<li><a href="#news"><small> INICIO </small></a></li>
+		<li><a href="inicio.html"><small> INICIO </small></a></li>
 		<li><a href="#contact"><small> PACIENTES </small></a></li>
 		<li class=""><a href="login.html"><small> INICIAR SESIÓN </small></a></li>
 			<li class="right search">
 				<form class="navbar-form navbar-left">
 					<div class="search-btn-div">
 						<div class="search-div">
-							<input type="text" class="form-control input-google" placeholder="Ingrese texto aqui">
+							<input type="text" class="search input-google" placeholder="Ingrese texto aqui" required><span class="highlight"></span>
+                            <span class="bar"></span>
 						</div>
 						<div class="btn-div">
 							<span class="highlight"></span>
 							<span class="bar"></span>
-							<button type="submit" class="btn btn-default">Buscar</button>
+							<button type="submit" class="btn btn-default buttonOrange">Buscar</button>
 						</div>
 					</div>
 				</form>
