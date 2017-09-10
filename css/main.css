@@ -232,9 +232,7 @@ li.dropdown {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    touch-action: manipulation;
     cursor: pointer;
-    user-select: none;
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
@@ -432,7 +430,6 @@ ul.topnav li .logoA:hover:not(.active) {
     width: 100px;
     top: 25%;
     left: 0;
-    pointer-events: none;
     opacity: 0.5;
 }
 
