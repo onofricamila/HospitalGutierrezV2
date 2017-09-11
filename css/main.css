@@ -269,7 +269,7 @@ li.dropdown {
 
 /*lo que esta aca pasa cuando el ancho es menor a 904 px */
 
-@media screen and (max-width: 1061px) {
+@media screen and (max-width: 1091px) {
     ul.topnav li.dropdown,
     ul.topnav li.right,
     ul.topnav li {
