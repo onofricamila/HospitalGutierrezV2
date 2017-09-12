@@ -295,14 +295,9 @@ li.dropdown {
     padding-left: 15px;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    background-color: #fff;
-    -webkit-tap-highlight-color: transparent;
-    float: none;
-    margin-bottom: 50px;
 }
 
 .row {
@@ -315,9 +310,6 @@ li.dropdown {
 
 .one-third-container {
     margin-bottom: 1.5rem!important;
-    position: relative;
-    width: 100%;
-    min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
     box-sizing: inherit;
@@ -328,48 +320,36 @@ li.dropdown {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
     background-color: #fff;
-    background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: .25rem;
-    box-sizing: inherit;
+    border-radius: 5px;
 }
 
 .card-header {
-    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
     padding: .75rem 1.25rem;
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, .03);
     border-bottom: 1px solid rgba(0, 0, 0, .125);
     font-size: 1.5rem;
-    font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
-    color: inherit;
     margin-top: 0;
-    box-sizing: inherit;
 }
 
 .card-body {
     flex: 1 1 auto;
     padding: 1.25rem;
-    box-sizing: inherit;
 }
 
 .card-text {
     margin-bottom: 0;
     margin-top: 0;
-    box-sizing: inherit;
 }
 
 .card-footer {
-    border-radius: 0 0 calc(.25rem - 1px) calc(.25rem - 1px);
     padding: .75rem 1.25rem;
     background-color: rgba(0, 0, 0, .03);
     border-top: 1px solid rgba(0, 0, 0, .125);
-    box-sizing: inherit;
 }
 
 .btn-masinfo {
@@ -405,8 +385,6 @@ li.dropdown {
 
 .logo {
     display: inline!important;
-    width: 46px;
-    height: 46px;
 }
 
 ul.topnav li .logoA {
@@ -533,16 +511,12 @@ footer p {
     /* remove the vertical gap under inline level elements */
     position: relative;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 
 .buttonSearch{
-    background: #00bfa5   ;
+    background: #00bfa5;
     border-bottom: 2px solid #1993B5;
-    text-shadow: 1px 1px 0 rgba(15, 147, 169, 0.50);
     color: white;
     outline: none;
     opacity: 0.9;
