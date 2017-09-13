@@ -298,7 +298,6 @@ li.dropdown {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
-    margin-bottom: 45px;
 }
 
 .row {
@@ -493,6 +492,10 @@ footer {
     text-align: center;
     color: black;
     box-sizing: border-box;
+}
+
+.footer-div{
+    margin-top: 70px;        
 }
 
 footer p {
