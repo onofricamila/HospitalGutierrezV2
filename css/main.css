@@ -498,6 +498,11 @@ footer {
     margin-top: 70px;        
 }
 
+footer p a {
+    color:#0a93a6; 
+    text-decoration:none;
+}
+
 footer p {
     box-sizing: border-box;
     padding: 10.5px;
