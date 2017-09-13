@@ -269,21 +269,32 @@ li.dropdown {
 
 /*lo que esta aca pasa cuando el ancho es menor a 904 px */
 
-@media screen and (max-width: 1091px) {
+@media screen and (max-width: 1109px) {
     ul.topnav li.dropdown,
     ul.topnav li.right,
     ul.topnav li {
         float: none;
         display: list-item;
     }
-    .search-div {
+  /*  .search-div {
         width: calc(100% - 75px);
     }
     .form-control {
-        width: calc(100% - 30px);
+        width: calc(100% - 30px); 
     }
     .search-btn-div {
         width: initial;
+    } */
+    
+    /*test*/
+   /* #test {
+        width: calc(100% - 30px);
+    }
+    .search-div {
+        width: calc(100% - 75px);
+    }*/
+    .search-btn-div{
+        width: calc(100% - 820px); /* te deja margen de la mitad del segundo parametro */
     }
 }
 
