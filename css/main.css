@@ -276,7 +276,9 @@ li.dropdown {
         float: none;
         display: list-item;
     }
-  /*  .search-div {
+    /* lo que hizo seba */
+     /*
+   .search-div {
         width: calc(100% - 75px);
     }
     .form-control {
@@ -284,15 +286,9 @@ li.dropdown {
     }
     .search-btn-div {
         width: initial;
-    } */
-    
-    /*test*/
-   /* #test {
-        width: calc(100% - 30px);
-    }
-    .search-div {
-        width: calc(100% - 75px);
-    }*/
+    } 
+    */
+    /* lo que cambié yo; lo hice para que quede mas chico el form en la navbar reducida */
     .search-btn-div{
         width: calc(100% - 820px); /* te deja margen de la mitad del segundo parametro */
     }
