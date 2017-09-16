@@ -14,8 +14,6 @@ body {
 
 html {
     line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
 }
 
 .container {
@@ -305,6 +303,7 @@ li.dropdown {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
+    margin-bottom: 60px;
 }
 
 .row {
@@ -422,7 +421,6 @@ ul.topnav li .logoA:hover:not(.active) {
 input {
     font-size: 14px;
     padding: 10px 10px 10px 5px;
-    -webkit-appearance: none;
     display: block;
     background: #fafafa;
     color: #636363;
