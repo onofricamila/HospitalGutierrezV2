@@ -11,7 +11,7 @@
     <?php include_once "navbar.php"?>
 
     <section>
-    <div class="centered not-desplazable" style="">
+    <div class="centered not-desplazable" style="position: fixed!important; width:  100%; height: 100%;">
         <div class="container" >
             <div class="box centered"  style="margin-top: 60px;margin-bottom: 60px; width: 350px;">
                 <div class="container box-title">
