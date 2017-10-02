@@ -11,7 +11,8 @@
     <?php include_once "navbar.php"?>
 
     <section>
-        <div class="container" style="">
+    <div class="centered not-desplazable" style="">
+        <div class="container" >
             <div class="box centered"  style="margin-top: 60px;margin-bottom: 60px; width: 350px;">
                 <div class="container box-title">
                     <h5 class="centered"><strong><small> INICIAR SESIÓN </small></strong></h5>
@@ -35,6 +36,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
     <?php include_once "footer.php"?>
 </body>

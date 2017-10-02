@@ -546,3 +546,7 @@ footer p {
 .logo-li {
     float: left!important;
 }
+
+.not-desplazable{
+    position: fixed!important; width:  100%; height: 100%;
+}
