@@ -356,6 +356,7 @@ li.dropdown {
     padding: .75rem 1.25rem;
     background-color: rgba(0, 0, 0, .03);
     border-top: 1px solid rgba(0, 0, 0, .125);
+    margin-top: 100px;
 }
 
 .btn-masinfo {
