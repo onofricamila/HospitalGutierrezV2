@@ -12,8 +12,9 @@
 
     <header>
         <div class="img-div-inicio">
-            <div class="image-container">
-                <img class="banner" src="imgs/imagenInicio2.jpg" alt="Banner de la pagina de Inicio">
+            <div class="carousel carousel-slider">
+                <a class="carousel-item" href="#one!"><img src="imgs/parallax1.jpg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/parallax2.jpg"></a>
             </div>
         </div>
     </header>
@@ -70,6 +71,19 @@
         </div>
     </section>
     <?php include_once "footer.php"?>
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+        
+         $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+         $('.carousel').carousel();
+        setInterval(function() {
+            $('.carousel').carousel('next');
+        }, 4500); // every x seconds
+    </script>
 </body>
 
 </html>
