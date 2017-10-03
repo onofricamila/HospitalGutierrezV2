@@ -13,8 +13,12 @@
     <header>
         <div class="img-div-inicio">
             <div class="carousel carousel-slider">
-                <a class="carousel-item" href="#one!"><img src="imgs/parallax1.jpg"></a>
-                <a class="carousel-item" href="#two!"><img src="imgs/parallax2.jpg"></a>
+                <a class="carousel-item" href="#one!"><img src="imgs/c1.jpeg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/c2.jpeg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/c3.jpeg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/c4.jpg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/c5.jpeg"></a>
+                <a class="carousel-item" href="#two!"><img src="imgs/c6.jpeg"></a>
             </div>
         </div>
     </header>
