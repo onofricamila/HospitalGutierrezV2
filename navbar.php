@@ -3,7 +3,7 @@
 <nav>
 <div class="nav-wrapper teal accent-4 ">
   <!-- Btn opciones de side bar -->
-  <a href="#" data-activates="mobile-demo" class="button-collapse"><span>
+  <a href="#" data-activates="slide-out" class="button-collapse"><span>
         <span>
             <i class="fa fa-bars" aria-hidden="true"></i> <strong>Hospital Dr. Ricardo Gutiérrez</strong></span>
         </span>
@@ -48,7 +48,7 @@
     </ul>
   </div>
   <!-- Side bar -->
-  <ul class="side-nav" id="mobile-demo">
+  <ul class="side-nav" id="slide-out">
     <!-- Search -->
     <li> 
         <nav>
@@ -62,7 +62,11 @@
             </div>
         </nav>
     </li>
-     <!-- Dropdown Structure -->
+    <!-- Other links -->
+    <li><a href="index.php"><span class="fa fa-home" aria-hidden="true"></span> Inicio</a></li>
+    <li><a href="login.php"><span class="fa fa-sign-in" aria-hidden="true"></span> Log in</a></li>
+    <li><a href="#"><span class="fa fa-users" aria-hidden="true"></span> Pacientes</a></li>
+    <!-- Dropdown Structure -->
     <ul id="dropdown2" class="dropdown-content">
         <li><a href="#!">Usuarios</a></li>
         <li><a href="#!">Roles</a></li>
@@ -73,13 +77,9 @@
     <!-- Dropdown Trigger -->
     <li>
         <a class="dropdown-button" href="#!" data-activates="dropdown2">
-        <span>&#9660; Admin</span>
+        <span>&#9660; Administracion</span>
         </a>
     </li>
-    <!-- Other links -->
-    <li><a href="index.php"><span class="fa fa-home" aria-hidden="true"></span> Inicio</a></li>
-    <li><a href="login.php"><span class="fa fa-sign-in" aria-hidden="true"></span> Log in</a></li>
-    <li><a href="#"><span class="fa fa-users" aria-hidden="true"></span> Pacientes</a></li>
   </ul>
 </div>
 </nav>
@@ -129,13 +129,17 @@
     .fa-bars{
         color:#00bfa5;
     }
+
+    .side-nav li>a {
+        text-align: left;
+    }
 </style>
 
 <?php include_once "scripts.html"?>
 
 <script>
      $( document ).ready(function() {
-      $(".button-collapse").sideNav();
+      $(".button-collapse").sideNav({draggable: true});
       $(".dropdown-button").dropdown();
     });  
 </script>
