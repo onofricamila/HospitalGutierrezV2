@@ -69,7 +69,7 @@ class User extends UserBase {
         $query->execute(array($this->id));
 
         if ($query->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $this->roles[] = new Rol($row['rol_id']);
             }
             return true;
