@@ -54,7 +54,7 @@ class User extends UserBase {
         $this->email = $array['email'];
         $this->username = $array['username'];
         $this->password =  $array['password'];
-        $this->active = $array['active'];
+        $this->active = $array['activo'];
         $this->updated_at = $array['updated_at'];
         $this->created_at = $array['created_at'];
         $this->first_name = $array['first_name'];
@@ -66,7 +66,7 @@ class User extends UserBase {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("SELECT * FROM usuario_tiene_rol WHERE usuario_id=?");
-        $result = $query->execute(array($this->$id));
+        $result = $query->execute(array($this->id));
 
         if ($query->rowCount > 0) {
             while ($row = $result->fetch_assoc()) {
