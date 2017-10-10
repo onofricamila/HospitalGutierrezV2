@@ -26,6 +26,22 @@
             return false;
         }
 
+        public static function all() {
+            $connection = Connection::getInstance();
+
+            $result = $connection->query("SELECT * FROM usuario");
+
+            $users = [];
+
+            if ($result->num_rows > 1) {
+                while ($row = $result->fetch_assoc()) {
+                    $users[] = new User($row);
+                }
+                return $users;
+            }
+            return false;
+        }
+
         public function __construct($array) {
             $this->baseBuild($array);
             $this->buildRoles();
@@ -57,6 +73,10 @@
                 }
                 return true;
             }
+            return false;
+        }
+
+        public function isGuest() {
             return false;
         }
     }

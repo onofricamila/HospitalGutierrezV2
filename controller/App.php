@@ -37,7 +37,6 @@ class AppController {
     }
 
     public function checkPermissions($permission) {
-        // check if session is ok
         return self::getUser().checkPermissions($permission);
     }
 }
