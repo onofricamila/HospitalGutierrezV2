@@ -3,7 +3,7 @@
     ini_set('display_errors',1);
     error_reporting(-1);
 
-    require_once 'connection.php';
+    require_once 'Connection.php';
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
