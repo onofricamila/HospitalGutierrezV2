@@ -22,7 +22,7 @@ class User extends UserBase {
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
         $result = $query->fetchAll();
-        if ($query->rowCount == 1) {
+        if ($result->rowCount == 1) {
             return (new User($result->fetch_assoc()));
         }
         return false;
