@@ -2,6 +2,18 @@
     class User {
         public $id, $email, $username, $password, $active, $updated_at, $created_at, $first_name, $last_name, $roles;
 
+        public static function id($id) {
+            $connection = Connection::getInstance();
+
+            $query = $connection->prepare("SELECT * FROM usuario WHERE id=?");
+            $result = $query->execute(array($id));
+
+            if ($result->num_rows == 1) {
+                return (new User($result->fetch_assoc()));
+            }
+            return false;
+        }
+
         public static function login($user, $pass) {
             $connection = Connection::getInstance();
 
@@ -9,7 +21,7 @@
             $result = $query->execute(array($user, $pass));
 
             if ($result->num_rows == 1) {
-                return (new self($result->fetch_assoc()));
+                return (new User($result->fetch_assoc()));
             }
             return false;
         }
