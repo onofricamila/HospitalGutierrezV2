@@ -1,9 +1,10 @@
 <?php
-class Guest {
-    public $rol;
+require_once '/model/UserBase.php';
+    
+class Guest extends UserBase {
 
     public function __construct() {
-        $this->$rol = new Rol(4);
+        $this->roles[] = new Rol(4);
     }
 
     public function isGuest() {
