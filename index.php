@@ -6,15 +6,15 @@
     require_once 'connection.php';
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
-        $controller = strtolower($_GET['controller']);
-        $action     = strtolower($_REQUEST['action']);
+        $controller = ucwords(strtolower($_GET['controller']));
+        $action     = strtolower($_GET['action']);
     } else {
-        $controller = 'home';
+        $controller = 'Home';
         $action     = 'index';
     }
 
     require_once "controller/$controller.php";
-    $controller = ucwords($controller) . 'Controller';
+    $controller = $controller . 'Controller';  // ucwords transforma primera letra en mayusc
     $controller = $controller::getInstance();
     
     call_user_func( array( $controller, $action ) );
