@@ -22,6 +22,8 @@ class User extends UserBase {
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $result = $query->execute(array($user, $pass));
 
+        var_dump($result);
+        die;
         if ($result->num_rows == 1) {
             return (new User($result->fetch_assoc()));
         }
