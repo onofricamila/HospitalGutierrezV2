@@ -1,5 +1,5 @@
 <?php
-require_once '/model/UserBase.php';
+require_once 'UserBase.php';
 
 class User extends UserBase {
     public $id, $email, $username, $password, $active, $updated_at, $created_at, $first_name, $last_name;
