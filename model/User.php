@@ -50,16 +50,15 @@ class User extends UserBase {
     }
 
     public function baseBuild($array) {
-        $this
-            ->id = $array['id']
-            ->email = $array['email']
-            ->username = $array['username']
-            ->password =  $array['password']
-            ->active = $array['active']
-            ->updated_at = $array['updated_at']
-            ->created_at = $array['created_at']
-            ->first_name = $array['first_name']
-            ->last_name = $array['last_name'];
+        $this->id = $array['id'];
+        $this->email = $array['email'];
+        $this->username = $array['username'];
+        $this->password =  $array['password'];
+        $this->active = $array['active'];
+        $this->updated_at = $array['updated_at'];
+        $this->created_at = $array['created_at'];
+        $this->first_name = $array['first_name'];
+        $this->last_name = $array['last_name'];
         $this->roles = [];
     }
 
