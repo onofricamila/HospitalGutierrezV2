@@ -20,7 +20,7 @@
             <!-- Barra principal con links alineados a la izq excepto el logo -->
             <ul class="right hide-on-med-and-down">
                 <?php
-                    if (AppController::isLogged) {
+                    if (AppController::isLogged()) {
                         ?>
                         <li class="">
                             <a href="?controller=login&action=logout" target="_self">Log out</a>
