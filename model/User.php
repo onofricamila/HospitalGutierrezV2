@@ -11,7 +11,7 @@ class User extends UserBase {
         $query->execute(array($id));
         
         if ($query->rowCount == 1) {
-            return (new User($result->fetch_assoc()));
+            return (new User($query->fetch(PDO::FETCH_ASSOC)));
         }
         return false;
     }
@@ -21,9 +21,9 @@ class User extends UserBase {
 
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
-        $result = $query->fetchAll();
-        if ($result->rowCount == 1) {
-            return (new User($result->fetch_assoc()));
+
+        if ($query->rowCount == 1) {
+            return (new User($query->fetch(PDO::FETCH_ASSOC)));
         }
         return false;
     }
