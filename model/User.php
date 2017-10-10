@@ -23,8 +23,6 @@ class User extends UserBase {
         $query->execute(array($user, $pass));
         $result = $query->fetchAll();
 
-        var_dump($result);
-        die;
         if ($result->num_rows == 1) {
             return (new User($result->fetch_assoc()));
         }
