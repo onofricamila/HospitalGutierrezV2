@@ -20,14 +20,14 @@
 
         public function baseBuild($array) {
             $this
-                ->$idDatosDemo = $array['idDatosDemo']
-                ->$idPaciente = $array['idPaciente']
-                ->$heladera = $array['heladera']
-                ->$electricidad = $array['electricidad']
-                ->$mascota =  $array['mascota']
-                ->$idTipoVivienda = $array['idTipoVivienda']
-                ->$idTipoCalefaccion = $array['idTipoCalefaccion']
-                ->$idTipoAgua = $array['idTipoAgua']
+                ->idDatosDemo = $array['idDatosDemo']
+                ->idPaciente = $array['idPaciente']
+                ->heladera = $array['heladera']
+                ->electricidad = $array['electricidad']
+                ->mascota =  $array['mascota']
+                ->idTipoVivienda = $array['idTipoVivienda']
+                ->idTipoCalefaccion = $array['idTipoCalefaccion']
+                ->idTipoAgua = $array['idTipoAgua'];
         }
 
        

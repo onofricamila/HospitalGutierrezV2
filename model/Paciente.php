@@ -20,16 +20,16 @@
 
         public function baseBuild($array) {
             $this
-                ->$idPaciente = $array['idPaciente']
-                ->$apellido = $array['apellido']
-                ->$nombre = $array['nombre']
-                ->$fecha_nacimiento =  $array['fecha_nacimiento']
-                ->$idGenero = $array['idGenero']
-                ->$tipo_doc = $array['tipo_doc']
-                ->$dni = $array['dni']
-                ->$domicilio = $array['domicilio']
-                ->$telefono = $array['telefono']
-                ->$idObraSocial = $array['idObraSocial'];
+                ->idPaciente = $array['idPaciente']
+                ->apellido = $array['apellido']
+                ->nombre = $array['nombre']
+                ->fecha_nacimiento =  $array['fecha_nacimiento']
+                ->idGenero = $array['idGenero']
+                ->tipo_doc = $array['tipo_doc']
+                ->dni = $array['dni']
+                ->domicilio = $array['domicilio']
+                ->telefono = $array['telefono']
+                ->idObraSocial = $array['idObraSocial'];
         }
 
        

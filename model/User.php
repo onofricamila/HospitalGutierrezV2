@@ -51,15 +51,15 @@ class User extends UserBase {
 
     public function baseBuild($array) {
         $this
-            ->$id = $array['id']
-            ->$email = $array['email']
-            ->$username = $array['username']
-            ->$password =  $array['password']
-            ->$active = $array['active']
-            ->$updated_at = $array['updated_at']
-            ->$created_at = $array['created_at']
-            ->$first_name = $array['first_name']
-            ->$last_name = $array['last_name'];
+            ->id = $array['id']
+            ->email = $array['email']
+            ->username = $array['username']
+            ->password =  $array['password']
+            ->active = $array['active']
+            ->updated_at = $array['updated_at']
+            ->created_at = $array['created_at']
+            ->first_name = $array['first_name']
+            ->last_name = $array['last_name'];
         $this->roles = [];
     }
 
@@ -69,7 +69,7 @@ class User extends UserBase {
         $query = $connection->prepare("SELECT * FROM usuario_tiene_rol WHERE usuario_id=?");
         $result = $query->execute(array($this->$id));
 
-        if ($result->num_rows > 0) {
+        if ($query->rowCount > 0) {
             while ($row = $result->fetch_assoc()) {
                 $this->roles[] = new Rol($row['rol_id']);
             }
