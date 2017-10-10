@@ -32,6 +32,7 @@
             $pass = $_POST['pass'];
 
             User::login($user, $pass);
+            var_dump(AppController::getUser());
         }
 
     }
