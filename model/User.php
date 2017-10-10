@@ -10,7 +10,7 @@ class User extends UserBase {
         $query = $connection->prepare("SELECT * FROM usuario WHERE id=?");
         $query->execute(array($id));
         
-        if ($query->rowCount == 1) {
+        if ($query->rowCount() == 1) {
             return (new User($query->fetch(PDO::FETCH_ASSOC)));
         }
         return false;
@@ -22,7 +22,7 @@ class User extends UserBase {
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
 
-        if ($query->rowCount == 1) {
+        if ($query->rowCount() == 1) {
             return (new User($query->fetch(PDO::FETCH_ASSOC)));
         }
         return false;
