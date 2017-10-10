@@ -33,7 +33,7 @@
 
             $_SESSION['loggedid'] = User::login($user, $pass)->id;
 
-            header("Location: ".$_SERVER['DOCUMENT_ROOT']."index.php");
+            header("Location: index.php");
             die();
         }
 
