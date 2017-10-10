@@ -21,8 +21,6 @@ class AppController {
 
     public static function getUser() {
         if (!isset(self::$user)) {
-            session_start();
-
             if (!isset($_SESSION['loggedid'])) {
                 require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
                 self::$user = new Guest();
