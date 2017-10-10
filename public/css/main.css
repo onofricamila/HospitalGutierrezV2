@@ -376,6 +376,10 @@ li.dropdown {
     }
 }
 
+.carousel-item >img{
+    /*  max-height: 80%;*/
+  }
+
 .img-div-inicio {
     display: block;
     width: 98%;
