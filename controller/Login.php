@@ -32,8 +32,9 @@
             $pass = $_POST['pass'];
 
             $_SESSION['loggedid'] = User::login($user, $pass)->id;
-            AppController::updateLogged();
-            var_dump(AppController::getUser());
+
+            header("Location: ".$_SERVER['DOCUMENT_ROOT']."index.php");
+            die();
         }
 
     }
