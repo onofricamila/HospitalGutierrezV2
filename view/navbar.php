@@ -19,9 +19,22 @@
             </a>
             <!-- Barra principal con links alineados a la izq excepto el logo -->
             <ul class="right hide-on-med-and-down">
-                <li class="">
-                    <a href="?controller=login&action=index" target="_self">Log in</a>
-                </li>
+                <?php
+                    if (AppController::isLogged) {
+                        ?>
+                        <li class="">
+                            <a href="?controller=login&action=logout" target="_self">Log out</a>
+                        </li>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <li class="">
+                            <a href="?controller=login&action=index" target="_self">Log in</a>
+                        </li>
+                        <?php
+                    }
+                ?>
                 <li class="">
                     <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
                 </li>

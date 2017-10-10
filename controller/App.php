@@ -51,5 +51,9 @@ class AppController {
         }
         return self::$user;
     }
+
+    public static function isLogged() {
+        return (self::getUser() instanceof User);
+    }
 }
 
