@@ -16,14 +16,16 @@ html {
 
 .box {
     background-color: #fff;
-    min-height: 300px;
+    min-height: 288px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
     border-radius: 2px;
     max-width: 400px;
     padding-right: 5px;
     padding-left: 5px;
     text-align: center;
-    margin-top: 5%;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .centered {
