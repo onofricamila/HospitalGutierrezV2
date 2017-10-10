@@ -21,7 +21,7 @@ class User extends UserBase {
 
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $result = $query->fetchAll();
 
         var_dump($result);
         die;
