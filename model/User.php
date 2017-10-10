@@ -20,7 +20,8 @@ class User extends UserBase {
         $connection = Connection::getInstance();
 
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
-        $result = $query->execute(array($user, $pass));
+        $query->execute(array($user, $pass));
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
         var_dump($result);
         die;
