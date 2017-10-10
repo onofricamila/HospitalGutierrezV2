@@ -20,4 +20,9 @@ class Permission {
         }
         return false;
     }
+
+    public function checkPermissions($permission) {
+        return ($this->$nombre == $permission);
+    }
+
 }

@@ -11,5 +11,11 @@ class UserBase {
 
     }
 
+    public function checkPermissions($permission) {
+        foreach ($this->$roles as $rol) {
+            if ($rol->checkPermissions($permission)) return true;
+        }
+        return false;
+    }
 
 }
