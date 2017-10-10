@@ -8,21 +8,10 @@ body {
     margin: 0px;
 }
 
-.darkBody {
-    background: #eee;
-}
+
 
 html {
     line-height: 1.15;
-}
-
-.container {
-    position: relative;
-    margin-left: 1%;
-    margin-right: 1%;
-    padding-right: 15px;
-    padding-left: 15px;
-    display: flex;
 }
 
 .box {
@@ -89,136 +78,6 @@ html {
     border-bottom: 2px solid #3160B6;
 }
 
-.buttonPink {
-    background: #FF4081;
-    border-bottom: 2px solid #9F30B6;
-    text-shadow: 1px 1px 0 rgba(224, 77, 154, 0.50);
-}
-
-ul.topnav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
-
-ul.topnav li {
-    float: left;
-}
-
-ul.topnav li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-}
-
-ul.topnav li a.active {
-    background-color: black;
-    color: white
-}
-
-ul.topnav li.right {
-    float: right;
-}
-
-li a,
-.dropbtn {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover,
-.dropdown:hover .dropbtn {
-    background-color: #555;
-    color: white;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: #f1f1f1;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.navbar-form {
-    min-width: 300px;
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 4px;
-    margin-top: 5px;
-    padding-right: 15px;
-    padding-left: 15px;
-    box-shadow: none;
-    border: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    width: auto;
-    border-color: #101010;
-}
-
-.form-group {
-    vertical-align: middle;
-    margin-bottom: 0;
-    display: inline-block;
-}
-
-.form-search {
-    background: transparent;
-}
-
-.form-control {
-    height: 20px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    display: inline-block;
-    width: auto;
-    vertical-align: middle;
-}
-
 .btn {
     display: inline-block;
     padding: 6px 12px;
@@ -235,63 +94,6 @@ li.dropdown {
     border-radius: 4px;
 }
 
-.btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-}
-
-.search-div {
-    display: inline-block;
-}
-
-.btn-div {
-    display: inline-block;
-}
-
-.bar {
-    display: inline;
-}
-
-.search-btn-div {
-    min-width: 270px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.dropdown-link {
-    text-align: left!important;
-}
-
-
-/*lo que esta aca pasa cuando el ancho es menor a 904 px */
-
-@media screen and (max-width: 1109px) {
-    ul.topnav li.dropdown,
-    ul.topnav li.right,
-    ul.topnav li {
-        float: none;
-        display: list-item;
-    }
-    /* lo que hizo seba */
-     /*
-   .search-div {
-        width: calc(100% - 75px);
-    }
-    .form-control {
-        width: calc(100% - 30px); 
-    }
-    .search-btn-div {
-        width: initial;
-    } 
-    */
-    /* lo que cambié yo; lo hice para que quede mas chico el form en la navbar reducida */
-    .search-btn-div{
-        width: calc(100% - 820px); /* te deja margen de la mitad del segundo parametro */
-    }
-}
-
 .containerInicio {
     max-width: 95%;
     margin-right: auto;
@@ -304,14 +106,6 @@ li.dropdown {
     line-height: 1.5;
     color: #212529;
     margin-bottom: 60px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-    box-sizing: inherit;
 }
 
 .one-third-container {
@@ -391,109 +185,6 @@ li.dropdown {
     margin-bottom: 25px;
 }
 
-
-/* para el logo */
-
-.logo {
-    display: inline!important;
-    height: 46px; 
-    width: 46px
-}
-
-ul.topnav li .logoA {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
-    height: 46px;
-    width: 46px;
-}
-
-ul.topnav li .logoA:hover:not(.active) {
-    background-color: transparent;
-}
-
-.highlight {
-    position: absolute;
-    height: 60%;
-    width: 100px;
-    top: 25%;
-    left: 0;
-    opacity: 0.5;
-}
-
-input {
-    font-size: 14px;
-    padding: 10px 10px 10px 5px;
-    display: block;
-    background: #fafafa;
-    color: #636363;
-    width: 95%;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #757575;
-}
-
-input:focus {
-    outline: none;
-}
-
-
-/* Underline */
-
-.bar {
-    position: relative;
-    display: block;
-    width: 100%;
-}
-
-.bar:before,
-.bar:after {
-    content: '';
-    height: 2px;
-    width: 0;
-    bottom: 1px;
-    position: absolute;
-    background: #4a89dc;
-    transition: all 0.2s ease;
-}
-
-.bar:before {
-    left: 50%;
-}
-
-.bar:after {
-    right: 50%;
-}
-
-
-/* active */
-
-input:focus~.highlight {
-    animation: inputHighlighter 0.3s ease;
-}
-
-
-/* active */
-
-input:focus~.bar:before,
-input:focus~.bar:after {
-    width: 50%;
-}
-
-.search input {
-    background: transparent;
-    width: 93%;
-}
-
-.buttonOrange {
-    background: #FF8800;
-    border-bottom: 2px solid #B5871A;
-    text-shadow: 1px 1px 0 rgba(235, 179, 19, 0.50);
-}
-
-
 /* Footer */
 
 footer {
@@ -533,22 +224,6 @@ footer p {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.buttonSearch{
-    background: #00bfa5;
-    border-bottom: 2px solid #1993B5;
-    color: white;
-    outline: none;
-    opacity: 0.9;
-}
-
-.buttonSearch:hover{
-    opacity: 1;
-}
-
-.logo-li {
-    float: left!important;
 }
 
 .not-desplazable{

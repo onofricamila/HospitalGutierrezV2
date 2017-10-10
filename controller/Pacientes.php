@@ -1,5 +1,5 @@
 <?php
-    class PacienteController {
+    class PacientesController {
         private static $instance;
         
         public static function getInstance() {
@@ -16,7 +16,7 @@
         public function index(){
             require_once 'view/header.html';
             require_once 'view/navbar.html';
-            require_once 'view/paciente/paciente.html';
+            require_once 'view/pacientes/pacientes.html';
             require_once 'view/footer.html';
         }
     }
