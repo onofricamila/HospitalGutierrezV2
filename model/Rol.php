@@ -5,9 +5,9 @@ class Rol {
     public $id, $nombre, $permissions;
 
     public function __construct($id) {
-        $this->id = $id
-            ->nombre = $this->buildNombre()
-            ->permissions = [];
+        $this->id = $id;
+        $this->nombre = $this->buildNombre();
+        $this->permissions = [];
         $this->buildPermissions();
     }
 
@@ -15,10 +15,10 @@ class Rol {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("SELECT nombre FROM rol WHERE id=?");
-        $result = $query->execute(array($this->id));
+        $query->execute(array($this->id));
 
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
+        if ($query->rowCount() == 1) {
+            $row = $query->fetch(PDO::FETCH_ASSOC);
             return $row['nombre'];
         }
         return false;
@@ -28,10 +28,10 @@ class Rol {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("SELECT * FROM rol_tiene_permiso WHERE rol_id=?");
-        $result = $query->execute(array($this->id));
+        $query->execute(array($this->id));
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($query->rowCount() > 0) {
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $this->permissions[] = new Permisssion($row['permiso_id']);
             }
             return true;

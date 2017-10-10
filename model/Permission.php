@@ -3,19 +3,18 @@ class Permission {
     public $id, $nombre;
 
     public function __construct($id) {
-        $this
-            ->id = $id
-            ->nombre = $this->buildNombre();
+        $this->id = $id;
+        $this->nombre = $this->buildNombre();
     }
 
     public function buildNombre() {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("SELECT nombre FROM permiso WHERE id=?");
-        $result = $query->execute(array($this->id));
+        $query->execute(array($this->id));
 
-        if ($result->num_rows == 1) {
-            $row = $result->fetch_assoc();
+        if ($query->rowCount() == 1) {
+            $row = $query->fetch(PDO::FETCH_ASSOC);
             return $row['nombre'];
         }
         return false;

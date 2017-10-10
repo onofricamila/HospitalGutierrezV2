@@ -35,8 +35,8 @@ class User extends UserBase {
 
         $users = [];
 
-        if ($result->num_rows > 1) {
-            while ($row = $result->fetch_assoc()) {
+        if ($result->rowCount() > 1) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $users[] = new User($row);
             }
             return $users;
@@ -66,10 +66,10 @@ class User extends UserBase {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("SELECT * FROM usuario_tiene_rol WHERE usuario_id=?");
-        $result = $query->execute(array($this->id));
+        $query->execute(array($this->id));
 
-        if ($query->rowCount > 0) {
-            while ($row = $result->fetch_assoc()) {
+        if ($query->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $this->roles[] = new Rol($row['rol_id']);
             }
             return true;
