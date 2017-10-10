@@ -8,7 +8,7 @@
             $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
             $result = $query->execute(array($user, $pass));
 
-            if ($result->num_rows  == 1) {
+            if ($result->num_rows == 1) {
                 return (new self($result->fetch_assoc()));
             }
             return false;
@@ -16,7 +16,7 @@
 
         public function __construct($array) {
             $this->baseBuild($array);
-            $this->getRol();
+            $this->buildRoles();
         }
 
         public function baseBuild($array) {
@@ -30,12 +30,10 @@
                 ->$created_at = $array['created_at']
                 ->$first_name = $array['first_name']
                 ->$last_name = $array['last_name'];
-
             $this->roles = [];
-            $this->permissions = [];
         }
 
-        public function getRol() {
+        public function buildRoles() {
             $connection = Connection::getInstance();
             
             $query = $connection->prepare("SELECT * FROM usuario_tiene_rol WHERE usuario_id=?");
@@ -43,7 +41,7 @@
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $this->roles[] = Rol::id($row['id']);
+                    $this->roles[] = new Rol($row['rol_id']);
                 }
                 return true;
             }
