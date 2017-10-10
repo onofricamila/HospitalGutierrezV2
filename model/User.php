@@ -8,8 +8,9 @@ class User extends UserBase {
         $connection = Connection::getInstance();
 
         $query = $connection->prepare("SELECT * FROM usuario WHERE id=?");
-        $result = $query->execute(array($id));
-
+        $query->execute(array($id));
+        $result = $conn->query($query);
+        
         if ($result->num_rows == 1) {
             return (new User($result->fetch_assoc()));
         }
@@ -21,7 +22,7 @@ class User extends UserBase {
 
         $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
-        $result = $query->fetchAll();
+        $result = $conn->query($query);
 
         if ($result->num_rows == 1) {
             return (new User($result->fetch_assoc()));
