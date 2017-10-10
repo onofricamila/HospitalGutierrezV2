@@ -1,4 +1,5 @@
 <?php
+require_once 'Rol.php';
 
 class UserBase {
     public $roles;

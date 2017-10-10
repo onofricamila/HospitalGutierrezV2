@@ -24,11 +24,11 @@ class AppController {
             session_start();
 
             if (!isset($_SESSION['logged'])) {
-                require_once '/model/Guest.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
                 self::$user = new Guest();
             }
             else {
-                require_once '/model/User.php';
+                require_once $_SERVER['DOCUMENT_ROOT'].'/model/User.php';
                 self::$user = User::id($id);
             }
         }

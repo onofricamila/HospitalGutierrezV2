@@ -28,7 +28,7 @@
                 ->$tipo_doc = $array['tipo_doc']
                 ->$dni = $array['dni']
                 ->$domicilio = $array['domicilio']
-                ->$telefono = $array['telefono'];
+                ->$telefono = $array['telefono']
                 ->$idObraSocial = $array['idObraSocial'];
         }
 

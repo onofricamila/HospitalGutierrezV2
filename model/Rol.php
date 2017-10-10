@@ -1,11 +1,12 @@
 <?php
+require_once 'Permission.php';
+
 class Rol {
     public $id, $nombre, $permissions;
 
     public function __construct($id) {
-        $this
-            ->$id = $id
-            ->$nombre = getNombre()
+        $this->$id = $id
+            ->$nombre = $this->buildNombre()
             ->$permissions = [];
         $this->buildPermissions();
     }

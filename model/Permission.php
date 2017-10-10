@@ -5,7 +5,7 @@ class Permission {
     public function __construct($id) {
         $this
             ->$id = $id
-            ->$nombre = getNombre();
+            ->$nombre = $this->buildNombre();
     }
 
     public function buildNombre() {

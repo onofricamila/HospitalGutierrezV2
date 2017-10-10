@@ -1,5 +1,5 @@
 <?php
-require_once '/model/UserBase.php';
+require_once 'UserBase.php';
     
 class Guest extends UserBase {
 

@@ -4,6 +4,7 @@
     error_reporting(-1);
 
     require_once 'Connection.php';
+    require_once 'controller/App.php';
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
