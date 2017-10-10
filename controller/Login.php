@@ -31,7 +31,8 @@
             $user = $_POST['user'];
             $pass = $_POST['pass'];
 
-            User::login($user, $pass);
+            $_SESSION['loggedid'] = User::login($user, $pass)->id;
+            AppController::updateLogged();
             var_dump(AppController::getUser());
         }
 

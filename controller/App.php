@@ -23,13 +23,13 @@ class AppController {
         if (!isset(self::$user)) {
             session_start();
 
-            if (!isset($_SESSION['logged'])) {
+            if (!isset($_SESSION['loggedid'])) {
                 require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
                 self::$user = new Guest();
             }
             else {
                 require_once $_SERVER['DOCUMENT_ROOT'].'/model/User.php';
-                self::$user = User::id($id);
+                self::$user = User::id($_SESSION['loggedid']);
             }
         }
 
@@ -38,6 +38,18 @@ class AppController {
 
     public function checkPermissions($permission) {
         return self::getUser().checkPermissions($permission);
+    }
+
+    public static function updateLogged() {
+        if (!isset($_SESSION['loggedid'])) {
+            require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
+            self::$user = new Guest();
+        }
+        else {
+            require_once $_SERVER['DOCUMENT_ROOT'].'/model/User.php';
+            self::$user = User::id($_SESSION['loggedid']);
+        }
+        return self::$user;
     }
 }
 
