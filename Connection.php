@@ -1,5 +1,5 @@
 <?php
-	class Db {
+	class Connection {
 		private static $instance = NULL;
 
 		private function __construct() {}
