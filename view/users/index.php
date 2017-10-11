@@ -1,6 +1,16 @@
 <section class="container">
     <div class="row">
         <h3 class="left-align">Listado de Usuarios</h2>
+
+        <form>
+            <div class="input-field">
+                <input id="search" type="search" required name="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+
+
         <div class="divider"></div>
     </div>
     <div class="row">
