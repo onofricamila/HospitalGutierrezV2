@@ -151,6 +151,9 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
+    }
+    else{
+        document.getElementById("no-matches").style.display = "block";
     } 
   }
 }
@@ -212,6 +215,7 @@ function myFunction() {
             </tr>     
         </tbody>
     </table>
+    <div id="no-matches" style="display:none;"> No hay coincidencias.</div>
 </div>
 </div>
     
