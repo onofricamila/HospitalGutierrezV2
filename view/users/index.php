@@ -1,15 +1,18 @@
 <section class="container">
     <div class="row">
-        <h3 class="left-align">Listado de Usuarios</h2>
+        <div>
+            <h3 class="left-align">Listado de Usuarios</h3>
+        </div>
 
-        <form>
-            <div class="input-field">
-                <input id="search" type="search" required name="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
-            </div>
-        </form>
-
+        <div>
+            <form class="search-form">
+                <div class="input-field">
+                    <input id="search" type="search" required name="search">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
+            </form>
+        </div>
 
         <div class="divider"></div>
     </div>
