@@ -18,3 +18,7 @@ div.divider-margin {
 .card-title {
     overflow: hidden;
 }
+
+.card-content {
+    margin-top: 10px;
+}

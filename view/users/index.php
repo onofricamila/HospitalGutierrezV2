@@ -45,11 +45,13 @@
 
                     <div class="divider"></div>
 
-                    <p>E-mail: <?php echo $user->email; ?></p>
-                    <p>Nombre de usuario: <?php echo $user->username; ?></p>
-                    <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
-                    <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
-                    <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
+                    <div class="card-content">
+                        <p>E-mail: <?php echo $user->email; ?></p>
+                        <p>Nombre de usuario: <?php echo $user->username; ?></p>
+                        <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
+                        <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
+                        <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
+                    </div>
                 </div>
 
                 <!-- Dropdown Structure -->
