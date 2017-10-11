@@ -1,10 +1,10 @@
 <section class="container">
     <div class="row">
-        <div>
+        <div class="div-title">
             <h3 class="left-align">Listado de Usuarios</h3>
         </div>
 
-        <div>
+        <div class="div-search">
             <form class="search-form">
                 <div class="input-field">
                     <input id="search" type="search" required name="search">
