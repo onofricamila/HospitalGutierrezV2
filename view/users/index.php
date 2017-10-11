@@ -14,7 +14,7 @@
                     <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
                 </div>
                 <div class="card-action">
-                    <a href=""><?php if ($user->active) { echo 'Bloquear'; } else { echo 'Activar'; } ?></a>
+                    <a href=<?php echo '"'."?controller=Users&action=togglestate&id=".$user->id.'"'; ?> target="_self"><?php if ($user->active) { echo 'Bloquear'; } else { echo 'Activar'; } ?></a>
                     <a href="">Administrar roles</a>
                 </div>
             </div>
