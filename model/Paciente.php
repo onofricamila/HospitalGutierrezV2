@@ -1,6 +1,6 @@
 <?php
     class Paciente {
-        public $idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio;
+        public $idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua;
 
         public static function getPaciente($idPaciente) {
             $connection = Connection::getInstance();
@@ -30,21 +30,27 @@
                 ->domicilio = $array['domicilio']
                 ->telefono = $array['telefono']
                 ->idObraSocial = $array['idObraSocial'];
+                ->heladera = $array['heladera'];
+                ->electricidad = $array['electricidad'];
+                ->mascota = $array['mascota'];
+                ->idTipoVivienda = $array['idTipoVivienda'];
+                ->idTipoCalefaccion = $array['idTipoCalefaccion'];
+                ->idTipoAgua = $array['idTipoAgua'];
         }
        
-        public static function newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio) {
+        public static function newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
             $connection = Connection::getInstance();
     
-            $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio) VALUES (?, ?, ?, ?, ?, ?)");
-            $query->execute(array($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio));
+            $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)");
+            $query->execute(array($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua));
             
             return $query->rowCount() == 1;
         }
     
-        public function updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio) {
+        public function updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
             $connection = Connection::getInstance();
             
-            $query = $connection->prepare("UPDATE usuario SET apellido = ". $apellido . ", nombre = ". $nombre . ", fecha_nacimiento = ". $fecha_nacimiento . ", idGenero = ". $idGenero . ", idTipoDoc = ". $idTipoDoc . ", dni = ". $dni . ", telefono = ". $telefono . ", idObraSocial = ". $idObraSocial . ", domicilio = ". $domicilio . " WHERE idPaciente=?");
+            $query = $connection->prepare("UPDATE usuario SET apellido = ". $apellido . ", nombre = ". $nombre . ", fecha_nacimiento = ". $fecha_nacimiento . ", idGenero = ". $idGenero . ", idTipoDoc = ". $idTipoDoc . ", dni = ". $dni . ", telefono = ". $telefono . ", idObraSocial = ". $idObraSocial . ", domicilio = ". $domicilio . ", heladera = ". $heladera . ", electricidad = ". $electricidad . ", mascota = ". $mascota . ", idTipoVivienda = ". $idTipoVivienda . ", idTipoCalefaccion = ". $idTipoCalefaccion . ", idTipoAgua = ". $idTipoAgua . " WHERE idPaciente=?");
             $query->execute(array($this->idPaciente));
     
             return $query->rowCount() == 1;
