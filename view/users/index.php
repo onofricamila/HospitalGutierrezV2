@@ -3,7 +3,7 @@
         <div class="col s12 l6">
             <h3>Usuarios</h3>
         </div>
-        <form class="search-form">
+        <form class="search-form" method="post" action"?controller=Users&action=index" target="_self">
 
         <div class="col s3 l2" style="height: 100%;">
             <div class="input-field">
