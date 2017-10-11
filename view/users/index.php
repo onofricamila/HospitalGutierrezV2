@@ -3,7 +3,7 @@
     <?php
     foreach ($users as $user) {
         ?>
-        <div class="col s12 m6">
+        <div class="col m12 l4">
             <div class="card">
                 <div class="card-content black-text">
                     <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?></span>
