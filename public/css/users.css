@@ -19,4 +19,5 @@ a.icon-cyan {
 }
 .name-search {
     padding-left: 50px!important;
+    padding-right: -50px!important;
 }
