@@ -74,7 +74,7 @@ class User extends UserBase {
             }
             return $users;
         }
-        return false;
+        return $connection->errorInfo();
     }
 
     public function __construct($array) {
