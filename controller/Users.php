@@ -28,7 +28,7 @@ class UsersController {
             $args['active'] = $_GET['active'];
         }
 
-        if (isset($_GET['search'])) {
+        if (isset($_GET['search']) && $_GET['search'] != "") {
             $args['search'] = $_GET['search'];
         }
 
