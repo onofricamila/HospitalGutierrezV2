@@ -17,7 +17,7 @@ class UsersController {
     }
     
     public function index(){
-        if (!App::getInstance()->checkPermissions('usuario_index')) {
+        if (!AppController::getInstance()->checkPermissions('usuario_index')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
         }
