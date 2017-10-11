@@ -5,16 +5,18 @@
         </div>
         <form class="search-form">
 
-        <div class="input-field col md12 l2">
-            <label>Estado</label>
-            <select>
-                <option value="" disabled selected>Estado</option>
-                <option value="1">Todos</option>
-                <option value="2">Activos</option>
-                <option value="3">Bloqueados</option>
-            </select>
+        <div class="col md12 l2">
+            <div class="col md12 l2">
+                <label>Estado</label>
+                <select>
+                    <option value="" disabled selected>Estado</option>
+                    <option value="1">Todos</option>
+                    <option value="2">Activos</option>
+                    <option value="3">Bloqueados</option>
+                </select>
+            </div>
         </div>
-
+            
         <div class="col md12 l6">
             <div class="input-field">
                 <input id="search" type="search" required name="search">
