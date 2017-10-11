@@ -32,7 +32,7 @@ class Rol {
 
         if ($query->rowCount() > 0) {
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                $this->permissions[] = new Permisssion($row['permiso_id']);
+                $this->permissions[] = new Permission($row['permiso_id']);
             }
             return true;
         }
