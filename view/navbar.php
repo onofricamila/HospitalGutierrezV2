@@ -42,7 +42,7 @@
                 <!-- Dropdown Structure -->
                 <ul id="dropdown1" class="dropdown-content">
                     <li>
-                        <a href="#!">Usuarios</a>
+                        <a href="?controller=Users&action=index" target="_self">Usuarios</a>
                     </li>
                     <li>
                         <a href="#!">Roles</a>
