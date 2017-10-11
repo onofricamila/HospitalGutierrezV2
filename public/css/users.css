@@ -41,5 +41,5 @@ div.divider-margin {
 }
 
 .modal-footer {
-    text-align: left;
+    text-align: left!important;
 }
