@@ -9,7 +9,7 @@
                     <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?></span>
                     <p>E-mail: <?php echo $user->email; ?></p>
                     <p>Nombre de usuario: <?php echo $user->username; ?></p>
-                    <p>Es activo?: <?php echo $user->active; ?></p>
+                    <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
                     <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
                     <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
                 </div>
