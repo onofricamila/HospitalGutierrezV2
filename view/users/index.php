@@ -3,6 +3,7 @@
         <div class="col md12 l4">
             <h3>Usuarios</h3>
         </div>
+        <form class="search-form">
 
         <div class="col md12 l2">
             <div class="input-field">
@@ -16,14 +17,13 @@
         </div>
 
         <div class="col md12 l6">
-            <form class="search-form">
-                <div class="input-field">
-                    <input id="search" type="search" required name="search">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
+            <div class="input-field">
+                <input id="search" type="search" required name="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
         </div>
+        </form>
 
         <div class="divider"></div>
     </div>
