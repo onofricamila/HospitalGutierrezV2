@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="col s1 l1 height-100">
+        <div class="col s1 l1 valign-wrapper">
             <div class="valign-wrapper">
                 <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
                     <i class="material-icons icon-cyan">search</i>
