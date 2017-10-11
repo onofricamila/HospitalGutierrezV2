@@ -21,7 +21,7 @@
                 </div>
 
                 <!-- Dropdown Trigger -->
-                <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Acciones</a>
+                <a class='dropdown-button btn' href='#' data-activates="<?php echo "dropdown".$i ?>">Acciones</a>
 
                 <!-- Dropdown Structure -->
                 <ul id="<?php echo "dropdown".$i ?>" class='dropdown-content'>
