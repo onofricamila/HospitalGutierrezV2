@@ -1,10 +1,10 @@
 <section class="container">
     <div class="row">
-        <span class="div-title">
-            <h3 class="left-align">Listado de Usuarios</h3>
-        </span>
+        <div class="col md12 l4">
+            <h3>Usuarios</h3>
+        </div>
 
-        <span class="div-search">
+        <div class="col md12 l6">
             <form class="search-form">
                 <div class="input-field">
                     <input id="search" type="search" required name="search">
@@ -12,7 +12,7 @@
                     <i class="material-icons">close</i>
                 </div>
             </form>
-        </span>
+        </div>
 
         <div class="divider"></div>
     </div>
