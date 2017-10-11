@@ -16,7 +16,7 @@ div.divider {
 }
 
 .card-title {
-    max-width: calc(100%-25px);
+    max-width: calc(100% - 25px);
     overflow: hidden;
     display: inline;
 }
