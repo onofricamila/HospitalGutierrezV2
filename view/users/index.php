@@ -85,6 +85,7 @@
 
 </section>
 <section>
+    <!-- Modal newUser -->
     <!-- Modal Trigger -->
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger" href="#modalNewUser">
