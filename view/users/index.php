@@ -1,6 +1,6 @@
 <section class="container">
     <div class="row">
-        <h3 class="center-align">Listado de Usuarios</h2>
+        <h3 class="left-align">Listado de Usuarios</h2>
         <div class="divider"></div>
     </div>
     <div class="row">
