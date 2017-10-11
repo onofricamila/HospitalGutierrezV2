@@ -4,7 +4,7 @@
             <h3>Usuarios</h3>
         </div>
 
-        <form class="search-form" method="get" action"?controller=Users&action=index" target="_self">
+        <form class="search-form" method="get" target="_self">
 
         <div class="col s3 l2 height-100">
             <div class="input-field">
@@ -30,7 +30,9 @@
                 <i class="material-icons icon-cyan">search</i>
             </button>
         </div>
-
+        <input type="text" name="controller" value="Users" hidden>
+        <input type="text" name="action" value="index" hidden>
+        
         </form>
     </div>
 
