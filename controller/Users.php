@@ -64,5 +64,13 @@ class UsersController {
         $last_name = $_POST['last_name'];
 
         User::newUser($email, $username, $password, $activo, $first_name, $last_name);
+        $this->index();
+    }
+
+    public function deleteUser() {
+        $id = $_POST['id'];
+
+        User::deleteUser($id);
+        $this->index();
     }
 }

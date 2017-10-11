@@ -13,6 +13,15 @@ class User extends UserBase {
         return $query->rowCount() == 1;
     }
 
+    public static function deleteUser($id) {
+        $connection = Connection::getInstance();
+
+        $query = $connection->prepare("DELETE FROM usuario WHERE id=?");
+        $query->execute(array($id));
+        
+        return $query->rowCount() == 1;
+    }
+
     public static function id($id) {
         $connection = Connection::getInstance();
 
