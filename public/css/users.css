@@ -9,13 +9,12 @@ div.float-right {
 a.icon-cyan {
     color: #009688;
 }
+
 div.divider {
     margin-top: -15px;
     margin-bottom: 25px;
 }
+
 .card-title {
     overflow: hidden;
-}
-.select-div {
-    min-width: 100px;
 }
