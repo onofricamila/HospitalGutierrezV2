@@ -21,10 +21,10 @@
                 </div>
 
                 <!-- Dropdown Trigger -->
-                <a class='dropdown-button btn' href='#' data-activates="<?php echo "dropdown".$i ?>">Acciones</a>
+                <a class='dropdown-button btn' href='#' data-activates="<?php echo "card-dropdown".$i ?>">Acciones</a>
 
                 <!-- Dropdown Structure -->
-                <ul id="<?php echo "dropdown".$i ?>" class='dropdown-content'>
+                <ul id="<?php echo "card-dropdown".$i ?>" class='dropdown-content'>
                     <li><a href="<?php echo "?controller=Users&action=togglestate&id=".$user->id; ?>" target="_self"><?php if ($user->active) { echo 'Bloquear Usuario'; } else { echo 'Activar Usuario'; } ?></a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo "?controller=Users&action=deleteUser&id=".$user->id; ?>" target="_self">Eliminar Usuario</a></li>
