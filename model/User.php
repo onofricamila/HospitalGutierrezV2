@@ -74,7 +74,7 @@ class User extends UserBase {
             }
             return $users;
         }
-        echo $connection->errorInfo();
+        var_dump($connection->errorInfo());
         die;
         return false;
     }
