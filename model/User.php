@@ -51,14 +51,14 @@ class User extends UserBase {
         $array = array();
 
         if (array_key_exists("search", $args)) {
-            $array[] = $args['search'];
-            $array[] = $args['search'];
-            $query = $query." AND (first_name LIKE ? OR last_name LIKE ?)";
+            $array[':first'] = $args['search'];
+            $array[':last'] = $args['search'];
+            $query = $query." AND (first_name LIKE :first OR last_name LIKE :last)";
         }
 
         if (array_key_exists("active", $args) && ($args['active'] == 0 || $args['active'] == 1)) {
-            $array[] = $args['active'];
-            $query = $query." AND activo = ?";
+            $array[':active'] = $args['active'];
+            $query = $query." AND activo = :active";
         }
 
         $connection = Connection::getInstance();
