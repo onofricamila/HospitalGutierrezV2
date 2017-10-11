@@ -129,7 +129,7 @@
 
                     <div class="row">
                         <div class="col s6">
-                            <button class="btn waves-effect waves-light right-align" type="submit" name="submit">Limpiar
+                            <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
                                 <i class="material-icons right">backspace</i>
                             </button>
                         </div>
