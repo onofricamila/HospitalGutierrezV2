@@ -41,7 +41,7 @@ class UsersController {
             die;
         }
 
-        User::id($id)->togglestate();
+        User::id($_GET['id'])->togglestate();
         $this->index();
     }
 }
