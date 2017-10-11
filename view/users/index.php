@@ -37,9 +37,10 @@
         <div class="col s12 l6">
             <div class="card">
                 <div class="card-content black-text">
-                    <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?></span>
+                    <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?>
                         <!-- Dropdown Trigger -->
-                    <span><a href="#!" data-activates="<?php echo "card-dropdown".$i ?>" class="secondary-content dropdown-button float-right"><i class="icon-cyan material-icons">settings</i></a></span>
+                        <a href="#!" data-activates="<?php echo "card-dropdown".$i ?>" class="secondary-content dropdown-button float-right"><i class="icon-cyan material-icons">settings</i></a>
+                    </span>
                     <p>E-mail: <?php echo $user->email; ?></p>
                     <p>Nombre de usuario: <?php echo $user->username; ?></p>
                     <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
