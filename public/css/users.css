@@ -49,3 +49,6 @@ div.divider-margin {
 .modal-content {
     padding-bottom: 0px!important;
 }
+.dropdown-content {
+    width: auto;
+}
