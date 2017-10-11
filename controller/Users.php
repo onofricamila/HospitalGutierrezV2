@@ -71,7 +71,7 @@ class UsersController {
             echo 'No llenaste bien los campos';
             die;
         }
-        User::newUser($email, $username, $password, $first_name, $last_name);
+        User::newUser($email, $user, $pass, $first_name, $last_name);
         $this->index();
     }
 
