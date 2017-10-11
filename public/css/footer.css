@@ -1,0 +1,27 @@
+/* Footer */
+
+footer {
+    background-color: #f1f1f1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: black;
+    box-sizing: border-box;
+}
+
+.footer-div{
+    margin-top: 70px;        
+}
+
+footer p a {
+    color:#0a93a6; 
+    text-decoration:none;
+}
+
+footer p {
+    box-sizing: border-box;
+    padding: 10.5px;
+    margin: 0px;
+    line-height: 100%;
+}
