@@ -151,9 +151,6 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
-    }
-    else{
-        document.getElementById("no-matches").style.display = "block";
     } 
   }
 }
@@ -162,8 +159,10 @@ function myFunction() {
 
 <br>
 <br>
-
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<div class="col s4"> 
+    <label for="myInput">Buscar</label>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Ingresa texto aqui">
+</div>
 <br>
 
     
@@ -215,7 +214,6 @@ function myFunction() {
             </tr>     
         </tbody>
     </table>
-    <div id="no-matches" style="display:none;"> No hay coincidencias.</div>
 </div>
 </div>
     
