@@ -35,7 +35,7 @@ class User extends UserBase {
 
         $users = [];
 
-        if ($result->rowCount() > 1) {
+        if ($result->rowCount() > 0) {
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 $users[] = new User($row);
             }
