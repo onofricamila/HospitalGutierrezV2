@@ -87,7 +87,7 @@
 <section>
     <!-- Modal Trigger -->
     <div class="fixed-action-btn">
-        <button class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger" data-target="modalNewUser">
+        <a class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger" href="#modalNewUser">
             <i class="large material-icons">add</i>
         </a>
     </div>
