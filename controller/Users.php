@@ -22,7 +22,17 @@ class UsersController {
             die;
         }
 
-        if ($users = User::all()) {
+        $args = [];
+
+        if (isset($_POST['active'])) {
+            $args['active'] = $_POST['active'];
+        }
+
+        if (isset($_POST['search'])) {
+            $args['search'] = $_POST['search'];
+        }
+
+        if ($users = User::all($args)) {
             require_once 'view/users/header.html';
             require_once 'view/navbar.php';
             require_once 'view/users/index.php';

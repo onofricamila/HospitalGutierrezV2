@@ -50,9 +50,9 @@ class User extends UserBase {
         $query = "SELECT * FROM usuario WHERE 1 = 1";
         $array = array();
 
-        if (array_key_exists("name", $args)) {
-            $array[] = $args['name'];
-            $array[] = $args['name'];
+        if (array_key_exists("search", $args)) {
+            $array[] = $args['search'];
+            $array[] = $args['search'];
             $query = $query." AND (first_name LIKE ? OR last_name LIKE ?)";
         }
 
