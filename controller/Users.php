@@ -41,7 +41,7 @@ class UsersController {
             die;
         }
         else {
-            echo "Error";
+            echo $users;
             die;
         }
     }
