@@ -4,3 +4,6 @@ div.container{
 div.float-right{
     float: right;
 }
+.dropdown-content{
+    width: auto!important;
+}
