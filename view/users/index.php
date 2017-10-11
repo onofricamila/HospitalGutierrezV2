@@ -45,7 +45,7 @@
 
                     <div class="divider"></div>
 
-                    <div class="card-content">
+                    <div class="contenido-card">
                         <p>E-mail: <?php echo $user->email; ?></p>
                         <p>Nombre de usuario: <?php echo $user->username; ?></p>
                         <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
