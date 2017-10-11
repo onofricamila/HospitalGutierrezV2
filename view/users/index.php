@@ -34,7 +34,7 @@
     foreach ($users as $user) {
         $i++;
         ?>
-        <div class="col m12 l6">
+        <div class="col s12 l6">
             <div class="card">
                 <div class="card-content black-text">
                     <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?>
