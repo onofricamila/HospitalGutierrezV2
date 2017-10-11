@@ -64,7 +64,7 @@
                         <p>Roles: <?php 
                         $roles = "";
                         foreach ($user->roles as $rol) {
-                            $roles = $rol->name.", ".$roles;
+                            $roles = $rol->nombre.", ".$roles;
                         }
                         echo substr($roles, 0, -2);
                         ?></p>
