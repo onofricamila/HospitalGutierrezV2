@@ -6,6 +6,9 @@
 
         <form class="search-form" method="get" target="_self">
 
+        <input type="text" name="controller" value="Users" hidden>
+        <input type="text" name="action" value="index" hidden>
+
         <div class="col s3 l2 height-100">
             <div class="input-field">
                 <select name="active">
@@ -30,8 +33,6 @@
                 <i class="material-icons icon-cyan">search</i>
             </button>
         </div>
-        <input type="text" name="controller" value="Users" hidden>
-        <input type="text" name="action" value="index" hidden>
         
         </form>
     </div>
