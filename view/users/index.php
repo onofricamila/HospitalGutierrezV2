@@ -95,7 +95,8 @@
     <!-- Modal Structure -->
     <div id="modalNewUser" class="modal">
         <div class="modal-content">
-            <h4>Nuevo usuario</h4>
+            <h4 class="center-align">Nuevo usuario</h4>
+            <div class="divider"></div>
             <div class="row">
                 <form class="col s12" method="post" target="index.php?controller=Users&action=add">
                     <div class="row modal-form-row">
