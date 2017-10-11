@@ -47,7 +47,7 @@ class UsersController {
     }
 
     public function newUser() {
-        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
+        if (!AppController::getInstance()->checkPermissions('usuario_new')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
         }
