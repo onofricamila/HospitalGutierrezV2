@@ -7,8 +7,13 @@ class User extends UserBase {
     public static function newUser($email, $user, $pass, $first_name, $last_name) {
         $connection = Connection::getInstance();
 
-        $query = $connection->prepare("INSERT INTO usuario (email, username, password, first_name, last_name) VALUES (:email, :user, :pass, :first_name, :last_name)");
-        $query->execute(array($email, $user, $pass, $first_name, $last_name));
+        $query = $connection->prepare("INSERT INTO usuario (email, username, password, first_name, last_name) 
+                                        VALUES (:email, :user, :pass, :first_name, :last_name)");
+        $query->execute(array(':email' => $email, 
+                                ':user' => $user, 
+                                ':pass' => $pass, 
+                                ':first_name' => $first_name, 
+                                ':last_name' => $last_name));
         
         return $query->rowCount() == 1;
     }
