@@ -33,7 +33,6 @@ class UsersController {
         }
 
         if ($users = User::all($args)) {
-            echo $users;
             require_once 'view/users/header.html';
             require_once 'view/navbar.php';
             require_once 'view/users/index.php';
