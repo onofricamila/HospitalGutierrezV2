@@ -2,7 +2,7 @@
     <div class="row">
 
         <div class="col s1">
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+            <a class="btn-floating btn-medium waves-effect waves-light icon-cyan"><i class="material-icons">add</i></a>
         </div>
 
         <div class="col s11 l5">
