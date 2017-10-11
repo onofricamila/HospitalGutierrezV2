@@ -26,6 +26,6 @@ div.divider-margin {
     height: 100%;
 }
 .fixed-action-btn{
-    right: 50px;
-    bottom: 50px;
+    right: 5%;
+    bottom: 5%;
 }
