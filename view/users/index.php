@@ -1,4 +1,4 @@
-<section class="container">
+<section class="row">
     <?php
     foreach ($users as $user) {
         ?>
