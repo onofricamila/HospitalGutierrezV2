@@ -1,11 +1,6 @@
 <section class="container">
     <div class="row">
-
-        <div class="col s1">
-            <a class="btn-floating btn-medium waves-effect waves-light icon-cyan"><i class="material-icons">add</i></a>
-        </div>
-
-        <div class="col s11 l5">
+        <div class="col s12 l6">
             <h3>Usuarios</h3>
         </div>
 
@@ -87,4 +82,11 @@
     }
     ?>
     </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light icon-cyan">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
 </section>
