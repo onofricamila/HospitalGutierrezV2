@@ -145,17 +145,17 @@ function myFunction() {
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query
-  for (j = 0; i < 9; i++) {
-    for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[j];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            } 
+  for (i = 0; i < tr.length; i++) {
+    for (j = 0; j < 9; i++) {
+        td = tr[i].getElementsByTagName("td")[j];
+        if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
         }
+        } 
+    } 
   }
 }
 </script>
