@@ -61,6 +61,13 @@
                         <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
                         <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
                         <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
+                        <p>Roles: <?php 
+                        $roles = "";
+                        foreach ($user->roles as $rol) {
+                            $roles = $rol->name.", ".$roles;
+                        }
+                        echo substr($roles, 0, -2);
+                        ?></p>
                     </div>
                 </div>
 
