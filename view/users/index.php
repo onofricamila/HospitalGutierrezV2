@@ -165,8 +165,8 @@
                     ?>
                     <div class="col s12 m6">
                         <p>
-                            <input type="checkbox" id="<?php echo $rol->nombre ?>" name="<?php echo $rol->nombre ?>"/>
-                            <label for="<?php echo $rol->nombre ?>"><?php echo $rol->nombre ?></label>
+                            <input class="roleCheckbox" type="checkbox" id="<?php echo $rol->nombre ?>" name="<?php echo $rol->nombre ?>"/>
+                            <label class="roleLabel" for="<?php echo $rol->nombre ?>"><?php echo $rol->nombre ?></label>
                         </p>
                     </div>
                     <?php
