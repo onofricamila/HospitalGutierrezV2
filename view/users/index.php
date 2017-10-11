@@ -6,7 +6,7 @@
 
         <form class="search-form" method="post" action"?controller=Users&action=index" target="_self">
 
-        <div class="col s3 l2" style="height: 100%;">
+        <div class="col s3 l2 height-100">
             <div class="input-field">
                 <select name="active">
                     <option value="" disabled selected>Estado</option>
@@ -25,10 +25,12 @@
             </div>
         </div>
 
-        <div class="col s1 l1 valign-wrapper">
-            <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
-                <i class="material-icons icon-cyan">search</i>
-            </button>
+        <div class="col s1 l1 height-100">
+            <div class="valign-wrapper">
+                <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
+                    <i class="material-icons icon-cyan">search</i>
+                </button>
+            </div>
         </div>
 
         </form>
