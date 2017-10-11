@@ -14,7 +14,7 @@
                 <div class="card-content black-text">
                     <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?>
                         <!-- Dropdown Trigger -->
-                        <a href="#!" data-activates="<?php echo "card-dropdown".$i ?>" class="secondary-content dropdown-button float-right"><i class="red-text material-icons">settings</i></a>
+                        <a href="#!" data-activates="<?php echo "card-dropdown".$i ?>" class="secondary-content dropdown-button float-right"><i class="icon-cyan material-icons">settings</i></a>
                     </span>
                     <p>E-mail: <?php echo $user->email; ?></p>
                     <p>Nombre de usuario: <?php echo $user->username; ?></p>
