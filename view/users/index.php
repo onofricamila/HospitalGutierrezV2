@@ -6,12 +6,6 @@
 
         <form class="search-form" method="post" action"?controller=Users&action=index" target="_self">
 
-        <div>
-            <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
-                <i class="material-icons icon-cyan">search</i>
-            </button>
-        </div>
-
         <div class="col s3 l2" style="height: 100%;">
             <div class="input-field">
                 <select name="active">
@@ -24,11 +18,17 @@
             </div>
         </div>
             
-        <div class="col s9 l4">
+        <div class="col s8 l3">
             <div class="input-field">
                 <input id="search" type="text" name="search">
                 <label for="search">Nombre</label>
             </div>
+        </div>
+
+        <div class="col s1 l1">
+            <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
+                <i class="material-icons icon-cyan">search</i>
+            </button>
         </div>
 
         </form>
