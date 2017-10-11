@@ -17,5 +17,6 @@ a.icon-cyan {
     margin-top: -15px;
     margin-bottom: 25px;
 }
-.name-search {
+.card-title {
+    overflow: hidden;
 }
