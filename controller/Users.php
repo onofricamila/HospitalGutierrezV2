@@ -23,10 +23,10 @@ class UsersController {
         }
 
         if ($users = User::all()) {
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once '/view/users/index.php';
-            require_once 'view/footer.html';
+            echo "Bien";
+        }
+        else {
+            echo "Error";
         }
     }
 
