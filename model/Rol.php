@@ -45,5 +45,21 @@ class Rol {
         }
         return false;
     }
+    public static function all() {
+        $connection = Connection::getInstance();
+
+        $query = $connection->prepare("SELECT * FROM rol");
+        $query->execute();
+
+        $roles = [];
+
+        if ($query->rowCount() > 0) {
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $roles[] = new Rol($row);
+            }
+            return $roles;
+        }
+        return false;
+    }
 }
 

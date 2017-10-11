@@ -62,11 +62,11 @@
                         <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
                         <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
                         <p>Roles: <?php 
-                        $roles = "";
+                        $userRoles = "";
                         foreach ($user->roles as $rol) {
-                            $roles = $rol->nombre.", ".$roles;
+                            $userRoles = $rol->nombre.", ".$userRoles;
                         }
-                        echo substr($roles, 0, -2);
+                        echo substr($userRoles, 0, -2);
                         ?></p>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     <li class="divider"></li>
                     <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo "?controller=Users&action=adminRoles&id=".$user->id; ?>" target="_self">Administrar Roles</a></li>
+                    <li><a class="rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
                 </ul>
             </div>
         </div>
@@ -150,4 +150,42 @@
             </button>
         </div>
     </div>
+</section>
+<section>
+    <!-- Role admin Modal -->
+    <div id="rolesModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">Administrar roles de: </h4><span id="rolesModalUser"></span>
+            <div class="divider"></div>
+
+            <div class="row">
+                <form action="" method="post" action="index.php?controller=Users&action=updateRol">
+                <?php
+                foreach ($allRoles as $rol) {
+                    ?>
+                    <div class="col s12 m6">
+                        <p>
+                            <input type="checkbox" id="<?php echo $rol->nombre ?>" name="<?php echo $rol->nombre ?>"/>
+                            <label for="<?php echo $rol->nombre ?>"><?php $rol->nombre ?></label>
+                        </p>
+                    </div>
+                    <?php
+                }
+                ?>
+                <input type="text" id="user" name="user" hidden>
+                </form>
+            </div>
+
+            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
+
+        </div>
+        <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                <i class="material-icons right">arrow_back</i>
+            </button>
+        </div>
+    </div>
+    
 </section>
