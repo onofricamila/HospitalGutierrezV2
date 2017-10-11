@@ -106,7 +106,6 @@
                         </div>
                     </div>
             
-                    <div class="row">
                         <div class="input-field col s12 m6">
                             <input id="user" name="user" type="text" class="validate">
                             <label for="user">Nombre de Usuario</label>
@@ -115,9 +114,7 @@
                             <input id="pass" name="pass" type="password" class="validate">
                             <label for="pass">Contrasena</label>
                         </div>
-                    </div>       
 
-                    <div class="row">
                         <div class="input-field col s12 m6">
                             <input id="first_name" name="first_name" type="text" class="validate">
                             <label for="first_name">Nombre</label>
@@ -126,7 +123,6 @@
                             <input id="last_name" name="last_name" type="text" class="validate">
                             <label for="last_name">Apellido</label>
                         </div>
-                    </div>       
 
                     <div class="row">
                         <div class="center-align">
