@@ -7,8 +7,8 @@
         <form class="search-form" method="post" action"?controller=Users&action=index" target="_self">
 
         <div>
-            <button type="submit">
-                <i class="material-icons">search</i>
+            <button type="submit" class="btn-floating btn-small waves-effect waves-light red">
+                <i class="material-icons icon-cyan">search</i>
             </button>
         </div>
 
