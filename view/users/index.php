@@ -1,8 +1,8 @@
 <section class="container">
     <div class="row">
 
-        <div class="col s1">
-            <a class="btn-floating btn-medium waves-effect waves-light icon-cyan"><i class="material-icons">add</i></a>
+        <div class="col s1 valign-wrapper">
+            <a class="btn-floating btn-medium waves-effect waves-light icon-cyan center-align"><i class="material-icons">add</i></a>
         </div>
 
         <div class="col s11 l5">
