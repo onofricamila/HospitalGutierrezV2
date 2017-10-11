@@ -1,4 +1,8 @@
 <?php
+
+require_once $_SERVER['DOCUMENT_ROOT'].'/model/User.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
+
 class AppController {
     private static $instance;
     private static $user;
@@ -40,11 +44,9 @@ class AppController {
 
     public static function updateLogged() {
         if (!isset($_SESSION['loggedid'])) {
-            require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
             self::$user = new Guest();
         }
         else {
-            require_once $_SERVER['DOCUMENT_ROOT'].'/model/User.php';
             self::$user = User::id($_SESSION['loggedid']);
         }
         return self::$user;
@@ -52,6 +54,10 @@ class AppController {
 
     public static function isLogged() {
         return (self::getUser() instanceof User);
+    }
+
+    public static function isGuest() {
+        return (self::getUser() instanceof Guest);
     }
 }
 
