@@ -1,6 +1,6 @@
 <section class="container">
     <div class="row">
-        <div class="col m12 l4">
+        <div class="col m12 l6">
             <h3>Usuarios</h3>
         </div>
         <form class="search-form">
@@ -16,7 +16,7 @@
             </div>
         </div>
             
-        <div class="col m12 l6">
+        <div class="col m12 l4">
             <div class="input-field">
                 <input id="search" type="text">
                 <label for="search">Nombre</label>
