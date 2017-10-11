@@ -7,8 +7,7 @@
         <form class="search-form" method="post" action"?controller=Users&action=index" target="_self">
 
         <div>
-            <input type="submit">
-            <i class="material-icons">search</i>
+            <input type="submit"><i class="material-icons">search</i>
         </div>
 
         <div class="col s3 l2" style="height: 100%;">
