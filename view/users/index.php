@@ -25,6 +25,8 @@
         </div>
         </form>
 
+        <br>
+
         <div class="divider"></div>
     </div>
     <div class="row">
