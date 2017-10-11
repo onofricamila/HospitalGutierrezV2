@@ -16,7 +16,7 @@
             </div>
         </div>
             
-        <div class="col s10 l4">
+        <div class="">
             <div class="input-field">
                 <input id="search" type="text">
                 <label for="search">Nombre</label>
