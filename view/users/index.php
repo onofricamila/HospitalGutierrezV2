@@ -24,11 +24,10 @@
             </div>
         </div>
         </form>
-
-        <br>
-
-        <div class="divider"></div>
     </div>
+
+    <div class="divider"></div>
+
     <div class="row">
     <?php
     $i = 0;
