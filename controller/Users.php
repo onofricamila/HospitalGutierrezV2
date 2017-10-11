@@ -32,8 +32,6 @@ class UsersController {
             $args['search'] = $_GET['search'];
         }
 
-        var_dump($args);
-        die;
         if ($users = User::all($args)) {
             require_once 'view/users/header.html';
             require_once 'view/navbar.php';
