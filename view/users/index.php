@@ -98,7 +98,7 @@
             <h4 class="center-align">Nuevo usuario</h4>
             <div class="divider"></div>
             <div class="row">
-                <form class="col s12" method="post" target="index.php?controller=Users&action=newUser" autocomplete="off">
+                <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
                     <div class="row modal-form-row">
                         <div class="input-field col s12">
                             <input id="email" name="email" type="text" class="validate">
