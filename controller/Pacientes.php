@@ -39,8 +39,14 @@
             $domicilio = $_POST['domicilio'];
             $telefono = $_POST['telefono'];
             $idObraSocial = $_POST['idObraSocial'];
+            $heladera = $_POST['heladera'];
+            $electricidad = $_POST['electricidad'];
+            $mascota = $_POST['mascota'];
+            $idTipoVivienda = $_POST['idTipoVivienda'];
+            $idTipoCalefaccion = $_POST['idTipoCalefaccion'];
+            $idTipoAgua = $_POST['idTipoAgua'];
     
-            Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio);
+            Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
     
@@ -84,8 +90,14 @@
             $domicilio = $_GET['domicilio'];
             $telefono = $_GET['telefono'];
             $idObraSocial = $_GET['idObraSocial'];
+            $heladera = $_GET['heladera'];
+            $electricidad = $_GET['electricidad'];
+            $mascota = $_GET['mascota'];
+            $idTipoVivienda = $_GET['idTipoVivienda'];
+            $idTipoCalefaccion = $_GET['idTipoCalefaccion'];
+            $idTipoAgua = $_GET['idTipoAgua'];
     
-            Paciente::updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio);
+            Paciente::updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
     }
