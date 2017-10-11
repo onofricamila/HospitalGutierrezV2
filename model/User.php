@@ -4,6 +4,15 @@ require_once 'UserBase.php';
 class User extends UserBase {
     public $id, $email, $username, $password, $active, $updated_at, $created_at, $first_name, $last_name;
 
+    public static function newUser($email, $user, $pass, $active, $first_name, $last_name) {
+        $connection = Connection::getInstance();
+
+        $query = $connection->prepare("INSERT INTO usuario (email, username, password, activo, first_name, last_name) VALUES (?, ?, ?, ?, ?, ?)");
+        $query->execute(array($email, $user, $pass, $active, $first_name, $last_name));
+        
+        return $query->rowCount() == 1;
+    }
+
     public static function id($id) {
         $connection = Connection::getInstance();
 

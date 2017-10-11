@@ -44,4 +44,25 @@ class UsersController {
         User::id($_GET['id'])->togglestate();
         $this->index();
     }
+
+    public function newUser() {
+        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+
+        $email = $_POST['email'];
+        $username = $_POST['user'];
+        $password = $_POST['pass'];
+        if ($_POST['active']) {
+            $activo = 1;
+        }
+        else {
+            $activo = 0;
+        }
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+
+        User::newUser($email, $username, $password, $activo, $first_name, $last_name);
+    }
 }
