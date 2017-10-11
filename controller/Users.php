@@ -68,7 +68,7 @@ class UsersController {
     }
 
     public function deleteUser() {
-        $id = $_POST['id'];
+        $id = $_GET['id'];
 
         User::deleteUser($id);
         $this->index();
