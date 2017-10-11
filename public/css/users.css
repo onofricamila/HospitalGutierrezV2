@@ -39,3 +39,7 @@ div.divider-margin {
 .modal-form-row {
     margin-bottom: 0px;
 }
+
+.modal-footer {
+    text-align: left;
+}
