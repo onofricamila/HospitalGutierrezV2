@@ -128,12 +128,10 @@
                     </div>       
 
                     <div class="row">
-                        <div class="col s6">
+                        <div class="center-align">
                             <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
                                 <i class="material-icons right">backspace</i>
                             </button>
-                        </div>
-                        <div class="col s6">
                             <button class="btn waves-effect waves-light" type="submit" name="submit">Aceptar
                                 <i class="material-icons right">send</i>
                             </button>
