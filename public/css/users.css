@@ -47,5 +47,5 @@ div.divider-margin {
     max-width: 125px;
 }
 .modal-content {
-    padding-bottom: 0px;
+    padding-bottom: 0px!important;
 }
