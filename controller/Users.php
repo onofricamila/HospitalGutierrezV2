@@ -24,14 +24,16 @@ class UsersController {
 
         $args = [];
 
-        if (isset($_POST['active'])) {
-            $args['active'] = $_POST['active'];
+        if (isset($_GET['active'])) {
+            $args['active'] = $_GET['active'];
         }
 
-        if (isset($_POST['search'])) {
-            $args['search'] = $_POST['search'];
+        if (isset($_GET['search'])) {
+            $args['search'] = $_GET['search'];
         }
 
+        var_dump($args);
+        die;
         if ($users = User::all($args)) {
             require_once 'view/users/header.html';
             require_once 'view/navbar.php';
