@@ -27,7 +27,7 @@
         </form>
     </div>
 
-    <div class="divider"></div>
+    <div class="divider divider-margin"></div>
 
     <div class="row">
     <?php
