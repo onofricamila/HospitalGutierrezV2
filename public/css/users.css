@@ -1,15 +1,24 @@
-.container{
+.container {
     margin-top: 25px;
 }
-div.float-right{
+
+div.float-right {
     float: right;
 }
-ul.dropdown-content{
+
+ul.dropdown-content {
     width: auto!important;
 }
-a.icon-cyan{
+
+a.icon-cyan {
     color: #009688;
 }
-.div-search{
-    width: 50%;
+
+.div-search {
+    width: 45%;
+}
+
+.div-title {
+    float: right;
+    width: 45%;
 }
