@@ -51,8 +51,8 @@ class User extends UserBase {
         $array = array();
 
         if (array_key_exists("search", $args)) {
-            $array[':first'] = $args['search'];
-            $array[':last'] = $args['search'];
+            $array[':first'] = "%".$args['search']."%";
+            $array[':last'] = "%".$args['search']."%";
             $query = $query." AND (first_name LIKE :first OR last_name LIKE :last)";
         }
 
@@ -74,8 +74,6 @@ class User extends UserBase {
             }
             return $users;
         }
-        var_dump($connection->errorInfo());
-        die;
         return false;
     }
 
