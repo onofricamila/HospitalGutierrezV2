@@ -17,10 +17,22 @@
                     <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
                     <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
                 </div>
-                <div class="card-action">
-                    <a href="<?php echo "?controller=Users&action=togglestate&id=".$user->id; ?>" target="_self"><?php if ($user->active) { echo 'Bloquear'; } else { echo 'Activar'; } ?></a>
-                    <a href="">Administrar roles</a>
-                </div>
+
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Acciones</a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="<?php echo "?controller=Users&action=togglestate&id=".$user->id; ?>" target="_self"><?php if ($user->active) { echo 'Bloquear Usuario'; } else { echo 'Activar Usuario'; } ?></a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo "?controller=Users&action=deleteUser&id=".$user->id; ?>" target="_self">Eliminar Usuario</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo "?controller=Users&action=showUser&id=".$user->id; ?>" target="_self">Ver Usuario</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo "?controller=Users&action=adminRoles&id=".$user->id; ?>" target="_self">Administrar Roles</a></li>
+                </ul>
             </div>
         </div>
         <?php
