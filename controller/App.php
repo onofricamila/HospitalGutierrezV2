@@ -39,7 +39,7 @@ class AppController {
     }
 
     public function checkPermissions($permission) {
-        return self::getUser().checkPermissions($permission);
+        return self::getUser()->checkPermissions($permission);
     }
 
     public static function updateLogged() {
