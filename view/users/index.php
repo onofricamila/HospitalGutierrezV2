@@ -83,10 +83,69 @@
     ?>
     </div>
 
+</section>
+<section>
+    <!-- Modal Trigger -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light icon-cyan">
+        <button class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger" data-target="modalNewUser">
             <i class="large material-icons">add</i>
         </a>
     </div>
 
+    <!-- Modal Structure -->
+    <div id="modalNewUser" class="modal">
+        <div class="modal-content">
+            <h4>Nuevo usuario</h4>
+            <div class="row">
+                <form class="col s12" method="post" target="index.php?controller=Users&action=add">
+                    <div class="row modal-form-row">
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+            
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="user" name="user" type="text" class="validate">
+                            <label for="user">Nombre de Usuario</label>
+                        </div>
+                    </div>       
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="pass" name="pass" type="password" class="validate">
+                            <label for="pass">Contrasena</label>
+                        </div>
+                    </div>       
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" name="first_name" type="text" class="validate">
+                            <label for="first_name">Nombre</label>
+                        </div>
+                    </div>       
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="last_name" name="last_name" type="text" class="validate">
+                            <label for="last_name">Apellido</label>
+                        </div>
+                    </div>       
+
+                    <button class="btn waves-effect waves-light" type="submit" name="submit">Aceptar
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <button class="btn waves-effect waves-light" type="submit" name="submit">Limpiar
+                        <i class="material-icons right">backspace</i>
+                    </button>
+    
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                <i class="material-icons right">arrow_back</i>
+            </button>
+        </div>
+    </div>
 </section>
