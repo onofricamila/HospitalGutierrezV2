@@ -94,4 +94,11 @@ class User extends UserBase {
 
         return $query->rowCount() == 1;
     }
+
+    public function togglestate() {
+        if ($this->active) {
+            return $this->block();
+        }
+        return $this->activate();
+    }
 }

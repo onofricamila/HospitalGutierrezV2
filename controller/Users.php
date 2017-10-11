@@ -35,26 +35,13 @@ class UsersController {
         }
     }
 
-    public function block($id) {
+    public function togglestate() {
         if (!AppController::getInstance()->checkPermissions('usuario_update')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
         }
 
-        User::id($id)->block();
-
+        User::id($id)->togglestate();
         $this->index();
     }
-
-    public function activate($id) {
-        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
-
-        User::id($id)->activate();
-
-        $this->index();
-    }
-
 }
