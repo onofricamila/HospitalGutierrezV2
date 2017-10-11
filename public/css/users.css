@@ -43,3 +43,6 @@ div.divider-margin {
 .modal-footer {
     text-align: left!important;
 }
+.modal-btn {
+    max-width: 125px;
+}
