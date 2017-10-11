@@ -1,4 +1,4 @@
-section.container{
+.container{
     margin-top: 25px;
 }
 div.float-right{
@@ -9,4 +9,7 @@ ul.dropdown-content{
 }
 a.icon-cyan{
     color: #009688;
+}
+.left-align{
+    display: inline;
 }
