@@ -7,7 +7,7 @@
 
         <div class="col s3 l2" style="height: 100%;">
             <div class="input-field">
-                <select>
+                <select name="active">
                     <option value="0" disabled selected>Estado</option>
                     <option value="1">Todos</option>
                     <option value="2">Activos</option>
@@ -19,7 +19,7 @@
             
         <div class="col s9 l4">
             <div class="input-field">
-                <input id="search" type="text">
+                <input id="search" type="text" name="search">
                 <label for="search">Nombre</label>
             </div>
         </div>
