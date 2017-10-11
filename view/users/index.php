@@ -79,7 +79,7 @@
                     <li class="divider"></li>
                     <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
                     <li class="divider"></li>
-                    <li><a class="rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
+                    <li><a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
                 </ul>
             </div>
         </div>
