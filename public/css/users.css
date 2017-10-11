@@ -13,3 +13,6 @@ ul.dropdown-content {
 a.icon-cyan {
     color: #009688;
 }
+.divider {
+    margin-top: -15px;
+}
