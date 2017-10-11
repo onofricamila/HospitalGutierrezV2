@@ -24,7 +24,7 @@
         <div class="col s8 l3">
             <div class="input-field">
                 <input id="search" type="text" name="search">
-                <label for="search">Nombre</label>
+                <label for="search">Usuario</label>
             </div>
         </div>
 
