@@ -1,6 +1,6 @@
 <section class="container">
     <div class="row">
-        <div class="col s12 l5">
+        <div class="col s12 l6">
             <h3>Usuarios</h3>
         </div>
 
