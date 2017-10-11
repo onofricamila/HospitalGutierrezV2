@@ -8,11 +8,12 @@
         <div class="col s3 l2" style="height: 100%;">
             <div class="input-field">
                 <select>
-                    <option value="0" selected>Estado</option>
+                    <option value="0" disabled selected>Estado</option>
                     <option value="1">Todos</option>
                     <option value="2">Activos</option>
                     <option value="3">Bloqueados</option>
                 </select>
+                <label>Estado</label>
             </div>
         </div>
             
