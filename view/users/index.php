@@ -1,11 +1,11 @@
 <section class="container">
     <div class="row">
-        <div class="col m12 l6">
+        <div class="col s12 l6">
             <h3>Usuarios</h3>
         </div>
         <form class="search-form">
 
-        <div class="col m2 l2" style="height: 100%;">
+        <div class="col s2 l2" style="height: 100%;">
             <div class="input-field">
                 <select>
                     <option value="0" selected>Estado</option>
@@ -16,7 +16,7 @@
             </div>
         </div>
             
-        <div class="col m10 l4">
+        <div class="col s10 l4">
             <div class="input-field">
                 <input id="search" type="text">
                 <label for="search">Nombre</label>
