@@ -1,5 +1,9 @@
 <section class="container">
     <div class="row">
+        <h2>Usuarios</h2>
+        <div class="divider"></div>
+    </div>
+    <div class="row">
     <?php
     foreach ($users as $user) {
         ?>
