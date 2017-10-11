@@ -16,10 +16,10 @@
             </div>
         </div>
             
-        <div class"col m12 l6">
+        <div class="col m12 l6">
             <div class="input-field">
                 <input id="search" type="text">
-                <label for="search">Password</label>
+                <label for="search">Nombre</label>
             </div>
         </div>
 
