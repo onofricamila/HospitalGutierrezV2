@@ -6,6 +6,7 @@
         <form class="search-form">
 
         <div class="input-field col md12 l2">
+            <label>Estado</label>
             <select>
                 <option value="" disabled selected>Estado</option>
                 <option value="1">Todos</option>
