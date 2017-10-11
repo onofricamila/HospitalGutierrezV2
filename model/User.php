@@ -46,15 +46,30 @@ class User extends UserBase {
         return false;
     }
 
-    public static function all() {
+    public static function all($args) {
+        $query = "SELECT * FROM usuario WHERE 1 = 1";
+        $array = array();
+
+        if (array_key_exists("name", $args)) {
+            $array[] = $args['name'];
+            $array[] = $args['name'];
+            $query = $query." AND (first_name LIKE ? OR last_name LIKE ?)";
+        }
+
+        if (array_key_exists("active", $args) && ($args['active'] == 0 || $args['active'] == 1)) {
+            $array[] = $args['active'];
+            $query = $query." AND activo = ?";
+        }
+
         $connection = Connection::getInstance();
 
-        $result = $connection->query("SELECT * FROM usuario");
+        $query = $connection->prepare($query);
+        $query->execute($array);
 
         $users = [];
 
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        if ($query->rowCount() > 0) {
+            while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                 $users[] = new User($row);
             }
             return $users;
