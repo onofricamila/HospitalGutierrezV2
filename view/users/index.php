@@ -130,10 +130,10 @@
 
                     <div class="row">
                         <div class="center-align">
-                            <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
+                            <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
                                 <i class="material-icons right">backspace</i>
                             </button>
-                            <button class="btn waves-effect waves-light" type="submit" name="submit">Aceptar
+                            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
