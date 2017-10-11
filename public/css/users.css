@@ -6,17 +6,15 @@ div.float-right {
     float: right;
 }
 
-ul.dropdown-content {
-    width: auto!important;
-}
-
 a.icon-cyan {
     color: #009688;
 }
+
 .divider {
     margin-top: -15px;
     margin-bottom: 25px;
 }
+
 .card-title {
     overflow: hidden;
 }
