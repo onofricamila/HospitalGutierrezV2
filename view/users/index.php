@@ -4,6 +4,17 @@
             <h3>Usuarios</h3>
         </div>
 
+        <div class="col md12 l2">
+            <div class="input-field">
+                <select>
+                    <option value="" disabled selected>Estado</option>
+                    <option value="1">Todos</option>
+                    <option value="2">Activos</option>
+                    <option value="3">Bloqueados</option>
+                </select>
+            </div>
+        </div>
+
         <div class="col md12 l6">
             <form class="search-form">
                 <div class="input-field">
