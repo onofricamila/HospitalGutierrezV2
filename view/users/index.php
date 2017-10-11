@@ -5,11 +5,10 @@
         </div>
         <form class="search-form">
 
-        <div class="col md12 l2" style="height: 100%;">
+        <div class="col md12 l2 align" style="height: 100%;">
             <div class="input-field">
-                <label>Estado</label>
                 <select>
-                    <option value="" disabled selected>Estado</option>
+                    <option value="0" selected>Estado</option>
                     <option value="1">Todos</option>
                     <option value="2">Activos</option>
                     <option value="3">Bloqueados</option>
