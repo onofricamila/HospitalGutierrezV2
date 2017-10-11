@@ -4,6 +4,9 @@ div.container{
 div.float-right{
     float: right;
 }
-.dropdown-content{
+ul.dropdown-content{
     width: auto!important;
+}
+a.icon-cyan{
+    color: #009688;
 }
