@@ -46,3 +46,6 @@ div.divider-margin {
 .modal-btn {
     max-width: 125px;
 }
+.modal-content {
+    padding-bottom: 0px;
+}
