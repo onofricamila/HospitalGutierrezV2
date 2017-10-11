@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="col s1 l1" style="vertical-align: bottom;">
+        <div class="col s1 l1">
             <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
                 <i class="material-icons icon-cyan">search</i>
             </button>
