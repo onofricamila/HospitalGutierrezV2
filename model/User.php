@@ -117,8 +117,9 @@ class User extends UserBase {
     public function block() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE usuario SET activo=0 WHERE id=?");
-        $query->execute(array($this->id));
+        $query = $connection->prepare("UPDATE usuario SET activo=0, updated_at=:updated WHERE id=:id");
+        $query->execute(array(':id' => $this->id,
+                                ':updated' => date("Y-m-d H:i:s")));
 
         return $query->rowCount() == 1;
     }
@@ -126,8 +127,9 @@ class User extends UserBase {
     public function activate() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE usuario SET activo=1 WHERE id=?");
-        $query->execute(array($this->id));
+        $query = $connection->prepare("UPDATE usuario SET activo=1, updated_at=:updated WHERE id=:id");
+        $query->execute(array(':id' => $this->id,
+                                ':updated' => date("Y-m-d H:i:s")));
 
         return $query->rowCount() == 1;
     }
