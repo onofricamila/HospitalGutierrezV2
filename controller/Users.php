@@ -62,19 +62,16 @@ class UsersController {
             die;
         }
 
-        $email = $_POST['email'];
-        $username = $_POST['user'];
-        $password = $_POST['pass'];
-        if ($_POST['active']) {
-            $activo = 1;
+        if ((!isset($_POST['email']) || $email = trim($_POST['email']) == "")
+            || (!isset($_POST['user']) || $user = trim($_POST['user']) == "")
+            || (!isset($_POST['pass']) || $pass = trim($_POST['pass']) == "")
+            || (!isset($_POST['first_name']) || $first_name =trim($_POST['first_name']) == "")
+            || (!isset($_POST['last_name'])) || $last_name = trim($_POST['last_name']) == "")
+        {
+            echo 'No llenaste bien los campos';
+            die;
         }
-        else {
-            $activo = 0;
-        }
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-
-        User::newUser($email, $username, $password, $activo, $first_name, $last_name);
+        User::newUser($email, $username, $password, $first_name, $last_name);
         $this->index();
     }
 
