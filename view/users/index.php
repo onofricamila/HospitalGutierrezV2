@@ -5,7 +5,7 @@
         </div>
         <form class="search-form">
 
-        <div class="col s3" style="height: 100%;">
+        <div class="col s3 l2" style="height: 100%;">
             <div class="input-field">
                 <select>
                     <option value="0" selected>Estado</option>
@@ -16,7 +16,7 @@
             </div>
         </div>
             
-        <div class="col s10 l4">
+        <div class="col s9 l4">
             <div class="input-field">
                 <input id="search" type="text">
                 <label for="search">Nombre</label>
