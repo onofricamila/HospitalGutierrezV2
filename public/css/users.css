@@ -1,3 +1,6 @@
 div.container{
     margin-top: 25px;
 }
+div.card-content{
+    overflow: visible;
+}

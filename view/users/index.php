@@ -13,15 +13,14 @@
             <div class="card">
                 <div class="card-content black-text">
                     <span class="card-title"><?php echo $user->last_name.", ".$user->first_name; ?></span>
+                    <!-- Dropdown Trigger -->
+                    <a href="#!" data-activates="<?php echo "card-dropdown".$i ?>" class="secondary-content dropdown-button"><i class="red-text material-icons">Acciones</i></a>
                     <p>E-mail: <?php echo $user->email; ?></p>
                     <p>Nombre de usuario: <?php echo $user->username; ?></p>
                     <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
                     <p>Fecha de actualizacion: <?php echo $user->updated_at; ?></p>
                     <p>Fecha de creacion: <?php echo $user->created_at; ?></p>
                 </div>
-
-                <!-- Dropdown Trigger -->
-                <a class='dropdown-button btn' href='#' data-activates="<?php echo "card-dropdown".$i ?>">Acciones</a>
 
                 <!-- Dropdown Structure -->
                 <ul id="<?php echo "card-dropdown".$i ?>" class='dropdown-content'>
