@@ -1,11 +1,11 @@
 <section class="container">
     <div class="row">
-        <div class="col md12 l4">
+        <div class="col m12 l4">
             <h3>Usuarios</h3>
         </div>
         <form class="search-form">
 
-        <div class="col md12 l2 align" style="height: 100%;">
+        <div class="col m12 l2" style="height: 100%;">
             <div class="input-field">
                 <select>
                     <option value="0" selected>Estado</option>
@@ -16,13 +16,13 @@
             </div>
         </div>
             
-        <div class="col md12 l6" style="height: 100%;">
+        <div class"col m12 l6">
             <div class="input-field">
-                <input class="name-search" id="search" type="search" required name="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+                <input id="search" type="text">
+                <label for="search">Password</label>
             </div>
         </div>
+
         </form>
     </div>
 
