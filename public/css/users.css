@@ -50,5 +50,5 @@ div.divider-margin {
     padding-bottom: 0px!important;
 }
 .dropdown-content {
-    width: auto;
+    width: auto!important;
 }
