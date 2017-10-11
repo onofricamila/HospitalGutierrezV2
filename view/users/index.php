@@ -127,13 +127,14 @@
                         </div>
                     </div>       
 
-                    <button class="btn waves-effect waves-light" type="submit" name="submit">Aceptar
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <button class="btn waves-effect waves-light" type="submit" name="submit">Limpiar
-                        <i class="material-icons right">backspace</i>
-                    </button>
-    
+                    <div class="row">
+                        <button class="btn waves-effect waves-light" type="submit" name="submit">Limpiar
+                            <i class="material-icons right">backspace</i>
+                        </button>
+                        <button class="btn waves-effect waves-light" type="submit" name="submit">Aceptar
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
