@@ -19,23 +19,22 @@
         }
 
         public function baseBuild($array) {
-            $this
-                ->idPaciente = $array['idPaciente']
-                ->apellido = $array['apellido']
-                ->nombre = $array['nombre']
-                ->fecha_nacimiento =  $array['fecha_nacimiento']
-                ->idGenero = $array['idGenero']
-                ->tipo_doc = $array['tipo_doc']
-                ->dni = $array['dni']
-                ->domicilio = $array['domicilio']
-                ->telefono = $array['telefono']
-                ->idObraSocial = $array['idObraSocial'];
-                ->heladera = $array['heladera'];
-                ->electricidad = $array['electricidad'];
-                ->mascota = $array['mascota'];
-                ->idTipoVivienda = $array['idTipoVivienda'];
-                ->idTipoCalefaccion = $array['idTipoCalefaccion'];
-                ->idTipoAgua = $array['idTipoAgua'];
+            $this ->idPaciente = $array['idPaciente']
+            $this ->apellido = $array['apellido']
+            $this ->nombre = $array['nombre']
+            $this ->fecha_nacimiento =  $array['fecha_nacimiento']
+            $this ->idGenero = $array['idGenero']
+            $this ->tipo_doc = $array['tipo_doc']
+            $this ->dni = $array['dni']
+            $this ->domicilio = $array['domicilio']
+            $this ->telefono = $array['telefono']
+            $this ->idObraSocial = $array['idObraSocial'];
+            $this ->heladera = $array['heladera'];
+            $this ->electricidad = $array['electricidad'];
+            $this ->mascota = $array['mascota'];
+            $this ->idTipoVivienda = $array['idTipoVivienda'];
+            $this ->idTipoCalefaccion = $array['idTipoCalefaccion'];
+            $this ->idTipoAgua = $array['idTipoAgua'];
         }
        
         public static function newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
