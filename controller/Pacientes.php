@@ -61,6 +61,8 @@
         echo "idTipoDoc : "  ;  var_dump($_POST['idTipoDoc']);
         echo "dni : " ;   var_dump($_POST['dni']);
         echo "domicilio : " ;   var_dump($_POST['domicilio']);
+        echo "telefono : " ;   var_dump($_POST['telefono']);
+        echo "idObraSocial : " ;   var_dump($_POST['idObraSocial']);
         echo "heladera : "  ;  var_dump($_POST['heladera']);
         echo "electricidad : " ;   var_dump($_POST['electricidad']);
         echo "mascota : ";    var_dump($_POST['mascota']);
@@ -74,7 +76,7 @@
             || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
             || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
             || (!isset($_POST['idGenero']) || ($idGenero = trim($_POST['idGenero'])) == "")
-            || (!isset($_POST['tipo_doc']) || ($tipo_doc = trim($_POST['tipo_doc'])) == "")
+            || (!isset($_POST['idTipoDoc']) || ($idTipoDoc = trim($_POST['idTipoDoc'])) == "")
             || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
             || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
             || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
