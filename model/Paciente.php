@@ -4,12 +4,12 @@
 
         public static function getPaciente($idPaciente) {
             $connection = Connection::getInstance();
-
-            $query = $connection->prepare("SELECT * FROM paciente WHERE idPaciente=? ");
-            $result = $query->execute($idPaciente);
-
-            if ($result->num_rows  == 1) {
-                return (new self($result->fetch_assoc()));
+    
+            $query = $connection->prepare("SELECT * FROM paciente WHERE idPaciente=?");
+            $query->execute(array($idPaciente));
+            
+            if ($query->rowCount() == 1) {
+                return (new Paciente($query->fetch(PDO::FETCH_ASSOC)));
             }
             return false;
         }
