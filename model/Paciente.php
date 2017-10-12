@@ -4,12 +4,12 @@
 
         public static function getPaciente($idPaciente) {
             $connection = Connection::getInstance();
-
-            $query = $connection->prepare("SELECT * FROM paciente WHERE idPaciente=? ");
-            $result = $query->execute($idPaciente);
-
-            if ($result->num_rows  == 1) {
-                return (new self($result->fetch_assoc()));
+    
+            $query = $connection->prepare("SELECT * FROM paciente WHERE idPaciente=?");
+            $query->execute(array($idPaciente));
+            
+            if ($query->rowCount() == 1) {
+                return (new Paciente($query->fetch(PDO::FETCH_ASSOC)));
             }
             return false;
         }
@@ -19,15 +19,15 @@
         }
 
         public function baseBuild($array) {
-            $this ->idPaciente = $array['idPaciente']
-            $this ->apellido = $array['apellido']
-            $this ->nombre = $array['nombre']
-            $this ->fecha_nacimiento =  $array['fecha_nacimiento']
-            $this ->idGenero = $array['idGenero']
-            $this ->tipo_doc = $array['tipo_doc']
-            $this ->dni = $array['dni']
-            $this ->domicilio = $array['domicilio']
-            $this ->telefono = $array['telefono']
+            $this ->idPaciente = $array['idPaciente'];
+            $this ->apellido = $array['apellido'];
+            $this ->nombre = $array['nombre'];
+            $this ->fecha_nacimiento =  $array['fecha_nacimiento'];
+            $this ->idGenero = $array['idGenero'];
+            $this ->idTipoDoc = $array['idTipoDoc'];
+            $this ->dni = $array['dni'];
+            $this ->domicilio = $array['domicilio'];
+            $this ->telefono = $array['telefono'];
             $this ->idObraSocial = $array['idObraSocial'];
             $this ->heladera = $array['heladera'];
             $this ->electricidad = $array['electricidad'];

@@ -6,7 +6,7 @@
             
         </div>
         <br>
-        <a href="?controller=Pacientes&action=showPaciente">Show useer demo</a>
+        <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show useer demo</a>
         <br>
         <a href="?controller=Pacientes&action=newPaciente">Show useer new demo</a>
         <br>

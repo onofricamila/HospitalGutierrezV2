@@ -1,4 +1,12 @@
 <?php
+    require_once './model/Paciente.php';
+    require_once './model/Genero.php';
+    require_once './model/ObraSocial.php';
+    require_once './model/TipoAgua.php';
+    require_once './model/TipoVivienda.php';
+    require_once './model/TipoDoc.php';
+    require_once './model/TipoCalefaccion.php';
+
     class PacientesController {
         private static $instance;
         
@@ -20,8 +28,9 @@
             }
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/pacientes.html';
-            require_once 'view/footer.html';
+            require_once 'view/pacientes/pacientes.php';
+            require_once 'view/footer.html'; 
+
         }
 
         public function newPaciente(){
@@ -29,9 +38,14 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+            $allTipoAgua = TipoAgua::all();
+            $allTipoCalefaccion = TipoCalefaccion::all();
+            $allTipoVivienda = TipoVivienda::all();
+            $allObraSocial = ObraSocial::all();
+            $allTipoDoc = TipoDoc::all();
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/newPaciente.html';
+            require_once 'view/pacientes/newPaciente.php';
             require_once 'view/footer.html';
         }
 
@@ -76,9 +90,17 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+            $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            $genero = new Genero($paciente -> idGenero);
+            $obra_social = new ObraSocial($paciente -> idObraSocial);
+            $tipo_doc = new TipoDoc($paciente -> idTipoDoc);
+            $tipo_vivienda = new TipoVivienda($paciente -> idTipoVivienda);
+            $tipo_calefaccion = new TipoCalefaccion($paciente -> idTipoCalefaccion);
+            $tipo_agua = new TipoAgua($paciente -> idTipoAgua);
+
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/showPaciente.html';
+            require_once 'view/pacientes/showPaciente.php';
             require_once 'view/footer.html';
         }
 
