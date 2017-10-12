@@ -17,7 +17,7 @@
                             </ul>
                             <div id="test-swipe-1" class="col s12">
                                 <br>
-                                    <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
+                                    <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPacientes" autocomplete="off">
                                             <div class="input-field col s12 m4">
                                                 <input id="nombre" name="nombre" type="text" class="validate">
                                                 <label for="nombre">Nombre</label>
@@ -55,11 +55,10 @@
                                                 <input id="first_name" name="first_name" type="text" class="validate">
                                                 <label for="first_name">Obra social</label>
                                             </div>
-                                        </form>
+                                       
                             </div>
                             <div id="test-swipe-2" class="col s12">
                                     <br>
-                                    <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
                                             <div class="input-field col s12 m6">
                                                 <input id="nombre" name="nombre" type="text" class="validate">
                                                 <label for="nombre">Heladera?</label>
@@ -86,7 +85,16 @@
                                                 <input id="dni" name="dni" type="text" class="validate">
                                                 <label for="dni">Tipo agua</label>
                                             </div>
-                        
+                                            <div class="row">
+                                                <div class="center-align">
+                                                    <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
+                                                        <i class="material-icons right">backspace</i>
+                                                    </button>
+                                                    <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Enviar
+                                                        <i class="material-icons right">send</i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                             
                                         </form>
                             </div>
