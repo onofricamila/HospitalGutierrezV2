@@ -23,6 +23,6 @@ $(document).ready(function(){
 $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
-    $(contenido).children().eq(1).text() = "Hola Probando.";
+    alert(contenido.children().eq(1).text());
 });
 (jQuery); // end of jQuery name space
