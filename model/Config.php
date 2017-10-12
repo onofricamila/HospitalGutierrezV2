@@ -25,17 +25,23 @@ class Configuration {
     public function baseBuild($data) {
         $this->id = $array['id'];
         $this->titulo = $array['titulo'];
-        $this->descripcion = $array['descripcion'];
+        $this->descripcion1 = $array['descripcion1'];
+        $this->descripcion2 = $array['descripcion2'];
+        $this->descripcion3 = $array['descripcion3'];
         $this->email = $array['email'];
+        $this->elementos = $array['elementos'];
+        $this->mantenimiento = $array['mantenimiento'];
     }
 
-    public function update($titulo, $descripcion, $email, $elementos, $mantenimiento) {
+    public function update($titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, descripcion=:descripcion, email=:email, elementos=:elementos, mantenimiento=:mantenimiento WHERE id=:id");
+        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, descripcion1=:descripcion1, descripcion2=:descripcion2, descripcion3=:descripcion3, email=:email, elementos=:elementos, mantenimiento=:mantenimiento WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
-                                ':descripcion' => $descripcion,
+                                ':descripcion1' => $descripcion1,
+                                ':descripcion2' => $descripcion2,
+                                ':descripcion3' => $descripcion3,
                                 ':email' => $email,
                                 ':elementos' => $elementos,
                                 ':mantenimiento' => $mantenimiento));
