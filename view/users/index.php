@@ -69,6 +69,8 @@
                         }
                         echo substr($userRoles, 0, -2);
                         ?></p>
+                        <p style="display: none;"><?php echo $user->first_name; ?></p>
+                        <p style="display: none;"><?php echo $user->last_name; ?></p>
                     </div>
                 </div>
 
@@ -78,7 +80,7 @@
                     <li class="divider"></li>
                     <li><a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
+                    <li><a class="modal-trigger updateModalTrigger" href="#modalNewUser">Actualizar Usuario</a></li>
                     <li class="divider"></li>
                     <li><a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
                 </ul>
@@ -102,10 +104,10 @@
     <!-- Modal Structure -->
     <div id="modalNewUser" class="modal">
         <div class="modal-content">
-            <h4 class="center-align">Nuevo usuario</h4>
+            <h4 class="center-align" id="title"></h4>
             <div class="divider"></div>
             <div class="row">
-                <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
+                <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" id="form">
                     <div class="row modal-form-row">
                         <div class="input-field col s12">
                             <input id="email" name="email" type="text" class="validate">
@@ -130,6 +132,7 @@
                             <input id="last_name" name="last_name" type="text" class="validate">
                             <label for="last_name">Apellido</label>
                         </div>
+                        <input type="text" id="id" name="id" hidden>
 
                     <div class="row">
                         <div class="center-align">
