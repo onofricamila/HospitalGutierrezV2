@@ -110,6 +110,7 @@ class UsersController {
             elseif (!isset($_POST[$rol->nombre]) && $user->hasRol($rol)) {
                 $user->deleteRol($rol->id);
             }
-        }        
+        }
+        $this->index();
     }
 }
