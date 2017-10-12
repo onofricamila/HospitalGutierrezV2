@@ -28,9 +28,9 @@
                         </div>
                         <div id="test-swipe-2" class="col s12">
                             <ul class="collection">
-                                <li class="collection-item">Heladera? <?php echo $paciente->heladera;?> </li>
-                                <li class="collection-item">Electricidad? <?php echo $paciente->electricidad;?> </li>
-                                <li class="collection-item">Mascota(s)? <?php echo $paciente->mascota;?> </li>
+                                <li class="collection-item">Heladera? <?php if ($paciente->heladera == 1)echo "Sí" ;?> </li>
+                                <li class="collection-item">Electricidad? <?php if ($paciente->electricidad == 1)echo "Sí" ;?> </li>
+                                <li class="collection-item">Mascota(s)? <?php if ($paciente->mascota == 1)echo "Sí" ;?> </li>
                                 <li class="collection-item">Tipo de vivienda? <?php echo $tipo_vivienda -> nombre;?> </li>
                                 <li class="collection-item">Tipo de calefaccion? <?php echo $tipo_calefaccion -> nombre;?> </li>
                                 <li class="collection-item">Tipo de agua? <?php echo $tipo_agua -> nombre;?> </li>
