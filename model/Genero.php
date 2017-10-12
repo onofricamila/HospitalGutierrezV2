@@ -29,7 +29,7 @@ class Genero {
 
         if ($result->rowCount() > 0) {
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $allGenre[] = new Genero($row);
+                $allGenre[] = new Genero($row['idGenero']);
             }
             return $allGenre;
         }
