@@ -175,7 +175,7 @@ class User extends UserBase {
         $connection = Connection::getInstance();
         
         echo "probando";
-        var_dump($email, $user, $first_name, $last_name);
+        var_dump($email, $user, $first_name, $last_name, $this->id);
         die;
         $query = $connection->prepare("UPDATE usuario SET updated=:updated, email=:email, username=:user, first_name=:first_name, last_name=:last_name WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
