@@ -23,14 +23,14 @@ class Configuration {
     }
 
     public function baseBuild($data) {
-        $this->id = $array['id'];
-        $this->titulo = $array['titulo'];
-        $this->descripcion1 = $array['descripcion1'];
-        $this->descripcion2 = $array['descripcion2'];
-        $this->descripcion3 = $array['descripcion3'];
-        $this->email = $array['email'];
-        $this->elementos = $array['elementos'];
-        $this->mantenimiento = $array['mantenimiento'];
+        $this->id = $data['id'];
+        $this->titulo = $data['titulo'];
+        $this->descripcion1 = $data['descripcion1'];
+        $this->descripcion2 = $data['descripcion2'];
+        $this->descripcion3 = $data['descripcion3'];
+        $this->email = $data['email'];
+        $this->elementos = $data['elementos'];
+        $this->mantenimiento = $data['mantenimiento'];
     }
 
     public function update($titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento) {
