@@ -19,11 +19,11 @@
                             <br>
                                 <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off">
                                         <div class="input-field col s12 m4">
-                                            <input id="nombre" name="nombre" type="text" class="validate">
+                                            <input id="nombre" name="nombre" type="text" class="">
                                             <label for="nombre">Nombre</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="apellido" name="apellido" type="text" class="validate">
+                                            <input id="apellido" name="apellido" type="text" class="">
                                             <label for="apellido">Apellido</label>
                                         </div>
                                         
