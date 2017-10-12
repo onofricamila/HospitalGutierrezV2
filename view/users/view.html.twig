@@ -65,9 +65,9 @@
                         <p>Es activo?: {% if user.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
                         <p>Fecha de actualizacion: {{ user.updated_at }}</p>
                         <p>Fecha de creacion: {{ user.created_at }}</p>
-                        <p>Roles: {% for rol in user.roles %} {% if loop.index > 1 %}{{ ', ' }} {% endif %} {{ rol.nombre }} {% endfor %}</p>
+                        <p>Roles: {% for rol in user.roles %} {% if loop.index > 1 %} {{ ", #{rol.nombre}" }} {% else %} {{ rol.nombre }} {% endif %} {% endfor %}</p>
                         <p style="display: none;">{{ user.first_name }}</p>
-                        <p style="display: none;">{{ user.last_name}}</p>
+                        <p style="display: none;">{{ user.last_name }}</p>
                     </div>
                 </div>
 
