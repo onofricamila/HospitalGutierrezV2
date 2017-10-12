@@ -46,7 +46,6 @@ class UsersController {
             $context['stylesheets'] = ['/public/css/users.css'];
             $context['javascripts'] = ['/public/js/users.js'];
             $context['pagename'] = 'Usuarios';
-            $context['isLogged'] = AppController::isLogged();
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
 
