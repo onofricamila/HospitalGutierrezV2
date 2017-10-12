@@ -40,7 +40,7 @@
         public static function newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
             $connection = Connection::getInstance();
 
-           $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) 
+           $query = $connection->prepare("INSERT INTO paciente (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) 
             VALUES (:apellido, :nombre, :fecha_nacimiento, :idGenero, :idTipoDoc, :dni, :telefono, :idObraSocial, :domicilio, :heladera, :electricidad, :mascota, :idTipoVivienda, :idTipoCalefaccion, :idTipoAgua)");
            
            $query->execute(array(':apellido' => $apellido, 
