@@ -95,6 +95,9 @@ class UsersController {
             die;
         }
 
+        var_dump($_POST);
+        die;
+
         if (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "") {
             echo 'El campo id no esta cargado.';
             die;
