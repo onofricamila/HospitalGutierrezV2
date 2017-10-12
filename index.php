@@ -9,7 +9,7 @@
     require_once 'vendor/autoload.php';
     require_once 'controller/App.php';
 
-    $loader = new Twig_Loader_Filesystem('templates');
+    $loader = new Twig_Loader_Filesystem();
     $twig = new Twig_Environment($loader, array());
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
