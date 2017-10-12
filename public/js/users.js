@@ -22,12 +22,7 @@ $(document).ready(function(){
   });
 $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
-    p = $(this).closest('div').find('p');
-    user = p[1].text().clone().replace('Nombre de usuario: ', '');
-    roles = $(p).eq(5).text().clone().replace('Roles: ', '').split(", ");
-    $.each( roles, function( key, value ) {
-        id = '#' + value;
-        $(id).checked = true;
-    });
+    contenido = $(this).closest('div').find('.contenido-card');
+    $(contenido).children().eq(1).text() = "Hola Probando.";
 });
 (jQuery); // end of jQuery name space
