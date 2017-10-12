@@ -65,7 +65,7 @@
                                             <?php
                                             foreach ($allObraSocial as $obra) {
                                                 ?>
-                                                <option value="<?php echo $obra->idGenero ; ?>"><?php echo $obra->nombre ; ?></option>
+                                                <option value="<?php echo $obra->idObraSocial ; ?>"><?php echo $obra->nombre ; ?></option>
                                                 <?php
                                             }
                                             ?>
