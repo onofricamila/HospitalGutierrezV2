@@ -31,7 +31,7 @@
                                                 <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
                                             </div>
                                             <div class="input-field col s12 m4">
-                                                <select name="active">
+                                                <select name="genero_form">
                                                         <?php
                                                         foreach ($allGenre as $genre) {
                                                             ?>
