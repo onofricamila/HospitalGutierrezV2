@@ -111,26 +111,26 @@
                     <div class="row modal-form-row">
                         <div class="input-field col s12">
                             <input id="email" name="email" type="text" class="validate">
-                            <label class="active" for="email">Email</label>
+                            <label for="email">Email</label>
                         </div>
                     </div>
             
                         <div class="input-field col s12 m6">
                             <input id="user" name="user" type="text" class="validate">
-                            <label class="active" for="user">Nombre de Usuario</label>
+                            <label for="user">Nombre de Usuario</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <input id="pass" name="pass" type="password" class="validate">
-                            <label class="active" for="pass">Contrasena</label>
+                            <label for="pass">Contrasena</label>
                         </div>
 
                         <div class="input-field col s12 m6">
                             <input id="first_name" name="first_name" type="text" class="validate">
-                            <label class="active" for="first_name">Nombre</label>
+                            <label for="first_name">Nombre</label>
                         </div>
                         <div class="input-field col s12 m6">
                             <input id="last_name" name="last_name" type="text" class="validate">
-                            <label class="active" for="last_name">Apellido</label>
+                            <label for="last_name">Apellido</label>
                         </div>
                         <input type="text" id="id" name="id" hidden>
 
