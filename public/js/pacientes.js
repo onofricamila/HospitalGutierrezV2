@@ -156,3 +156,8 @@ $(document).ready(function() {
     closeOnSelect: false // Close upon selecting a date,
   }); 
 });
+
+$('.datepicker').pickadate({
+    min: [1917,1,1],
+    max: Date.now()
+  })

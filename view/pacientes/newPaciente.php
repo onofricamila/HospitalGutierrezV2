@@ -28,11 +28,11 @@
                                         </div>
                                         
                                         <div class="input-field col s12 m4">
-                                            <input type="text" name="fecha_nacimiento"  class="datepicker validate">
+                                            <input type="text" name="fecha_nacimiento"  class="datepicker">
                                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero" class="icons validate">
+                                            <select name="genero" class="icons">
                                                     <option value="" disabled selected>Genero</option>
                                                     <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                                     <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
