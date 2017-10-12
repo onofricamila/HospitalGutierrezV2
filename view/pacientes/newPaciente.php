@@ -93,17 +93,41 @@
                                             <label for="fecha_nacimiento">Mascota?</label>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <input id="last_name" name="last_name" type="text" class="validate">
-                                            <label for="last_name">Tipo vivienda</label>
+                                            <select name="tipo_vivienda">
+                                                    <option value="" disabled selected>Tipo Vivienda</option>
+                                                    <?php
+                                                    foreach ($allTipoVivienda as $tipo) {
+                                                        ?>
+                                                        <option value="<?php echo $tipo->idTipoVivienda ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <input id="first_name" name="first_name" type="text" class="validate">
-                                            <label for="first_name">Tipo calefaccion</label>
+                                            <select name="tipo_calefaccion">
+                                                    <option value="" disabled selected>Tipo Calefaccion</option>
+                                                    <?php
+                                                    foreach ($allTipoCalefaccion as $tipo) {
+                                                        ?>
+                                                        <option value="<?php echo $tipo->idTipoCalefaccion ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <input id="dni" name="dni" type="text" class="validate">
-                                            <label for="dni">Tipo agua</label>
+                                            <select name="tipo_agua">
+                                                    <option value="" disabled selected>Tipo Agua</option>
+                                                    <?php
+                                                    foreach ($allTipoAgua as $tipo) {
+                                                        ?>
+                                                        <option value="<?php echo $tipo->idTipoAgua ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
                                         <div class="row">
                                             <div class="center-align">
