@@ -49,9 +49,10 @@ class UsersController {
             $context['isLogged'] = AppController::isLogged();
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
+
+            $path = '/users/view.html.twig';
             
-            $template = AppController::getTwig()->loadTemplate('/users/view.html.twig');
-            echo $template->render($context);
+            AppController::renderTwig($path, $context);
             die;
         }
         else {
