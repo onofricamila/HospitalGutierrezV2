@@ -31,12 +31,12 @@
                                             <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero_form">
+                                            <select name="genero_form" class="icons">
                                                     <option value="" disabled selected>Genero</option>
                                                     <?php
                                                     foreach ($allGenre as $genre) {
                                                         ?>
-                                                        <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <option data-icon="/publi/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
                                                         <?php
                                                     }
                                                     ?>
