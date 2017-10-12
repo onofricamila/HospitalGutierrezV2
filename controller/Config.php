@@ -45,5 +45,11 @@ class ConfigController {
 
     public function index() {
         echo "Config index, todavia no lo hice.";
+        die;
+    }
+
+    public function admin() {
+        echo "Config admin, todavia no lo hice.";
+        die;
     }
 }

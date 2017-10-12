@@ -12,6 +12,15 @@ class TwigController{
     }
 
     public static function renderTwig($path, $context = []) {
+        $config = ConfigController::getConfiguration();
+
+        $context['titulo'] = $config->titulo;
+        $context['descripcion1'] = $config->descripcion1;
+        $context['descripcion2'] = $config->descripcion2;
+        $context['descripcion3'] = $config->descripcion3;
+        $context['email'] = $config->email;
+        $context['elementos'] = $config->elementos;
+
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
     }
