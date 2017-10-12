@@ -36,7 +36,7 @@
                                                     <?php
                                                     foreach ($allGenre as $genre) {
                                                         ?>
-                                                        <option data-icon="/publi/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <option data-icon="/public/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
                                                         <?php
                                                     }
                                                     ?>
