@@ -132,7 +132,7 @@ class UsersController {
 
         $user = User::id($id);
 
-        $user->updateUser($id, $email, $user, $first_name, $last_name);
+        $user->updateUser($email, $user, $first_name, $last_name);
 
         if (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "") {
             $user->updatePass($pass);
