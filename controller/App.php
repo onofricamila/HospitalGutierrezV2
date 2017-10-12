@@ -6,7 +6,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
 class AppController {
     private static $instance;
     private static $user;
-    private static $twig;
     
     public static function getInstance() {
         if (!isset(self::$instance)) {
@@ -14,20 +13,6 @@ class AppController {
         }
 
         return self::$instance;
-    }
-
-    public static function getTwig() {
-        if (!isset(self::$twig)) {
-            $loader = new Twig_Loader_Filesystem('view');
-            self::$twig = new Twig_Environment($loader, array());
-        }
-
-        return self::$twig;
-    }
-
-    public static function renderTwig($path, $context = []) {
-        $template = self::getTwig()->loadTemplate($path);
-        echo $template->render($context);
     }
 
     private function __construct() {
