@@ -57,7 +57,7 @@ $('.updateModalTrigger').click(function () {
     $('#id').val(id);
     Materialize.updateTextFields();
 });
-$('.modal-trigger').click(function () {
+$('.newUserModaltrigger').click(function () {
     document.getElementById("form").reset();
     $('#title').text('Nuevo Usuario');
     Materialize.updateTextFields();

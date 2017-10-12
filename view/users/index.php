@@ -96,7 +96,7 @@
     <!-- Modal newUser -->
     <!-- Modal Trigger -->
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger" href="#modalNewUser">
+        <a class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger newUserModalTrigger" href="#modalNewUser">
             <i class="large material-icons">add</i>
         </a>
     </div>
