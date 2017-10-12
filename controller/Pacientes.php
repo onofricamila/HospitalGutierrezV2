@@ -42,7 +42,7 @@
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();
-            $allTiposDoc = TipoDoc::all();
+            $allTipoDoc = TipoDoc::all();
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/newPaciente.php';
