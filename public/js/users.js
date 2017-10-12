@@ -24,6 +24,7 @@ $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
+    $('#rolesModalId').val(id);
     alert($('#rolesModalId').val());
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#rolesModalUser').text(user);
