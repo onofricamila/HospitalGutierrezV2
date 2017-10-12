@@ -8,7 +8,8 @@
     require_once 'Connection.php';          // Database controller
     require_once 'vendor/autoload.php';     // Twig
     require_once 'controller/App.php';      // AppController
-
+    require_once 'controller/Twig.php';      // TwigController
+    
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
         $action     = strtolower($_GET['action']);

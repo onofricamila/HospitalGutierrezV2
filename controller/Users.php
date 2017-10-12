@@ -52,7 +52,7 @@ class UsersController {
 
             $path = '/users/view.html.twig';
             
-            AppController::renderTwig($path, $context);
+            TwigController::renderTwig($path, $context);
             die;
         }
         else {
