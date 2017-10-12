@@ -155,7 +155,7 @@
     <!-- Role admin Modal -->
     <div id="rolesModal" class="modal">
         <div class="modal-content">
-            <h4 class="center-align">Administrar roles de: </h4><span id="rolesModalUser"></span>
+            <h4 class="center-align">Administrar roles de: <span id="rolesModalUser"></span></h4>
             <div class="divider"></div>
 
             <div class="row">
