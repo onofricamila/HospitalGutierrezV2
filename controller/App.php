@@ -18,6 +18,7 @@ class AppController {
 
     public static function getTwig() {
         if (!isset(self::$twig)) {
+            $loader = new Twig_Loader_Filesystem();
             self::$twig = new Twig_Environment($loader, array());
         }
 

@@ -9,8 +9,6 @@
     require_once 'vendor/autoload.php';
     require_once 'controller/App.php';
 
-    $loader = new Twig_Loader_Filesystem();
-
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
         $action     = strtolower($_GET['action']);
