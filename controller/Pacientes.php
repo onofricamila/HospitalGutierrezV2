@@ -54,6 +54,22 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+            var_dump($_POST['apellido']);
+            var_dump($_POST['nombre']);
+            var_dump($_POST['fecha_nacimiento']);
+            var_dump($_POST['idGenero']);
+            var_dump($_POST['idTipoDoc']);
+            var_dump($_POST['dni']);
+            var_dump($_POST['domicilio']);
+            var_dump($_POST['heladera']);
+            var_dump($_POST['electricidad']);
+            var_dump($_POST['mascota']);
+            var_dump($_POST['idTipoVivienda']);
+            var_dump($_POST['idTipoCalefaccion']);
+            var_dump($_POST['idTipoAgua']);
+
+            die;
+
             if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
             || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
             || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
@@ -61,8 +77,6 @@
             || (!isset($_POST['tipo_doc']) || ($tipo_doc = trim($_POST['tipo_doc'])) == "")
             || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
             || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
-            || (!isset($_POST['telefono']) || ($telefono = trim($_POST['telefono'])) == "")
-            || (!isset($_POST['idObraSocial']) || ($idObraSocial = trim($_POST['idObraSocial'])) == "")
             || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
             || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
             || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
@@ -70,9 +84,12 @@
             || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
             || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
             {
-                echo 'No llenaste bien los campos';
+                echo 'No llenaste los campos obligatorios';
                 die;
             }
+
+            $telefono = trim($_POST['telefono']);
+            $idObraSocial = trim($_POST['idObraSocial']);
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
