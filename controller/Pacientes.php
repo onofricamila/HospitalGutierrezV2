@@ -87,6 +87,12 @@
             }
             $paciente = Paciente::getPaciente($_GET['idPaciente']);
             $genero = new Genero($paciente -> idGenero);
+            $obra_social = new ObraSocial($paciente -> idObraSocial);
+            $tipo_doc = new TipoDoc($paciente -> idTipoDoc);
+            $tipo_vivienda = new TipoVivienda($paciente -> idTipoVivienda);
+            $tipo_calefaccion = new TipoCalefaccion($paciente -> idTipoCalefaccion);
+            $tipo_agua = new TipoAgua($paciente -> idTipoAgua);
+            
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';

@@ -10,7 +10,7 @@ class TipoCalefaccion {
     public function buildNombre() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("SELECT nombre FROM permiso WHERE idTipoCalefaccion=?");
+        $query = $connection->prepare("SELECT nombre FROM tipo_calefaccion WHERE idTipoCalefaccion=?");
         $query->execute(array($this->idTipoCalefaccion));
 
         if ($query->rowCount() == 1) {

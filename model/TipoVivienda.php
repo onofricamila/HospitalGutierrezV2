@@ -10,7 +10,7 @@ class TipoVivienda {
     public function buildNombre() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("SELECT nombre FROM permiso WHERE idTipoVivienda=?");
+        $query = $connection->prepare("SELECT nombre FROM tipo_vivienda WHERE idTipoVivienda=?");
         $query->execute(array($this->idTipoVivienda));
 
         if ($query->rowCount() == 1) {

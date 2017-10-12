@@ -10,7 +10,7 @@ class TipoAgua {
     public function buildNombre() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("SELECT nombre FROM permiso WHERE idTipoAgua=?");
+        $query = $connection->prepare("SELECT nombre FROM tipo_agua WHERE idTipoAgua=?");
         $query->execute(array($this->idTipoAgua));
 
         if ($query->rowCount() == 1) {

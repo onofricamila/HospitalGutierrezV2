@@ -10,7 +10,7 @@ class ObraSocial {
     public function buildNombre() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("SELECT nombre FROM permiso WHERE idObraSocial=?");
+        $query = $connection->prepare("SELECT nombre FROM obra_social WHERE idObraSocial=?");
         $query->execute(array($this->idObraSocial));
 
         if ($query->rowCount() == 1) {

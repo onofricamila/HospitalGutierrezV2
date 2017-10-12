@@ -19,11 +19,11 @@
                                 <ul class="collection">
                                     <li class="collection-item">Fecha de nacimiento: <?php  echo $paciente->fecha_nacimiento;?> </li>
                                     <li class="collection-item">Género: <?php echo $genero -> nombre;?> </li>
-                                    <li class="collection-item">Tipo de documento: <?php echo $paciente->idTipoDoc;?> </li>
+                                    <li class="collection-item">Tipo de documento: <?php echo $tipo_doc -> nombre;?> </li>
                                     <li class="collection-item">DNI: <?php echo $paciente->dni;?> </li>
                                     <li class="collection-item">Domicilio: <?php echo $paciente->domicilio;?> </li>
                                     <li class="collection-item">Tel/Cel: <?php echo $paciente->telefono;?> </li>
-                                    <li class="collection-item">Obra social: <?php echo $paciente->idObraSocial;?> </li>
+                                    <li class="collection-item">Obra social: <?php echo $obra_social -> nombre;?> </li>
                                 </ul>
                         </div>
                         <div id="test-swipe-2" class="col s12">
@@ -31,9 +31,9 @@
                                 <li class="collection-item">Heladera? <?php echo $paciente->heladera;?> </li>
                                 <li class="collection-item">Electricidad? <?php echo $paciente->electricidad;?> </li>
                                 <li class="collection-item">Mascota(s)? <?php echo $paciente->mascota;?> </li>
-                                <li class="collection-item">Tipo de vivienda? <?php echo $paciente->idTipoVivienda;?> </li>
-                                <li class="collection-item">Tipo de calefaccion? <?php echo $paciente->idTipoCalefaccion;?> </li>
-                                <li class="collection-item">Tipo de agua? <?php echo $paciente->idTipoAgua;?> </li>
+                                <li class="collection-item">Tipo de vivienda? <?php echo $tipo_vivienda -> nombre;?> </li>
+                                <li class="collection-item">Tipo de calefaccion? <?php echo $tipo_calefaccion -> nombre;?> </li>
+                                <li class="collection-item">Tipo de agua? <?php echo $tipo_agua -> nombre;?> </li>
                             </ul>
                         </div>
             </div>
