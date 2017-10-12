@@ -19,8 +19,8 @@
             $context['descripcion1'] = $config->descripcion1;
             $context['descripcion2'] = $config->descripcion2;
             $context['descripcion3'] = $config->descripcion3;
-            $context['javascripts'] = '/public/js/home.js';
             $context['stylesheets'] = '/public/css/main.css';
+            $context['javascripts'] = '/public/js/home.js';
             return $context;
         }
 
