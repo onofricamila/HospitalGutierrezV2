@@ -54,5 +54,6 @@ $('.updateModalTrigger').click(function(){
     $('#first_name').val(nombre);
     $('#last_name').val(apellido);
     $('#id').val(id);
+    Materialize.updateTextFields();
 });
 (jQuery); // end of jQuery name space
