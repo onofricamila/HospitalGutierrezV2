@@ -23,6 +23,12 @@ $(document).ready(function(){
 $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
-    alert(contenido.children().eq(1).text());
+    user = contenido.children().eq(1).text().clone().replace('Nombre de usuario: ', '');
+    $('#rolesModalUser').text() = user;
+    roles = contenido.children().eq(5).text().clone().replace('Roles: ', '').split(", ");
+    $.each( roles, function( key, value ) {
+        id = '#' + value;
+        $(id).checked = true;
+    });
 });
 (jQuery); // end of jQuery name space
