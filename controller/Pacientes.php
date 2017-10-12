@@ -39,6 +39,7 @@
                 die;
             }
             $allGenre = Genero::all();
+            $allTiposDoc = TipoDoc::all();
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/newPaciente.php';

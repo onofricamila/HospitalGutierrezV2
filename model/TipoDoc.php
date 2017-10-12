@@ -19,6 +19,20 @@ class TipoDoc {
         }
         return false;
     }
+    public static function all() {
+        $connection = Connection::getInstance();
 
+        $result = $connection->query("SELECT * FROM tipo_doc");
+
+        $allTipoDoc = [];
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $allTipoDoc[] = new TipoDoc($row['idTipoDoc']);
+            }
+            return $allTipoDoc;
+        }
+        return false;
+    }
 }
 ?>

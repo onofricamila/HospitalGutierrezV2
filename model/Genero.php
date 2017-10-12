@@ -25,13 +25,13 @@ class Genero {
 
         $result = $connection->query("SELECT * FROM genero");
 
-        $allGenre = [];
+        $allGenero = [];
 
         if ($result->rowCount() > 0) {
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $allGenre[] = new Genero($row['idGenero']);
+                $allGenero[] = new Genero($row['idGenero']);
             }
-            return $allGenre;
+            return $allGenero;
         }
         return false;
     }

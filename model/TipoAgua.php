@@ -20,5 +20,20 @@ class TipoAgua {
         return false;
     }
 
+    public static function all() {
+        $connection = Connection::getInstance();
+
+        $result = $connection->query("SELECT * FROM tipo_agua");
+
+        $allTipoAgua = [];
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $allTipoAgua[] = new TipoAgua($row['idTipoAgua']);
+            }
+            return $allTipoAgua;
+        }
+        return false;
+    }
 }
 ?>

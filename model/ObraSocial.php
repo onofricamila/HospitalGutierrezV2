@@ -19,6 +19,21 @@ class ObraSocial {
         }
         return false;
     }
+    public static function all() {
+        $connection = Connection::getInstance();
+
+        $result = $connection->query("SELECT * FROM obra_social");
+
+        $allObraSocial = [];
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $allObraSocial[] = new ObraSocial($row['idObraSocial']);
+            }
+            return $allObraSocial;
+        }
+        return false;
+    }
 
 }
 ?>

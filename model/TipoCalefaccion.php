@@ -19,6 +19,20 @@ class TipoCalefaccion {
         }
         return false;
     }
+    public static function all() {
+        $connection = Connection::getInstance();
 
+        $result = $connection->query("SELECT * FROM tipo_calefaccion");
+
+        $allTipoCalefaccion = [];
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $allTipoCalefaccion[] = new TipoCalefaccion($row['idTipoCalefaccion']);
+            }
+            return $allTipoCalefaccion;
+        }
+        return false;
+    }
 }
 ?>
