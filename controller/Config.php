@@ -1,5 +1,5 @@
 <?php
-require_once '/model/Config.php';
+require_once './model/Config.php';
 
 class ConfigController {
     private static $instance;
