@@ -19,20 +19,20 @@
                             <br>
                                 <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off">
                                         <div class="input-field col s12 m4">
-                                            <input id="nombre" name="nombre" type="text" class="validate">
+                                            <input id="nombre" name="nombre" type="text" class="validate" required>
                                             <label for="nombre">Nombre</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="apellido" name="apellido" type="text" class="validate">
+                                            <input id="apellido" name="apellido" type="text" class="validate" required>
                                             <label for="apellido">Apellido</label>
                                         </div>
                                         
                                         <div class="input-field col s12 m4">
-                                            <input type="text" name="fecha_nacimiento"  class="datepicker">
+                                            <input type="text" name="fecha_nacimiento"  class="datepicker" required>
                                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero" class="icons">
+                                            <select name="genero" class="icons" required>
                                                     <option value="" disabled selected>Genero</option>
                                                     <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                                     <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m4">
-                                            <select name="tipo_doc">
+                                            <select name="tipo_doc" required>
                                                     <option value="" disabled selected>Tipo de documento</option>
                                                     <?php
                                                     foreach ($allTipoDoc as $tipo) {
@@ -52,19 +52,19 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="dni" name="dni" type="text" class="validate">
+                                            <input id="dni" name="dni" type="text" class="validate" required>
                                             <label for="dni">DNI</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="domicilio" name="domicilio" type="text" class="validate">
+                                            <input id="domicilio" name="domicilio" type="text" class="validate" required>
                                             <label for="domicilio">Domicilio</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="telefono" name="telefono" type="number" class="validate">
+                                            <input id="telefono" name="telefono" type="number" class="validate" required>
                                             <label for="telefono">Telefono</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="obra_social">
+                                            <select name="obra_social" required>
                                                     <option value="" disabled selected>Obra Social</option>
                                                     <?php
                                                     foreach ($allObraSocial as $obra) {
@@ -80,14 +80,14 @@
                         <div id="test-swipe-2" class="col s12">
                                 <br>
                                         <div class="input-field col s12 m6">
-                                            <select name="heladera" class="icons">
+                                            <select name="heladera" class="icons" required>
                                                 <option value="" disabled selected>Heladera?</option>
                                                 <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                                 <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <select name="electricidad" class="icons">
+                                            <select name="electricidad" class="icons" required>
                                                 <option value="" disabled selected>Electricidad?</option>
                                                 <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                                 <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
@@ -95,14 +95,14 @@
                                         </div>
                                         
                                         <div class="input-field col s12 m6">
-                                            <select name="mascota" class="icons">
+                                            <select name="mascota" class="icons" required>
                                                 <option value="" disabled selected>Mascota?</option>
                                                 <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                                 <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <select name="tipo_vivienda">
+                                            <select name="tipo_vivienda" required>
                                                     <option value="" disabled selected>Tipo Vivienda</option>
                                                     <?php
                                                     foreach ($allTipoVivienda as $tipo) {
@@ -115,7 +115,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <select name="tipo_calefaccion">
+                                            <select name="tipo_calefaccion" required>
                                                     <option value="" disabled selected>Tipo Calefaccion</option>
                                                     <?php
                                                     foreach ($allTipoCalefaccion as $tipo) {
@@ -126,7 +126,7 @@
                                                     ?>
                                             </select>
                                         </div>
-                                        <div class="input-field col s12 m6">
+                                        <div class="input-field col s12 m6" required>
                                             <select name="tipo_agua">
                                                     <option value="" disabled selected>Tipo Agua</option>
                                                     <?php
