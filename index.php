@@ -5,9 +5,9 @@
 
     session_start();
 
-    require_once 'Connection.php';
-    require_once 'vendor/autoload.php';
-    require_once 'controller/App.php';
+    require_once 'Connection.php';          // Database controller
+    require_once 'vendor/autoload.php';     // Twig
+    require_once 'controller/App.php';      // AppController
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));

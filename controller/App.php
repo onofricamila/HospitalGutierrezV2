@@ -25,6 +25,11 @@ class AppController {
         return self::$twig;
     }
 
+    public static function renderTwig($path, $context = []) {
+        $template = $this::getTwig()->loadTemplate($path);
+        echo $template->render($context);
+    }
+
     private function __construct() {
 
     }
