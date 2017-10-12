@@ -28,7 +28,8 @@
                                         </div>
                                         
                                         <div class="input-field col s12 m4">
-                                            <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
+                                            <input type="text" name="fecha_nacimiento"  class="datepicker">
+                                            <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
                                             <select name="genero_form" class="icons">
@@ -39,8 +40,16 @@
                                         </div>
 
                                         <div class="input-field col s12 m4">
-                                            <input id="first_name" name="first_name" type="text" class="validate">
-                                            <label for="first_name">Tipo de doc</label>
+                                            <select name="genero_form">
+                                                    <option value="" disabled selected>Tipo de documento</option>
+                                                    <?php
+                                                    foreach ($allGenre as $genre) {
+                                                        ?>
+                                                        <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
                                         <div class="input-field col s12 m4">
                                             <input id="dni" name="dni" type="text" class="validate">
@@ -199,17 +208,16 @@
    <?php
    /* 
     <div class="input-field col s12 m4">
-                                            <select name="genero_form" class="icons">
-                                                    <option value="" disabled selected>Genero</option>
-                                                    <?php
-                                                    foreach ($allGenre as $genre) {
-                                                        ?>
-                                                        <option data-icon="/public/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
-                                                        <option data-icon="/public/imgs/male.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
-                                            </select>
-                                        </div>
+        <select name="genero_form">
+                <option value="" disabled selected>Genero</option>
+                <?php
+                foreach ($allGenre as $genre) {
+                    ?>
+                    <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                    <?php
+                }
+                ?>
+        </select>
+    </div>
    */
    ?>
