@@ -44,9 +44,12 @@ class ConfigController {
     }
 
     public function index() {
-        echo "Pagina en mantenimiento, todavia no lo hice.";
-        die;
-    }
+        $context = [];
+        $path = '/config/mantenimiento.html.twig';
+        $context['stylesheets'] = ['/public/css/config.css'];
+        $context['javascripts'] = ['/public/js/config.js'];
+        TwigController::renderTwig($path, $context);
+}
 
     public function admin() {
         echo "Administracion de configuracion, todavia no lo hice.";
