@@ -54,19 +54,19 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            var_dump($_POST['apellido']);
-            var_dump($_POST['nombre']);
-            var_dump($_POST['fecha_nacimiento']);
-            var_dump($_POST['idGenero']);
-            var_dump($_POST['idTipoDoc']);
-            var_dump($_POST['dni']);
-            var_dump($_POST['domicilio']);
-            var_dump($_POST['heladera']);
-            var_dump($_POST['electricidad']);
-            var_dump($_POST['mascota']);
-            var_dump($_POST['idTipoVivienda']);
-            var_dump($_POST['idTipoCalefaccion']);
-            var_dump($_POST['idTipoAgua']);
+        echo "apellido : "    var_dump($_POST['apellido']);
+        echo "nombre : "    var_dump($_POST['nombre']);
+        echo "fecha_nacimiento : "    var_dump($_POST['fecha_nacimiento']);
+        echo "idGenero : "    var_dump($_POST['idGenero']);
+        echo "idTipoDoc : "    var_dump($_POST['idTipoDoc']);
+        echo "dni : "    var_dump($_POST['dni']);
+        echo "domicilio : "    var_dump($_POST['domicilio']);
+        echo "heladera : "    var_dump($_POST['heladera']);
+        echo "electricidad : "    var_dump($_POST['electricidad']);
+        echo "mascota : "    var_dump($_POST['mascota']);
+        echo "idTipoVivienda : "    var_dump($_POST['idTipoVivienda']);
+        echo "idTipoCalefaccion : "    var_dump($_POST['idTipoCalefaccion']);
+        echo "idTipoAgua : "    var_dump($_POST['idTipoAgua']);
 
             die;
 
