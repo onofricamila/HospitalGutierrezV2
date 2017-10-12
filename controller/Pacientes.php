@@ -40,31 +40,26 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
-            || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "")
-            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
-            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
-        {
-            echo 'No llenaste bien los campos';
-            die;
-        }
-            $apellido = $_POST['apellido'];
-            $nombre = $_POST['nombre'];
-            $fecha_nacimiento = $_POST['fecha_nacimiento'];
-            $idGenero = $_POST['idGenero'];
-            $tipo_doc = $_POST['tipo_doc'];
-            $dni = $_POST['dni'];
-            $domicilio = $_POST['domicilio'];
-            $telefono = $_POST['telefono'];
-            $idObraSocial = $_POST['idObraSocial'];
-            $heladera = $_POST['heladera'];
-            $electricidad = $_POST['electricidad'];
-            $mascota = $_POST['mascota'];
-            $idTipoVivienda = $_POST['idTipoVivienda'];
-            $idTipoCalefaccion = $_POST['idTipoCalefaccion'];
-            $idTipoAgua = $_POST['idTipoAgua'];
-    
+            if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
+            || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
+            || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
+            || (!isset($_POST['idGenero']) || ($idGenero = trim($_POST['idGenero'])) == "")
+            || (!isset($_POST['tipo_doc']) || ($tipo_doc = trim($_POST['tipo_doc'])) == "")
+            || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
+            || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
+            || (!isset($_POST['telefono']) || ($telefono = trim($_POST['telefono'])) == "")
+            || (!isset($_POST['idObraSocial']) || ($idObraSocial = trim($_POST['idObraSocial'])) == "")
+            || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
+            || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
+            || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
+            || (!isset($_POST['idTipoVivienda']) || ($idTipoVivienda =trim($_POST['idTipoVivienda'])) == "")
+            || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
+            || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
+            {
+                echo 'No llenaste bien los campos';
+                die;
+            }
+
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
