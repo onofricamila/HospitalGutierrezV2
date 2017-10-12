@@ -20,4 +20,14 @@ $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
   });
+$('.rolesModalTrigger').click(function(){
+    modal = $('#rolesModal')
+    p = $(this).closest('div').find('p')
+    user = $(p).eq(1).text().clone().replace('Nombre de usuario: ', '')
+    roles = $(p).eq(5).text().clone().replace('Roles: ', '').split(", ")
+    $.each( roles, function( key, value ) {
+        id = '#' + value
+        $(id).checked = true
+    })
+})
 (jQuery); // end of jQuery name space
