@@ -1,6 +1,7 @@
 <?php
 class Configuration {
-    private static $instance, $id, $titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento;
+    private static $instance;
+    public $id, $titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento;
     
     public static function getInstance() {
         if (!isset(self::$instance)) {
