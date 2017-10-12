@@ -15,9 +15,6 @@ class TwigController{
         $config = ConfigController::getConfiguration();
 
         $context['titulo'] = $config->titulo;
-        $context['descripcion1'] = $config->descripcion1;
-        $context['descripcion2'] = $config->descripcion2;
-        $context['descripcion3'] = $config->descripcion3;
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
