@@ -1,5 +1,11 @@
 <?php
     require_once './model/Paciente.php';
+    require_once './model/Genero.php';
+    require_once './model/ObraSocial.php';
+    require_once './model/TipoAgua.php';
+    require_once './model/TipoVivienda.php';
+    require_once './model/TipoDoc.php';
+    require_once './model/TipoCalefaccion.php';
 
     class PacientesController {
         private static $instance;
