@@ -72,7 +72,7 @@
                 </div>
 
                 <!-- Dropdown Structure -->
-                <ul id="card-dropdown {{ loop.index }}" class='dropdown-content'>
+                <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                     <li>
                         <a href="{{ "?controller=Users&action=togglestate&id=#{user.id}" }}" target="_self">
                             {% if user.active %} {{ 'Bloquear Usuario' }} {% else %} {{ 'Activar Usuario' }} {% endif %}
