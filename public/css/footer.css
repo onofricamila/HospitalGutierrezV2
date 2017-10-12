@@ -25,3 +25,6 @@ footer p {
     margin: 0px;
     line-height: 100%;
 }
+inline {
+    display: inline;
+}
