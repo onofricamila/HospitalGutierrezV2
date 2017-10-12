@@ -8,7 +8,7 @@
                     <div class="useravatar">
                         <img alt="" src="../../public/imgs/patient3.png">
                     </div>
-                    <div class="card-info"> <span class="card-title">Carga un nuevo paciente!</span> </div>
+                    <div class="card-info"> <span class="card-title">Registra un nuevo paciente!</span> </div>
                 </div>
                 <div>
                         <ul id="tabs-swipe-demo" class="tabs">
@@ -29,7 +29,6 @@
                                             
                                             <div class="input-field col s12 m6">
                                                 <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
-                                                <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <input id="last_name" name="last_name" type="text" class="validate">
@@ -61,16 +60,6 @@
                                                 <label for="last_name">Apellido</label>
                                             </div>
                         
-                                            <div class="row">
-                                                <div class="center-align">
-                                                    <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
-                                                        <i class="material-icons right">backspace</i>
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
-                                                        <i class="material-icons right">send</i>
-                                                    </button>
-                                                </div>
-                                            </div>
                                         </form>
                             </div>
                             <div id="test-swipe-2" class="col s12">
@@ -78,57 +67,32 @@
                                     <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
                                             <div class="input-field col s12 m6">
                                                 <input id="nombre" name="nombre" type="text" class="validate">
-                                                <label for="nombre">Nombre</label>
+                                                <label for="nombre">Heladera?</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <input id="apellido" name="apellido" type="text" class="validate">
-                                                <label for="apellido">Apellido</label>
+                                                <label for="apellido">Electricidad?</label>
                                             </div>
                                             
                                             <div class="input-field col s12 m6">
-                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
-                                                <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" class="validate">
+                                                <label for="fecha_nacimiento">Mascota?</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <input id="last_name" name="last_name" type="text" class="validate">
-                                                <label for="last_name">Genero</label>
+                                                <label for="last_name">Tipo vivienda</label>
                                             </div>
 
                                             <div class="input-field col s12 m6">
                                                 <input id="first_name" name="first_name" type="text" class="validate">
-                                                <label for="first_name">Tipo de doc</label>
+                                                <label for="first_name">Tipo calefaccion</label>
                                             </div>
                                             <div class="input-field col s12 m6">
                                                 <input id="dni" name="dni" type="text" class="validate">
-                                                <label for="dni">DNI</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="domicilio" name="domicilio" type="text" class="validate">
-                                                <label for="domicilio">Domicilio</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="telefono" name="telefono" type="number" class="validate">
-                                                <label for="telefono">telefono</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="first_name" name="first_name" type="text" class="validate">
-                                                <label for="first_name">Obra social</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="last_name" name="last_name" type="text" class="validate">
-                                                <label for="last_name">Apellido</label>
+                                                <label for="dni">Tipo agua</label>
                                             </div>
                         
-                                            <div class="row">
-                                                <div class="center-align">
-                                                    <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
-                                                        <i class="material-icons right">backspace</i>
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
-                                                        <i class="material-icons right">send</i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                            
                                         </form>
                             </div>
                 </div>
@@ -137,6 +101,9 @@
     </div>           
         <style>
             /* USER PROFILE PAGE */
+    #tabs-swipe-demo{
+          overflow: hidden!important;
+      }
      .card {
         margin-top: 20px;
         padding: 30px;
