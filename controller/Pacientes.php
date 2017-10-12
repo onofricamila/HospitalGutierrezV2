@@ -61,8 +61,6 @@
             || (!isset($_POST['tipo_doc']) || ($tipo_doc = trim($_POST['tipo_doc'])) == "")
             || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
             || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
-            || (!isset($_POST['telefono']) || ($telefono = trim($_POST['telefono'])) == "")
-            || (!isset($_POST['idObraSocial']) || ($idObraSocial = trim($_POST['idObraSocial'])) == "")
             || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
             || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
             || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
@@ -70,9 +68,12 @@
             || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
             || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
             {
-                echo 'No llenaste bien los campos';
+                echo 'No llenaste los campos obligatorios';
                 die;
             }
+
+            $telefono = trim($_POST['telefono']);
+            $idObraSocial = trim($_POST['idObraSocial']);
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();

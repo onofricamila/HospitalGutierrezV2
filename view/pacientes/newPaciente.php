@@ -52,15 +52,15 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="dni" name="dni" type="text" class="validate">
+                                            <input id="dni" name="dni" type="text" class="">
                                             <label for="dni">DNI</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="domicilio" name="domicilio" type="text" class="validate">
+                                            <input id="domicilio" name="domicilio" type="text" class="">
                                             <label for="domicilio">Domicilio</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="telefono" name="telefono" type="number" class="validate">
+                                            <input id="telefono" name="telefono" type="number" class="">
                                             <label for="telefono">Telefono</label>
                                         </div>
                                         <div class="input-field col s12 m4">
