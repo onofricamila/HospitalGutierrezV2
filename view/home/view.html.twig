@@ -4,24 +4,13 @@
 <header>
     <div class="img-div-inicio">
         <div class="carousel carousel-slider">
+ 
+            {% for i in 0..6 %}
             <a class="carousel-item">
-                <img src="/public/imgs/c1.jpeg">
+                <img src="/public/imgs/c{{ loop.index }}.jpeg">
             </a>
-            <a class="carousel-item">
-                <img src="/public/imgs/c2.jpeg">
-            </a>
-            <a class="carousel-item">
-                <img src="/public/imgs/c3.jpeg">
-            </a>
-            <a class="carousel-item">
-                <img src="/public/imgs/c4.jpg">
-            </a>
-            <a class="carousel-item">
-                <img src="/public/imgs/c5.jpeg">
-            </a>
-            <a class="carousel-item">
-                <img src="/public/imgs/c6.jpeg">
-            </a>
+            {% endfor %}
+
         </div>
     </div>
 </header>
