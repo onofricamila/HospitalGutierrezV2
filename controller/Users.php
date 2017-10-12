@@ -130,11 +130,14 @@ class UsersController {
             die;
         }
 
+        $user = User::id($id);
+
+        $user->updateUser($id, $email, $user, $first_name, $last_name);
+
         if (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "") {
-            User::updateUserWithPass($id, $email, $user, $pass, $first_name, $last_name);
+            $user->updatePass($pass);
         }
 
-        User::updateUser($id, $email, $user, $first_name, $last_name);
         $this->index();
     }
 
