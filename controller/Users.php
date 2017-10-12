@@ -39,7 +39,6 @@ class UsersController {
             require_once 'view/navbar.php';
             require_once 'view/users/index.php';
             require_once 'view/footer.html';
-            require_once 'view/users/javascripts.php';
             die;
         }
         else {
