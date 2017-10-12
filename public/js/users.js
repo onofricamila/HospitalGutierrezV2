@@ -31,6 +31,7 @@ $('.rolesModalTrigger').click(function () {
         var rol = '#' + roles[i];
         $(rol).prop('checked', true);
     }
+    Materialize.updateTextFields();
 });
 $('.deleteModalTrigger').click(function () {
     contenido = $(this).closest('div').find('.contenido-card');
@@ -38,11 +39,12 @@ $('.deleteModalTrigger').click(function () {
     $('#deleteModalId').val(id);
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#deleteModalUser').text(user);
+    Materialize.updateTextFields();
 });
 $('.updateModalTrigger').click(function () {
     document.getElementById("form").reset();
     $('#form').attr('action', 'index.php?controller=Users&action=updateUser');
-    
+
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     email = contenido.children().eq(1).text().replace('E-mail: ', '');

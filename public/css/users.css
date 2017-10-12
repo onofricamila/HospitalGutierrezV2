@@ -1,6 +1,6 @@
 .container {
     margin-top: 25px;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
 }
 
 div.float-right {
@@ -44,15 +44,19 @@ div.divider-margin {
 .modal-footer {
     text-align: left!important;
 }
+
 .modal-btn {
     max-width: 125px;
 }
+
 .modal-content {
     padding-bottom: 0px!important;
 }
+
 .dropdown-content {
     width: auto!important;
 }
+
 .margint-25 {
     margin-top: 25px;
 }
