@@ -35,7 +35,7 @@
                                                         <?php
                                                         foreach ($allGenre as $genre) {
                                                             ?>
-                                                            <option value="$genre->idGenero" disabled selected>$genre->nombre</option>
+                                                            <option value="$genre->idGenero">$genre->nombre</option>
                                                             <?php
                                                         }
                                                         ?>
