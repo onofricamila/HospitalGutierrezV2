@@ -87,13 +87,19 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <input id="apellido" name="apellido" type="text" class="validate">
-                                            <label for="apellido">Electricidad?</label>
+                                            <select name="electricidad" class="icons">
+                                                <option value="" disabled selected>Electricidad?</option>
+                                                <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                                <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                            </select>
                                         </div>
                                         
                                         <div class="input-field col s12 m6">
-                                            <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" class="validate">
-                                            <label for="fecha_nacimiento">Mascota?</label>
+                                            <select name="mascota" class="icons">
+                                                <option value="" disabled selected>Mascota?</option>
+                                                <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                                <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                            </select>
                                         </div>
                                         <div class="input-field col s12 m6">
                                             <select name="tipo_vivienda">
@@ -132,12 +138,11 @@
                                                     ?>
                                             </select>
                                         </div>
-                                        <div class="row">
-                                            <div class="center-align">
-                                                <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
+                                        <div class="row col m12">
+                                                <button class="col s12 m6 btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
                                                     <i class="material-icons right">backspace</i>
                                                 </button>
-                                                <button class="btn waves-effect waves-light" type="submit" name="submit">Enviar
+                                                <button class="col s12 m6 btn waves-effect waves-light" type="submit" name="submit">Enviar
                                                     <i class="material-icons right">send</i>
                                                 </button>
                                             </div>
