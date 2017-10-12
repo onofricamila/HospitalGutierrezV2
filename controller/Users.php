@@ -32,13 +32,26 @@ class UsersController {
             $args['search'] = $_GET['search'];
         }
 
-        $allRoles = Rol::all();
-
         if ($users = User::all($args)) {
+
+            /*
             require_once 'view/users/header.html';
             require_once 'view/navbar.php';
             require_once 'view/users/index.php';
             require_once 'view/footer.html';
+            */
+
+            $context = [];
+            
+            $context['stylesheets'] = ['/public/css/users.css'];
+            $context['javascripts'] = ['/public/js/users.js'];
+            $context['pagename'] = 'Usuarios';
+            $context['isLogged'] = AppController::isLogged();
+            $context['users'] = $users;
+            $context['allRoles'] = Rol::all();
+            
+            $template = $twig->loadTemplate('/view/users/view.html.twig');
+            echo $template->render($context);
             die;
         }
         else {

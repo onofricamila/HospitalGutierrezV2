@@ -65,7 +65,7 @@
                         <p>Es activo?: {% if user.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
                         <p>Fecha de actualizacion: {{ user.updated_at }}</p>
                         <p>Fecha de creacion: {{ user.created_at }}</p>
-                        <p>Roles: {% for rol in userRoles %} {% if loop.index > 0 %} {{ ', ' }} {% endif %} {{ rol.nombre }} {% endfor %}</p>
+                        <p>Roles: {% for rol in user.roles %} {% if loop.index > 0 %} {{ ', ' }} {% endif %} {{ rol.nombre }} {% endfor %}</p>
                         <p style="display: none;">{{ user.first_name }}</p>
                         <p style="display: none;">{{ user.last_name}}</p>
                     </div>
@@ -74,22 +74,16 @@
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown {{ loop.index }}" class='dropdown-content'>
                     <li>
-                        <a href="{{ " ?controller=Users&action=togglestate&id="~user.id}}" target="_self">
+                        <a href="{{ "?controller=Users&action=togglestate&id=#{user.id}" }}" target="_self">
                             {% if user.active %} {{ 'Bloquear Usuario' }} {% else %} {{ 'Activar Usuario' }} {% endif %}
                         </a>
                     </li>
                     <li class="divider"></li>
-                    <li>
-                        <a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a>
-                    </li>
+                    <li><a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
                     <li class="divider"></li>
-                    <li>
-                        <a class="modal-trigger updateModalTrigger" href="#modalNewUser">Actualizar Usuario</a>
-                    </li>
+                    <li><a class="modal-trigger updateModalTrigger" href="#modalNewUser">Actualizar Usuario</a></li>
                     <li class="divider"></li>
-                    <li>
-                        <a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a>
-                    </li>
+                    <li><a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
                 </ul>
             </div>
         </div>
