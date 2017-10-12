@@ -38,7 +38,7 @@
                                                         ?>
                                                         <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
                                                         <?php
-                                                    }
+                                                  /*  }
                                                     */?>
                                             </select>
                                         </div>
