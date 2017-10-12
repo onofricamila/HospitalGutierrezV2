@@ -173,7 +173,7 @@
                     <?php
                 }
                 ?>
-                <input type="text" id="rolesModalId" name="id" hidden>
+                <input type="text" id="rolesModalId" name="id" hidden value="">
             </div>
         </div>
         <div class="modal-footer">
