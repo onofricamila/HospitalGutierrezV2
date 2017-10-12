@@ -149,13 +149,10 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 70, // Creates a dropdown of 15 years to control year,
+    selectYears: 70, // Creates a dropdown of 70 years to control year,
     clear: 'Clear',
     close: 'Ok',
+    max: Date.now(),
     closeOnSelect: false // Close upon selecting a date,
   }); 
 });
-
-$('.datepicker').pickadate({
-    max: Date.now()
-  })
