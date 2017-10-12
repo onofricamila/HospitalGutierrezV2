@@ -249,21 +249,3 @@
     
     
     <script type="text/javascript" src="/public/js/pacientes.js"></script>
-
-
-   <?php
-   /* 
-    <div class="input-field col s12 m4">
-        <select name="genero_form">
-                <option value="" disabled selected>Genero</option>
-                <?php
-                foreach ($allGenre as $genre) {
-                    ?>
-                    <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
-                    <?php
-                }
-                ?>
-        </select>
-    </div>
-   */
-   ?>
