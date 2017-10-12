@@ -122,7 +122,7 @@ class UsersController {
 
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
             || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
-            || (!isset($_POST['id']) || ($pass = trim($_POST['id'])) == "")
+            || (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "")
             || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
             || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
         {
