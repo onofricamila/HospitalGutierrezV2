@@ -80,6 +80,7 @@
                 die;
             }
             $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            $genero = Genero::new($paciente -> idGenero);
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';

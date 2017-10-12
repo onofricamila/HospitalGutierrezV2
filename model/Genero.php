@@ -10,7 +10,7 @@ class Genero {
     public function buildNombre() {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("SELECT nombre FROM permiso WHERE idGenero=?");
+        $query = $connection->prepare("SELECT nombre FROM genero WHERE idGenero=?");
         $query->execute(array($this->idGenero));
 
         if ($query->rowCount() == 1) {

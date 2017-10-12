@@ -18,7 +18,7 @@
                         <div id="test-swipe-1" class="col s12">
                                 <ul class="collection">
                                     <li class="collection-item">Fecha de nacimiento: <?php  echo $paciente->fecha_nacimiento;?> </li>
-                                    <li class="collection-item">Género: <?php echo $paciente->idGenero;?> </li>
+                                    <li class="collection-item">Género: <?php echo $genero;?> </li>
                                     <li class="collection-item">Tipo de documento: <?php echo $paciente->idTipoDoc;?> </li>
                                     <li class="collection-item">DNI: <?php echo $paciente->dni;?> </li>
                                     <li class="collection-item">Domicilio: <?php echo $paciente->domicilio;?> </li>
