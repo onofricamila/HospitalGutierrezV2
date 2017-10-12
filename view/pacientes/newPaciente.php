@@ -34,8 +34,8 @@
                                         <div class="input-field col s12 m4">
                                             <select name="genero" class="icons">
                                                     <option value="" disabled selected>Genero</option>
-                                                        <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
-                                                        <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
+                                                    <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
+                                                    <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                             </select>
                                         </div>
 
@@ -80,8 +80,11 @@
                         <div id="test-swipe-2" class="col s12">
                                 <br>
                                         <div class="input-field col s12 m6">
-                                            <input id="nombre" name="nombre" type="text" class="validate">
-                                            <label for="nombre">Heladera?</label>
+                                            <select name="heladera" class="icons">
+                                                <option value="" disabled selected>Heladera?</option>
+                                                <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                                <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                            </select>
                                         </div>
                                         <div class="input-field col s12 m6">
                                             <input id="apellido" name="apellido" type="text" class="validate">
