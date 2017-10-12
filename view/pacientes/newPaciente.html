@@ -16,25 +16,120 @@
                                 <li class="tab col s6"><a href="#test-swipe-2">Datos demograficos</a></li>
                             </ul>
                             <div id="test-swipe-1" class="col s12">
-                                    <ul class="collection">
-                                        <li class="collection-item">Fecha de nacimiento:</li>
-                                        <li class="collection-item">Género:</li>
-                                        <li class="collection-item">Tipo de doc.:</li>
-                                        <li class="collection-item">DNI:</li>
-                                        <li class="collection-item">Domicilio:</li>
-                                        <li class="collection-item">Tel/Cel:</li>
-                                        <li class="collection-item">Obra social:</li>
-                                    </ul>
+                                <br>
+                                    <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
+                                            <div class="input-field col s12 m6">
+                                                <input id="nombre" name="nombre" type="text" class="validate">
+                                                <label for="nombre">Nombre</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="apellido" name="apellido" type="text" class="validate">
+                                                <label for="apellido">Apellido</label>
+                                            </div>
+                                            
+                                            <div class="input-field col s12 m6">
+                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
+                                                <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="last_name" name="last_name" type="text" class="validate">
+                                                <label for="last_name">Genero</label>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <input id="first_name" name="first_name" type="text" class="validate">
+                                                <label for="first_name">Tipo de doc</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="dni" name="dni" type="text" class="validate">
+                                                <label for="dni">DNI</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="domicilio" name="domicilio" type="text" class="validate">
+                                                <label for="domicilio">Domicilio</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="telefono" name="telefono" type="number" class="validate">
+                                                <label for="telefono">telefono</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="first_name" name="first_name" type="text" class="validate">
+                                                <label for="first_name">Obra social</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="last_name" name="last_name" type="text" class="validate">
+                                                <label for="last_name">Apellido</label>
+                                            </div>
+                        
+                                            <div class="row">
+                                                <div class="center-align">
+                                                    <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
+                                                        <i class="material-icons right">backspace</i>
+                                                    </button>
+                                                    <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                                                        <i class="material-icons right">send</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
                             </div>
                             <div id="test-swipe-2" class="col s12">
-                                <ul class="collection">
-                                    <li class="collection-item">Heladera?</li>
-                                    <li class="collection-item">Electricidad?</li>
-                                    <li class="collection-item">Mascota(s)?</li>
-                                    <li class="collection-item">Tipo de vivienda?</li>
-                                    <li class="collection-item">Tipo de calefaccion?</li>
-                                    <li class="collection-item">Tipo de agua?</li>
-                                </ul>
+                                    <br>
+                                    <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" autocomplete="off">
+                                            <div class="input-field col s12 m6">
+                                                <input id="nombre" name="nombre" type="text" class="validate">
+                                                <label for="nombre">Nombre</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="apellido" name="apellido" type="text" class="validate">
+                                                <label for="apellido">Apellido</label>
+                                            </div>
+                                            
+                                            <div class="input-field col s12 m6">
+                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
+                                                <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="last_name" name="last_name" type="text" class="validate">
+                                                <label for="last_name">Genero</label>
+                                            </div>
+
+                                            <div class="input-field col s12 m6">
+                                                <input id="first_name" name="first_name" type="text" class="validate">
+                                                <label for="first_name">Tipo de doc</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="dni" name="dni" type="text" class="validate">
+                                                <label for="dni">DNI</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="domicilio" name="domicilio" type="text" class="validate">
+                                                <label for="domicilio">Domicilio</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="telefono" name="telefono" type="number" class="validate">
+                                                <label for="telefono">telefono</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="first_name" name="first_name" type="text" class="validate">
+                                                <label for="first_name">Obra social</label>
+                                            </div>
+                                            <div class="input-field col s12 m6">
+                                                <input id="last_name" name="last_name" type="text" class="validate">
+                                                <label for="last_name">Apellido</label>
+                                            </div>
+                        
+                                            <div class="row">
+                                                <div class="center-align">
+                                                    <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
+                                                        <i class="material-icons right">backspace</i>
+                                                    </button>
+                                                    <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                                                        <i class="material-icons right">send</i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
                             </div>
                 </div>
             </div>
