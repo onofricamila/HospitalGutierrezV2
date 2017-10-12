@@ -121,7 +121,7 @@ class UsersController {
         }
 
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
+            || (!isset($_POST['user']) || ($username = trim($_POST['user'])) == "")
             || (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "")
             || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
             || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
@@ -132,7 +132,7 @@ class UsersController {
 
         $user = User::id($id);
 
-        $user->updateUser($email, $user, $first_name, $last_name);
+        $user->updateUser($email, $username, $first_name, $last_name);
 
         if (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "") {
             $user->updatePass($pass);

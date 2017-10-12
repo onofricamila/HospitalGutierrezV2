@@ -188,7 +188,7 @@ class User extends UserBase {
     public function updatePass($pass) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE usuario SET pass=:pass WHERE id=:id");
+        $query = $connection->prepare("UPDATE usuario SET password=:pass WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
                                 ':id' => $this->id,
                                 ':pass' => $pass,));
