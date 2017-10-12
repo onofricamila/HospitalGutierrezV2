@@ -52,4 +52,8 @@ class ConfigController {
         echo "Config admin, todavia no lo hice.";
         die;
     }
+
+    public function mantenimiento() {
+        return Configuration::getInstance()->mantenimiento;
+    }
 }
