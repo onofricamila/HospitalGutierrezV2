@@ -43,16 +43,16 @@ $('.updateModalTrigger').click(function(){
     document.getElementById("form").reset();
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
-    user = contenido.children().eq(1).text().replace('Nombre de usuario: ', '');
     email = contenido.children().eq(2).text().replace('E-mail: ', '');
+    user = contenido.children().eq(1).text().replace('Nombre de usuario: ', '');
     nombre = contenido.children().eq(7).text();
     apellido = contenido.children().eq(8).text();
     alert(apellido);
     $('#title').text('Actualizar usuario: ' + user);
-    $('#email').val(email);
-    $('#user').val(user);
-    $('#first_name').val(nombre);
-    $('#last_name').val(apellido);
+    $('#email').val(email).click();
+    $('#user').val(user).click();
+    $('#first_name').val(nombre).click();
+    $('#last_name').val(apellido).click();
     $('#id').val(id);
 });
 (jQuery); // end of jQuery name space
