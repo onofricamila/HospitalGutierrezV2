@@ -32,6 +32,7 @@
                                         </div>
                                         <div class="input-field col s12 m4">
                                             <select name="genero_form">
+                                                    <option value="" disabled selected>Genero</option>
                                                     <?php
                                                     foreach ($allGenre as $genre) {
                                                         ?>
