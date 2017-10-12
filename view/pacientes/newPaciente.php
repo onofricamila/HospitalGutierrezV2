@@ -31,8 +31,15 @@
                                                 <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
                                             </div>
                                             <div class="input-field col s12 m4">
-                                                <input id="last_name" name="last_name" type="text" class="validate">
-                                                <label for="last_name">Genero</label>
+                                                <select name="active">
+                                                        <?php
+                                                        foreach ($allGenre as $genre) {
+                                                            ?>
+                                                            <option value="$genre->idGenero" disabled selected>$genre->nombre</option>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                </select>
                                             </div>
 
                                             <div class="input-field col s12 m4">

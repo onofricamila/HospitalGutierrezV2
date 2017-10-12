@@ -8,7 +8,7 @@
                 <div class="useravatar">
                     <img alt="" src="../../public/imgs/patient.png">
                 </div>
-                <div class="card-info"> <span class="card-title">Patient Name</span> </div>
+                <div class="card-info"> <span class="card-title"><?php echo $paciente['nombre'];?> </span> </div>
             </div>
             <div>
                     <ul id="tabs-swipe-demo" class="tabs">
@@ -17,23 +17,23 @@
                         </ul>
                         <div id="test-swipe-1" class="col s12">
                                 <ul class="collection">
-                                    <li class="collection-item">Fecha de nacimiento:</li>
-                                    <li class="collection-item">Género:</li>
-                                    <li class="collection-item">Tipo de doc.:</li>
-                                    <li class="collection-item">DNI:</li>
-                                    <li class="collection-item">Domicilio:</li>
-                                    <li class="collection-item">Tel/Cel:</li>
-                                    <li class="collection-item">Obra social:</li>
+                                    <li class="collection-item">Fecha de nacimiento: <?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Género:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Tipo de doc.:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">DNI:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Domicilio:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Tel/Cel:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Obra social:<?php echo $paciente['nombre'];?> </li>
                                 </ul>
                         </div>
                         <div id="test-swipe-2" class="col s12">
                             <ul class="collection">
-                                <li class="collection-item">Heladera?</li>
-                                <li class="collection-item">Electricidad?</li>
-                                <li class="collection-item">Mascota(s)?</li>
-                                <li class="collection-item">Tipo de vivienda?</li>
-                                <li class="collection-item">Tipo de calefaccion?</li>
-                                <li class="collection-item">Tipo de agua?</li>
+                                <li class="collection-item">Heladera?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Electricidad?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Mascota(s)?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Tipo de vivienda?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Tipo de calefaccion?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Tipo de agua?<?php echo $paciente['nombre'];?> </li>
                             </ul>
                         </div>
             </div>

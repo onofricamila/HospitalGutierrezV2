@@ -1,4 +1,6 @@
 <?php
+    require_once './model/Paciente.php';
+
     class PacientesController {
         private static $instance;
         
@@ -20,8 +22,9 @@
             }
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/pacientes.html';
-            require_once 'view/footer.html';
+            require_once 'view/pacientes/pacientes.php';
+            require_once 'view/footer.html'; 
+
         }
 
         public function newPaciente(){
@@ -31,7 +34,7 @@
             }
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/newPaciente.html';
+            require_once 'view/pacientes/newPaciente.php';
             require_once 'view/footer.html';
         }
 
@@ -76,9 +79,11 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+
+            $paciente = Paciente::getPaciente($_GET['idPaciente']);
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/showPaciente.html';
+            require_once 'view/pacientes/showPaciente.php';
             require_once 'view/footer.html';
         }
 
