@@ -76,7 +76,7 @@
                 <ul id="<?php echo "card-dropdown".$i ?>" class='dropdown-content'>
                     <li><a href="<?php echo "?controller=Users&action=togglestate&id=".$user->id; ?>" target="_self"><?php if ($user->active) { echo 'Bloquear Usuario'; } else { echo 'Activar Usuario'; } ?></a></li>
                     <li class="divider"></li>
-                    <li><a class="modal-trigger rolesModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
+                    <li><a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
                     <li class="divider"></li>
