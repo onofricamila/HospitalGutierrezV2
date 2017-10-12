@@ -33,13 +33,8 @@
                                         <div class="input-field col s12 m4">
                                             <select name="genero_form" class="icons">
                                                     <option value="" disabled selected>Genero</option>
-                                                    <?php
-                                                    foreach ($allGenre as $genre) {
-                                                        ?>
-                                                        <option data-icon="/public/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
-                                                        <?php
-                                                    }
-                                                    ?>
+                                                        <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
+                                                        <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                             </select>
                                         </div>
 
@@ -199,3 +194,22 @@
     
     
     <script type="text/javascript" src="/public/js/pacientes.js"></script>
+
+
+   <?php
+   /* 
+    <div class="input-field col s12 m4">
+                                            <select name="genero_form" class="icons">
+                                                    <option value="" disabled selected>Genero</option>
+                                                    <?php
+                                                    foreach ($allGenre as $genre) {
+                                                        ?>
+                                                        <option data-icon="/public/imgs/female.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <option data-icon="/public/imgs/male.png" class="circle" value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
+                                        </div>
+   */
+   ?>
