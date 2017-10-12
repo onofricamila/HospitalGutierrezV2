@@ -53,7 +53,7 @@ class ConfigController {
         die;
     }
 
-    public function mantenimiento() {
+    public static function mantenimiento() {
         return Configuration::getInstance()->mantenimiento;
     }
 }
