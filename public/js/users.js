@@ -47,6 +47,7 @@ $('.updateModalTrigger').click(function(){
     email = contenido.children().eq(2).text().replace('E-mail: ', '');
     nombre = contenido.children().eq(7).text();
     apellido = contenido.children().eq(8).text();
+    alert(apellido);
     $('#title').text('Actualizar usuario: ' + user);
     $('#email').val(email);
     $('#user').val(user);
