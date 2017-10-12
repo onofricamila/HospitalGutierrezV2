@@ -24,7 +24,18 @@
             require_once 'view/footer.html';
         }
 
-        public function newPaciente() {
+        public function newPaciente(){
+            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
+                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+                die;
+            }
+            require_once 'view/header.html';
+            require_once 'view/navbar.php';
+            require_once 'view/pacientes/newPaciente.html';
+            require_once 'view/footer.html';
+        }
+
+        public function auxNewPaciente() {
             if (!AppController::getInstance()->checkPermissions('paciente_new')) {
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
