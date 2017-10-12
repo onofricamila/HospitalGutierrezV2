@@ -50,7 +50,7 @@ class UsersController {
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
             
-            $template = AppController::getTwig()->loadTemplate('/view/users/view.html.twig');
+            $template = AppController::getTwig()->loadTemplate('/users/view.html.twig');
             echo $template->render($context);
             die;
         }
