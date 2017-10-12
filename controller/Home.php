@@ -16,9 +16,9 @@
         public function getContext() {
             $config = ConfigController::getConfiguration();
             $context = [];
-            $context['descripcion1'] = $config['descripcion1'];
-            $context['descripcion2'] = $config['descripcion2'];
-            $context['descripcion3'] = $config['descripcion3'];
+            $context['descripcion1'] = $config->descripcion1;
+            $context['descripcion2'] = $config->descripcion2;
+            $context['descripcion3'] = $config->descripcion3;
             $context['javascripts'] = '/public/js/home.js';
             return $context;
         }
