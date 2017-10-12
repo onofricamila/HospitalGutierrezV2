@@ -24,12 +24,13 @@ $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
-    $('#rolesModalId').text(id);
+    $('#rolesModalId').val(id);
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#rolesModalUser').text(user);
     roles = contenido.children().eq(6).text().replace('Roles: ', '').split(", ");
-    $.each( roles, function( key, value ) {
-        $( '#' + value ).prop('checked', true);
-    });
+    for (var i = 0; i < roles.length; i++) {
+        var rol = '#' + roles[i];
+        $(rol).prop('checked', true);
+    }
 });
 (jQuery); // end of jQuery name space
