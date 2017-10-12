@@ -19,20 +19,20 @@
                             <br>
                                 <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off">
                                         <div class="input-field col s12 m4">
-                                            <input id="nombre" name="nombre" type="text" class="">
+                                            <input id="nombre" name="nombre" type="text" class="validate">
                                             <label for="nombre">Nombre</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="apellido" name="apellido" type="text" class="">
+                                            <input id="apellido" name="apellido" type="text" class="validate">
                                             <label for="apellido">Apellido</label>
                                         </div>
                                         
                                         <div class="input-field col s12 m4">
-                                            <input type="text" name="fecha_nacimiento"  class="datepicker">
+                                            <input type="text" name="fecha_nacimiento"  class="datepicker validate">
                                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero" class="icons">
+                                            <select name="genero" class="icons validate">
                                                     <option value="" disabled selected>Genero</option>
                                                     <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                                     <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m4">
-                                            <select name="tipo_doc">
+                                            <select name="tipo_doc" >
                                                     <option value="" disabled selected>Tipo de documento</option>
                                                     <?php
                                                     foreach ($allTipoDoc as $tipo) {
@@ -52,15 +52,15 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="dni" name="dni" type="text" class="">
+                                            <input id="dni" name="dni" type="text" class="validate">
                                             <label for="dni">DNI</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="domicilio" name="domicilio" type="text" class="">
+                                            <input id="domicilio" name="domicilio" type="text" class="validate">
                                             <label for="domicilio">Domicilio</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="telefono" name="telefono" type="number" class="">
+                                            <input id="telefono" name="telefono" type="number">
                                             <label for="telefono">Telefono</label>
                                         </div>
                                         <div class="input-field col s12 m4">
@@ -151,8 +151,8 @@
                                             </div>
                                                
                                                
+                                            </div>
                                         </div>
-                                    </div>
                                             
                                 </form>
                     </div>
