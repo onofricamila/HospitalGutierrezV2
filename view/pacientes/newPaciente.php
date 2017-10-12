@@ -32,7 +32,7 @@
                                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero" class="icons">
+                                            <select name="idGenero" class="icons">
                                                     <option value="" disabled selected>Genero</option>
                                                     <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                                     <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m4">
-                                            <select name="tipo_doc" >
+                                            <select name="idTipoDoc" >
                                                     <option value="" disabled selected>Tipo de documento</option>
                                                     <?php
                                                     foreach ($allTipoDoc as $tipo) {
@@ -52,7 +52,7 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="dni" name="dni" type="text" class="validate">
+                                            <input id="dni" name="dni" type="number" class="validate">
                                             <label for="dni">DNI</label>
                                         </div>
                                         <div class="input-field col s12 m4">
@@ -64,7 +64,7 @@
                                             <label for="telefono">Telefono</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="obra_social">
+                                            <select name="idObraSocial">
                                                     <option value="" disabled selected>Obra Social</option>
                                                     <?php
                                                     foreach ($allObraSocial as $obra) {
@@ -102,7 +102,7 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <select name="tipo_vivienda">
+                                            <select name="idTipoVivienda">
                                                     <option value="" disabled selected>Tipo Vivienda</option>
                                                     <?php
                                                     foreach ($allTipoVivienda as $tipo) {
@@ -115,7 +115,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m6">
-                                            <select name="tipo_calefaccion">
+                                            <select name="idTipoCalefaccion">
                                                     <option value="" disabled selected>Tipo Calefaccion</option>
                                                     <?php
                                                     foreach ($allTipoCalefaccion as $tipo) {
@@ -127,7 +127,7 @@
                                             </select>
                                         </div>
                                         <div class="input-field col s12 m6">
-                                            <select name="tipo_agua">
+                                            <select name="idTipoAgua">
                                                     <option value="" disabled selected>Tipo Agua</option>
                                                     <?php
                                                     foreach ($allTipoAgua as $tipo) {
