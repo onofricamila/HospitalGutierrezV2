@@ -58,7 +58,7 @@
             var_dump($_POST['nombre']);
             var_dump($_POST['fecha_nacimiento']);
             var_dump($_POST['idGenero']);
-            var_dump($_POST['tipo_doc']);
+            var_dump($_POST['idTipoDoc']);
             var_dump($_POST['dni']);
             var_dump($_POST['domicilio']);
             var_dump($_POST['heladera']);
