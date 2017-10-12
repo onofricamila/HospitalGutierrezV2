@@ -204,6 +204,11 @@ html {
     position: fixed!important; width:  100%; height: 100%;
 }
 
-.height100 {
-    height: 100%!important;
+.equalHeightcontainer {
+    display: table;
+    width: 100%;
+}
+
+.equalHeight {
+    display: table-cell;
 }
