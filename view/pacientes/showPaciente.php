@@ -19,7 +19,7 @@
                                 <ul class="collection">
                                     <li class="collection-item">Fecha de nacimiento: <?php  echo $paciente->fecha_nacimiento;?> </li>
                                     <li class="collection-item">Género: <?php echo $paciente->idGenero;?> </li>
-                                    <li class="collection-item">Tipo de doc.: <?php echo $paciente->idTipoDoc;?> </li>
+                                    <li class="collection-item">Tipo de documento: <?php echo $paciente->idTipoDoc;?> </li>
                                     <li class="collection-item">DNI: <?php echo $paciente->dni;?> </li>
                                     <li class="collection-item">Domicilio: <?php echo $paciente->domicilio;?> </li>
                                     <li class="collection-item">Tel/Cel: <?php echo $paciente->telefono;?> </li>
