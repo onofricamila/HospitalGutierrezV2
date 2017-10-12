@@ -191,8 +191,7 @@ class User extends UserBase {
         $query = $connection->prepare("UPDATE usuario SET pass=:pass WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
                                 ':id' => $this->id,
-                                ':pass' => $pass,
-                                ':user' => $user));
+                                ':pass' => $pass,));
 
         return $query->rowCount() == 1;
     }
