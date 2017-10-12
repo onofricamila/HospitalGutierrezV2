@@ -40,7 +40,7 @@ $('.deleteModalTrigger').click(function(){
     $('#deleteModalUser').text(user);
 });
 $('.updateModalTrigger').click(function(){
-    $('#form').reset();
+    document.getElementById("form").reset();
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     user = contenido.children().eq(1).text().replace('Nombre de usuario: ', '');
