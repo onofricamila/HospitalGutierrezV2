@@ -8,7 +8,7 @@
                 <div class="useravatar">
                     <img alt="" src="../../public/imgs/patient.png">
                 </div>
-                <div class="card-info"> <span class="card-title"><?php echo $paciente['nombre'];?> </span> </div>
+                <div class="card-info"> <span class="card-title"><?php echo $paciente->nombre;?> </span> </div>
             </div>
             <div>
                     <ul id="tabs-swipe-demo" class="tabs">
