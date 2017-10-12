@@ -50,17 +50,17 @@
                 ':nombre' => $nombre, 
                 ':fecha_nacimiento' => $fecha_nacimiento, 
                 ':idGenero' => $idGenero, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':user' => $user, 
-                ':pass' => $pass, 
-                ':first_name' => $first_name, 
-                ':last_name' => $last_name));
+                ':idTipoDoc' => $idTipoDoc, 
+                ':dni' => $dni, 
+                ':telefono' => $telefono, 
+                ':idObraSocial' => $idObraSocial, 
+                ':domicilio' => $domicilio, 
+                ':heladera' => $heladera, 
+                ':idTipoVivienda' => $idTipoVivienda, 
+                ':idTipoCalefaccion' => $idTipoCalefaccion, 
+                ':idTipoAgua' => $idTipoAgua, 
+                ':electricidad' => $electricidad, 
+                ':mascota' => $mascota));
 
             return $query->rowCount() == 1;
         }
