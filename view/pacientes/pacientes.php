@@ -6,11 +6,11 @@
             
         </div>
         <br>
-        <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo</a>
+        <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo (funciona)</a>
         <br>
         <a href="?controller=Pacientes&action=deletePaciente&idPaciente=">Show bai patient demo (funciona)</a>
         <br>
-        <a href="?controller=Pacientes&action=newPaciente">Show new patient demo</a>
+        <a href="?controller=Pacientes&action=newPaciente">Show new patient demo (funciona)</a>
         <br>
         <a href="?controller=Pacientes&action=updatePaciente&idPaciente=2">Show edit patient demo</a>
         <br>
