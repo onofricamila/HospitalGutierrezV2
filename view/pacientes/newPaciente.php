@@ -139,14 +139,20 @@
                                             </select>
                                         </div>
                                         <div class="row col m12">
+                                            <div class="col s12 m6">
                                                 <button class="col s12 m6 btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
                                                     <i class="material-icons right">backspace</i>
                                                 </button>
+                                            </div>
+                                            <div class="col s12 m6">
                                                 <button class="col s12 m6 btn waves-effect waves-light" type="submit" name="submit">Enviar
                                                     <i class="material-icons right">send</i>
                                                 </button>
                                             </div>
+                                               
+                                               
                                         </div>
+                                    </div>
                                             
                                 </form>
                     </div>
