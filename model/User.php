@@ -190,7 +190,7 @@ class User extends UserBase {
         $query = $connection->prepare("UPDATE usuario SET updated_at=:updated, password=:pass WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
                                 ':id' => $this->id,
-                                ':pass' => $pass,));
+                                ':pass' => $pass));
 
         return $query->rowCount() == 1;
     }
