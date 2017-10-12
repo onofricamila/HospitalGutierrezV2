@@ -54,7 +54,22 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            
+            var_dump($_POST['apellido']);
+            var_dump($_POST['nombre']);
+            var_dump($_POST['fecha_nacimiento']);
+            var_dump($_POST['idGenero']);
+            var_dump($_POST['idTipoDoc']);
+            var_dump($_POST['dni']);
+            var_dump($_POST['domicilio']);
+            var_dump($_POST['heladera']);
+            var_dump($_POST['electricidad']);
+            var_dump($_POST['mascota']);
+            var_dump($_POST['idTipoVivienda']);
+            var_dump($_POST['idTipoCalefaccion']);
+            var_dump($_POST['idTipoAgua']);
+
+            die;
+
             if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
             || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
             || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
