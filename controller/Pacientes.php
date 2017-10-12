@@ -80,7 +80,7 @@
                 die;
             }
             /* pongo un id cualquiera (1) ahora para probar se toman bien los datos de la bd; despues va un post (con get toma al param como nombre de la funcion)*/
-            $paciente = Paciente::getPaciente(1);
+            $paciente = Paciente::getPaciente($_GET['idPaciente']);
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';
