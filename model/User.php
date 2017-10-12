@@ -170,4 +170,30 @@ class User extends UserBase {
         
         return $query->rowCount() == 1;
     }
+
+    public function updateUser($email, $user, $first_name, $last_name) {
+        $connection = Connection::getInstance();
+        
+        $query = $connection->prepare("UPDATE usuario SET updated=:updated, email=:email, username=:user, first_name=:first_name, last_name=:last_name WHERE id=:id");
+        $query->execute(array(':updated' => date("Y-m-d H:i:s"),
+                                ':id' => $this->id,
+                                ':email' => $email,
+                                ':user' => $user,
+                                ':first_name' => $first_name,
+                                ':last_name' => $last_name));
+
+        return $query->rowCount() == 1;
+    }
+
+    public function updatePass($pass) {
+        $connection = Connection::getInstance();
+        
+        $query = $connection->prepare("UPDATE usuario SET pass=:pass WHERE id=:id");
+        $query->execute(array(':updated' => date("Y-m-d H:i:s"),
+                                ':id' => $this->id,
+                                ':pass' => $pass,
+                                ':user' => $user));
+
+        return $query->rowCount() == 1;
+    }
 }

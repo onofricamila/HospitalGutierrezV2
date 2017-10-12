@@ -113,4 +113,29 @@ class UsersController {
         }
         $this->index();
     }
+
+    public function updateUser() {
+        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+
+        if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
+            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
+            || (!isset($_POST['id']) || ($pass = trim($_POST['id'])) == "")
+            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
+            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
+        {
+            echo 'No llenaste bien los campos';
+            die;
+        }
+
+        if (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "") {
+            User::updateUserWithPass($id, $email, $user, $pass, $first_name, $last_name);
+        }
+
+        User::updateUser($id, $email, $user, $first_name, $last_name);
+        $this->index();
+    }
+
 }

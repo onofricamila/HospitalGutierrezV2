@@ -41,7 +41,7 @@ $('.deleteModalTrigger').click(function () {
 });
 $('.updateModalTrigger').click(function () {
     document.getElementById("form").reset();
-    $('#form').attr('action', 'index.php?controller=Users&action=updateRol');
+    $('#form').attr('action', 'index.php?controller=Users&action=updateUser');
     
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
