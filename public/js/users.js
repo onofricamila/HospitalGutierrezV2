@@ -16,11 +16,11 @@
 $(document).ready(function () {
     $('select').material_select();
 });
-$(document).ready(function(){
+$(document).ready(function () {
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
-  });
-$('.rolesModalTrigger').click(function(){
+});
+$('.rolesModalTrigger').click(function () {
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     $('#rolesModalId').val(id);
@@ -32,15 +32,16 @@ $('.rolesModalTrigger').click(function(){
         $(rol).prop('checked', true);
     }
 });
-$('.deleteModalTrigger').click(function(){
+$('.deleteModalTrigger').click(function () {
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     $('#deleteModalId').val(id);
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#deleteModalUser').text(user);
 });
-$('.updateModalTrigger').click(function(){
+$('.updateModalTrigger').click(function () {
     document.getElementById("form").reset();
+
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     email = contenido.children().eq(1).text().replace('E-mail: ', '');
@@ -54,6 +55,11 @@ $('.updateModalTrigger').click(function(){
     $('#first_name').val(nombre);
     $('#last_name').val(apellido);
     $('#id').val(id);
+    Materialize.updateTextFields();
+});
+$('.modal-trigger').click(function () {
+    document.getElementById("form").reset();
+    $('#title').text('Nuevo Usuario');
     Materialize.updateTextFields();
 });
 (jQuery); // end of jQuery name space
