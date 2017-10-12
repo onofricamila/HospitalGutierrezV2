@@ -17,7 +17,7 @@ class Configuration {
         $query->execute();
         
         if ($query->rowCount() == 1) {
-            return baseBuild($query->fetch(PDO::FETCH_ASSOC));
+            return $this->baseBuild($query->fetch(PDO::FETCH_ASSOC));
         }
         return false;
     }
