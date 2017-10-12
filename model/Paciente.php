@@ -24,7 +24,7 @@
             $this ->nombre = $array['nombre'];
             $this ->fecha_nacimiento =  $array['fecha_nacimiento'];
             $this ->idGenero = $array['idGenero'];
-            $this ->tipo_doc = $array['tipo_doc'];
+            $this ->idTipoDoc = $array['idTipoDoc'];
             $this ->dni = $array['dni'];
             $this ->domicilio = $array['domicilio'];
             $this ->telefono = $array['telefono'];
