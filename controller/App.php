@@ -6,13 +6,22 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/model/UserGuest.php';
 class AppController {
     private static $instance;
     private static $user;
-
+    private static $twig;
+    
     public static function getInstance() {
         if (!isset(self::$instance)) {
             self::$instance = new self();
         }
 
         return self::$instance;
+    }
+
+    public static function getTwig() {
+        if (!isset(self::$twig)) {
+            self::$twig = new Twig_Environment($loader, array());
+        }
+
+        return self::$twig;
     }
 
     private function __construct() {

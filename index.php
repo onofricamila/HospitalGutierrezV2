@@ -10,7 +10,6 @@
     require_once 'controller/App.php';
 
     $loader = new Twig_Loader_Filesystem();
-    $twig = new Twig_Environment($loader, array());
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
