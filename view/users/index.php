@@ -179,9 +179,6 @@
             <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
                 <i class="material-icons right">send</i>
             </button>
-
-        </div>
-        <div class="modal-footer">
             <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
                 <i class="material-icons right">arrow_back</i>
             </button>
