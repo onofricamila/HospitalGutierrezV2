@@ -39,10 +39,26 @@
        
         public static function newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
             $connection = Connection::getInstance();
-    
-            $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)");
-            $query->execute(array($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua));
-            
+
+           $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) 
+            VALUES (:apellido, :nombre, :fecha_nacimiento, :idGenero, :idTipoDoc, :dni, :telefono, :idObraSocial, :domicilio, :heladera, :electricidad, :mascota, :idTipoVivienda, :idTipoCalefaccion, :idTipoAgua)");
+           
+           $query->execute(array(':apellido' => $apellido, 
+                ':nombre' => $nombre, 
+                ':fecha_nacimiento' => $fecha_nacimiento, 
+                ':idGenero' => $idGenero, 
+                ':idTipoDoc' => $idTipoDoc, 
+                ':dni' => $dni, 
+                ':telefono' => $telefono, 
+                ':idObraSocial' => $idObraSocial, 
+                ':domicilio' => $domicilio, 
+                ':heladera' => $heladera, 
+                ':idTipoVivienda' => $idTipoVivienda, 
+                ':idTipoCalefaccion' => $idTipoCalefaccion, 
+                ':idTipoAgua' => $idTipoAgua, 
+                ':electricidad' => $electricidad, 
+                ':mascota' => $mascota));
+
             return $query->rowCount() == 1;
         }
     
