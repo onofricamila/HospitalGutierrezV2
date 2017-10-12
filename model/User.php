@@ -174,22 +174,20 @@ class User extends UserBase {
     public function updateUser($email, $user, $first_name, $last_name) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE usuario SET updated=:updated, email=:email, username=:user, first_name=:first_name, last_name=:last_name WHERE id=:id");
+        $query = $connection->prepare("UPDATE usuario SET updated_at=:updated, email=:email, username=:user, first_name=:first_name, last_name=:last_name WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
                                 ':id' => $this->id,
                                 ':email' => $email,
                                 ':user' => $user,
                                 ':first_name' => $first_name,
                                 ':last_name' => $last_name));
-        var_dump($query->rowCount());
-        die;
         return $query->rowCount() == 1;
     }
 
     public function updatePass($pass) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE usuario SET updated=:updated, password=:pass WHERE id=:id");
+        $query = $connection->prepare("UPDATE usuario SET updated_at=:updated, password=:pass WHERE id=:id");
         $query->execute(array(':updated' => date("Y-m-d H:i:s"),
                                 ':id' => $this->id,
                                 ':pass' => $pass,));
