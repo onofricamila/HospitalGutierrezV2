@@ -95,7 +95,7 @@ class UsersController {
             die;
         }
 
-        if (!isset($_POST['rolesModalId']) || ($id = trim($_POST['rolesModalId'])) == "") {
+        if (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "") {
             echo 'El campo id no esta cargado.';
             die;
         }
