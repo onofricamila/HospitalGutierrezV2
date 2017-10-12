@@ -30,6 +30,21 @@
     <div>
         <div class="containerInicio">
             <div class="row">
+                {% for card in cards %}
+                    <div class="col l4 m12">
+                        <div class="card">
+                            <h4 class="card-header">
+                                <small> {{ card.title }} </small>
+                            </h4>
+                            <div class="card-body">
+                                <p class="card-text">{{ card.description }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-masinfo">Más info >></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
                 <div class="col l4 m12">
                     <div class="card">
                         <h4 class="card-header">

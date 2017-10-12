@@ -16,9 +16,9 @@
         public function getContext() {
             $config = ConfigController::getConfiguration();
             $context = [];
-            $context['descripcion1'] = $config->descripcion1;
-            $context['descripcion2'] = $config->descripcion2;
-            $context['descripcion3'] = $config->descripcion3;
+            $context['cards'][] = array('title' => 'EL HOSPITAL', 'descripcion' => $descripcion1);
+            $context['cards'][] = array('title' => 'GUARDIA', 'descripcion' => $descripcion2);
+            $context['cards'][] = array('title' => 'ESPECIALIDADES', 'descripcion' => $descripcion3);
             $context['stylesheets'] = ['/public/css/main.css'];
             $context['javascripts'] = ['/public/js/home.js'];
             return $context;
