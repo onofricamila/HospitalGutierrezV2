@@ -47,7 +47,6 @@ class ConfigController {
         $context = [];
         $path = '/config/mantenimiento.html.twig';
         $context['stylesheets'] = ['/public/css/config.css'];
-        $context['javascripts'] = ['/public/js/config.js'];
         TwigController::renderTwig($path, $context);
 }
 
