@@ -1,6 +1,6 @@
 <?php
 class Configuration {
-    private static $instance, $titulo, $descripcion, $email, $id;
+    private static $instance, $id, $titulo, $descripcion, $email, $elementos, $mantenimiento;
     
     public static function getInstance() {
         if (!isset(self::$instance)) {
@@ -29,14 +29,16 @@ class Configuration {
         $this->email = $array['email'];
     }
 
-    public function update($titulo, $descripcion, $email) {
+    public function update($titulo, $descripcion, $email, $elementos, $mantenimiento) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, descripcion=:descripcion, email=:email WHERE id=:id");
+        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, descripcion=:descripcion, email=:email, elementos=:elementos, mantenimiento=:mantenimiento WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
                                 ':descripcion' => $descripcion,
-                                ':email' => $email));
+                                ':email' => $email,
+                                ':elementos' => $elementos,
+                                ':mantenimiento' => $mantenimiento));
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
