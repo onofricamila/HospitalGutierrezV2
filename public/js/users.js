@@ -27,7 +27,7 @@ $('.rolesModalTrigger').click(function(){
     $('#rolesModalUser').text(user);
     roles = contenido.children().eq(5).text().replace('Roles: ', '').split(", ");
     $.each( roles, function( key, value ) {
-        $( '#' + value ).checked = true;
+        $( '#' + value ).prop('checked', true);
     });
 });
 (jQuery); // end of jQuery name space
