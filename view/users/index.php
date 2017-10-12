@@ -154,12 +154,12 @@
 <section>
     <!-- Role admin Modal -->
     <div id="rolesModal" class="modal">
+    <form action="" method="post" action="index.php?controller=Users&action=updateRol">
         <div class="modal-content">
             <h4 class="center-align">Administrar roles de: <span id="rolesModalUser"></span></h4>
             <div class="divider"></div>
 
             <div class="row">
-                <form action="" method="post" action="index.php?controller=Users&action=updateRol">
                 <?php
                 foreach ($allRoles as $rol) {
                     ?>
@@ -173,9 +173,9 @@
                 }
                 ?>
                 <input type="text" id="user" name="user" hidden>
-                </form>
             </div>
-
+        </div>
+        <div class="modal-footer">
             <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
                 <i class="material-icons right">send</i>
             </button>
@@ -183,6 +183,7 @@
                 <i class="material-icons right">arrow_back</i>
             </button>
         </div>
+    </form>
     </div>
     
 </section>
