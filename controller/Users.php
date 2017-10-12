@@ -134,7 +134,7 @@ class UsersController {
 
         $user->updateUser($email, $username, $first_name, $last_name);
 
-        if (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "") {
+        if (isset($_POST['pass']) && ($pass = trim($_POST['pass'])) == "") {
             $user->updatePass($pass);
         }
 
