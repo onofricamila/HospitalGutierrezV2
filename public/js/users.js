@@ -41,7 +41,8 @@ $('.deleteModalTrigger').click(function () {
 });
 $('.updateModalTrigger').click(function () {
     document.getElementById("form").reset();
-
+    $('#form').attr('action', 'index.php?controller=Users&action=updateRol');
+    
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     email = contenido.children().eq(1).text().replace('E-mail: ', '');
@@ -59,6 +60,7 @@ $('.updateModalTrigger').click(function () {
 });
 $('.newUserModalTrigger').click(function () {
     document.getElementById("form").reset();
+    $('#form').attr('action', 'index.php?controller=Users&action=newUser');
     $('#title').text('Nuevo Usuario');
     Materialize.updateTextFields();
 });
