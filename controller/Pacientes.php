@@ -80,7 +80,7 @@
                 die;
             }
 
-            $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            $paciente = Paciente::getPaciente(1);
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';
