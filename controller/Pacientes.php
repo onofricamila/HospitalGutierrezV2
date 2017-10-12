@@ -24,12 +24,31 @@
             require_once 'view/footer.html';
         }
 
-        public function newPaciente() {
+        public function newPaciente(){
             if (!AppController::getInstance()->checkPermissions('paciente_new')) {
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-    
+            require_once 'view/header.html';
+            require_once 'view/navbar.php';
+            require_once 'view/pacientes/newPaciente.html';
+            require_once 'view/footer.html';
+        }
+
+        public function auxNewPaciente() {
+            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
+                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+                die;
+            }
+            if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
+            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
+            || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "")
+            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
+            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
+        {
+            echo 'No llenaste bien los campos';
+            die;
+        }
             $apellido = $_POST['apellido'];
             $nombre = $_POST['nombre'];
             $fecha_nacimiento = $_POST['fecha_nacimiento'];
