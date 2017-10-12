@@ -140,4 +140,34 @@ class User extends UserBase {
         }
         return $this->activate();
     }
+
+    public function hasRol($rol) {
+        foreach ($this->roles as $userRol) {
+            if ($rol->id == $userRol->id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function addRol($id) {
+        $connection = Connection::getInstance();
+        
+        $query = $connection->prepare("INSERT INTO usuario_tiene_rol (usuario_id, rol_id) 
+                                        VALUES (:usuario_id, :rol_id)");
+        $query->execute(array(':usuario_id' => $this->id,
+                                ':rol_id' => $id));
+        
+        return $query->rowCount() == 1;
+    }
+
+    public function deleteRol($id) {
+        $connection = Connection::getInstance();
+        
+        $query = $connection->prepare("DELETE FROM usuario_tiene_rol WHERE usuario_id=:usuario_id AND rol_id=:rol_id");
+        $query->execute(array(':usuario_id' => $this->id,
+                                ':rol_id' => $id));
+        
+        return $query->rowCount() == 1;
+    }
 }

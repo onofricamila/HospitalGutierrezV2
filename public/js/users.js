@@ -23,9 +23,11 @@ $(document).ready(function(){
 $('.rolesModalTrigger').click(function(){
     modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
-    user = contenido.children().eq(1).text().replace('Nombre de usuario: ', '');
+    id = contenido.children().eq(0).text();
+    $('#rolesModalId').text(id);
+    user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#rolesModalUser').text(user);
-    roles = contenido.children().eq(5).text().replace('Roles: ', '').split(", ");
+    roles = contenido.children().eq(6).text().replace('Roles: ', '').split(", ");
     $.each( roles, function( key, value ) {
         $( '#' + value ).prop('checked', true);
     });

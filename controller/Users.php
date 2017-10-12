@@ -78,9 +78,38 @@ class UsersController {
     }
 
     public function deleteUser() {
+        if (!AppController::getInstance()->checkPermissions('usuario_delete')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+
         $id = $_GET['id'];
 
         User::deleteUser($id);
         $this->index();
+    }
+
+    public function updateRol() {
+        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+
+        if (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "") {
+            echo 'El campo id no esta cargado.';
+            die;
+        }
+
+        $roles = Rol::all();
+        $user = User::id($id);
+
+        foreach ($roles as $rol) {
+            if (isset($_POST[$rol->nombre]) && !$user->hasRol($rol)) {
+                $user->addRol($rol->id);
+            }
+            elseif (!isset($_POST[$rol->nombre]) && $user->hasRol($rol)) {
+                $user->deleteRol($rol->id);
+            }
+        }        
     }
 }

@@ -56,6 +56,7 @@
                     <div class="divider"></div>
 
                     <div class="contenido-card">
+                        <p style="display: none;"><?php echo $user->id; ?></p>
                         <p>E-mail: <?php echo $user->email; ?></p>
                         <p>Nombre de usuario: <?php echo $user->username; ?></p>
                         <p>Es activo?: <?php if ($user->active) { echo 'Si'; } else { echo 'No'; } ?></p>
@@ -172,7 +173,7 @@
                     <?php
                 }
                 ?>
-                <input type="text" id="user" name="user" hidden>
+                <input type="text" id="rolesModalUser" name="id" hidden>
             </div>
         </div>
         <div class="modal-footer">
