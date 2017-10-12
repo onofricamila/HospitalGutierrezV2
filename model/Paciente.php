@@ -42,7 +42,26 @@
     
             $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?)");
             $query->execute(array($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua));
-            
+           
+           $query = $connection->prepare("INSERT INTO usuario (apellido, nombre, fecha_nacimiento, idGenero, idTipoDoc, dni, telefono, idObraSocial, domicilio, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua) 
+            VALUES (:apellido, :nombre, :fecha_nacimiento, :idGenero, :idTipoDoc, :dni, :telefono, :idObraSocial, :domicilio, :heladera, :electricidad, :mascota, :idTipoVivienda, :idTipoCalefaccion, :idTipoAgua)");
+           
+           $query->execute(array(':apellido' => $apellido, 
+                ':nombre' => $nombre, 
+                ':fecha_nacimiento' => $fecha_nacimiento, 
+                ':idGenero' => $idGenero, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':user' => $user, 
+                ':pass' => $pass, 
+                ':first_name' => $first_name, 
+                ':last_name' => $last_name));
+
             return $query->rowCount() == 1;
         }
     
