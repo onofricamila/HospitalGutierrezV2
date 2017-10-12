@@ -55,7 +55,7 @@ class Rol {
 
         if ($query->rowCount() > 0) {
             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                if (!$row['nombre'] == 'Guest') {
+                if (!($row['nombre'] == 'Guest')) {
                     $roles[] = new Rol($row['id']);
                 }
             }
