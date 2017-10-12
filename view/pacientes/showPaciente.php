@@ -17,12 +17,12 @@
                         </ul>
                         <div id="test-swipe-1" class="col s12">
                                 <ul class="collection">
-                                    <li class="collection-item">Fecha de nacimiento: <?php echo $paciente['nombre'];?> </li>
-                                    <li class="collection-item">Género:<?php echo $paciente['nombre'];?> </li>
-                                    <li class="collection-item">Tipo de doc.:<?php echo $paciente['nombre'];?> </li>
-                                    <li class="collection-item">DNI:<?php echo $paciente['nombre'];?> </li>
-                                    <li class="collection-item">Domicilio:<?php echo $paciente['nombre'];?> </li>
-                                    <li class="collection-item">Tel/Cel:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Fecha de nacimiento: <?php echo $paciente->nombre;?> </li>
+                                    <li class="collection-item">Género:<?php echo $paciente->nombre;?> </li>
+                                    <li class="collection-item">Tipo de doc.:<?php echo $paciente->nombre;?> </li>
+                                    <li class="collection-item">DNI:<?php echo $paciente->nombre;?> </li>
+                                    <li class="collection-item">Domicilio:<?php echo $paciente->nombre;?> </li>
+                                    <li class="collection-item">Tel/Cel:<?php echo $paciente->nombre;?> </li>
                                     <li class="collection-item">Obra social:<?php echo $paciente['nombre'];?> </li>
                                 </ul>
                         </div>
