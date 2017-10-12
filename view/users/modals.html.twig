@@ -1,0 +1,125 @@
+<section>
+    <!-- Modal newUser -->
+    <!-- Modal Trigger -->
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light icon-cyan modal-trigger newUserModalTrigger" href="#modalNewUser">
+            <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modalNewUser" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align" id="title"></h4>
+            <div class="divider"></div>
+            <div class="row margint-25">
+                <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" id="form">
+                    <div class="row modal-form-row">
+                        <div class="input-field col s12">
+                            <input id="email" name="email" type="text" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input id="user" name="user" type="text" class="validate">
+                        <label for="user">Nombre de Usuario</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="pass" name="pass" type="password" class="validate">
+                        <label for="pass">Contrasena</label>
+                    </div>
+
+                    <div class="input-field col s12 m6">
+                        <input id="first_name" name="first_name" type="text" class="validate">
+                        <label for="first_name">Nombre</label>
+                    </div>
+                    <div class="input-field col s12 m6">
+                        <input id="last_name" name="last_name" type="text" class="validate">
+                        <label for="last_name">Apellido</label>
+                    </div>
+                    <input type="text" id="id" name="id" hidden>
+
+                    <div class="row">
+                        <div class="center-align">
+                            <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
+                                <i class="material-icons right">backspace</i>
+                            </button>
+                            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                <i class="material-icons right">arrow_back</i>
+            </button>
+        </div>
+    </div>
+</section>
+<section>
+    <!-- Role admin Modal -->
+    <div id="rolesModal" class="modal">
+        <form method="post" action="index.php?controller=Users&action=updateRol">
+            <div class="modal-content">
+                <h4 class="center-align">Administrar roles de:
+                    <span id="rolesModalUser"></span>
+                </h4>
+                <div class="divider"></div>
+
+                <div class="row">
+
+                    {% for rol in allRoles %}
+                    <div class="col s12 m6">
+                        <p>
+                            <input class="roleCheckbox" type="checkbox" id="{{ rol.nombre }}" name="{{ rol.nombre }}" />
+                            <label class="roleLabel" for="{{ rol.nombre }}">{{ rol.nombre }}</label>
+                        </p>
+                    </div>
+                    {% endfor %}
+
+                    <input type="text" id="rolesModalId" name="rolesModalId" hidden>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                    <i class="material-icons right">arrow_back</i>
+                </button>
+                <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
+    <!-- Role admin Modal -->
+    <div id="deleteModal" class="modal">
+        <form method="post" action="index.php?controller=Users&action=deleteUser">
+            <div class="modal-content">
+                <h4 class="center-align">Esta seguro que quiere eliminar el usuario "<span id="deleteModalUser"></span>"?</h4>
+
+                <div class="divider"></div>
+
+                <div class="row">
+                    <div class="col s12 m6">
+                        <p>Esta accion no se puede revertir.</p>
+                    </div>
+                    <input type="text" id="deleteModalId" name="deleteModalId" hidden>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                    <i class="material-icons right">arrow_back</i>
+                </button>
+                <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

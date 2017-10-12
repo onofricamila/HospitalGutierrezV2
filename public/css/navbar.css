@@ -1,50 +1,50 @@
 nav ul a.active {
-        color: #00bfa5!important;
-    }
+    color: #00bfa5!important;
+}
 
-    nav .right a:hover {
-        background-color: transparent!important;
-        border-bottom: 2px solid #00bfa5;
-    }
+nav .right a:hover {
+    background-color: transparent!important;
+    border-bottom: 2px solid #00bfa5;
+}
 
-    .false-navbar {
-        height: 100%!important;
-        background-color: white;
-    }
+.false-navbar {
+    height: 100%!important;
+    background-color: white;
+}
 
-    nav ul a {
-        color: #00bfa5!important;
-    }
+nav ul a {
+    color: #00bfa5!important;
+}
 
-    .hospital {
-        color: black!important;
-    }
+.hospital {
+    color: black!important;
+}
 
-    #logo {
-        width: 30px;
-        height: 36px;
-        margin-bottom: -12px;
-        margin-top: -9px;
-        margin-left: 5px;
-    }
+#logo {
+    width: 30px;
+    height: 36px;
+    margin-bottom: -12px;
+    margin-top: -9px;
+    margin-left: 5px;
+}
 
-    .logo-collapsed {
-        width: 12px;
-        height: 12px;
-    }
+.logo-collapsed {
+    width: 12px;
+    height: 12px;
+}
 
-    .brand-logo:hover {
-        background: transparent!important;
-    }
+.brand-logo:hover {
+    background: transparent!important;
+}
 
-    .button-collapse {
-        color: black;
-    }
+.button-collapse {
+    color: black;
+}
 
-    .fa-bars {
-        color: #00bfa5;
-    }
+.fa-bars {
+    color: #00bfa5;
+}
 
-    .side-nav li>a {
-        text-align: left;
-    }
+.side-nav li>a {
+    text-align: left;
+}
