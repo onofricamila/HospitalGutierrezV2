@@ -12,103 +12,103 @@
                 </div>
                 <div>
                         <ul id="tabs-swipe-demo" class="tabs">
-                                <li class="tab col s6"><a class="active" href="#test-swipe-1">Info personal</a></li>
-                                <li class="tab col s6"><a href="#test-swipe-2">Datos demograficos</a></li>
-                            </ul>
-                            <div id="test-swipe-1" class="col s12">
-                                <br>
-                                    <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off">
-                                            <div class="input-field col s12 m4">
-                                                <input id="nombre" name="nombre" type="text" class="validate">
-                                                <label for="nombre">Nombre</label>
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <input id="apellido" name="apellido" type="text" class="validate">
-                                                <label for="apellido">Apellido</label>
-                                            </div>
-                                            
-                                            <div class="input-field col s12 m4">
-                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <select name="genero_form">
-                                                        <?php
-                                                        foreach ($allGenre as $genre) {
-                                                            ?>
-                                                            <option value="$genre->idGenero">$genre->nombre</option>
-                                                            <?php
-                                                        }
+                            <li class="tab col s6"><a class="active" href="#test-swipe-1">Info personal</a></li>
+                            <li class="tab col s6"><a href="#test-swipe-2">Datos demograficos</a></li>
+                        </ul>
+                        <div id="test-swipe-1" class="col s12">
+                            <br>
+                                <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off">
+                                        <div class="input-field col s12 m4">
+                                            <input id="nombre" name="nombre" type="text" class="validate">
+                                            <label for="nombre">Nombre</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="apellido" name="apellido" type="text" class="validate">
+                                            <label for="apellido">Apellido</label>
+                                        </div>
+                                        
+                                        <div class="input-field col s12 m4">
+                                            <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" class="validate">
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <select name="genero_form">
+                                                    <?php
+                                                    foreach ($allGenre as $genre) {
                                                         ?>
-                                                </select>
-                                            </div>
+                                                        <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
+                                        </div>
 
-                                            <div class="input-field col s12 m4">
-                                                <input id="first_name" name="first_name" type="text" class="validate">
-                                                <label for="first_name">Tipo de doc</label>
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <input id="dni" name="dni" type="text" class="validate">
-                                                <label for="dni">DNI</label>
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <input id="domicilio" name="domicilio" type="text" class="validate">
-                                                <label for="domicilio">Domicilio</label>
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <input id="telefono" name="telefono" type="number" class="validate">
-                                                <label for="telefono">telefono</label>
-                                            </div>
-                                            <div class="input-field col s12 m4">
-                                                <input id="first_name" name="first_name" type="text" class="validate">
-                                                <label for="first_name">Obra social</label>
-                                            </div>
-                                       
-                            </div>
-                            <div id="test-swipe-2" class="col s12">
-                                    <br>
-                                            <div class="input-field col s12 m6">
-                                                <input id="nombre" name="nombre" type="text" class="validate">
-                                                <label for="nombre">Heladera?</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="apellido" name="apellido" type="text" class="validate">
-                                                <label for="apellido">Electricidad?</label>
-                                            </div>
-                                            
-                                            <div class="input-field col s12 m6">
-                                                <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" class="validate">
-                                                <label for="fecha_nacimiento">Mascota?</label>
-                                            </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="last_name" name="last_name" type="text" class="validate">
-                                                <label for="last_name">Tipo vivienda</label>
-                                            </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="first_name" name="first_name" type="text" class="validate">
+                                            <label for="first_name">Tipo de doc</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="dni" name="dni" type="text" class="validate">
+                                            <label for="dni">DNI</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="domicilio" name="domicilio" type="text" class="validate">
+                                            <label for="domicilio">Domicilio</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="telefono" name="telefono" type="number" class="validate">
+                                            <label for="telefono">telefono</label>
+                                        </div>
+                                        <div class="input-field col s12 m4">
+                                            <input id="first_name" name="first_name" type="text" class="validate">
+                                            <label for="first_name">Obra social</label>
+                                        </div>
+                                    
+                        </div>
+                        <div id="test-swipe-2" class="col s12">
+                                <br>
+                                        <div class="input-field col s12 m6">
+                                            <input id="nombre" name="nombre" type="text" class="validate">
+                                            <label for="nombre">Heladera?</label>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <input id="apellido" name="apellido" type="text" class="validate">
+                                            <label for="apellido">Electricidad?</label>
+                                        </div>
+                                        
+                                        <div class="input-field col s12 m6">
+                                            <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" class="validate">
+                                            <label for="fecha_nacimiento">Mascota?</label>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <input id="last_name" name="last_name" type="text" class="validate">
+                                            <label for="last_name">Tipo vivienda</label>
+                                        </div>
 
-                                            <div class="input-field col s12 m6">
-                                                <input id="first_name" name="first_name" type="text" class="validate">
-                                                <label for="first_name">Tipo calefaccion</label>
+                                        <div class="input-field col s12 m6">
+                                            <input id="first_name" name="first_name" type="text" class="validate">
+                                            <label for="first_name">Tipo calefaccion</label>
+                                        </div>
+                                        <div class="input-field col s12 m6">
+                                            <input id="dni" name="dni" type="text" class="validate">
+                                            <label for="dni">Tipo agua</label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="center-align">
+                                                <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
+                                                    <i class="material-icons right">backspace</i>
+                                                </button>
+                                                <button class="btn waves-effect waves-light" type="submit" name="submit">Enviar
+                                                    <i class="material-icons right">send</i>
+                                                </button>
                                             </div>
-                                            <div class="input-field col s12 m6">
-                                                <input id="dni" name="dni" type="text" class="validate">
-                                                <label for="dni">Tipo agua</label>
-                                            </div>
-                                            <div class="row">
-                                                <div class="center-align">
-                                                    <button class="btn waves-effect waves-light right-align" type="reset" name="submit">Limpiar
-                                                        <i class="material-icons right">backspace</i>
-                                                    </button>
-                                                    <button class="btn waves-effect waves-light" type="submit" name="submit">Enviar
-                                                        <i class="material-icons right">send</i>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        </div>
                                             
-                                        </form>
-                            </div>
+                                </form>
+                    </div>
                 </div>
             </div>
     </div>
-    </div>           
+</div>           
         <style>
             /* USER PROFILE PAGE */
     #tabs-swipe-demo{
