@@ -155,7 +155,7 @@
 <section>
     <!-- Role admin Modal -->
     <div id="rolesModal" class="modal">
-    <form action="" method="post" action="index.php?controller=Users&action=updateRol">
+    <form method="post" action="index.php?controller=Users&action=updateRol">
         <div class="modal-content">
             <h4 class="center-align">Administrar roles de: <span id="rolesModalUser"></span></h4>
             <div class="divider"></div>
