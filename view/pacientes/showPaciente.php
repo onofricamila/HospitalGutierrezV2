@@ -23,17 +23,17 @@
                                     <li class="collection-item">DNI:<?php echo $paciente->nombre;?> </li>
                                     <li class="collection-item">Domicilio:<?php echo $paciente->nombre;?> </li>
                                     <li class="collection-item">Tel/Cel:<?php echo $paciente->nombre;?> </li>
-                                    <li class="collection-item">Obra social:<?php echo $paciente['nombre'];?> </li>
+                                    <li class="collection-item">Obra social:<?php echo $paciente->nombre;?> </li>
                                 </ul>
                         </div>
                         <div id="test-swipe-2" class="col s12">
                             <ul class="collection">
-                                <li class="collection-item">Heladera?<?php echo $paciente['nombre'];?> </li>
-                                <li class="collection-item">Electricidad?<?php echo $paciente['nombre'];?> </li>
-                                <li class="collection-item">Mascota(s)?<?php echo $paciente['nombre'];?> </li>
-                                <li class="collection-item">Tipo de vivienda?<?php echo $paciente['nombre'];?> </li>
-                                <li class="collection-item">Tipo de calefaccion?<?php echo $paciente['nombre'];?> </li>
-                                <li class="collection-item">Tipo de agua?<?php echo $paciente['nombre'];?> </li>
+                                <li class="collection-item">Heladera?<?php echo $paciente->nombre;?> </li>
+                                <li class="collection-item">Electricidad?<?php echo $paciente->nombre;?> </li>
+                                <li class="collection-item">Mascota(s)?<?php echo $paciente->nombre;?> </li>
+                                <li class="collection-item">Tipo de vivienda?<?php echo $paciente->nombre;?> </li>
+                                <li class="collection-item">Tipo de calefaccion?<?php echo $paciente->nombre;?> </li>
+                                <li class="collection-item">Tipo de agua?<?php echo $paciente->nombre;?> </li>
                             </ul>
                         </div>
             </div>
