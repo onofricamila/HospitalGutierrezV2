@@ -181,7 +181,8 @@ class User extends UserBase {
                                 ':user' => $user,
                                 ':first_name' => $first_name,
                                 ':last_name' => $last_name));
-
+        var_dump($query->rowCount());
+        die;
         return $query->rowCount() == 1;
     }
 
