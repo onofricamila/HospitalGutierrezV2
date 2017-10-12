@@ -32,7 +32,7 @@
                                             <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <select name="genero_form" class="icons">
+                                            <select name="genero" class="icons">
                                                     <option value="" disabled selected>Genero</option>
                                                         <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                                         <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
@@ -40,7 +40,7 @@
                                         </div>
 
                                         <div class="input-field col s12 m4">
-                                            <select name="genero_form">
+                                            <select name="tipo_doc">
                                                     <option value="" disabled selected>Tipo de documento</option>
                                                     <?php
                                                     foreach ($allTipoDoc as $tipo) {
@@ -61,11 +61,19 @@
                                         </div>
                                         <div class="input-field col s12 m4">
                                             <input id="telefono" name="telefono" type="number" class="validate">
-                                            <label for="telefono">telefono</label>
+                                            <label for="telefono">Telefono</label>
                                         </div>
                                         <div class="input-field col s12 m4">
-                                            <input id="first_name" name="first_name" type="text" class="validate">
-                                            <label for="first_name">Obra social</label>
+                                            <select name="obra_social">
+                                                    <option value="" disabled selected>Obra Social</option>
+                                                    <?php
+                                                    foreach ($allObraSocial as $obra) {
+                                                        ?>
+                                                        <option value="<?php echo $obra->idGenero ; ?>"><?php echo $obra->nombre ; ?></option>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                            </select>
                                         </div>
                                     
                         </div>
