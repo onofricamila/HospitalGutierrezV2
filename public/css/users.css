@@ -52,3 +52,6 @@ div.divider-margin {
 .dropdown-content {
     width: auto!important;
 }
+.margint-25 {
+    margin-top: 25px;
+}

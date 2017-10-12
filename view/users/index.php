@@ -106,7 +106,7 @@
         <div class="modal-content">
             <h4 class="center-align" id="title"></h4>
             <div class="divider"></div>
-            <div class="row">
+            <div class="row margint-25">
                 <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" id="form">
                     <div class="row modal-form-row">
                         <div class="input-field col s12">
