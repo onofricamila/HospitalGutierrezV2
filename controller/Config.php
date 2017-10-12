@@ -46,7 +46,7 @@ class ConfigController {
     public function index() {
         $context = [];
         $path = '/config/mantenimiento.html.twig';
-        $context['stylesheets'] = ['/public/css/config.css'];
+        $context['src'] = '/public/css/config.css';
         TwigController::renderTwig($path, $context);
 }
 
