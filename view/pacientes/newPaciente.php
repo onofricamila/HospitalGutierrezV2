@@ -75,6 +75,13 @@
                                                     ?>
                                             </select>
                                         </div>
+                                        <div class="input-field col s12 m6">
+                                            <select name="heladera" class="icons">
+                                                <option value="" disabled selected>Heladera?</option>
+                                                <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                                <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                            </select>
+                                        </div>
                                     
                         </div>
                         <div id="test-swipe-2" class="col s12">
