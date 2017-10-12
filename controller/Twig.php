@@ -14,6 +14,13 @@ class TwigController{
     public static function renderTwig($path, $context = []) {
         $config = ConfigController::getConfiguration();
 
+        if (!isset($context['stylesheets'])) {
+            $context['stylesheets'] = [];
+        }
+        if (!isset($context['javascripts'])) {
+            $context['javascripts'] = [];
+        }
+
         $context['titulo'] = $config->titulo;
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
