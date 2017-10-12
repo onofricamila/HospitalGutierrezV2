@@ -38,6 +38,7 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+            $allGenre = Genero::all();
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/newPaciente.php';
@@ -92,7 +93,7 @@
             $tipo_vivienda = new TipoVivienda($paciente -> idTipoVivienda);
             $tipo_calefaccion = new TipoCalefaccion($paciente -> idTipoCalefaccion);
             $tipo_agua = new TipoAgua($paciente -> idTipoAgua);
-            
+
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';

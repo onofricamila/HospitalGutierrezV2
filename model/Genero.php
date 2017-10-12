@@ -20,5 +20,21 @@ class Genero {
         return false;
     }
 
+    public static function all() {
+        $connection = Connection::getInstance();
+
+        $result = $connection->query("SELECT * FROM genero");
+
+        $allGenre = [];
+
+        if ($result->rowCount() > 0) {
+            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                $allGenre[] = new Genero($row);
+            }
+            return $allGenre;
+        }
+        return false;
+    }
+
 }
 ?>
