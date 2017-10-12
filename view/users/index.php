@@ -76,7 +76,7 @@
                 <ul id="<?php echo "card-dropdown".$i ?>" class='dropdown-content'>
                     <li><a href="<?php echo "?controller=Users&action=togglestate&id=".$user->id; ?>" target="_self"><?php if ($user->active) { echo 'Bloquear Usuario'; } else { echo 'Activar Usuario'; } ?></a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo "?controller=Users&action=deleteUser&id=".$user->id; ?>" target="_self">Eliminar Usuario</a></li>
+                    <li><a class="modal-trigger rolesModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
                     <li class="divider"></li>
                     <li><a href="<?php echo "?controller=Users&action=updateUser&id=".$user->id; ?>" target="_self">Actualizar Usuario</a></li>
                     <li class="divider"></li>
@@ -186,5 +186,30 @@
         </div>
     </form>
     </div>
-    
+</section>
+<section>
+    <!-- Role admin Modal -->
+    <div id="deleteModal" class="modal">
+    <form method="post" action="index.php?controller=Users&action=deleteUser">
+        <div class="modal-content">
+            <h4 class="center-align">Esta seguro que quiere eliminar el usuario "<span id="deleteModalUser"></span>"?</h4>
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <p>Esta accion no se puede revertir.</p>
+                </div>
+                <input type="text" id="deleteModalId" name="deleteModalId" hidden>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
+                <i class="material-icons right">arrow_back</i>
+            </button>
+            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+    </form>
+    </div>
 </section>

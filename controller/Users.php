@@ -83,7 +83,7 @@ class UsersController {
             die;
         }
 
-        $id = $_GET['id'];
+        $id = $_POST['deleteModalId'];
 
         User::deleteUser($id);
         $this->index();

@@ -21,7 +21,6 @@ $(document).ready(function(){
     $('.modal').modal();
   });
 $('.rolesModalTrigger').click(function(){
-    modal = $('#rolesModal');
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     $('#rolesModalId').val(id);
@@ -32,5 +31,12 @@ $('.rolesModalTrigger').click(function(){
         var rol = '#' + roles[i];
         $(rol).prop('checked', true);
     }
+});
+$('.deleteModalTrigger').click(function(){
+    contenido = $(this).closest('div').find('.contenido-card');
+    id = contenido.children().eq(0).text();
+    $('#deleteModalId').val(id);
+    user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
+    $('#deleteModalUser').text(user);
 });
 (jQuery); // end of jQuery name space
