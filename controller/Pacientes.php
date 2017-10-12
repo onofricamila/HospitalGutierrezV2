@@ -38,7 +38,10 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            $allGenre = Genero::all();
+            $allTipoAgua = TipoAgua::all();
+            $allTipoCalefaccion = TipoCalefaccion::all();
+            $allTipoVivienda = TipoVivienda::all();
+            $allObraSocial = ObraSocial::all();
             $allTiposDoc = TipoDoc::all();
             require_once 'view/header.html';
             require_once 'view/navbar.php';

@@ -43,9 +43,9 @@
                                             <select name="genero_form">
                                                     <option value="" disabled selected>Tipo de documento</option>
                                                     <?php
-                                                    foreach ($allGenre as $genre) {
+                                                    foreach ($allTipoDoc as $tipo) {
                                                         ?>
-                                                        <option value="<?php echo $genre->idGenero ; ?>"><?php echo $genre->nombre ; ?></option>
+                                                        <option value="<?php echo $tipo->idTipoDoc ; ?>"><?php echo $tipo->nombre ; ?></option>
                                                         <?php
                                                     }
                                                     ?>
