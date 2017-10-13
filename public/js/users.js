@@ -67,7 +67,7 @@ $('.newUserModalTrigger').click(function () {
 });
 $(document).ready(function () {
     $('.cardContainer').each(function( index ) {
-        if (index > $('#paginacion').text()) {
+        if (index+1 > $('#paginacion').text()) {
             $(this).hide();
         }
     });
