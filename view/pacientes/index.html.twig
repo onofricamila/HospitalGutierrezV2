@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="container" style="display: none;">
+    <div class="row">
+        <div class="col s12 l6">
+            <h3>Usuarios</h3>
+        </div>
+
+        <form class="search-form" method="get" target="_self">
+
+            <input type="text" name="controller" value="Users" hidden>
+            <input type="text" name="action" value="index" hidden>
+
+            <div class="col s3 l2 height-100">
+                <div class="input-field">
+                    <select name="active">
+                        <option value="" disabled selected>Estado</option>
+                        <option value="2">Todos</option>
+                        <option value="1">Activos</option>
+                        <option value="0">Bloqueados</option>
+                    </select>
+                    <label>Estado</label>
+                </div>
+            </div>
+
+            <div class="col s8 l3">
+                <div class="input-field">
+                    <input id="search" type="text" name="search">
+                    <label for="search">Usuario</label>
+                </div>
+            </div>
+
+            <div class="col s1 l1">
+                <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
+                    <i class="material-icons icon-cyan">search</i>
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="divider divider-margin"></div>
+
+    <div class="row">
+        <span id="paginacion" style="display: none">{{ elementos }}</span>
+
+        {% for user in users %}
+        <div class="col s12 l6 cardContainer">
+            <div class="card">
+                <div class="card-content black-text">
+                    <span class="card-title">
+                        {{ "#{user.last_name}, #{user.first_name}" }}
+                        <!-- Dropdown Trigger -->
+                        <a href="#!" data-activates="{{ "card-dropdown#{loop.index}" }}" class="secondary-content dropdown-button float-right">
+                            <i class="icon-cyan material-icons">settings</i>
+                        </a>
+                    </span>
+
+                    <div class="divider"></div>
+
+                    <div class="contenido-card">
+                        <p style="display: none;">{{ user.id }}</p>
+                        <p>E-mail: {{ user.email }}</p>
+                        <p>Nombre de usuario: {{ user.username }}</p>
+                        <p>Es activo?: {% if user.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
+                        <p>Fecha de actualizacion: {{ user.updated_at }}</p>
+                        <p>Fecha de creacion: {{ user.created_at }}</p>
+                        <p>Roles: {% for rol in user.roles %}{% if loop.index > 1 %}{{ ", #{rol.nombre}" }}{% else %}{{ rol.nombre }}{% endif %}{% endfor %}</p>
+                        <p style="display: none;">{{ user.first_name }}</p>
+                        <p style="display: none;">{{ user.last_name }}</p>
+                    </div>
+                </div>
+
+                <!-- Dropdown Structure -->
+                <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
+                    <li>
+                        <a href="{{ "?controller=Users&action=togglestate&id=#{user.id}" }}" target="_self">
+                            {% if user.active %} {{ 'Bloquear Usuario' }} {% else %} {{ 'Activar Usuario' }} {% endif %}
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
+                    <li class="divider"></li>
+                    <li><a class="modal-trigger updateModalTrigger" href="#modalNewUser">Actualizar Usuario</a></li>
+                    <li class="divider"></li>
+                    <li><a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="divider divider-margin"></div>
+
+    <div class="paginacionDiv">
+        <ul class="pagination center-align">
+            <li class="disabled pagination-back"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            {% for i in range(0, (usersCant // elementos)) %}
+                <li class="pagination-li waves-effect"><a href="#!">{{ loop.index }}</a></li>
+            {% endfor %}
+            <li class="pagination-next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+</section>
+
+{% include '/users/modals.html.twig' %}
+
+{% endblock %}
