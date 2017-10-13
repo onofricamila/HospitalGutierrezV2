@@ -21,10 +21,23 @@
                 die;
             }
             else {
+                /*
                 require_once 'view/header.html';
                 require_once 'view/navbar.php';
                 require_once 'view/login/login.html';
                 require_once 'view/footer.html';
+                die;
+                */
+
+                $context = [];
+                
+                $context['stylesheets'] = ['/public/css/main.css'];
+                $context['javascripts'] = [];
+                $context['pagename'] = 'Login';
+    
+                $path = '/login/view.html.twig';
+                
+                TwigController::renderTwig($path, $context);
                 die;
             }
         }
