@@ -22,4 +22,5 @@ span.card-title {
     margin-top: 15px;
 }
 .card {
+    min-height: 400px;
 }
