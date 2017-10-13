@@ -85,3 +85,6 @@ td {
     right: 50px;
     bottom: 50px;
 }
+input {
+    margin: 0px;
+}
