@@ -68,7 +68,7 @@ $('.newUserModalTrigger').click(function () {
 $(document).ready(function () {
     var paginacion = $('.paginacion').text();
     $('.cardContainer').each(function( index ) {
-        if (index > paginacion) {
+        if (index > $('.paginacion').text()) {
             $(this).hide();
         }
     });
