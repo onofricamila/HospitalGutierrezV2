@@ -49,8 +49,8 @@
                 require_once 'view/footer.html';  */
                 $context = [];
                 
-                $context['stylesheets'] = ['/public/css/pacientes.css', '/public/css/users.css'];
-                $context['javascripts'] = ['/public/js/pacientes.js', '/public/js/users.js'];
+                $context['stylesheets'] = ['/public/css/pacientes.css'];
+                $context['javascripts'] = ['/public/js/pacientes.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
                 $context['allTipoDoc'] = TipoDoc::all();
