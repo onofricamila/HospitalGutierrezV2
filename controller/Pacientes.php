@@ -49,7 +49,8 @@
                 require_once 'view/footer.html';  */
                 $context = [];
                 
-                $context['stylesheets'] = ['/public/css/pacientes.css'];
+                /* uso el mismo diseño que el listado de users*/
+                $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
                 $context['javascripts'] = ['/public/js/pacientes.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
