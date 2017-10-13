@@ -20,10 +20,30 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><span>{{ titulo }}<span></td>
-                    <td><span>{{ email }}<span></td>
-                    <td><span>{{ elementos }}<span></td>
-                    <td><span>{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}<span></td>
+                    <td>
+                        <span id="titleSpan">{{ titulo }}<span>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" value="{{titulo}}" name="titulo">
+                        </div>
+                    </td>
+                    <td>
+                        <span id="emailSpan">{{ email }}<span>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" value="{{email}}" name="email">
+                        </div>
+                    </td>
+                    <td>
+                        <span id="elementosSpan">{{ elementos }}<span>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" value="{{elementos}}" name="elementos">
+                        </div>
+                    </td>
+                    <td>
+                        <span id="mantenimientoSpan">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}<span>
+                        <div class="input-field col s12">
+                            <input type="text" class="validate" value="{{mantenimiento}}" name="mantenimiento">
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -34,10 +54,16 @@
         <div class="col s12 m4 card-container">
             <div class="card">
                 <h4 class="card-header">
-                    <small>{{ card.titulo }}</small>
+                    <small><span class="titleSpan">{{ card.titulo }}<span></small>
+                    <div class="input-field col s12">
+                        <input type="text" class="validate" value="{{card.titulo}}">
+                    </div>
                 </h4>
                 <div class="card-body">
-                    <p class="card-text">{{ card.descripcion }}</p>
+                    <p class="card-text"><span class="descSpan">{{ card.descripcion }}<span></p>
+                    <div class="input-field col s12">
+                        <textarea class="validate materialize-textarea" value="{{card.descripcion}}"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
