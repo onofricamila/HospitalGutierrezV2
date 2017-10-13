@@ -26,9 +26,20 @@
 
             $args= [];
 
-            if (isset($_GET['search']) && $_GET['search'] != "") {
-                $args['search'] = $_GET['search'];
+            if (isset($_GET['nombre']) && $_GET['nombre'] != "") {
+                $args['nombre'] = $_GET['nombre'];
             }
+            if (isset($_GET['apellido']) && $_GET['apellido'] != "") {
+                $args['apellido'] = $_GET['apellido'];
+            }
+            if (isset($_GET['dni']) && $_GET['dni'] != "") {
+                $args['dni'] = $_GET['dni'];
+            }
+            
+            if (isset($_GET['idTipoDoc'])) {
+                $args['idTipoDoc'] = $_GET['idTipoDoc'];
+            }
+            
            
             if ($allPaciente = Paciente::all($args)) {
                 
