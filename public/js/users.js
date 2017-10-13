@@ -50,13 +50,15 @@ $('.updateModalTrigger').click(function () {
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     nombre = contenido.children().eq(7).text();
     apellido = contenido.children().eq(8).text();
-
+    pass = contenido.children().eq(9).text();
+    
     $('#title').text('Actualizar usuario: ' + user);
     $('#email').val(email);
     $('#user').val(user);
     $('#first_name').val(nombre);
     $('#last_name').val(apellido);
     $('#id').val(id);
+    $('#pass').val(pass);
     Materialize.updateTextFields();
 });
 $('.newUserModalTrigger').click(function () {
