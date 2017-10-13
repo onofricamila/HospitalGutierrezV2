@@ -37,7 +37,7 @@ class Configuration {
         $this->mantenimiento = $data['mantenimiento'];
     }
 
-    public function update($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento) {
+    public function update($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos) {
         $connection = Connection::getInstance();
         
         $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, 
@@ -49,7 +49,6 @@ class Configuration {
                                                                 descripcion3=:descripcion3, 
                                                                 email=:email, 
                                                                 elementos=:elementos, 
-                                                                mantenimiento=:mantenimiento 
                                                             WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
@@ -60,8 +59,7 @@ class Configuration {
                                 ':descripcion2' => $descripcion2,
                                 ':descripcion3' => $descripcion3,
                                 ':email' => $email,
-                                ':elementos' => $elementos,
-                                ':mantenimiento' => $mantenimiento));
+                                ':elementos' => $elementos));
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
@@ -80,5 +78,9 @@ class Configuration {
         $context['cards'][] = array('titulo' => $this->titulo2, 'descripcion' => $this->descripcion2);
         $context['cards'][] = array('titulo' => $this->titulo3, 'descripcion' => $this->descripcion3);
         return $context;
+    }
+
+    public function toggleMantenimiento() {
+
     }
 }

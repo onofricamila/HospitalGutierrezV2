@@ -32,8 +32,7 @@ class ConfigController {
             || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "")
             || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "")
             || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == "")
-            || (!isset($_POST['mantenimiento'])) || ($mantenimiento = trim($_POST['mantenimiento'])) == "")
+            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == ""))
         {
             echo 'No llenaste bien los campos';
             die;
@@ -41,7 +40,7 @@ class ConfigController {
 
         $config = Configuration::getInstance();
 
-        $config->updateUser($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento);
+        $config->updateUser($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
 
         $this->admin();
     }
@@ -86,5 +85,9 @@ class ConfigController {
     
     public function getCardInfo() {
         return Configuration::getInstance()->getCardInfo();
+    }
+
+    public function toggleMantenimiento() {
+        Configuration::getInstance()->toggleMantenimiento();
     }
 }
