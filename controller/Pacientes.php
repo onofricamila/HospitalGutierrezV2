@@ -38,7 +38,7 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            $allTipoAgua = TipoAgua::all();
+           /* $allTipoAgua = TipoAgua::all();
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();
@@ -46,7 +46,23 @@
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/newPaciente.php';
-            require_once 'view/footer.html';
+            require_once 'view/footer.html'; */
+
+            $context = [];
+            
+            $context['stylesheets'] = ['/public/css/pacientes.css'];
+            $context['javascripts'] = ['/public/js/pacientes.js'];
+            $context['pagename'] = 'Pacientes - New';
+            $context['allTipoDoc'] = TipoDoc::all();
+            $context['allObraSocial'] = ObraSocial::all();
+            $context['allTipoVivienda'] = TipoVivienda::all();
+            $context['allTipoCalefaccion'] = TipoCalefaccion::all();
+            $context['allTipoAgua'] = TipoAgua::all();
+
+            $path = '/pacientes/new.html.twig';
+            
+            TwigController::renderTwig($path, $context);
+            die;
         }
 
         public function auxNewPaciente() {
