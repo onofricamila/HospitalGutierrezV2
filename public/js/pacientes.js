@@ -174,6 +174,7 @@ $('.deleteModalTrigger').click(function () {
 });
 
 /* para marcar como selected los options en el update */
-$(document).ready(function seleccionar() {
-    document.getElementsById('idGenero').value=1;
+$(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $("#idGenero option[value="+ 1 +"]").attr("selected",true);
 });
