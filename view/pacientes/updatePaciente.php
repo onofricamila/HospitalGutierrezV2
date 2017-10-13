@@ -14,6 +14,7 @@
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
+                                <input id="idPaciente" name="idPaciente" type="text" class="validate" hidden value="<?php echo $paciente -> idPaciente;?>">
                                 <div class="input-field col s12 m4">
                                     <input id="nombre" name="nombre" type="text" class="validate" value="<?php echo $paciente -> nombre;?>">
                                     <label for="nombre">Nombre</label>
