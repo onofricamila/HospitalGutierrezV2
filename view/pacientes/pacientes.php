@@ -12,7 +12,7 @@
         <br>
         <a href="?controller=Pacientes&action=newPaciente">Show new patient demo (funciona)</a>
         <br>
-        <a href="?controller=Pacientes&action=updatePaciente&idPaciente=2">Show edit patient demo</a>
+        <a href="?controller=Pacientes&action=updatePaciente&idPaciente=2">Show edit patient demo (funciona)</a>
         <br>
     
 
