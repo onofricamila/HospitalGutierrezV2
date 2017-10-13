@@ -50,7 +50,7 @@
                 $context = [];
                 
                 $context['stylesheets'] = ['/public/css/users.css'];
-                $context['javascripts'] = ['/public/js/users.js'];
+                $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
                 $context['allTipoDoc'] = TipoDoc::all();
