@@ -59,7 +59,7 @@ class ConfigController {
             die;
         }
 
-        $context = var_dump($this->getCardInfo());
+        $context = $this->getCardInfo();
         die;
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
@@ -86,6 +86,6 @@ class ConfigController {
     }
     
     public function getCardInfo() {
-        Configuration::getInstance()->getCardInfo();
+        return Configuration::getInstance()->getCardInfo();
     }
 }
