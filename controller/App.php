@@ -64,10 +64,13 @@ class AppController {
         if (!self::getInstance()->checkPermissions('$permission')) {
             $context = [];
             $path = '/app/not_allowed.html.twig';
+            /* use el mismo diseño que para mantain*/
             $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
             TwigController::renderTwig($path, $context);
+            die;
         }
         else {
+            return true;
         }
     }
 }
