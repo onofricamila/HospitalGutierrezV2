@@ -93,6 +93,8 @@ class ConfigController {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
         }
+        echo 'hola';
+        die;
         Configuration::getInstance()->toggleMantenimiento();
         $this->admin();
     }
