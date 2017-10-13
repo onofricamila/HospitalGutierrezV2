@@ -42,7 +42,7 @@ class User extends UserBase {
     public static function login($user, $pass) {
         $connection = Connection::getInstance();
 
-        $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=? AND activo=1");
+        $query = $connection->prepare("SELECT * FROM usuario WHERE username=? AND password=?");
         $query->execute(array($user, $pass));
 
         if ($query->rowCount() == 1) {
