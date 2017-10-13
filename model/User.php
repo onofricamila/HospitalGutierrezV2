@@ -21,6 +21,9 @@ class User extends UserBase {
     public static function deleteUser($id) {
         $connection = Connection::getInstance();
 
+        var_dump(intval($id));
+        die;
+
         $query = $connection->prepare("DELETE FROM usuario WHERE id=:id");
         $query->execute(array(':id' => intval($id)));
         
