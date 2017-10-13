@@ -66,6 +66,12 @@ $('.newUserModalTrigger').click(function () {
     Materialize.updateTextFields();
 });
 $(document).ready(function () {
+    var paginacion = $('.paginacion').text();
+    $('.cardContainer').each(function( index ) {
+        if (index > $('.paginacion').text()) {
+            $(this).hide();
+        }
+    });
     $('.pagination-li').first().addClass('disabled');
     if ($('.pagination-li').length == 1) {
         $('.pagination-next').addClass('disabled');
