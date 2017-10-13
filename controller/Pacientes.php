@@ -124,7 +124,7 @@
             $context['stylesheets'] = ['/public/css/pacientes.css'];
             $context['javascripts'] = ['/public/js/pacientes.js'];
             $context['pagename'] = 'Pacientes - Show';
-            $context['paciente'] = $paciente
+            $context['paciente'] = $paciente;
             $context['genero'] =  new Genero($paciente -> idGenero);
             $context['obra_social'] =  new ObraSocial($paciente -> idObraSocial);
             $context['tipo_doc'] =  new TipoDoc($paciente -> idTipoDoc);
