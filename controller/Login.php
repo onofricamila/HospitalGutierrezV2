@@ -34,7 +34,9 @@
                 $context['stylesheets'] = ['/public/css/main.css'];
                 $context['javascripts'] = ['/public/js/login.js'];
                 $context['pagename'] = 'Login';
-                $context['badLogin'] = false;
+                if (!isset($context['badLogin'])) {
+                    $context['badLogin'] = false;
+                }
                 
                 $path = '/login/view.html.twig';
                 
