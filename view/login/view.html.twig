@@ -22,17 +22,15 @@
 
                             <form action="/index.php?controller=login&action=login" class="form-login" method="post" target="_self" accept-charset="UTF-8"
                                 autocomplete="on">
-                                <div class="group">
-                                    <input type="text" placeholder="Usuario" class="input-google" title="Usuario" required name="user">
-                                    <span class="highlight" title="Nombre"></span>
+                                <div class="input-field">
+                                    <input id="usuario" name="user" type="text" class="validate" title="Usuario" required>
+                                    <label for="usuario">Usuario</label>
                                 </div>
-                                <div class="group">
-                                    <input type="password" placeholder="Contraseña" class="input-google" title="Contraseña" required name="pass">
-                                    <span class="highlight" title="Contraseña"></span>
+                                <div class="input-field">
+                                    <input id="pass" name="pass" type="password" class="validate" title="Contraseña" required>
+                                    <label for="pass">Contraseña</label>
                                 </div>
-                                <br>
                                 <input type="submit" class="button buttonBlue" title="Submit">
-                                <a href="signup.php">Registrarme</a>
                             </form>
                         </div>
 
