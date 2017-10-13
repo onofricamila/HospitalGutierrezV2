@@ -11,6 +11,14 @@
     require_once 'controller/Twig.php';     // TwigController
     require_once 'controller/Config.php';   // ConfigController
     
+    function validateText($args) {
+        foreach ($args as $arg) {
+            if (strlen($arg) < 4)  {
+                return false;
+            }
+        }
+        return true;
+    }
 
     if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
