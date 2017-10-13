@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %} {% block body %}
 <section class="container">
     <div class="row">
-        <div class="col s12 l6">
+        <div class="col s12">
             <h3>Configuracion</h3>
         </div>
     </div>
@@ -10,7 +10,7 @@
 
     <div class="row">
         {% for card in cards %}
-        <div class="col s12 m4">
+        <div class="col s12 m4 card-container">
             <div class="card">
                 <h4 class="card-header">
                     <small>{{ card.titulo }}</small>
