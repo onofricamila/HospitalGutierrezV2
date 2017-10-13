@@ -81,16 +81,7 @@ $('.pagination-li').click(function() {
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
     $(this).removeClass('waves-effect');
-    if ( $(this).text() == $('.pagination-li').last().text() ) {
-        $('.pagination-next').addClass('disabled');
-    } else {
-        $('.pagination-next').removeClass('disabled');
-    }
-    if ( $(this).text() == $('.pagination-li').first().text() ) {
-        $('.pagination-back').addClass('disabled');
-    } else {
-        $('.pagination-back').removeClass('disabled');
-    }
+    $.updateArrows(1)
 });
 $('.pagination-back').click(function() {
     var actual = $('.pagination-li.active').text();
@@ -101,4 +92,16 @@ $('.pagination-back').click(function() {
         
     }
 });
+function updateArrows(actual) {
+    if ( actual == $('.pagination-li').last().text() ) {
+        $('.pagination-next').addClass('disabled');
+    } else {
+        $('.pagination-next').removeClass('disabled');
+    }
+    if ( actual == $('.pagination-li').first().text() ) {
+        $('.pagination-back').addClass('disabled');
+    } else {
+        $('.pagination-back').removeClass('disabled');
+    }
+}
 (jQuery); // end of jQuery name space
