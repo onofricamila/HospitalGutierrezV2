@@ -86,5 +86,5 @@ td {
     bottom: 50px;
 }
 input {
-    margin: 0px;
+    margin: 0px!important;
 }
