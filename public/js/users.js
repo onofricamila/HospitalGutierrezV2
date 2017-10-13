@@ -77,8 +77,9 @@ $(document).ready(function () {
     }
 });
 $('.pagination-li').click(function() {
-    $('.pagination-li.active').removeClass('waves-effect');
+    $('.pagination-li.active').addClass('waves-effect');
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
+    $(this).removeClass('waves-effect');
 })
 (jQuery); // end of jQuery name space
