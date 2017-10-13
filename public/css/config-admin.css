@@ -75,6 +75,7 @@ td {
 }
 .input-field {
     display: none;
+    margin-top: 0px;
 }
 .updateButton {
     display: none;
