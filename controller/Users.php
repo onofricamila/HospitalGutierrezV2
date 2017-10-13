@@ -65,6 +65,7 @@ class UsersController {
 
         User::id($_GET['id'])->togglestate();
         if ($_GET['id'] == AppController::getUser()->id) {
+            require_once "controller/Login.php";
             LoginController::getInstance()->logout();
         }
         $this->index();
