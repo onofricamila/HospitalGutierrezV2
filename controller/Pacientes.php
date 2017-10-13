@@ -49,7 +49,7 @@
                 require_once 'view/footer.html';  */
                 $context = [];
                 
-                $context['stylesheets'] = ['/public/css/users.css'];
+                $context['stylesheets'] = ['/public/css/pacientes.css'];
                 $context['javascripts'] = ['/public/js/users.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
