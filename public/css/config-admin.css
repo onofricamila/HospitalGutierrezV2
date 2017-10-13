@@ -34,3 +34,40 @@ div.divider-margin {
     margin-top: -15px;
     margin-bottom: 25px;
 }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+}
+thead {
+    display: block;
+    float: left;
+    border: 0;
+    border-right: 1px solid #d0d0d0;
+}
+tbody {
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+tr {
+    display: block;
+    padding: 0 10px 0 0;
+}
+th {
+    margin: 0;
+    vertical-align: top;
+    display: block;
+    text-align: right;
+}
+td {
+    margin: 0;
+    vertical-align: top;
+    display: block;
+    min-height: 1.25em;
+    text-align: left;
+}

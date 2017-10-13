@@ -9,6 +9,27 @@
     <div class="divider divider-margin"></div>
 
     <div class="row">
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Email</th>
+                    <th>Elementos</th>
+                    <th>Mantenimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ titulo }}</td>
+                    <td>{{ email }}</td>
+                    <td>{{ elementos }}</td>
+                    <td>{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row">
         {% for card in cards %}
         <div class="col s12 m4 card-container">
             <div class="card">
