@@ -34,14 +34,14 @@ class ConfigController {
             || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
             || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == ""))
         {
-            echo 'No llenaste bien los campos';
+            var_dump($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
+            die;
+                echo 'No llenaste bien los campos';
             die;
         }
 
         $config = Configuration::getInstance();
 
-        var_dump($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
-        die;
 
         $config->updateUser($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
 
