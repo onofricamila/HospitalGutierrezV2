@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <select name="idGenero" id="idGenero" class="icons">
-                                            <option value="" disabled selected>Genero</option>
+                                            <option value="" disabled>Genero</option>
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                     </select>
