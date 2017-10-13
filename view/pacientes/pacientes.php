@@ -69,7 +69,7 @@
  <!-- Delete Patient Modal Structure -->
  <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
-      <h4>¡Atención! Operación irreversible.</h4>
+      <h4> <i class=" material-icons">sms_failed</i> ¡Atención! Operación irreversible.</h4>
       <p>Estas a punto de eliminar el paciente de forma permanente. Estas seguro que quieres proseguir?</p>
     </div>
     <div class="modal-footer">
