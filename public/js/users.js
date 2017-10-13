@@ -68,7 +68,7 @@ $('.newUserModalTrigger').click(function () {
 $(document).ready(function () {
     $('.pagination-li').first().addClass('disabled');
     if ($('.pagination-li').size() == 1) {
-        $('.pagination-next').addClass('disabled');
+        $('.pagination-next').first().addClass('disabled');
     }
 });
 
