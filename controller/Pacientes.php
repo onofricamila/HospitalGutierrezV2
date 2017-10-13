@@ -113,7 +113,7 @@
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();
             $allTipoDoc = TipoDoc::all();
-            
+
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/updatePaciente.php';
@@ -142,7 +142,7 @@
             $telefono = trim($_POST['telefono']);
             $idObraSocial = trim($_POST['idObraSocial']);
 
-            Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
+            Paciente::updatePaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
     }
