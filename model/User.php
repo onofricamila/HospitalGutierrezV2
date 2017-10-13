@@ -24,7 +24,7 @@ class User extends UserBase {
         $query = $connection->prepare("DELETE FROM usuario WHERE id=:id");
         $query->execute(array(':id' => intval($id)));
 
-        var_dump($query->rowCount());
+        var_dump($connection->errorInfo(), $query);
         die;
         return $query->rowCount() == 1;
     }
