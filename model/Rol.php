@@ -41,7 +41,7 @@ class Rol {
 
     public function checkPermissions($permission) {
         foreach ($this->permissions as $perm) {
-            if ($perm->checkPermissions($permission)) return true;
+            if ($perm->checkPermissions($permission)){ echo "si"; return true;}
         }
         return false;
     }
