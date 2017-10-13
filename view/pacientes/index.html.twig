@@ -90,10 +90,6 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="?controller=Pacientes&action=newPaciente">Show new patient demo</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
                         <a href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">Update</a>
                     </li>
                 </ul>
@@ -115,6 +111,12 @@
     </div>
 
 </section>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Pacientes&action=newPaciente">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
 
 {% include '/pacientes/modals.html.twig' %}
 
