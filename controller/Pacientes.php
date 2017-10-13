@@ -24,10 +24,12 @@
         public function index(){
             AppController::allowed('paciente_index');
 
+            $args= [];
+            
             if (isset($_GET['search']) && $_GET['search'] != "") {
                 $args['search'] = $_GET['search'];
             }
-            
+           
             if ($allPaciente = Paciente::all($args)) {
                 
                 /* require_once 'view/header.html';
