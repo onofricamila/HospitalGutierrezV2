@@ -40,7 +40,7 @@
                         </div>
                     </td>
                     <td>
-                        <a href="?controller=Config&action=toggleMantenimiento">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</a>
+                        <a href="?controller=Config&action=toggleMantenimiento">{% if mantenimiento == 1 %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</a>
                     </td>
                 </tr>
             </tbody>
