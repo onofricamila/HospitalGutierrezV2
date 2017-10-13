@@ -1,40 +1,45 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
+{% extends 'base.html.twig' %} {% block body %}
 <section>
-    <div class="row">
-        <div class="col s12 m6 offset-m3">
-        <div class="box-title row">
-            <div class="col s8 offset-s2">
-                <h5><strong><small> INICIAR SESIÓN </small></strong></h5>
-            </div>
-            {% if badLogin %}
-            <div class="col s2">
-                <a class="btn-floating btn-small waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="{{badLoginText}}">
-                    <i class="material-icons">highlight_off</i>
-                </a>
-            </div>
-            {% endif %}
-        </div>
-        <div class="">
-
-            <form action="/index.php?controller=login&action=login" class="form-login" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
-                <div class="group">
-                    <input type="text" placeholder="Usuario" class="input-google" title="Usuario" required name="user">
-                    <span class="highlight" title="Nombre"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <div class="box-title row">
+                    <div class="col s8 offset-s2">
+                        <h5>
+                            <strong>
+                                <small> INICIAR SESIÓN </small>
+                            </strong>
+                        </h5>
+                    </div>
+                    {% if badLogin %}
+                    <div class="col s2">
+                        <a class="btn-floating btn-small waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="{{badLoginText}}">
+                            <i class="material-icons">highlight_off</i>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
-                <div class="group">
-                    <input type="password" placeholder="Contraseña" class="input-google" title="Contraseña" required name="pass">
-                    <span class="highlight" title="Contraseña"></span>
+                <div class="">
+
+                    <form action="/index.php?controller=login&action=login" class="form-login" method="post" target="_self" accept-charset="UTF-8"
+                        autocomplete="on">
+                        <div class="group">
+                            <input type="text" placeholder="Usuario" class="input-google" title="Usuario" required name="user">
+                            <span class="highlight" title="Nombre"></span>
+                        </div>
+                        <div class="group">
+                            <input type="password" placeholder="Contraseña" class="input-google" title="Contraseña" required name="pass">
+                            <span class="highlight" title="Contraseña"></span>
+                        </div>
+                        <br>
+                        <input type="submit" class="button buttonBlue" title="Submit">
+                        <a href="signup.php">Registrarme</a>
+                    </form>
+
                 </div>
-                <br>
-                <input type="submit" class="button buttonBlue" title="Submit">
-                <a href="signup.php">Registrarme</a>
-            </form>
+            </div>
 
         </div>
-        </div>
-
     </div>
 </section>
 {% endblock %}
