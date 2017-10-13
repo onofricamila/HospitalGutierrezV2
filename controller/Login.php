@@ -47,7 +47,11 @@
             $pass = $_POST['pass'];
             $user = User::login($user, $pass);
             if ($user->isGuest()) {
-                $this->index(['badLogin' => true]);
+                $this->index(['badLogin' => 'incorrect']);
+                die;
+            }
+            elseif (!($user->active)) {
+                $this->index(['badLogin' => 'inactive']);
                 die;
             }
 
