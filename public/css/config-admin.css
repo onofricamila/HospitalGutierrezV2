@@ -76,6 +76,7 @@ td {
 .input-field {
     display: none;
     margin-top: 0px;
+    font-size: 15px;
 }
 .updateButton {
     display: none;
@@ -83,4 +84,7 @@ td {
 .fixed-action-btn {
     right: 50px;
     bottom: 50px;
+}
+input {
+    margin: 0px!important;
 }
