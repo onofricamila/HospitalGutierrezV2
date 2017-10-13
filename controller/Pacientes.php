@@ -34,11 +34,9 @@
         }
 
         public function newPaciente(){
-            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
-           /* $allTipoAgua = TipoAgua::all();
+            AppController::allowed('paciente_new');
+          
+            /* $allTipoAgua = TipoAgua::all();
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();

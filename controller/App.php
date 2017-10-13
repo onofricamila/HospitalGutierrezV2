@@ -59,5 +59,17 @@ class AppController {
     public static function isGuest() {
         return (self::getUser() instanceof Guest);
     }
+
+    public static function allowed($permission){
+        if (!self::getInstance()->checkPermissions('$permission')) {
+            $context = [];
+            $path = '/app/not_allowed.html.twig';
+            $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+            TwigController::renderTwig($path, $context);
+            die;
+        }
+        else {
+        }
+    }
 }
 
