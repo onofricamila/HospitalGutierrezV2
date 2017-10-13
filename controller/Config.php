@@ -88,6 +88,10 @@ class ConfigController {
     }
 
     public function toggleMantenimiento() {
+        if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
         Configuration::getInstance()->toggleMantenimiento();
     }
 }
