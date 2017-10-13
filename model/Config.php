@@ -76,9 +76,9 @@ class Configuration {
 
     public function getCardInfo() {
         $context = [];
-        $context['cards'][] = array('title' => $titulo1, 'descripcion' => $this->descripcion1);
-        $context['cards'][] = array('title' => $titulo2, 'descripcion' => $this->descripcion2);
-        $context['cards'][] = array('title' => $titulo3, 'descripcion' => $this->descripcion3);
+        $context['cards'][] = array('title' => $this->$titulo1, 'descripcion' => $this->descripcion1);
+        $context['cards'][] = array('title' => $this->$titulo2, 'descripcion' => $this->descripcion2);
+        $context['cards'][] = array('title' => $this->$titulo3, 'descripcion' => $this->descripcion3);
         return $context;
     }
 }
