@@ -30,3 +30,7 @@
 .card-container {
     flex: 1;
 }
+div.divider-margin {
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
