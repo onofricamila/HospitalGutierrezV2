@@ -93,7 +93,6 @@ $('.pagination-li').click(function() {
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
     $(this).removeClass('waves-effect');
-    updateArrows(1);
 
     var actual = $('.pagination-li.active').text();
     if ( actual == $('.pagination-li').last().text() ) {
