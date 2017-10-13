@@ -93,5 +93,6 @@ class ConfigController {
             die;
         }
         Configuration::getInstance()->toggleMantenimiento();
+        $this->admin();
     }
 }
