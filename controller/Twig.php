@@ -25,7 +25,6 @@ class TwigController{
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
-        $context['paginacion'] = $config->mantenimiento;
         
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
