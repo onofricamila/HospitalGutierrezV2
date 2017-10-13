@@ -62,8 +62,7 @@
                 die;
             }
             else {
-                echo "Error";
-                die;
+                AppController::no_elements();
             }
 
         }

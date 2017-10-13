@@ -74,12 +74,19 @@ class AppController {
             return true;
         }
     }
+
+    public static function no_elements(){
+        
+                    $context = [];
+                    $path = '/no_elements.html.twig';
+                    /* use el mismo diseño que para mantain*/
+                    $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+                    TwigController::renderTwig($path, $context);
+                    die;
+                }
+                else {
+                    return true;
+                }
+            }
 }
 
-/* antes en cada controller tipo users pacientes y config hacia y andaba:
-
-    if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
-*/
