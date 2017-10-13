@@ -68,13 +68,17 @@
 
  <!-- Delete Patient Modal Structure -->
  <div id="modal1" class="modal bottom-sheet">
+    <form method="get" action="index.php?controller=Pacientes&action=deletePaciente">
+
     <div class="modal-content">
       <h4>¡Atención! Operación irreversible.</h4>
-      <p>Estas a punto de eliminar el paciente de forma permanente. Estas seguro que quieres proseguir?</p>
+      <div class="divider"></div>
+      <p>Estas a punto de eliminar el paciente "<span id="deleteModalaPatient"></span>" de forma permanente. Estas seguro que quieres proseguir?</p>
     </div>
+    <input type="text" id="deleteModalId" name="deleteModalId" hidden>
     <div class="modal-footer">
       <a href="?controller=Pacientes&action=deletePaciente&idPaciente= " class="modal-action modal-close waves-effect waves-green btn-flat">Sí, estoy seguro</a>
-      <a href="#!" onclick=" $('#modal1').modal('close');" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
     </div>
   </div>
     
