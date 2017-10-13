@@ -61,5 +61,5 @@ div.divider-margin {
     margin-top: 25px;
 }
 .active {
-    background-color: #009688;
+    background-color: #009688!important;
 }
