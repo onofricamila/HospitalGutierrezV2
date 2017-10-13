@@ -108,10 +108,10 @@
                 die;
             }
             $paciente = Paciente::getPaciente($_GET['idPaciente']);
-            
+
             require_once 'view/header.html';
             require_once 'view/navbar.php';
-            require_once 'view/pacientes/updatePaciente.html';
+            require_once 'view/pacientes/updatePaciente.php';
             require_once 'view/footer.html';
         }
 
