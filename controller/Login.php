@@ -47,7 +47,7 @@
             $pass = $_POST['pass'];
 
             if ($user = User::login($user, $pass)->isGuest()) {
-                header("Location: index.php?controller=Login&action=index?error=1");
+                header("Location: index.php?controller=Login&action=index&error=1");
                 die();
             }
 
