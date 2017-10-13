@@ -73,7 +73,7 @@ $(document).ready(function () {
     });
     $('.pagination-li').first().addClass('disabled');
     if ($('.pagination-li').length == 1) {
-        $('.pagination-next').addClass('disabled');
+        $('.pagination-next').addClass('active');
     }
 });
 $('.pagination-li').click(function() {
