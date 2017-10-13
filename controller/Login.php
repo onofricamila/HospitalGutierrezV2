@@ -15,7 +15,7 @@
 
         }
         
-        public function index(){
+        public function index($context = []){
             if (AppController::getUser() instanceof User) {
                 echo "Ya estas logueado!";
                 die;
@@ -47,8 +47,8 @@
             $pass = $_POST['pass'];
             $user = User::login($user, $pass);
             if ($user->isGuest()) {
-                header("Location: index.php?controller=Login&action=index&error=1");
-                die();
+                $this->index(['badLogin' => true]);
+                die;
             }
 
             $_SESSION['loggedid'] = $user->id;
