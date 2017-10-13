@@ -251,3 +251,6 @@
     
     
     <script type="text/javascript" src="/public/js/pacientes.js"></script>
+    <script>
+        select(1)
+    </script>

@@ -174,7 +174,6 @@ $('.deleteModalTrigger').click(function () {
 });
 
 /* para marcar como selected los options en el update */
-$(document).ready(function(){
-    genero = <?php echo $paciente -> idGenero; ?>
+$(document).ready(function select(genero){
     $("#idGenero option[value="+ genero +"]").attr("selected",true);
 });
