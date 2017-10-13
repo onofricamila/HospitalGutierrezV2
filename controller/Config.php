@@ -59,6 +59,7 @@ class ConfigController {
         }
 
         $context = $this->getCardInfo();
+        $context['mantenimiento'] = $this->mantenimiento;
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
