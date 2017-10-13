@@ -75,15 +75,16 @@ class UsersController {
 
         AppController::allowed('usuario_new');  
         
-        if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
-            || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "")
-            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
-            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
+        if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
+            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "" || strlen($user) < 4)
+            || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "" || strlen($pass) < 4)
+            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$first_name) )
+            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$last_name) )
         {
             echo 'No llenaste bien los campos';
             die;
         }
+
         User::newUser($email, $user, $pass, $first_name, $last_name);
         $this->index();
     }
@@ -93,6 +94,9 @@ class UsersController {
         AppController::allowed('usuario_delete');  
 
         $id = $_POST['deleteModalId'];
+        if (!is_int($id)) {
+            $this->index();
+        }
         User::deleteUser($id);
         $this->index();
     }
@@ -124,23 +128,19 @@ class UsersController {
        
         AppController::allowed('usuario_update');  
 
-        if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['user']) || ($username = trim($_POST['user'])) == "")
-            || (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "")
-            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "")
-            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "")
+        if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
+            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "" || strlen($user) < 4)
+            || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "" || strlen($pass) < 4)
+            || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$first_name) )
+            || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$last_name) )
         {
-            echo 'No llenaste bien los campos';
+        echo 'No llenaste bien los campos';
             die;
         }
 
         $user = User::id($id);
 
-        $user->updateUser($email, $username, $first_name, $last_name);
-
-        if (isset($_POST['pass']) && ($pass = trim($_POST['pass'])) != "") {
-            $user->updatePass($pass);
-        }
+        $user->updateUser($email, $username, $first_name, $last_name, $pass);
 
         $this->index();
     }
