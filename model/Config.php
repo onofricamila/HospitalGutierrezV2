@@ -61,7 +61,7 @@ class Configuration {
                                 ':email' => $email,
                                 ':elementos' => $elementos));
 
-        echo($connection->errorInfo());
+        var_dump($connection->errorInfo());
         die;
         if ($query->rowCount() == 1) {
             $this->reset();
