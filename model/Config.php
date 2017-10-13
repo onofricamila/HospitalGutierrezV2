@@ -40,8 +40,6 @@ class Configuration {
     public function update($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos) {
         $connection = Connection::getInstance();
 
-        var_dump($this->id, $titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
-        die;
         $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, 
                                                                 titulo1=:titulo1, 
                                                                 titulo2=:titulo2, 
@@ -50,7 +48,7 @@ class Configuration {
                                                                 descripcion2=:descripcion2, 
                                                                 descripcion3=:descripcion3, 
                                                                 email=:email, 
-                                                                elementos=:elementos, 
+                                                                elementos=:elementos
                                                             WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
