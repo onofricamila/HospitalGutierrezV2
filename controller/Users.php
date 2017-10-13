@@ -17,10 +17,8 @@ class UsersController {
     }
     
     public function index(){
-        if (!AppController::getInstance()->checkPermissions('usuario_index')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+   
+        AppController::allowed('usuario_index');  
 
         $args = [];
 
@@ -62,21 +60,17 @@ class UsersController {
     }
 
     public function togglestate() {
-        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+
+        AppController::allowed('usuario_update');  
 
         User::id($_GET['id'])->togglestate();
         $this->index();
     }
 
     public function newUser() {
-        if (!AppController::getInstance()->checkPermissions('usuario_new')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
 
+        AppController::allowed('usuario_new');  
+        
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
             || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "")
             || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "")
@@ -91,10 +85,8 @@ class UsersController {
     }
 
     public function deleteuser() {
-        if (!AppController::getInstance()->checkPermissions('usuario_delete')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+
+        AppController::allowed('usuario_delete');  
 
         $id = $_POST['deleteModalId'];
         User::deleteUser($id);
@@ -102,10 +94,8 @@ class UsersController {
     }
 
     public function updateRol() {
-        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+
+        AppController::allowed('usuario_update');  
 
         if (!isset($_POST['rolesModalId']) || ($id = trim($_POST['rolesModalId'])) == "") {
             echo 'El campo id no esta cargado.';
@@ -127,10 +117,8 @@ class UsersController {
     }
 
     public function updateUser() {
-        if (!AppController::getInstance()->checkPermissions('usuario_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+       
+        AppController::allowed('usuario_update');  
 
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
             || (!isset($_POST['user']) || ($username = trim($_POST['user'])) == "")

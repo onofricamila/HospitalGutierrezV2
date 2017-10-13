@@ -59,5 +59,31 @@ class AppController {
     public static function isGuest() {
         return (self::getUser() instanceof Guest);
     }
+
+    public static function allowed($permission){
+        var_dump(self::getInstance());
+        echo "-->get instance <br>";
+        var_dump(self::getInstance()->checkPermissions('$permission'));
+        echo "--> allowed? <br>";
+        die; 
+        if (!self::getInstance()->checkPermissions('$permission')) { /* si no tengo permisos ..*/
+            $context = [];
+            $path = '/not_allowed.html.twig';
+            /* use el mismo diseño que para mantain*/
+            $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+            TwigController::renderTwig($path, $context);
+            die;
+        }
+        else {
+            return true;
+        }
+    }
 }
 
+/* antes en cada controller tipo users pacientes y config hacia :
+
+    if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+*/

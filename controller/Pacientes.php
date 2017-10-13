@@ -22,10 +22,8 @@
         }
         
         public function index(){
-            if (!AppController::getInstance()->checkPermissions('paciente_index')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
+            AppController::allowed('paciente_index');
+
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/pacientes.php';
@@ -34,10 +32,8 @@
         }
 
         public function newPaciente(){
-            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
+            AppController::allowed('paciente_new');
+            
            /* $allTipoAgua = TipoAgua::all();
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
@@ -100,10 +96,8 @@
         }
 
         public function showPaciente(){
-            if (!AppController::getInstance()->checkPermissions('paciente_show')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
+        
+            AppController::allowed('paciente_show');
             $paciente = Paciente::getPaciente($_GET['idPaciente']); 
             /*
             $genero = new Genero($paciente -> idGenero);
@@ -139,12 +133,10 @@
         }
 
         public function updatePaciente(){
-            if (!AppController::getInstance()->checkPermissions('paciente_update')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
-           
-          /*  $allTipoAgua = TipoAgua::all();
+        
+            AppController::allowed('paciente_update');
+          
+            /*  $allTipoAgua = TipoAgua::all();
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();

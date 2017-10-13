@@ -19,11 +19,9 @@ class ConfigController {
     }
 
     public function update() {
-        if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
-
+    
+        AppController::allowed('configuracion_update');  
+        
         if ((!isset($_POST['titulo']) || ($titulo = trim($_POST['titulo'])) == "")
             || (!isset($_POST['titulo1']) || ($titulo1 = trim($_POST['titulo1'])) == "")
             || (!isset($_POST['titulo2']) || ($titulo2 = trim($_POST['titulo2'])) == "")
@@ -53,11 +51,9 @@ class ConfigController {
 }
 
     public function admin() {
-        if (!AppController::getInstance()->checkPermissions('configuracion_index')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
-
+    
+        AppController::allowed('configuracion_index');  
+        
         $context = $this->getCardInfo();
         $context['mantenimiento'] = $this->mantenimiento();
         $path = '/config/admin.html.twig';
@@ -89,10 +85,9 @@ class ConfigController {
     }
 
     public function togglemantenimiento() {
-        if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
-            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-            die;
-        }
+     
+        AppController::allowed('configuracion_update');  
+        
         Configuration::getInstance()->togglemantenimiento();
         $this->admin();
     }
