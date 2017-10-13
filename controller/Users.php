@@ -141,7 +141,7 @@ class UsersController {
 
         $user = User::id($id);
 
-        $user->updateUser($email, $username, $first_name, $last_name, $pass);
+        $user->updateUser($email, $user, $first_name, $last_name, $pass);
 
         $this->index();
     }
