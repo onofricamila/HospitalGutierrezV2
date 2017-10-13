@@ -46,7 +46,7 @@ class ConfigController {
     public function index() {
         $context = [];
         $path = '/config/mantenimiento.html.twig';
-        $context['stylesheets'] = ['/public/css/config.css'];
+        $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
         TwigController::renderTwig($path, $context);
 }
 
@@ -56,8 +56,10 @@ class ConfigController {
             die;
         }
 
-        echo "Administracion de configuracion, todavia no lo hice.";
-        die;
+        $context = [];
+        $path = '/config/admin.html.twig';
+        $context['stylesheets'] = ['/public/css/config.css'];
+        TwigController::renderTwig($path, $context);
     }
 
     public static function mantenimiento() {
