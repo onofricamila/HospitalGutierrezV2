@@ -67,6 +67,9 @@ $('.newUserModalTrigger').click(function () {
 });
 $(document).ready(function () {
     $('.pagination-li').first().addClass('disabled');
+    if ($('.pagination-li').size() == 1) {
+        $('.pagination-next').addClass('disabled');
+    }
 });
 
 (jQuery); // end of jQuery name space
