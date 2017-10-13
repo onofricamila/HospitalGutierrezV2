@@ -68,8 +68,7 @@ class Configuration {
     }
 
     public function reset() {
-        unset(self::$instance);
-        return self::getInstance();
+        return new self;
     }
 
     public function getCardInfo() {
