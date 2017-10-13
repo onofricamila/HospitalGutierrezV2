@@ -4,7 +4,7 @@
                 <div class="card hovercard">
                     <div class="card-background"></div>
                     <div class="useravatar">
-                        <img alt="" src="../../public/imgs/patient3.png">
+                        <img alt="" src="../../public/imgs/edit.png">
                     </div>
                     <div class="card-info"> <span class="card-title">Edita los datos del paciente <?php echo $paciente -> apellido . ", " .$paciente -> nombre;?>.</span> </div>
                 </div>
