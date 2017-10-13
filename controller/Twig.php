@@ -24,7 +24,7 @@ class TwigController{
             $context['titulo'] = $config->titulo;
         }
         else {
-            $context['titulo'] = $context['titulo'].$config->titulo;
+            $context['titulo'] = $config->titulo.' - '.$context['titulo'];
         }
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
