@@ -6,6 +6,6 @@
     margin-bottom: 50px;
 }
 .loginContainer {
-    margin: .5rem 0 1rem 0;
-    border-radius: 2px;    
+    border-radius: 2px;
+    border-color: black;
 }
