@@ -69,7 +69,7 @@
                         <p>Roles: {% for rol in user.roles %}{% if loop.index > 1 %}{{ ", #{rol.nombre}" }}{% else %}{{ rol.nombre }}{% endif %}{% endfor %}</p>
                         <p style="display: none;">{{ user.first_name }}</p>
                         <p style="display: none;">{{ user.last_name }}</p>
-                        <p style="display: none;">{{ user.pass }}</p>
+                        <p style="display: none;">{{ user.password }}</p>
                     </div>
                 </div>
 
