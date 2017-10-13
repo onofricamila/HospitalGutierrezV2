@@ -98,3 +98,11 @@ input {
 .icon-cyan {
     color: #009688;
 }
+@media screen and (max-width: 600px) {
+    .col.s12 {
+        flex: none;
+    }
+    .row{
+        display: block;
+    }
+}
