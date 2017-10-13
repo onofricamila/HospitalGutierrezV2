@@ -94,18 +94,45 @@
             return $query->rowCount() == 1;
         }
 
-        public static function all() {
+        public static function all($args) {
+            echo "los args son: ";
+            var_dump($args);
+            
+            $query = "SELECT * FROM paciente WHERE 1 = 1";
+            $array = array();
+    
+            if (array_key_exists("nombre", $args)) {
+                $array[':nombre'] = "%".$args['nombre']."%";
+                $query = $query." AND nombre LIKE :nombre";
+            }
+
+            if (array_key_exists("apellido", $args)) {
+                $array[':apellido'] = "%".$args['apellido']."%";
+                $query = $query." AND apellido LIKE :apellido";
+            }
+
+            if (array_key_exists("dni", $args)) {
+                $array[':dni'] = "%".$args['dni']."%";
+                $query = $query." AND dni LIKE :dni";
+            }
+    
+            if (array_key_exists("idTipoDoc", $args)) {
+                $array[':idTipoDoc'] = $args['idTipoDoc'];
+                $query = $query." AND idTipoDoc = :idTipoDoc";
+            }
+    
             $connection = Connection::getInstance();
     
-            $result = $connection->query("SELECT * FROM paciente");
+            $query = $connection->prepare($query);
+            $query->execute($array);
     
-            $pacientes = [];
+            $allPaciente = [];
     
-            if ($result->rowCount() > 0) {
-                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    $pacientes[] = new Paciente($row);
+            if ($query->rowCount() > 0) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $allPaciente[] = new Paciente($row);
                 }
-                return $pacientes;
+                return $allPaciente;
             }
             return false;
         }

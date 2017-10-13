@@ -24,10 +24,47 @@
         public function index(){
             AppController::allowed('paciente_index');
 
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once 'view/pacientes/pacientes.php';
-            require_once 'view/footer.html'; 
+            $args= [];
+
+            if (isset($_GET['nombre']) && $_GET['nombre'] != "") {
+                $args['nombre'] = $_GET['nombre'];
+            }
+            if (isset($_GET['apellido']) && $_GET['apellido'] != "") {
+                $args['apellido'] = $_GET['apellido'];
+            }
+            if (isset($_GET['dni']) && $_GET['dni'] != "") {
+                $args['dni'] = $_GET['dni'];
+            }
+            
+            if (isset($_GET['idTipoDoc'])) {
+                $args['idTipoDoc'] = $_GET['idTipoDoc'];
+            }
+            
+           
+            if ($allPaciente = Paciente::all($args)) {
+                
+                /* require_once 'view/header.html';
+                require_once 'view/navbar.php';
+                require_once 'view/pacientes/pacientes.php';
+                require_once 'view/footer.html';  */
+                $context = [];
+                
+                $context['stylesheets'] = ['/public/css/pacientes.css', '/public/css/users.css'];
+                $context['javascripts'] = ['/public/js/pacientes.js', '/public/js/users.js'];
+                $context['pagename'] = 'Pacientes - Index';
+                $context['allPaciente'] = $allPaciente;
+                $context['allTipoDoc'] = TipoDoc::all();
+                $context['pacientesCant'] = count($allPaciente);
+    
+                $path = '/pacientes/index.html.twig';
+                
+                TwigController::renderTwig($path, $context);
+                die;
+            }
+            else {
+                echo "Error";
+                die;
+            }
 
         }
 
