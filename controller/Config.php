@@ -60,6 +60,7 @@ class ConfigController {
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
+        $context['titulo'] = 'Configuracion';
         TwigController::renderTwig($path, $context);
         die;
     }

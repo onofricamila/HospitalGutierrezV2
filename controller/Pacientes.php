@@ -58,6 +58,7 @@
     
                 $path = '/pacientes/index.html.twig';
                 
+                $context['titulo'] = 'Pacientes';
                 TwigController::renderTwig($path, $context);
                 die;
             }
@@ -93,6 +94,7 @@
 
             $path = '/pacientes/new.html.twig';
             
+            $context['titulo'] = 'Nuevo Paciente';
             TwigController::renderTwig($path, $context);
             die;
         }
@@ -164,6 +166,7 @@
 
             $path = '/pacientes/show.html.twig';
             
+            $context['titulo'] = 'Paciente';
             TwigController::renderTwig($path, $context);
             die;
         }
@@ -197,6 +200,7 @@
 
             $path = '/pacientes/update.html.twig';
             
+            $context['titulo'] = 'Actualizar Paciente';
             TwigController::renderTwig($path, $context);
             die;
         }

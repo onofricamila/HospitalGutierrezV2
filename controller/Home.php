@@ -28,6 +28,7 @@
 
             $path = '/home/view.html.twig';
             $context = $this->getContext();
+            $context['titulo'] = 'Home';
             TwigController::renderTwig($path, $context);
             die;
 
