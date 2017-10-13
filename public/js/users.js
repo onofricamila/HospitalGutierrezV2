@@ -75,10 +75,35 @@ $(document).ready(function () {
     if ($('.pagination-li').length == 1) {
         $('.pagination-next').addClass('disabled');
     }
+
+    var updateArrows = function($actual) {
+        if ( $actual == $('.pagination-li').last().text() ) {
+            $('.pagination-next').addClass('disabled');
+        } else {
+            $('.pagination-next').removeClass('disabled');
+        }
+        if ( $actual == $('.pagination-li').first().text() ) {
+            $('.pagination-back').addClass('disabled');
+        } else {
+            $('.pagination-back').removeClass('disabled');
+        }
+    }
+    
 });
 $('.pagination-li').click(function() {
-    $('.pagination-li.active').removeClass('waves-effect');
+    $('.pagination-li.active').addClass('waves-effect');
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
-})
+    $(this).removeClass('waves-effect');
+    updateArrows(1);
+});
+$('.pagination-back').click(function() {
+    var actual = $('.pagination-li.active').text();
+    if (!(actual == $('.pagination-li').first().text())) {
+        $('.pagination-li').eq(actual-1).removeClass('active');
+        $('.pagination-li').eq(actual-2).addClass('active');
+    } else {
+        
+    }
+});
 (jQuery); // end of jQuery name space
