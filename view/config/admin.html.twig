@@ -42,7 +42,10 @@
                     <td>
                         <span class="data">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</span>
                         <div class="input-field">
-                            <input type="checkbox" class="validate" checked="{{ mantenimiento }}" />
+                            <p>
+                                <input id="check" type="checkbox" class="validate" checked="{{ mantenimiento }}" />
+                                <label for="check">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</label>
+                            </p>
                         </div>
                     </td>
                 </tr>
