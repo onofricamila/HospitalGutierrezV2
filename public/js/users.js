@@ -92,4 +92,13 @@ $('.pagination-li').click(function() {
         $('.pagination-back').removeClass('disabled');
     }
 });
+$('.pagination-back').click(function() {
+    var actual = $('.pagination-li.active').text();
+    if (!(actual == $('.pagination-li').first().text())) {
+        $('.pagination-li').eq(actual-1).removeClass('active');
+        $('.pagination-li').eq(actual-2).addClass('active');
+    } else {
+        
+    }
+});
 (jQuery); // end of jQuery name space
