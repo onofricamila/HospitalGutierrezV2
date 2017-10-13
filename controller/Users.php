@@ -129,7 +129,7 @@ class UsersController {
         AppController::allowed('usuario_update');  
 
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
-            || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "" || strlen($user) < 4)
+            || (!isset($_POST['user']) || ($username = trim($_POST['user'])) == "" || strlen($user) < 4)
             || (!isset($_POST['id']) || ($id = trim($_POST['id'])) == "")
             || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "" || strlen($pass) < 4)
             || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$first_name) )
@@ -141,7 +141,7 @@ class UsersController {
 
         $user = User::id($id);
 
-        $user->updateUser($email, $user, $first_name, $last_name, $pass);
+        $user->updateUser($email, $username, $first_name, $last_name, $pass);
 
         $this->index();
     }
