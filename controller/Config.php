@@ -25,6 +25,9 @@ class ConfigController {
         }
 
         if ((!isset($_POST['titulo']) || ($titulo = trim($_POST['titulo'])) == "")
+            || (!isset($_POST['titulo1']) || ($titulo = trim($_POST['titulo1'])) == "")
+            || (!isset($_POST['titulo2']) || ($titulo = trim($_POST['titulo2'])) == "")
+            || (!isset($_POST['titulo3']) || ($titulo = trim($_POST['titulo3'])) == "")
             || (!isset($_POST['descripcion1']) || ($descripcion1 = trim($_POST['descripcion1'])) == "")
             || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "")
             || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "")
@@ -38,7 +41,7 @@ class ConfigController {
 
         $config = Configuration::getInstance();
 
-        $config->updateUser($titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento);
+        $config->updateUser($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento);
 
         $this->admin();
     }
@@ -57,6 +60,7 @@ class ConfigController {
         }
 
         $context = [];
+        $context['cards'] = $this->getCardInfo();
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
@@ -79,5 +83,9 @@ class ConfigController {
         }
 
         return false;
+    }
+    
+    public function getCardInfo() {
+        Configuration::getInstance()->getCardInfo();
     }
 }

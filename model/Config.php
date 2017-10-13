@@ -1,7 +1,7 @@
 <?php
 class Configuration {
     private static $instance;
-    public $id, $titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento;
+    public $id, $titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento;
     
     public static function getInstance() {
         if (!isset(self::$instance)) {
@@ -26,6 +26,9 @@ class Configuration {
     public function baseBuild($data) {
         $this->id = $data['id'];
         $this->titulo = $data['titulo'];
+        $this->titulo1 = $data['titulo1'];
+        $this->titulo2 = $data['titulo2'];
+        $this->titulo3 = $data['titulo3'];
         $this->descripcion1 = $data['descripcion1'];
         $this->descripcion2 = $data['descripcion2'];
         $this->descripcion3 = $data['descripcion3'];
@@ -34,12 +37,25 @@ class Configuration {
         $this->mantenimiento = $data['mantenimiento'];
     }
 
-    public function update($titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento) {
+    public function update($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento) {
         $connection = Connection::getInstance();
         
-        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, descripcion1=:descripcion1, descripcion2=:descripcion2, descripcion3=:descripcion3, email=:email, elementos=:elementos, mantenimiento=:mantenimiento WHERE id=:id");
+        $query = $connection->prepare("UPDATE configuracion SET titulo=:titulo, 
+                                                                titulo1=:titulo1, 
+                                                                titulo2=:titulo2, 
+                                                                titulo3=:titulo3, 
+                                                                descripcion1=:descripcion1, 
+                                                                descripcion2=:descripcion2, 
+                                                                descripcion3=:descripcion3, 
+                                                                email=:email, 
+                                                                elementos=:elementos, 
+                                                                mantenimiento=:mantenimiento 
+                                                            WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
+                                ':titulo1' => $descripcion1,
+                                ':titulo2' => $descripcion1,
+                                ':titulo3' => $descripcion1,
                                 ':descripcion1' => $descripcion1,
                                 ':descripcion2' => $descripcion2,
                                 ':descripcion3' => $descripcion3,
@@ -56,5 +72,13 @@ class Configuration {
     public function reset() {
         unset(self::$instance);
         return self::getInstance();
+    }
+
+    public function getCardInfo() {
+        $context = [];
+        $context['cards'][] = array('title' => $titulo1, 'descripcion' => $this->descripcion1);
+        $context['cards'][] = array('title' => $titulo2, 'descripcion' => $this->descripcion2);
+        $context['cards'][] = array('title' => $titulo3, 'descripcion' => $this->descripcion3);
+        return $context;
     }
 }
