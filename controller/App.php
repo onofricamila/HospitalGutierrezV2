@@ -66,7 +66,6 @@ class AppController {
             $path = '/app/not_allowed.html.twig';
             $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
             TwigController::renderTwig($path, $context);
-            die;
         }
         else {
         }
