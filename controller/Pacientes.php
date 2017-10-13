@@ -25,7 +25,7 @@
             AppController::allowed('paciente_index');
 
             $args= [];
-            
+
             if (isset($_GET['search']) && $_GET['search'] != "") {
                 $args['search'] = $_GET['search'];
             }
@@ -38,7 +38,7 @@
                 require_once 'view/footer.html';  */
                 $context = [];
                 
-                $context['stylesheets'] = ['/public/css/pacientes.css'];
+                $context['stylesheets'] = ['/public/css/pacientes.css', '/public/css/users.css'];
                 $context['javascripts'] = ['/public/js/pacientes.js', '/public/js/users.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
