@@ -19,12 +19,12 @@
                                     <label for="nombre">Nombre</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input id="apellido" name="apellido" type="text" class="validate" value="<?php echo $paciente -> ;?>">
+                                    <input id="apellido" name="apellido" type="text" class="validate" value="<?php echo $paciente -> apellido;?>">
                                     <label for="apellido">Apellido</label>
                                 </div>
                                 
                                 <div class="input-field col s12 m4">
-                                    <input type="text" name="fecha_nacimiento"  class="datepicker" value="<?php echo $paciente -> ;?>">
+                                    <input type="text" name="fecha_nacimiento"  class="datepicker" value="<?php echo $paciente -> fecha_nacimiento;?>">
                                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
