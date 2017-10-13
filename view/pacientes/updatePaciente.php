@@ -38,7 +38,6 @@
 
                                 <div class="input-field col s12 m4">
                                     <select name="idTipoDoc" id="idTipoDoc" >
-                                            <option value="" disabled selected>Tipo de documento</option>
                                             <?php
                                             foreach ($allTipoDoc as $tipo) {
                                                 ?>
@@ -63,7 +62,6 @@
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <select name="idObraSocial" id="idObraSocial">
-                                            <option value="" disabled selected>Obra Social</option>
                                             <?php
                                             foreach ($allObraSocial as $obra) {
                                                 ?>
@@ -79,7 +77,6 @@
                                 <br>
                                 <div class="input-field col s12 m6">
                                     <select name="heladera" id="heladera" class="icons">
-                                        <option value="" disabled selected>Heladera?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
@@ -87,7 +84,6 @@
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="electricidad" id="electricidad" class="icons">
-                                        <option value="" disabled selected>Electricidad?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
@@ -96,7 +92,6 @@
                                 
                                 <div class="input-field col s12 m6">
                                     <select name="mascota" id="mascota" class="icons">
-                                        <option value="" disabled selected>Mascota?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
@@ -104,7 +99,6 @@
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoVivienda" id="idTipoVivienda">
-                                            <option value="" disabled selected>Tipo Vivienda</option>
                                             <?php
                                             foreach ($allTipoVivienda as $tipo) {
                                                 ?>
@@ -118,7 +112,6 @@
 
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoCalefaccion" id="idTipoCalefaccion">
-                                            <option value="" disabled selected>Tipo Calefaccion</option>
                                             <?php
                                             foreach ($allTipoCalefaccion as $tipo) {
                                                 ?>
@@ -131,7 +124,6 @@
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoAgua" id="idTipoAgua">
-                                            <option value="" disabled selected>Tipo Agua</option>
                                             <?php
                                             foreach ($allTipoAgua as $tipo) {
                                                 ?>
