@@ -51,7 +51,7 @@
                 
                 /* uso el mismo diseño que el listado de users*/
                 $context['stylesheets'] = ['/public/css/users.css'];
-                $context['javascripts'] = ['/public/js/pacientes.js'];
+                $context['javascripts'] = ['/public/js/users.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
                 $context['allTipoDoc'] = TipoDoc::all();
