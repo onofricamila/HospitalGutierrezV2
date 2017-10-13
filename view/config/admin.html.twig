@@ -40,14 +40,8 @@
                         </div>
                     </td>
                     <td>
-                        <span class="data">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</span>
+                        <a href="?controller=Config&action=toggleMantenimiento">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</a>
                     </td>
-                    <div class="input-field">
-                        <p>
-                            <input type="checkbox" id="test5" />
-                            <label for="test5">Red</label>
-                        </p>
-                    </div>
                 </tr>
             </tbody>
         </table>
