@@ -37,7 +37,7 @@
                                 </div>
 
                                 <div class="input-field col s12 m4">
-                                    <select name="idTipoDoc" >
+                                    <select name="idTipoDoc" id="idTipoDoc" >
                                             <option value="" disabled selected>Tipo de documento</option>
                                             <?php
                                             foreach ($allTipoDoc as $tipo) {
@@ -47,6 +47,7 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de documento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="dni" name="dni" type="number" class="validate" value="<?php echo $paciente -> dni;?>">
@@ -61,7 +62,7 @@
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <select name="idObraSocial">
+                                    <select name="idObraSocial" id="idObraSocial">
                                             <option value="" disabled selected>Obra Social</option>
                                             <?php
                                             foreach ($allObraSocial as $obra) {
@@ -71,34 +72,38 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Obra Social</label>
                                 </div>
                                 <br>        
                                 <h5 id="#datos-demo" >Datos demograficos</h5>
                                 <br>
                                 <div class="input-field col s12 m6">
-                                    <select name="heladera" class="icons">
+                                    <select name="heladera" id="heladera" class="icons">
                                         <option value="" disabled selected>Heladera?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Heladera?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="electricidad" class="icons">
+                                    <select name="electricidad" id="electricidad" class="icons">
                                         <option value="" disabled selected>Electricidad?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Electricidad?</label>
                                 </div>
                                 
                                 <div class="input-field col s12 m6">
-                                    <select name="mascota" class="icons">
+                                    <select name="mascota" id="mascota" class="icons">
                                         <option value="" disabled selected>Mascota?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Mascota?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoVivienda">
+                                    <select name="idTipoVivienda" id="idTipoVivienda">
                                             <option value="" disabled selected>Tipo Vivienda</option>
                                             <?php
                                             foreach ($allTipoVivienda as $tipo) {
@@ -108,10 +113,11 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Vivienda?</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoCalefaccion">
+                                    <select name="idTipoCalefaccion" id="idTipoCalefaccion">
                                             <option value="" disabled selected>Tipo Calefaccion</option>
                                             <?php
                                             foreach ($allTipoCalefaccion as $tipo) {
@@ -121,9 +127,10 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Calefaccion?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoAgua">
+                                    <select name="idTipoAgua" id="idTipoAgua">
                                             <option value="" disabled selected>Tipo Agua</option>
                                             <?php
                                             foreach ($allTipoAgua as $tipo) {
@@ -133,6 +140,7 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Agua?</label>
                                 </div>
                                 <div class="row col m12">
                                     <div class="col s12 m6">
