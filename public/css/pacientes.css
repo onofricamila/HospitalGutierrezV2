@@ -80,27 +80,3 @@
 .btn-pref .btn {
     -webkit-border-radius:0 !important;
 }
-
-/* para el listado de pacientes */
-
-
-.card-title {
-    overflow: hidden;
-}
-
-.contenido-card {
-    margin-top: 10px;
-}
-
-.fixed-action-btn {
-    right: 5%;
-    bottom: 5%;
-}
-
-.dropdown-content {
-    width: auto!important;
-}
-
-.pagination-li.active {
-    background-color: #009688!important;
-}
