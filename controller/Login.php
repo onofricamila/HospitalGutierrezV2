@@ -50,11 +50,13 @@
             $pass = $_POST['pass'];
             $user = User::login($user, $pass);
             if ($user->isGuest()) {
-                $this->index(['badLogin' => 'El usuario o la contrasena no son correctos.']);
+                $this->index(['badLoginText' => 'El usuario o la contrasena no son correctos.',
+                                'badLogin' => true]);
                 die;
             }
             elseif (!($user->active)) {
-                $this->index(['badLogin' => 'El usuario que intento ingresar no esta activo actualmente.']);
+                $this->index(['badLoginText' => 'El usuario que intento ingresar no esta activo actualmente.',
+                                'badLogin' => true]);
                 die;
             }
 
