@@ -64,6 +64,9 @@ class UsersController {
         AppController::allowed('usuario_update');  
 
         User::id($_GET['id'])->togglestate();
+        if ($_GET['id'] == AppController::getUser()->id) {
+            LoginController::getInstance()->logout();
+        }
         $this->index();
     }
 
