@@ -30,7 +30,7 @@
                 */
 
                 
-                $context['stylesheets'] = ['/public/css/main.css'];
+                $context['stylesheets'] = ['/public/css/login.css'];
                 $context['javascripts'] = ['/public/js/login.js'];
                 $context['pagename'] = 'Login';
                 if (!isset($context['badLogin'])) {
