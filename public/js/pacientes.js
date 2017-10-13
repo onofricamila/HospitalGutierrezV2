@@ -182,5 +182,4 @@ $(document).ready(function seleccionar() {
                         combo[i].selected = true;
                     }   
                     }
-                }
 });
