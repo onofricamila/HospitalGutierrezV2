@@ -79,3 +79,7 @@ td {
 .updateButton {
     display: none;
 }
+.fixed-action-btn {
+    right: 50px;
+    bottom: 50px;
+}
