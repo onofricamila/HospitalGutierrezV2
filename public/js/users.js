@@ -107,7 +107,7 @@ $('.pagination-li').click(function() {
     }
 
     $('.cardContainer').each(function( index ) {
-        if ($('.pagination-li.active').text() == Math.floor(index / $('#paginacion').text())) {
+        if ($('.pagination-li.active').text()-1 == Math.floor(index / $('#paginacion').text())) {
             $(this).show();
         }
         else {
