@@ -252,5 +252,5 @@
     
     <script type="text/javascript" src="/public/js/pacientes.js"></script>
     <script>
-        select(<?php echo $paciente -> idGenero;?>)
+        select(<?php echo $paciente -> idGenero;?>,  <?php echo $paciente -> idTipoDoc;?>, <?php echo $paciente -> idObraSocial;?>, <?php echo $paciente -> heladera;?>, <?php echo $paciente -> electricidad;?>,  <?php echo $paciente -> mascota;?>,  <?php echo $paciente -> idTipoVivienda;?>, <?php echo $paciente -> idTipoCalefaccion;?>, <?php echo $paciente -> idTipoAgua;?>)
     </script>
