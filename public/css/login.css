@@ -1,25 +1,28 @@
 .cyan {
     color: #009688;
 }
+
 .container {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
 .loginContainer {
     border: 1px;
     border-radius: 2px;
     border-color: black;
 }
+
 .contenido-card {
     margin-top: 50px;
 }
+
 span.card-title {
     margin-bottom: 0px!important;
     margin-top: 10px;
     font-size: 30px!important;
 }
+
 .buttons {
     margin-top: 50px;
-}
-.card {
 }
