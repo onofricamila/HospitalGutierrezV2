@@ -59,10 +59,8 @@ class Configuration {
                                 ':descripcion2' => $descripcion2,
                                 ':descripcion3' => $descripcion3,
                                 ':email' => $email,
-                                ':elementos' => $elementos));
+                                ':elementos' => int($elementos)));
 
-        var_dump($connection->errorInfo());
-        die;
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
