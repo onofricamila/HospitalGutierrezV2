@@ -69,6 +69,8 @@ $(document).ready(function () {
     var paginacion = $('.paginacion').text();
     $('.cardContainer').each(function( index ) {
         if (index > $('.paginacion').text()) {
+            alert(index);
+            alert($('.paginacion').text())
             $(this).hide();
         }
     });
