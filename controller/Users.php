@@ -47,7 +47,8 @@ class UsersController {
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
             $context['usersCant'] = count($users);
-
+            $context['titulo'] = 'Usuarios';
+            
             $path = '/users/view.html.twig';
             
             TwigController::renderTwig($path, $context);

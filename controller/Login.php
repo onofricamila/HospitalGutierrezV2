@@ -39,6 +39,7 @@
                 
                 $path = '/login/view.html.twig';
                 
+                $context['titulo'] = 'Log In';
                 TwigController::renderTwig($path, $context);
                 die;
             }

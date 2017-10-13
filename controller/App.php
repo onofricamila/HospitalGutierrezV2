@@ -67,6 +67,7 @@ class AppController {
             $path = '/not_allowed.html.twig';
             /* use el mismo diseño que para mantain*/
             $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+            $context['titulo'] = 'Acceso Denegado';
             TwigController::renderTwig($path, $context);
             die;
         }
@@ -77,12 +78,14 @@ class AppController {
 
     public static function no_elements(){
         
-                    $context = [];
-                    $path = '/no_elements.html.twig';
-                    /* use el mismo diseño que para mantain*/
-                    $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
-                    TwigController::renderTwig($path, $context);
-                    die;
+        $context = [];
+        $path = '/no_elements.html.twig';
+        /* use el mismo diseño que para mantain*/
+        $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+        $context['titulo'] = 'Sin resultados';
+        
+        TwigController::renderTwig($path, $context);
+        die;
     }
 }
 

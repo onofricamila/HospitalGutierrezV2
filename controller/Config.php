@@ -47,6 +47,7 @@ class ConfigController {
         $context = [];
         $path = '/config/mantenimiento.html.twig';
         $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+        $context['titulo'] = 'Mantenimiento';
         TwigController::renderTwig($path, $context);
 }
 
@@ -59,6 +60,7 @@ class ConfigController {
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
+        $context['titulo'] = 'Configuracion';
         TwigController::renderTwig($path, $context);
         die;
     }
