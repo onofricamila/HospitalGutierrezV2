@@ -65,7 +65,7 @@ class AppController {
         echo "-->get instance <br>";
         var_dump(!self::getInstance()->checkPermissions('$permission'));
         echo "--> allowed? <br>";
-        die:
+        die;
         if (!self::getInstance()->checkPermissions('$permission')) {
             $context = [];
             $path = '/not_allowed.html.twig';
