@@ -1,5 +1,4 @@
 .card {
-    flex: 1;
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -26,4 +25,7 @@
 }
 .row {
     display: flex;
+}
+.card-container {
+    flex: 1;
 }
