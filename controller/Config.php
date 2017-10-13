@@ -96,4 +96,8 @@ class ConfigController {
         Configuration::getInstance()->togglemantenimiento();
         $this->admin();
     }
+
+    public function getPaginacion() {
+        return Configuracion::getInstance()->elementos;
+    }
 }

@@ -32,7 +32,7 @@
                 $context = [];
                 
                 $context['stylesheets'] = ['/public/css/main.css'];
-                $context['javascripts'] = [];
+                $context['javascripts'] = ['/public/js/login.js'];
                 $context['pagename'] = 'Login';
     
                 $path = '/login/view.html.twig';

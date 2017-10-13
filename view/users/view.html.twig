@@ -43,9 +43,10 @@
     <div class="divider divider-margin"></div>
 
     <div class="row">
+        <span id="paginacion" style="display: none">{{ paginacion }}</span>
 
         {% for user in users %}
-        <div class="col s12 l6">
+        <div class="col s12 l6 cardContainer">
             <div class="card">
                 <div class="card-content black-text">
                     <span class="card-title">
