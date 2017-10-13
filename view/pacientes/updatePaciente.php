@@ -6,7 +6,7 @@
                     <div class="useravatar">
                         <img alt="" src="../../public/imgs/patient3.png">
                     </div>
-                    <div class="card-info"> <span class="card-title">Edita los datos del paciente <?php echo $paciente -> apellido . " ," .$paciente -> nombre;?>.</span> </div>
+                    <div class="card-info"> <span class="card-title">Edita los datos del paciente <?php echo $paciente -> apellido . ", " .$paciente -> nombre;?>.</span> </div>
                 </div>
             
                 <div id="" class="col s12">
@@ -48,15 +48,15 @@
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input id="dni" name="dni" type="number" class="validate">
+                                    <input id="dni" name="dni" type="number" class="validate" value="<?php echo $paciente -> dni;?>">
                                     <label for="dni">DNI</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input id="domicilio" name="domicilio" type="text" class="validate">
+                                    <input id="domicilio" name="domicilio" type="text" class="validate" value="<?php echo $paciente -> domicilio;?>">
                                     <label for="domicilio">Domicilio</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input id="telefono" name="telefono" type="number">
+                                    <input id="telefono" name="telefono" type="number" class="validate" value="<?php echo $paciente -> telefono;?>">
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s12 m4">
