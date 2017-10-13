@@ -85,7 +85,7 @@ class Configuration {
         
         $query = $connection->prepare("UPDATE configuracion SET mantenimiento=:mant WHERE id=:id");
         $query->execute(array(':id' => $this->id,
-                                ':mant' => !$this->mantenimiento));
+                                ':mant' => !($this->mantenimiento)));
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
