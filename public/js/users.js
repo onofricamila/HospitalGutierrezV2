@@ -77,7 +77,7 @@ $(document).ready(function () {
     }
 });
 $('.pagination-li').click(function() {
-    $(this).addClass('active');
     $('.pagination-li.active').removeClass('active');
+    $(this).addClass('active');
 })
 (jQuery); // end of jQuery name space
