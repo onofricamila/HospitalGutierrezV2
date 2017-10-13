@@ -12,15 +12,16 @@
     require_once 'controller/Config.php';   // ConfigController
     
 
-    if (ConfigController::mantenimiento()) {
-        $controller = 'Config';
-        $action     = 'index';
-    }
-    elseif (isset($_GET['controller']) && isset($_GET['action'])) {
+    if (isset($_GET['controller']) && isset($_GET['action'])) {
         $controller = ucwords(strtolower($_GET['controller']));
         $action     = strtolower($_GET['action']);
     } else {
         $controller = 'Home';
+        $action     = 'index';
+    }
+
+    if (ConfigController::mantenimiento() && !(ConfigController::permission($controller, $action))) {
+        $controller = 'Config';
         $action     = 'index';
     }
 

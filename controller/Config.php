@@ -18,7 +18,7 @@ class ConfigController {
         return Configuration::getInstance();
     }
 
-    public static function updateConfiguration() {
+    public function update() {
         if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
@@ -40,7 +40,7 @@ class ConfigController {
 
         $config->updateUser($titulo, $descripcion1, $descripcion2, $descripcion3, $email, $elementos, $mantenimiento);
 
-        $this->index();
+        $this->admin();
     }
 
     public function index() {
@@ -51,11 +51,30 @@ class ConfigController {
 }
 
     public function admin() {
+        if (!AppController::getInstance()->checkPermissions('configuracion_index')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+
         echo "Administracion de configuracion, todavia no lo hice.";
         die;
     }
 
     public static function mantenimiento() {
         return Configuration::getInstance()->mantenimiento;
+    }
+
+    public static function permission($controller, $action) {
+        $isLogged = AppController::isLogged();
+
+        if ($controller == 'User' && ($action == 'logout' || $action == 'login')) {
+            return true;
+        }
+
+        if ($controller == 'Config' && ($action == 'update' || $action == 'admin')) {
+            return true;
+        }
+
+        return false;
     }
 }
