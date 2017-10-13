@@ -95,7 +95,7 @@ $('.pagination-li').click(function() {
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
     $(this).removeClass('waves-effect');
-    $.updateArrows(1);
+    updateArrows(1);
 });
 $('.pagination-back').click(function() {
     var actual = $('.pagination-li.active').text();
