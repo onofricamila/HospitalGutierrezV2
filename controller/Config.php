@@ -40,6 +40,8 @@ class ConfigController {
 
         $config = Configuration::getInstance();
 
+        var_dump($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
+        die;
 
         $config->update($titulo, $titulo1, $titulo2, $titulo3, $descripcion1, $descripcion2, $descripcion3, $email, $elementos);
 
