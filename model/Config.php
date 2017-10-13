@@ -59,7 +59,7 @@ class Configuration {
                                 ':descripcion2' => $descripcion2,
                                 ':descripcion3' => $descripcion3,
                                 ':email' => $email,
-                                ':elementos' => int($elementos)));
+                                ':elementos' => intval($elementos)));
 
         if ($query->rowCount() == 1) {
             $this->reset();
