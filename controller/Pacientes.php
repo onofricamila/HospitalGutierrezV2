@@ -139,10 +139,11 @@
                 die;
             }
 
+            $idPaciente = $_POST['idPaciente'];
             $telefono = trim($_POST['telefono']);
             $idObraSocial = trim($_POST['idObraSocial']);
 
-            Paciente::updatePaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
+            Paciente::updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
     }
