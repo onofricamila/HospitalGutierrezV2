@@ -210,7 +210,10 @@ html {
     flex: 1;
 }
 @media screen and (min-width: 601px) {
-    .row .col.m12 {
+    .col.m12 {
         flex: none;
+    }
+    .row{
+        display: block;
     }
 }
