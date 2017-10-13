@@ -60,6 +60,9 @@ class Configuration {
                                 ':descripcion3' => $descripcion3,
                                 ':email' => $email,
                                 ':elementos' => $elementos));
+
+        echo($connection->errorInfo());
+        die;
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
