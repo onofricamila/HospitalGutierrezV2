@@ -8,7 +8,8 @@
         <br>
         <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo (funciona)</a>
         <br>
-        <a href="?controller=Pacientes&action=deletePaciente&idPaciente=">Show bai patient demo (funciona)</a>
+        <!-- ?controller=Pacientes&action=deletePaciente&idPaciente= -->
+        <a href="#modal1" class="waves-effect waves-light btn modal-trigger">Show bai patient demo (funciona)</a>
         <br>
         <a href="?controller=Pacientes&action=newPaciente">Show new patient demo (funciona)</a>
         <br>
@@ -64,5 +65,18 @@
     </table>
 </div>
 </div>
+
+
+ <!-- Delete Patient Modal Structure -->
+ <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>¡Atención! Operación irreversible.</h4>
+      <p>Estas a punto de eliminar el paciente de forma permanente. Estas seguro que quieres proseguir?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="?controller=Pacientes&action=deletePaciente&idPaciente= " class="modal-action modal-close waves-effect waves-green btn-flat">Sí, estoy seguro</a>
+      <a href="#!" onclick=" $('#modal1').modal('close');" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+    </div>
+  </div>
     
 <script type="text/javascript" src="/public/js/pacientes.js"></script>
