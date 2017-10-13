@@ -34,7 +34,8 @@
                 $context['stylesheets'] = ['/public/css/main.css'];
                 $context['javascripts'] = ['/public/js/login.js'];
                 $context['pagename'] = 'Login';
-    
+                $context['badLogin'] = false;
+                
                 $path = '/login/view.html.twig';
                 
                 TwigController::renderTwig($path, $context);
@@ -47,11 +48,11 @@
             $pass = $_POST['pass'];
             $user = User::login($user, $pass);
             if ($user->isGuest()) {
-                $this->index(['badLogin' => 'incorrect']);
+                $this->index(['badLogin' => 'El usuario o la contrasena no son correctos.']);
                 die;
             }
             elseif (!($user->active)) {
-                $this->index(['badLogin' => 'inactive']);
+                $this->index(['badLogin' => 'El usuario que intento ingresar no esta activo actualmente.']);
                 die;
             }
 

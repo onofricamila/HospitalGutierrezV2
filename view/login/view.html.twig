@@ -9,11 +9,13 @@
                     <div class="col s8 offset-s2">
                         <h5><strong><small> INICIAR SESIÓN </small></strong></h5>
                     </div>
+                    {% if badLogin %}
                     <div class="col s2">
-                        <a class="btn-floating btn-small waves-effect waves-light red">
+                        <a class="btn-floating btn-small waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="">
                             <i class="material-icons">highlight_off</i>
                         </a>
                     </div>
+                    {% endif %}
                 </div>
                 <div class="">
 
