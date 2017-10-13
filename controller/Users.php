@@ -92,8 +92,9 @@ class UsersController {
     public function deleteuser() {
 
         AppController::allowed('usuario_delete');  
-
         $id = $_POST['deleteModalId'];
+        var_dump($id);
+        die;
         if (!is_int($id)) {
             $this->index();
         }
