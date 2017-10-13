@@ -104,7 +104,8 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
-            $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            $paciente = Paciente::getPaciente($_GET['idPaciente']); 
+            /*
             $genero = new Genero($paciente -> idGenero);
             $obra_social = new ObraSocial($paciente -> idObraSocial);
             $tipo_doc = new TipoDoc($paciente -> idTipoDoc);
@@ -115,7 +116,26 @@
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/showPaciente.php';
-            require_once 'view/footer.html';
+            require_once 'view/footer.html'; 
+            */
+
+            $context = [];
+            
+            $context['stylesheets'] = ['/public/css/pacientes.css'];
+            $context['javascripts'] = ['/public/js/pacientes.js'];
+            $context['pagename'] = 'Pacientes - Show';
+            $context['paciente'] = $paciente
+            $context['genero'] =  new Genero($paciente -> idGenero);
+            $context['obra_social'] =  new ObraSocial($paciente -> idObraSocial);
+            $context['tipo_doc'] =  new TipoDoc($paciente -> idTipoDoc);
+            $context['tipo_vivienda'] =  new TipoVivienda($paciente -> idTipoVivienda);
+            $context['tipo_calefaccion'] =  new TipoCalefaccion($paciente -> idTipoCalefaccion);
+            $context['tipo_agua'] = new TipoAgua($paciente -> idTipoAgua);
+
+            $path = '/pacientes/show.html.twig';
+            
+            TwigController::renderTwig($path, $context);
+            die;
         }
 
         public function updatePaciente(){
