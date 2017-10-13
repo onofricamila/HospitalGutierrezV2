@@ -108,10 +108,10 @@ $('.pagination-li').click(function() {
 
     $('.cardContainer').each(function( index ) {
         if ($('.pagination-li.active').text()-1 == Math.floor(index / $('#paginacion').text())) {
-            $(this).show(1000);
+            $(this).show(10000);
         }
         else {
-            $(this).hide(1000);
+            $(this).hide(10000);
         }
     });
 });
