@@ -56,7 +56,7 @@
                                     <label for="domicilio">Domicilio</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <input id="telefono" name="telefono" type="number">
+                                    <input id="telefono" name="telefono" type="number" class="validate">
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s12 m4">
