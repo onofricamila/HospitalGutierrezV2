@@ -174,7 +174,7 @@ $('.deleteModalTrigger').click(function () {
 });
 
 /* para marcar como selected los options en el update */
-$(document).ready(function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
+function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
     $("#idGenero option[value="+ idGenero +"]").attr("selected",true);
     $("#idTipoDoc option[value="+ idTipoDoc +"]").attr("selected",true);
     $("#idObraSocial option[value="+ idObraSocial +"]").attr("selected",true);
@@ -184,6 +184,44 @@ $(document).ready(function select(idGenero, idTipoDoc, idObraSocial, heladera, e
     $("#idTipoVivienda option[value="+ idTipoVivienda +"]").attr("selected",true);
     $("#idTipoCalefaccion option[value="+ idTipoCalefaccion +"]").attr("selected",true);
     $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
-});
+}
 
-/* para validar formularios*/
+/* para validar formularios
+
+function empty(valor) {
+    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+        return true;
+    }
+}
+function less3(valor) {
+    if(  valor.length < 3) {
+        return true;
+    }
+}
+function validacion() {
+    nombre = document.getElementById("nombre").value;
+    apellido = document.getElementById("apellido").value;
+    fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+    idGenero = document.getElementById("idGenero").value;
+    idTipoDoc = document.getElementById("idTipoDoc").value;
+    dni = document.getElementById("dni").value;
+    domicilio = document.getElementById("domicilio").value;
+    telefono = document.getElementById("telefono").value;
+    idObraSocial = document.getElementById("idObraSocial").value;
+    heladera = document.getElementById("heladera").value;
+    electricidad = document.getElementById("electricidad").value;
+    mascota = document.getElementById("mascota").value;
+    idTipoVivienda = document.getElementById("idTipoVivienda").value;
+    idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
+    idTipoAgua = document.idTipoAgua("electricidad").value;
+
+
+    if( less3(nombre) || empty(nombre)) {
+        alert('[ERROR] El campo debe tener un valor de...');
+        return false;
+    }
+
+    return true
+    
+}
+*/
