@@ -83,10 +83,6 @@ class AppController {
                     $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
                     TwigController::renderTwig($path, $context);
                     die;
-                }
-                else {
-                    return true;
-                }
-            }
+    }
 }
 
