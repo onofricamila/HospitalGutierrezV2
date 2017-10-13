@@ -66,11 +66,8 @@ $('.newUserModalTrigger').click(function () {
     Materialize.updateTextFields();
 });
 $(document).ready(function () {
-    var paginacion = $('.paginacion').text();
     $('.cardContainer').each(function( index ) {
-        if (index > $('.paginacion').text()) {
-            alert(index);
-            alert($('.paginacion').text())
+        if (index > $('#paginacion').text()) {
             $(this).hide();
         }
     });
