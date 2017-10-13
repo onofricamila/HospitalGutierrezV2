@@ -172,3 +172,8 @@ $('.deleteModalTrigger').click(function () {
     $('#deleteModalPatient').text(paciente);
     Materialize.updateTextFields();
 });
+
+/* para marcar como selected los options en el update */
+$(document).ready(function seleccionar() {
+    document.getElementsById('idGenero').value=1;
+});

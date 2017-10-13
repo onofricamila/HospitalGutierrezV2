@@ -10,7 +10,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxUpdatePaciente" autocomplete="off">
+                        <form class="col s12" method="post" name="update" action="index.php?controller=Pacientes&action=auxUpdatePaciente" autocomplete="off">
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -28,7 +28,7 @@
                                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <select name="idGenero" class="icons">
+                                    <select name="idGenero" id="idGenero" class="icons">
                                             <option value="" disabled selected>Genero</option>
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
