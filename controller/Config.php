@@ -64,6 +64,7 @@ class ConfigController {
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
         TwigController::renderTwig($path, $context);
+        die;
     }
 
     public static function mantenimiento() {
