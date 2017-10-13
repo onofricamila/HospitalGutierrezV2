@@ -59,8 +59,8 @@ class ConfigController {
             die;
         }
 
-        $context = [];
-        $context['cards'] = $this->getCardInfo();
+        $context = var_dump($this->getCardInfo());
+        die;
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
         $context['javascripts'] = ['/public/js/config-admin.js'];
