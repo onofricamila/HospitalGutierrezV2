@@ -108,7 +108,12 @@
                 die;
             }
             $paciente = Paciente::getPaciente($_GET['idPaciente']);
-
+            $allTipoAgua = TipoAgua::all();
+            $allTipoCalefaccion = TipoCalefaccion::all();
+            $allTipoVivienda = TipoVivienda::all();
+            $allObraSocial = ObraSocial::all();
+            $allTipoDoc = TipoDoc::all();
+            
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/updatePaciente.php';
