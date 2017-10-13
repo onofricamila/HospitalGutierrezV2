@@ -97,7 +97,7 @@
         <ul class="pagination center-align">
             <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
             {% for i in range(0, (usersCant // elementos)) %}
-                <li class="waves-effect"><a href="#!">{{ loop.index }}</a></li>
+                <li class="waves-effect pagination-li"><a>{{ loop.index }}</a></li>
             {% endfor %}
             <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
