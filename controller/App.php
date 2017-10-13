@@ -66,6 +66,7 @@ class AppController {
         var_dump(self::getInstance()->checkPermissions('$permission'));
         echo "--> allowed? <br>";
         die; 
+        
         if (!self::getInstance()->checkPermissions('$permission')) { /* si no tengo permisos ..*/
             $context = [];
             $path = '/not_allowed.html.twig';
@@ -80,7 +81,7 @@ class AppController {
     }
 }
 
-/* antes en cada controller tipo users pacientes y config hacia :
+/* antes en cada controller tipo users pacientes y config hacia y andaba:
 
     if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
