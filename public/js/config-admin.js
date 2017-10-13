@@ -1,7 +1,7 @@
 $('.updateTrigger').click(function () {
     $(function () {
         $("textarea").each(function () {
-            this.style.height = (this.scrollHeight) + 'px';
+            this.style.height = (this.scrollHeight - 10) + 'px';
         });
     });
     var $target = $('html,body');
