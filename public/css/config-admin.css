@@ -40,6 +40,7 @@ table {
     border-spacing: 0;
     display: block;
     position: relative;
+    font-size: 20px;
 }
 thead {
     display: block;
@@ -70,4 +71,5 @@ td {
     display: block;
     min-height: 1.25em;
     text-align: left;
+    padding-left: 30px;
 }
