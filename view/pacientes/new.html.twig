@@ -62,10 +62,8 @@
                                 <div class="input-field col s12 m4">
                                     <select name="idObraSocial">
                                             <option value="" disabled selected>Obra Social</option>
-                                            <?php
-                                            foreach ($allObraSocial as $obra) {
-                                                ?>
-                                                <option value="<?php echo $obra->idObraSocial ; ?>"><?php echo $obra->nombre ; ?></option>
+                                            {% for obra in allObraSocial %}                                            
+                                                <option value="{{ obra.idObraSocial }}">{{ obra.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
@@ -97,10 +95,8 @@
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoVivienda">
                                             <option value="" disabled selected>Tipo Vivienda</option>
-                                            <?php
-                                            foreach ($allTipoVivienda as $tipo) {
-                                                ?>
-                                                <option value="<?php echo $tipo->idTipoVivienda ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                            {% for tipo in allTipoVivienda %}
+                                                <option value="{{ tipo.idTipoVivienda }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
@@ -108,20 +104,16 @@
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoCalefaccion">
                                             <option value="" disabled selected>Tipo Calefaccion</option>
-                                            <?php
-                                            foreach ($allTipoCalefaccion as $tipo) {
-                                                ?>
-                                                <option value="<?php echo $tipo->idTipoCalefaccion ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                            {% for tipo in allTipoCalefaccion %}
+                                                <option value="{{ tipo.idTipoCalefaccion }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoAgua">
                                             <option value="" disabled selected>Tipo Agua</option>
-                                            <?php
-                                            foreach ($allTipoAgua as $tipo) {
-                                                ?>
-                                                <option value="<?php echo $tipo->idTipoAgua ; ?>"><?php echo $tipo->nombre ; ?></option>
+                                            {% for tipo in allTipoAgua %}
+                                                <option value="{{ tipo.idTipoAgua }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                 </div>
