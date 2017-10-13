@@ -48,6 +48,7 @@ class UsersController {
             $context['pagename'] = 'Usuarios';
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
+            $context['usersCant'] = count($users);
 
             $path = '/users/view.html.twig';
             
