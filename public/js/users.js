@@ -87,6 +87,7 @@ $(document).ready(function () {
     } else {
         $('.pagination-back').removeClass('disabled');
     }
+    $('.container').show();
 });
 $('.pagination-li').click(function() {
     $('.pagination-li.active').addClass('waves-effect');
