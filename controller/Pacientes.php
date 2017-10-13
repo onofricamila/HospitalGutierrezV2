@@ -34,9 +34,14 @@
         }
 
         public function newPaciente(){
-            AppController::allowed('paciente_new');
-          
-            /* $allTipoAgua = TipoAgua::all();
+            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
+                $context = [];
+                $path = '/app/not_allowed.html.twig';
+                $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+                TwigController::renderTwig($path, $context);
+                die;
+            }
+           /* $allTipoAgua = TipoAgua::all();
             $allTipoCalefaccion = TipoCalefaccion::all();
             $allTipoVivienda = TipoVivienda::all();
             $allObraSocial = ObraSocial::all();
