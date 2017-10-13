@@ -3,36 +3,46 @@
 {% block body %}
 <section>
     <div class="container" >
-        <div class="box centered">
-            <div class="box-title row">
-                <div class="col s8 offset-s2">
-                    <h5><strong><small> INICIAR SESIÓN </small></strong></h5>
-                </div>
-                {% if badLogin %}
-                <div class="col s2">
-                    <a class="btn-floating btn-small waves-effect waves-light red tooltipped" data-position="right" data-delay="50" data-tooltip="{{badLoginText}}">
-                        <i class="material-icons">highlight_off</i>
-                    </a>
-                </div>
-                {% endif %}
+        <div class="row">
+        <form class="col s12">
+            <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
             </div>
-            <div class="">
-
-                <form action="/index.php?controller=login&action=login" class="form-login" method="post" target="_self" accept-charset="UTF-8" autocomplete="on">
-                    <div class="group">
-                        <input type="text" placeholder="Usuario" class="input-google" title="Usuario" required name="user">
-                        <span class="highlight" title="Nombre"></span>
-                    </div>
-                    <div class="group">
-                        <input type="password" placeholder="Contraseña" class="input-google" title="Contraseña" required name="pass">
-                        <span class="highlight" title="Contraseña"></span>
-                    </div>
-                    <br>
-                    <input type="submit" class="button buttonBlue" title="Submit">
-                    <a href="signup.php">Registrarme</a>
-                </form>
-
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
             </div>
+            </div>
+            <div class="row">
+            <div class="input-field col s12">
+                <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                <label for="disabled">Disabled</label>
+            </div>
+            </div>
+            <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+            </div>
+            <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col s12">
+                This is an inline input field:
+                <div class="input-field inline">
+                <input id="email" type="email" class="validate">
+                <label for="email" data-error="wrong" data-success="right">Email</label>
+                </div>
+            </div>
+            </div>
+        </form>
         </div>
     </div>
 </section>
