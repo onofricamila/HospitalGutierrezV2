@@ -6,7 +6,7 @@
                     <div class="useravatar">
                         <img alt="" src="../../public/imgs/patient3.png">
                     </div>
-                    <div class="card-info"> <span class="card-title">Edita los datos del paciente seleccionado.</span> </div>
+                    <div class="card-info"> <span class="card-title">Edita los datos del paciente <?php echo $paciente -> apellido . " ," .$paciente -> nombre;?>.</span> </div>
                 </div>
             
                 <div id="" class="col s12">
