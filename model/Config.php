@@ -52,9 +52,9 @@ class Configuration {
                                                             WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':titulo' => $titulo,
-                                ':titulo1' => $descripcion1,
-                                ':titulo2' => $descripcion1,
-                                ':titulo3' => $descripcion1,
+                                ':titulo1' => $titulo1,
+                                ':titulo2' => $titulo2,
+                                ':titulo3' => $titulo3,
                                 ':descripcion1' => $descripcion1,
                                 ':descripcion2' => $descripcion2,
                                 ':descripcion3' => $descripcion3,
