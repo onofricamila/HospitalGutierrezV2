@@ -37,7 +37,7 @@ $('.deleteModalTrigger').click(function () {
     contenido = $(this).closest('div').find('.contenido-card');
     id = contenido.children().eq(0).text();
     $('#deleteModalId').val(id);
-    alert($('#deleteModalId').val(id));
+    alert($('#deleteModalId').val());
     user = contenido.children().eq(2).text().replace('Nombre de usuario: ', '');
     $('#deleteModalUser').text(user);
     Materialize.updateTextFields();
