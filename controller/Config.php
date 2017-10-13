@@ -72,13 +72,11 @@ class ConfigController {
 
     public static function permission($controller, $action) {
         $isLogged = AppController::isLogged();
-        var_dump($controller, $action);
-        die;
         if ($controller == 'Login' && ($action == 'logout' || $action == 'index' || $action="login")) {
             return true;
         }
 
-        if ($controller == 'Config' && ($action == 'update' || $action == 'admin' || $action == 'toggleMantenimiento')) {
+        if ($controller == 'Config' && ($action == 'update' || $action == 'admin' || $action == 'togglemantenimiento')) {
             return true;
         }
 
@@ -89,14 +87,12 @@ class ConfigController {
         return Configuration::getInstance()->getCardInfo();
     }
 
-    public function toggleMantenimiento() {
+    public function togglemantenimiento() {
         if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
         }
-        echo 'hola';
-        die;
-        Configuration::getInstance()->toggleMantenimiento();
+        Configuration::getInstance()->togglemantenimiento();
         $this->admin();
     }
 }

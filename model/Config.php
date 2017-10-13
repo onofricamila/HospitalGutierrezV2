@@ -79,7 +79,7 @@ class Configuration {
         return $context;
     }
 
-    public function toggleMantenimiento() {
+    public function togglemantenimiento() {
         $connection = Connection::getInstance();
         
         $mant = 1;
