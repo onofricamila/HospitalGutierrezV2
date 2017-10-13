@@ -25,9 +25,9 @@ class ConfigController {
         }
 
         if ((!isset($_POST['titulo']) || ($titulo = trim($_POST['titulo'])) == "")
-            || (!isset($_POST['titulo1']) || ($titulo = trim($_POST['titulo1'])) == "")
-            || (!isset($_POST['titulo2']) || ($titulo = trim($_POST['titulo2'])) == "")
-            || (!isset($_POST['titulo3']) || ($titulo = trim($_POST['titulo3'])) == "")
+            || (!isset($_POST['titulo1']) || ($titulo1 = trim($_POST['titulo1'])) == "")
+            || (!isset($_POST['titulo2']) || ($titulo2 = trim($_POST['titulo2'])) == "")
+            || (!isset($_POST['titulo3']) || ($titulo3 = trim($_POST['titulo3'])) == "")
             || (!isset($_POST['descripcion1']) || ($descripcion1 = trim($_POST['descripcion1'])) == "")
             || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "")
             || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "")
