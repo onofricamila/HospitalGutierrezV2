@@ -61,7 +61,7 @@ class AppController {
     }
 
     public static function allowed($permission){
-        if (self::getInstance()->checkPermissions('$permission')) {
+        if (!self::getInstance()->checkPermissions('$permission')) {
             $context = [];
             $path = '/not_allowed.html.twig';
             /* use el mismo diseño que para mantain*/
