@@ -82,9 +82,15 @@ class Configuration {
     public function toggleMantenimiento() {
         $connection = Connection::getInstance();
         
+        $mant = 1;
+        if ($this->mantenimiento) {
+            $mant = 0;
+        }
+
+        var_dump($mant);
         $query = $connection->prepare("UPDATE configuracion SET mantenimiento=:mant WHERE id=:id");
         $query->execute(array(':id' => $this->id,
-                                ':mant' => !($this->mantenimiento)));
+                                ':mant' => $mant));
         if ($query->rowCount() == 1) {
             $this->reset();
             return true;
