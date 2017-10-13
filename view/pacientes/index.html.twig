@@ -9,28 +9,39 @@
 
         <form class="search-form" method="get" target="_self">
 
-            <input type="text" name="controller" value="Users" hidden>
+            <input type="text" name="controller" value="Pacientes" hidden>
             <input type="text" name="action" value="index" hidden>
 
             <div class="col s3 l2 height-100">
                 <div class="input-field">
-                    <select name="active">
-                        <option value="" disabled selected>Estado</option>
-                        <option value="2">Todos</option>
-                        <option value="1">Activos</option>
-                        <option value="0">Bloqueados</option>
+                    <select name="idTipoDoc">
+                        <option value="" disabled selected>Tipo de Documento</option>
+                        {% for tipo in allTipoDoc %}
+                            <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
+                        {% endfor %}
                     </select>
-                    <label>Estado</label>
+                    <label>Tipo de Documento</label>
                 </div>
             </div>
 
             <div class="col s8 l3">
                 <div class="input-field">
-                    <input id="search" type="text" name="search">
-                    <label for="search">Paciente</label>
+                    <input id="nombre" type="text" name="nombre">
+                    <label for="nombre">Nombre</label>
                 </div>
             </div>
-
+            <div class="col s8 l3">
+                <div class="input-field">
+                    <input id="apellido" type="text" name="apellido">
+                    <label for="apellido">Apellido</label>
+                </div>
+            </div>
+            <div class="col s8 l3">
+                <div class="input-field">
+                    <input id="dni" type="number" name="dni">
+                    <label for="dni">DNI</label>
+                </div>
+            </div>
             <div class="col s1 l1">
                 <button type="submit" class="btn-floating btn-small waves-effect waves-light icon-cyan">
                     <i class="material-icons icon-cyan">search</i>
@@ -45,12 +56,12 @@
     <div class="row">
         <span id="paginacion" style="display: none">{{ elementos }}</span>
 
-        {% for user in users %}
+        {% for paciente in pacientes %}
         <div class="col s12 l6 cardContainer">
             <div class="card">
                 <div class="card-content black-text">
                     <span class="card-title">
-                        {{ "#{user.last_name}, #{user.first_name}" }}
+                        {{ "#{paciente.apellido}, #{paciente.nombre}" }}
                         <!-- Dropdown Trigger -->
                         <a href="#!" data-activates="{{ "card-dropdown#{loop.index}" }}" class="secondary-content dropdown-button float-right">
                             <i class="icon-cyan material-icons">settings</i>
@@ -60,15 +71,15 @@
                     <div class="divider"></div>
 
                     <div class="contenido-card">
-                        <p style="display: none;">{{ user.id }}</p>
-                        <p>E-mail: {{ user.email }}</p>
-                        <p>Nombre de usuario: {{ user.username }}</p>
-                        <p>Es activo?: {% if user.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
-                        <p>Fecha de actualizacion: {{ user.updated_at }}</p>
-                        <p>Fecha de creacion: {{ user.created_at }}</p>
-                        <p>Roles: {% for rol in user.roles %}{% if loop.index > 1 %}{{ ", #{rol.nombre}" }}{% else %}{{ rol.nombre }}{% endif %}{% endfor %}</p>
-                        <p style="display: none;">{{ user.first_name }}</p>
-                        <p style="display: none;">{{ user.last_name }}</p>
+                        <p style="display: none;">{{ paciente.id }}</p>
+                        <p>E-mail: {{ paciente.email }}</p>
+                        <p>Nombre de usuario: {{ paciente.pacientename }}</p>
+                        <p>Es activo?: {% if paciente.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
+                        <p>Fecha de actualizacion: {{ paciente.updated_at }}</p>
+                        <p>Fecha de creacion: {{ paciente.created_at }}</p>
+                        <p>Roles: {% for rol in paciente.roles %}{% if loop.index > 1 %}{{ ", #{rol.nombre}" }}{% else %}{{ rol.nombre }}{% endif %}{% endfor %}</p>
+                        <p style="display: none;">{{ paciente.first_name }}</p>
+                        <p style="display: none;">{{ paciente.last_name }}</p>
                     </div>
                 </div>
 
