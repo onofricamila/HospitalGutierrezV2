@@ -50,11 +50,6 @@
         }
 
         public function auxNewPaciente() {
-            if (!AppController::getInstance()->checkPermissions('paciente_new')) {
-                echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
-                die;
-            }
-       
 
             if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
             || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
@@ -112,6 +107,8 @@
                 echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
                 die;
             }
+            $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            
             require_once 'view/header.html';
             require_once 'view/navbar.php';
             require_once 'view/pacientes/updatePaciente.html';
@@ -119,24 +116,28 @@
         }
 
         public function auxUpdatePaciente() {
-            $idPaciente = $_GET['idPaciente'];
-            $apellido = $_GET['apellido'];
-            $nombre = $_GET['nombre'];
-            $fecha_nacimiento = $_GET['fecha_nacimiento'];
-            $idGenero = $_GET['idGenero'];
-            $tipo_doc = $_GET['tipo_doc'];
-            $dni = $_GET['dni'];
-            $domicilio = $_GET['domicilio'];
-            $telefono = $_GET['telefono'];
-            $idObraSocial = $_GET['idObraSocial'];
-            $heladera = $_GET['heladera'];
-            $electricidad = $_GET['electricidad'];
-            $mascota = $_GET['mascota'];
-            $idTipoVivienda = $_GET['idTipoVivienda'];
-            $idTipoCalefaccion = $_GET['idTipoCalefaccion'];
-            $idTipoAgua = $_GET['idTipoAgua'];
-    
-            Paciente::updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
+            if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
+            || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
+            || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
+            || (!isset($_POST['idGenero']) || ($idGenero = trim($_POST['idGenero'])) == "")
+            || (!isset($_POST['idTipoDoc']) || ($idTipoDoc = trim($_POST['idTipoDoc'])) == "")
+            || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
+            || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
+            || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
+            || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
+            || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
+            || (!isset($_POST['idTipoVivienda']) || ($idTipoVivienda =trim($_POST['idTipoVivienda'])) == "")
+            || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
+            || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
+            {
+                echo 'No llenaste los campos obligatorios';
+                die;
+            }
+
+            $telefono = trim($_POST['telefono']);
+            $idObraSocial = trim($_POST['idObraSocial']);
+
+            Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
         }
     }
