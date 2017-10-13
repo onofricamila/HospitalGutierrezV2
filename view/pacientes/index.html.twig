@@ -56,7 +56,7 @@
     <div class="row">
         <span id="paginacion" style="display: none">{{ elementos }}</span>
 
-        {% for paciente in pacientes %}
+        {% for paciente in allPaciente %}
         <div class="col s12 l6 cardContainer">
             <div class="card">
                 <div class="card-content black-text">
@@ -71,31 +71,31 @@
                     <div class="divider"></div>
 
                     <div class="contenido-card">
-                        <p style="display: none;">{{ paciente.id }}</p>
-                        <p>E-mail: {{ paciente.email }}</p>
-                        <p>Nombre de usuario: {{ paciente.pacientename }}</p>
-                        <p>Es activo?: {% if paciente.active %} {{ 'Si' }} {% else %} {{ 'No' }} {% endif %}</p>
-                        <p>Fecha de actualizacion: {{ paciente.updated_at }}</p>
-                        <p>Fecha de creacion: {{ paciente.created_at }}</p>
-                        <p>Roles: {% for rol in paciente.roles %}{% if loop.index > 1 %}{{ ", #{rol.nombre}" }}{% else %}{{ rol.nombre }}{% endif %}{% endfor %}</p>
-                        <p style="display: none;">{{ paciente.first_name }}</p>
-                        <p style="display: none;">{{ paciente.last_name }}</p>
+                        <p style="display: none;">{{ paciente.idPaciente }}</p>
+                        <p>DNI: {{ paciente.dni }}</p>
+                        <p>Tipo de documento: {{ paciente.idTipoDoc }}</p>
+                        <p style="display: none;">{{ paciente.nombre }}</p>
+                        <p style="display: none;">{{ paciente.apellido }}</p>
                     </div>
                 </div>
 
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                     <li>
-                        <a href="{{ "?controller=Users&action=togglestate&id=#{user.id}" }}" target="_self">
-                            {% if user.active %} {{ 'Bloquear Usuario' }} {% else %} {{ 'Activar Usuario' }} {% endif %}
-                        </a>
+                         <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a class="modal-trigger deleteModalTrigger" href="#deleteModal">Eliminar Usuario</a></li>
+                    <li>       
+                         <a href="#modal1" class="modal-trigger">Show bai patient demo</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a class="modal-trigger updateModalTrigger" href="#modalNewUser">Actualizar Usuario</a></li>
+                    <li>
+                        <a href="?controller=Pacientes&action=newPaciente">Show new patient demo</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a class="modal-trigger rolesModalTrigger" href="#rolesModal">Administrar Roles</a></li>
+                    <li>
+                        <a href="?controller=Pacientes&action=updatePaciente&idPaciente=2">Show edit patient demo (funciona)</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -107,7 +107,7 @@
     <div class="paginacionDiv">
         <ul class="pagination center-align">
             <li class="disabled pagination-back"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-            {% for i in range(0, (usersCant // elementos)) %}
+            {% for i in range(0, (pacientesCant // elementos)) %}
                 <li class="pagination-li waves-effect"><a href="#!">{{ loop.index }}</a></li>
             {% endfor %}
             <li class="pagination-next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>

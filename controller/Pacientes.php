@@ -24,10 +24,34 @@
         public function index(){
             AppController::allowed('paciente_index');
 
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once 'view/pacientes/pacientes.php';
-            require_once 'view/footer.html'; 
+            if (isset($_GET['search']) && $_GET['search'] != "") {
+                $args['search'] = $_GET['search'];
+            }
+            
+            if ($allPaciente = Paciente::all($args)) {
+                
+                /* require_once 'view/header.html';
+                require_once 'view/navbar.php';
+                require_once 'view/pacientes/pacientes.php';
+                require_once 'view/footer.html';  */
+                $context = [];
+                
+                $context['stylesheets'] = ['/public/css/pacientes.css'];
+                $context['javascripts'] = ['/public/js/pacientes.js'];
+                $context['pagename'] = 'Pacientes - Index';
+                $context['allPaciente'] = $allPaciente;
+                $context['allTipoDoc'] = TipoDoc::all();
+                $context['pacientesCant'] = count($allPaciente);
+    
+                $path = '/pacientes/index.html.twig';
+                
+                TwigController::renderTwig($path, $context);
+                die;
+            }
+            else {
+                echo "Error";
+                die;
+            }
 
         }
 
