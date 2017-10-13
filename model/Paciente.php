@@ -65,9 +65,22 @@
         public function updatePaciente($idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua) {
             $connection = Connection::getInstance();
             
-            $query = $connection->prepare("UPDATE usuario SET apellido = ". $apellido . ", nombre = ". $nombre . ", fecha_nacimiento = ". $fecha_nacimiento . ", idGenero = ". $idGenero . ", idTipoDoc = ". $idTipoDoc . ", dni = ". $dni . ", telefono = ". $telefono . ", idObraSocial = ". $idObraSocial . ", domicilio = ". $domicilio . ", heladera = ". $heladera . ", electricidad = ". $electricidad . ", mascota = ". $mascota . ", idTipoVivienda = ". $idTipoVivienda . ", idTipoCalefaccion = ". $idTipoCalefaccion . ", idTipoAgua = ". $idTipoAgua . " WHERE idPaciente=?");
-            $query->execute(array($this->idPaciente));
-    
+            $query = $connection->prepare("UPDATE paciente SET apellido=:apellido, nombre=:nombre, fecha_nacimiento=:fecha_nacimiento, idGenero=:idGenero, idTipoDoc=:idTipoDoc, dni=:dni, telefono=:telefono, idObraSocial=:idObraSocial, domicilio=:domicilio, heladera=:heladera, electricidad=:electricidad, mascota=:mascota, idTipoVivienda=:idTipoVivienda, idTipoCalefaccion=:idTipoCalefaccion, idTipoAgua=:idTipoAgua");
+            $query->execute(array(':apellido' => $apellido, 
+                                    ':nombre' => $nombre, 
+                                    ':fecha_nacimiento' => $fecha_nacimiento, 
+                                    ':idGenero' => $idGenero, 
+                                    ':idTipoDoc' => $idTipoDoc, 
+                                    ':dni' => $dni, 
+                                    ':telefono' => $telefono, 
+                                    ':idObraSocial' => $idObraSocial, 
+                                    ':domicilio' => $domicilio, 
+                                    ':heladera' => $heladera, 
+                                    ':idTipoVivienda' => $idTipoVivienda, 
+                                    ':idTipoCalefaccion' => $idTipoCalefaccion, 
+                                    ':idTipoAgua' => $idTipoAgua, 
+                                    ':electricidad' => $electricidad, 
+                                    ':mascota' => $mascota));
             return $query->rowCount() == 1;
         }
 
