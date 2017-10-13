@@ -76,34 +76,56 @@ $(document).ready(function () {
         $('.pagination-next').addClass('disabled');
     }
 
-    var updateArrows = function($actual) {
-        if ( $actual == $('.pagination-li').last().text() ) {
-            $('.pagination-next').addClass('disabled');
-        } else {
-            $('.pagination-next').removeClass('disabled');
-        }
-        if ( $actual == $('.pagination-li').first().text() ) {
-            $('.pagination-back').addClass('disabled');
-        } else {
-            $('.pagination-back').removeClass('disabled');
-        }
+    var actual = $('.pagination-li.active').text();
+    if ( actual == $('.pagination-li').last().text() ) {
+        $('.pagination-next').addClass('disabled');
+    } else {
+        $('.pagination-next').removeClass('disabled');
     }
-    
+    if ( actual == $('.pagination-li').first().text() ) {
+        $('.pagination-back').addClass('disabled');
+    } else {
+        $('.pagination-back').removeClass('disabled');
+    }
+    $('.container').show();
 });
 $('.pagination-li').click(function() {
     $('.pagination-li.active').addClass('waves-effect');
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
     $(this).removeClass('waves-effect');
-    updateArrows(1);
+
+    var actual = $('.pagination-li.active').text();
+    if ( actual == $('.pagination-li').last().text() ) {
+        $('.pagination-next').addClass('disabled');
+    } else {
+        $('.pagination-next').removeClass('disabled');
+    }
+    if ( actual == $('.pagination-li').first().text() ) {
+        $('.pagination-back').addClass('disabled');
+    } else {
+        $('.pagination-back').removeClass('disabled');
+    }
+
+    $('.cardContainer').each(function( index ) {
+        if ($('.pagination-li.active').text()-1 == Math.floor(index / $('#paginacion').text())) {
+            $(this).show();
+        }
+        else {
+            $(this).hide();
+        }
+    });
 });
 $('.pagination-back').click(function() {
     var actual = $('.pagination-li.active').text();
     if (!(actual == $('.pagination-li').first().text())) {
-        $('.pagination-li').eq(actual-1).removeClass('active');
-        $('.pagination-li').eq(actual-2).addClass('active');
-    } else {
-        
+        $('.pagination-li').eq(actual-2).click();
+    }
+});
+$('.pagination-next').click(function() {
+    var actual = $('.pagination-li.active').text();
+    if (!(actual == $('.pagination-li').last().text())) {
+        $('.pagination-li').eq(actual).click();
     }
 });
 (jQuery); // end of jQuery name space
