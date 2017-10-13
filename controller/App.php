@@ -61,7 +61,7 @@ class AppController {
     }
 
     public static function allowed($permission){
-        if (!self::getInstance()->checkPermissions('$permission')) {
+        if (!AppController::getInstance()->checkPermissions('$permission')) {
             $context = [];
             $path = '/not_allowed.html.twig';
             /* use el mismo diseño que para mantain*/
@@ -75,3 +75,11 @@ class AppController {
     }
 }
 
+/*
+ antes en cada controller tipo users pacientes y config hacia :
+
+    if (!AppController::getInstance()->checkPermissions('configuracion_update')) {
+            echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
+            die;
+        }
+*/
