@@ -86,5 +86,10 @@ $('.pagination-li').click(function() {
     } else {
         $('.pagination-next').removeClass('disabled');
     }
+    if ( $(this).text() == $('.pagination-li').first().text() ) {
+        $('.pagination-back').addClass('disabled');
+    } else {
+        $('.pagination-back').removeClass('disabled');
+    }
 });
 (jQuery); // end of jQuery name space
