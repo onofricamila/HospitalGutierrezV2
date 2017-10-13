@@ -86,9 +86,6 @@ class Configuration {
         if ($this->mantenimiento) {
             $mant = 0;
         }
-
-        var_dump($mant);
-        die;
         $query = $connection->prepare("UPDATE configuracion SET mantenimiento=:mant WHERE id=:id");
         $query->execute(array(':id' => $this->id,
                                 ':mant' => $mant));
