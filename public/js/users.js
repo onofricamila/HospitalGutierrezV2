@@ -106,6 +106,11 @@ $('.pagination-li').click(function() {
         $('.pagination-back').removeClass('disabled');
     }
 
+    $('.cardContainer').each(function( index ) {
+        if ($('.pagination-li.active').text() == Math.floor(index / $('#paginacion').text())) {
+            $(this).hide();
+        }
+    });
 });
 $('.pagination-back').click(function() {
     var actual = $('.pagination-li.active').text();
