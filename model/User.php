@@ -48,7 +48,7 @@ class User extends UserBase {
         if ($query->rowCount() == 1) {
             return (new User($query->fetch(PDO::FETCH_ASSOC)));
         }
-        return false;
+        return new Guest;
     }
 
     public static function all($args) {
