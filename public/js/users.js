@@ -124,6 +124,24 @@ $('.pagination-back').click(function() {
     } else {
         $('.pagination-back').removeClass('disabled');
     }
+});
+$('.pagination-next').click(function() {
+    var actual = $('.pagination-li.active').text();
+    if (!(actual == $('.pagination-li').last().text())) {
+        $('.pagination-li').eq(actual-1).removeClass('active');
+        $('.pagination-li').eq(actual).addClass('active');
+    }
 
+    actual = $('.pagination-li.active').text();
+    if ( actual == $('.pagination-li').last().text() ) {
+        $('.pagination-next').addClass('disabled');
+    } else {
+        $('.pagination-next').removeClass('disabled');
+    }
+    if ( actual == $('.pagination-li').first().text() ) {
+        $('.pagination-back').addClass('disabled');
+    } else {
+        $('.pagination-back').removeClass('disabled');
+    }
 });
 (jQuery); // end of jQuery name space
