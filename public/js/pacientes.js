@@ -185,3 +185,32 @@ $(document).ready(function select(idGenero, idTipoDoc, idObraSocial, heladera, e
     $("#idTipoCalefaccion option[value="+ idTipoCalefaccion +"]").attr("selected",true);
     $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
 });
+
+/* para validar formularios*/
+$(document).ready(function() {
+    $("#ok").hide();
+
+    $("#new_form").validate({
+        rules: {
+            nombre: { required: true, minlength: 3},
+            apellido: { required: true, minlength: 3},
+        },
+        messages: {
+            nombre: "Debe introducir su nombre.",
+            apellido: "Debe introducir su apellido.",
+        },
+        submitHandler: function(form){
+            var dataString = 'nombre='+$('#nombre').val()+'&apellido='+$('#apellido').val()+'...';
+            $.ajax({
+                type: "POST",
+                url:"index.php?controller=Pacientes&action=auxNewPaciente",
+                data: dataString,
+                success: function(data){
+                    $("#ok").html(data);
+                    $("#ok").show();
+                    $("#new_form").hide();
+                }
+            });
+        }
+    });
+});
