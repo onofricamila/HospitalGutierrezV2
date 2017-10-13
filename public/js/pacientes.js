@@ -163,3 +163,12 @@ $(document).ready(function(){
     $('.modal').modal();
   });
      
+/* para eliminar un paciente*/
+$('.deleteModalTrigger').click(function () {
+    contenido = $(this).closest('tr').find('.contenido');
+    id = contenido.children().eq(0).text();
+    $('#deleteModalId').val(id);
+    paciente = contenido.children().eq(1).text();
+    $('#deleteModalPatient').text(paciente);
+    Materialize.updateTextFields();
+});

@@ -8,7 +8,7 @@
         <br>
         <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo (funciona)</a>
         <br>
-        <a href="#modal1" class="waves-effect waves-light btn modal-trigger">Show bai patient demo (funciona)</a>
+        <a href="#modal1" class="modal-trigger">Show bai patient demo (funciona)</a>
         <br>
         <a href="?controller=Pacientes&action=newPaciente">Show new patient demo (funciona)</a>
         <br>
