@@ -77,7 +77,7 @@ class ConfigController {
             return true;
         }
 
-        if ($controller == 'Config' && ($action == 'update' || $action == 'admin')) {
+        if ($controller == 'Config' && ($action == 'update' || $action == 'admin' || $action == 'toggleMantenimiento')) {
             return true;
         }
 
