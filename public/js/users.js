@@ -81,6 +81,10 @@ $('.pagination-li').click(function() {
     $('.pagination-li.active').removeClass('active');
     $(this).addClass('active');
     $(this).removeClass('waves-effect');
-    alert($(this).text());
+    if ( $(this).text() == $('.pagination-li').last().text() ) {
+        $('.pagination-next').addClass('disabled');
+    } else {
+        $('.pagination-next').removeClass('disabled');
+    }
 });
 (jQuery); // end of jQuery name space
