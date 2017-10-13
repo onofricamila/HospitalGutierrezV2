@@ -60,6 +60,6 @@ div.divider-margin {
 .margint-25 {
     margin-top: 25px;
 }
-.active {
+.pagination-li.active {
     background-color: #009688!important;
 }
