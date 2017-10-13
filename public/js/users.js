@@ -65,4 +65,11 @@ $('.newUserModalTrigger').click(function () {
     $('#title').text('Nuevo Usuario');
     Materialize.updateTextFields();
 });
+$(document).ready(function () {
+    $('.pagination-li').first().addClass('disabled');
+    if ($('.pagination-li').size() == 1) {
+        $('.pagination-next').first().addClass('disabled');
+    }
+});
+
 (jQuery); // end of jQuery name space
