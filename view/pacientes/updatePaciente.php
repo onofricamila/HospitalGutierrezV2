@@ -33,6 +33,7 @@
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                     </select>
+                                    <label>Genero</label>
                                 </div>
 
                                 <div class="input-field col s12 m4">
