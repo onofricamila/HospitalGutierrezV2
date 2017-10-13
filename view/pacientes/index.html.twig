@@ -82,11 +82,11 @@
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                     <li>
-                         <a href="?controller=Pacientes&action=showPaciente&idPaciente=2">Show patient demo</a>
+                         <a href="?controller=Pacientes&action=showPaciente&idPaciente={{ paciente.idPaciente }}">Show</a>
                     </li>
                     <li class="divider"></li>
                     <li>       
-                         <a href="#modal1" class="modal-trigger">Show bai patient demo</a>
+                         <a href="#modal1" class="modal-trigger">Delete</a>
                     </li>
                     <li class="divider"></li>
                     <li>
@@ -94,7 +94,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="?controller=Pacientes&action=updatePaciente&idPaciente=2">Show edit patient demo (funciona)</a>
+                        <a href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">Update</a>
                     </li>
                 </ul>
             </div>
