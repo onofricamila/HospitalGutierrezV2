@@ -89,7 +89,7 @@ class UsersController {
         $this->index();
     }
 
-    public function deleteUser() {
+    public function deleteuser() {
         if (!AppController::getInstance()->checkPermissions('usuario_delete')) {
             echo 'No tiene permiso para acceder a la funcionalidad seleccionada.';
             die;
