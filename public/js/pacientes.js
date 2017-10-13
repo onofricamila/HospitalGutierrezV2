@@ -174,7 +174,14 @@ $('.deleteModalTrigger').click(function () {
 });
 
 /* para marcar como selected los options en el update */
-$(document).ready(function(){
-    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-    $("#idGenero option[value="+ 1 +"]").attr("selected",true);
+$(document).ready(function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
+    $("#idGenero option[value="+ idGenero +"]").attr("selected",true);
+    $("#idTipoDoc option[value="+ idTipoDoc +"]").attr("selected",true);
+    $("#idObraSocial option[value="+ idObraSocial +"]").attr("selected",true);
+    $("#heladera option[value="+ heladera +"]").attr("selected",true);
+    $("#electricidad option[value="+ electricidad +"]").attr("selected",true);
+    $("#mascota option[value="+ mascota +"]").attr("selected",true);
+    $("#idTipoVivienda option[value="+ idTipoVivienda +"]").attr("selected",true);
+    $("#idTipoCalefaccion option[value="+ idTipoCalefaccion +"]").attr("selected",true);
+    $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
 });

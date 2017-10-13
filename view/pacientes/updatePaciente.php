@@ -33,11 +33,11 @@
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                     </select>
+                                    <label>Genero</label>
                                 </div>
 
                                 <div class="input-field col s12 m4">
-                                    <select name="idTipoDoc" >
-                                            <option value="" disabled selected>Tipo de documento</option>
+                                    <select name="idTipoDoc" id="idTipoDoc" >
                                             <?php
                                             foreach ($allTipoDoc as $tipo) {
                                                 ?>
@@ -46,6 +46,7 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de documento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="dni" name="dni" type="number" class="validate" value="<?php echo $paciente -> dni;?>">
@@ -60,8 +61,7 @@
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <select name="idObraSocial">
-                                            <option value="" disabled selected>Obra Social</option>
+                                    <select name="idObraSocial" id="idObraSocial">
                                             <?php
                                             foreach ($allObraSocial as $obra) {
                                                 ?>
@@ -70,35 +70,35 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Obra Social</label>
                                 </div>
                                 <br>        
                                 <h5 id="#datos-demo" >Datos demograficos</h5>
                                 <br>
                                 <div class="input-field col s12 m6">
-                                    <select name="heladera" class="icons">
-                                        <option value="" disabled selected>Heladera?</option>
+                                    <select name="heladera" id="heladera" class="icons">
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Heladera?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="electricidad" class="icons">
-                                        <option value="" disabled selected>Electricidad?</option>
+                                    <select name="electricidad" id="electricidad" class="icons">
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Electricidad?</label>
                                 </div>
                                 
                                 <div class="input-field col s12 m6">
-                                    <select name="mascota" class="icons">
-                                        <option value="" disabled selected>Mascota?</option>
+                                    <select name="mascota" id="mascota" class="icons">
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
+                                    <label>Mascota?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoVivienda">
-                                            <option value="" disabled selected>Tipo Vivienda</option>
+                                    <select name="idTipoVivienda" id="idTipoVivienda">
                                             <?php
                                             foreach ($allTipoVivienda as $tipo) {
                                                 ?>
@@ -107,11 +107,11 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Vivienda?</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoCalefaccion">
-                                            <option value="" disabled selected>Tipo Calefaccion</option>
+                                    <select name="idTipoCalefaccion" id="idTipoCalefaccion">
                                             <?php
                                             foreach ($allTipoCalefaccion as $tipo) {
                                                 ?>
@@ -120,10 +120,10 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Calefaccion?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoAgua">
-                                            <option value="" disabled selected>Tipo Agua</option>
+                                    <select name="idTipoAgua" id="idTipoAgua">
                                             <?php
                                             foreach ($allTipoAgua as $tipo) {
                                                 ?>
@@ -132,6 +132,7 @@
                                             }
                                             ?>
                                     </select>
+                                    <label>Tipo de Agua?</label>
                                 </div>
                                 <div class="row col m12">
                                     <div class="col s12 m6">
@@ -242,3 +243,6 @@
     
     
     <script type="text/javascript" src="/public/js/pacientes.js"></script>
+    <script>
+        select(<?php echo $paciente -> idGenero;?>,  <?php echo $paciente -> idTipoDoc;?>, <?php echo $paciente -> idObraSocial;?>, <?php echo $paciente -> heladera;?>, <?php echo $paciente -> electricidad;?>,  <?php echo $paciente -> mascota;?>,  <?php echo $paciente -> idTipoVivienda;?>, <?php echo $paciente -> idTipoCalefaccion;?>, <?php echo $paciente -> idTipoAgua;?>)
+    </script>
