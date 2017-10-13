@@ -40,6 +40,7 @@ table {
     border-spacing: 0;
     display: block;
     position: relative;
+    font-size: 15;
 }
 thead {
     display: block;
