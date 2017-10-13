@@ -29,7 +29,6 @@
                 die;
                 */
 
-                $context = [];
                 
                 $context['stylesheets'] = ['/public/css/main.css'];
                 $context['javascripts'] = ['/public/js/login.js'];
