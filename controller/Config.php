@@ -58,7 +58,7 @@ class ConfigController {
 
         $context = [];
         $path = '/config/admin.html.twig';
-        $context['stylesheets'] = ['/public/css/config.css'];
+        $context['stylesheets'] = ['/public/css/config-admin.css'];
         TwigController::renderTwig($path, $context);
     }
 
