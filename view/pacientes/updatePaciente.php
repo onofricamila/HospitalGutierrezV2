@@ -10,7 +10,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxUpdatePaciente" autocomplete="off">
+                        <form class="col s12" method="post" name="update" action="index.php?controller=Pacientes&action=auxUpdatePaciente" autocomplete="off">
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>

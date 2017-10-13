@@ -172,3 +172,15 @@ $('.deleteModalTrigger').click(function () {
     $('#deleteModalPatient').text(paciente);
     Materialize.updateTextFields();
 });
+
+/* para marcar como selected los options en el update */
+$(document).ready(function seleccionar() {
+                    var combo = document.forms["update"].idGenero;
+                    var cantidad = combo.length;
+                    for (i = 0; i < cantidad; i++) {
+                    if (combo[i].value == 1) {
+                        combo[i].selected = true;
+                    }   
+                    }
+                }
+});
