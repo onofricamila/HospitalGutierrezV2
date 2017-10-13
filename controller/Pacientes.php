@@ -50,10 +50,7 @@
                 $context = [];
                 
                 /* uso el mismo diseño que el listado de users*/
-                $context['stylesheets'] = array(
-                                                    "users" => '/public/css/users.css',
-                                                    "pacientes" => '/public/css/pacientes.css',
-                                                );
+                $context['stylesheets'] = ['/public/css/users.css'];
                 $context['javascripts'] = ['/public/js/pacientes.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
