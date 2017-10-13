@@ -1,3 +1,7 @@
 .cyan {
     color: #009688;
 }
+.container {
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
