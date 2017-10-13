@@ -21,3 +21,6 @@ span.card-title {
 .buttons {
     margin-top: 15px;
 }
+.card {
+    min-width: 325px;
+}
