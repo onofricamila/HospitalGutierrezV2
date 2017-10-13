@@ -175,5 +175,5 @@ $('.deleteModalTrigger').click(function () {
 
 /* para marcar como selected los options en el update */
 $(document).ready(function seleccionar() {
-    document.getElementsByClassName('idGenero').value=1;
+    document.getElementsById('idGenero').value=1;
 });
