@@ -51,7 +51,7 @@
                 die();
             }
 
-            $_SESSION['loggedid'] = User::login($user, $pass)->id;
+            $_SESSION['loggedid'] = $user->id;
 
             header("Location: index.php");
             die();
