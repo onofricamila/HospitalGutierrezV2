@@ -15,7 +15,6 @@
             <div class="col s3 l2 height-100">
                 <div class="input-field">
                     <select name="idTipoDoc">
-                        <option value="" disabled selected>Tipo de Documento</option>
                         {% for tipo in allTipoDoc %}
                             <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
                         {% endfor %}
@@ -24,19 +23,19 @@
                 </div>
             </div>
 
-            <div class="col s8 l3">
+            <div class="col s3 l2">
                 <div class="input-field">
                     <input id="nombre" type="text" name="nombre">
                     <label for="nombre">Nombre</label>
                 </div>
             </div>
-            <div class="col s8 l3">
+            <div class="col s3 l2">
                 <div class="input-field">
                     <input id="apellido" type="text" name="apellido">
                     <label for="apellido">Apellido</label>
                 </div>
             </div>
-            <div class="col s8 l3">
+            <div class="col s3 l2">
                 <div class="input-field">
                     <input id="dni" type="number" name="dni">
                     <label for="dni">DNI</label>
@@ -116,6 +115,6 @@
 
 </section>
 
-{% include '/users/modals.html.twig' %}
+{% include '/pacientes/modals.html.twig' %}
 
 {% endblock %}
