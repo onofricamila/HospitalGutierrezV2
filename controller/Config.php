@@ -72,7 +72,8 @@ class ConfigController {
 
     public static function permission($controller, $action) {
         $isLogged = AppController::isLogged();
-
+        var_dump($controller, $action);
+        die;
         if ($controller == 'Login' && ($action == 'logout' || $action == 'index' || $action="login")) {
             return true;
         }
