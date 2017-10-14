@@ -55,8 +55,7 @@
                     // $array[3] se actualizará con cada valor de $array...
                     $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
                 }
-                var_dump($nombreTipo);
-die;
+                
                 $context['stylesheets'] = ['/public/css/users.css'];
                 $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js'];
                 $context['pagename'] = 'Pacientes - Index';
