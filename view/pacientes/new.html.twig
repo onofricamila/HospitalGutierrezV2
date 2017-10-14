@@ -14,7 +14,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="myFunction()"
+                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="myFunction()"
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -140,9 +140,43 @@
 </div>           
        
 <script>
-    function myFunction() {
-        alert("Hello! I am an alert box!!");
-        return false;
+function empty(valor) {
+    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+        return true;
     }
+}
+function less3(valor) {
+    if(  valor.length < 3) {
+        return true;
+    }
+}
+function myFunction(){
+	var formulario = document.getElementById("form-new");	
+	var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+    var idGenero = document.getElementById("idGenero").value;
+    var idTipoDoc = document.getElementById("idTipoDoc").value;
+    var dni = document.getElementById("dni").value;
+    var domicilio = document.getElementById("domicilio").value;
+    var telefono = document.getElementById("telefono").value;
+    var idObraSocial = document.getElementById("idObraSocial").value;
+    var heladera = document.getElementById("heladera").value;
+    var electricidad = document.getElementById("electricidad").value;
+    var mascota = document.getElementById("mascota").value;
+    var idTipoVivienda = document.getElementById("idTipoVivienda").value;
+    var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
+    var idTipoAgua = document.idTipoAgua("electricidad").value;
+ 
+	if (empty(nombre)){
+        alert("No se envía el formulario");
+		return false;
+		
+	} else {
+		alert("Enviando el formulario");
+		formulario.submit();
+		return true;
+	}
+}
 </script>
 {% endblock %}
