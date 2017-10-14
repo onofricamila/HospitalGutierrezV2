@@ -20,12 +20,15 @@ class TwigController{
         if (!isset($context['javascripts'])) {
             $context['javascripts'] = [];
         }
+        /*
         if (!isset($context['titulo'])) {
             $context['titulo'] = $config->titulo;
         }
         else {
             $context['titulo'] = $config->titulo.' - '.$context['titulo'];
         }
+        */
+        $context['titulo'] = $config->titulo;
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
