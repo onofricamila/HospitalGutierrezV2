@@ -19,7 +19,7 @@
 
 span.card-title {
     margin-bottom: 0px!important;
-    margin-top: 10px;
+    margin-top: 0px;
     font-size: 30px!important;
 }
 
@@ -27,6 +27,6 @@ span.card-title {
     margin-top: 50px;
 }
 h2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
