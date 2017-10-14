@@ -75,10 +75,12 @@
                 <a href="?controller=login&action=logout">
                     <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
             </li>
-            <li>
-                <a href="?controller=Pacientes&action=index">
-                    <span class="fa fa-users" aria-hidden="true"></span> Pacientes</a>
-            </li>
+             {% if (paciente_index == true)  %}
+                    <li class="">
+                     <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
+                    </li>
+            {% endif %} 
+        
             <!-- Dropdown Structure -->
             <ul id="dropdown2" class="dropdown-content">
                 <li>
@@ -96,11 +98,12 @@
                 </li>
             </ul>
             <!-- Dropdown Trigger -->
-            <li>
-                <a class="dropdown-button" href="#!" data-activates="dropdown2">
-                    <span>&#9660; Administracion</span>
-                </a>
-            </li>
+            {% if (paciente_new == false)  %}
+                         <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown1">Administracion &#9660;</a>
+                        </li>  
+                {% endif %} 
+            
             {% else %}
             <li>
                 <a href="?controller=login&action=index">
