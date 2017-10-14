@@ -199,7 +199,7 @@ function less3(valor) {
     }
 }
 /* como el form se enviaba de todas formas pusimos el event.preventDefault() y si la fx devuelve false no se manda el form */
-function myFunction() {
+function validacion() {
     
      var nombre = document.getElementById("nombre").value;
      var apellido = document.getElementById("apellido").value;
