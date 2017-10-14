@@ -125,9 +125,14 @@
                 echo 'No llenaste los campos obligatorios';
                 die;
             }
-           
+            if(!isset($_POST['idObraSocial']){
+                $idObraSocial = 3;
+            }
+            else{
+                $idObraSocial = trim($_POST['idObraSocial']);
+            }
+            
             $telefono = trim($_POST['telefono']);
-            $idObraSocial = trim($_POST['idObraSocial']);
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
