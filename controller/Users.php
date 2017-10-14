@@ -82,9 +82,6 @@ class UsersController {
 
         AppController::allowed('usuario_new');  
         
-        var_dump($_POST['email'], $_POST['user'], $_POST['pass'], $_POST['first_name'], $_POST['last_name']);
-        die;        
-
         if ((!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
             || (!isset($_POST['user']) || ($user = trim($_POST['user'])) == "" || strlen($user) < 4)
             || (!isset($_POST['pass']) || ($pass = trim($_POST['pass'])) == "" || strlen($pass) < 4)
