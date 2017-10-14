@@ -31,11 +31,12 @@ class TwigController{
         $context['titulo'] = $config->titulo;
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
-        $context['user'] = AppController::getUser()->last_name." ".AppController::getUser()->first_name;
         $context['isLogged'] = AppController::isLogged();
         $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
         $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
-       
+        if( $context['isLogged']){
+            $context['user'] = AppController::getUser()->last_name." ".AppController::getUser()->first_name;
+        }
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
     }
