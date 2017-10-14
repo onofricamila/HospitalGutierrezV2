@@ -8,7 +8,7 @@
 
     <div class="divider divider-margin"></div>
 
-    <form method="post" action="index.php?controller=Config&action=update">
+    <form method="post" action="index.php?controller=Config&action=update" onsubmit="return validacionAdmin();">
     <div class="row">
         <table>
             <thead>
@@ -24,19 +24,19 @@
                     <td>
                         <span class="data">{{ titulo }}</span>
                         <div class="input-field">
-                            <input name="titulo" type="text" class="validate" value="{{titulo}}" name="titulo" required>
+                            <input name="titulo" id="titulo" type="text" class="validate" value="{{titulo}}" name="titulo" required>
                         </div>
                     </td>
                     <td>
                         <span class="data">{{ email }}</span>
                         <div class="input-field">
-                            <input name="email" type="text" class="validate" value="{{email}}" name="email" required>
+                            <input name="email" id="email" type="text" class="validate" value="{{email}}" name="email" required>
                         </div>
                     </td>
                     <td>
                         <span class="data">{{ elementos }}</span>
                         <div class="input-field">
-                            <input name="elementos" type="number" min="1" class="validate" value="{{elementos}}" name="elementos" required>
+                            <input name="elementos" id="elementos" type="number" min="1" class="validate" value="{{elementos}}" name="elementos" required>
                         </div>
                     </td>
                     <td>

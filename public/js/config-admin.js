@@ -21,3 +21,40 @@ $('.backTrigger').click(function () {
     $('.updateButton').hide();
     Materialize.updateTextFields();
 });
+
+function empty(valor) {
+    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+        return true;
+    }
+}
+function lessThan(valor, limit) {
+    if(  valor.length <= limit) {
+        return true;
+    }
+}
+
+function notEmail(email){
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return !(re.test(email));
+}
+
+function validacionAdmin(){
+    var titulo = document.getElementById("titulo").value;
+    var email = document.getElementById("email").value;
+    var elementos = document.getElementById("elementos").value;
+
+    if(lessThan(titulo, 3) || empty(titulo) {
+        alert('[ERROR] El titulo es vacio o menor a 4 chars.');
+        return false;
+    }
+    if(notEmail(email) || empty(email) {
+        alert('[ERROR] El email es vacio o invalido.');
+        return false;
+    }
+    if(lessThan(empty(titulo) {
+        alert('[ERROR] La cantidad de elementos por pagina es requerida.');
+        return false;
+    }
+
+    return true
+}

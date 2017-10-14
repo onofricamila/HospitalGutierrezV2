@@ -194,7 +194,7 @@ function empty(valor) {
     }
 }
 function lessThan(valor, limit) {
-    if(  valor.length < limit) {
+    if(  valor.length <= limit) {
         return true;
     }
 }
