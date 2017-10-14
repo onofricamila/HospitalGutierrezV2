@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% set nombreTipo = {} %}
+{% for tipo in allTipoDoc %}
+       {% set nombreTipo[{loop.index}] = {{tipo.idTipoDoc}} %}
+{% endfor %}
+
+
 {% block body %}
 <section class="container" style="">
     <div class="row">

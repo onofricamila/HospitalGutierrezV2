@@ -95,9 +95,7 @@
         }
 
         public static function all($args) {
-            echo "los args son: ";
-            var_dump($args);
-            
+          
             $query = "SELECT * FROM paciente WHERE 1 = 1";
             $array = array();
     
