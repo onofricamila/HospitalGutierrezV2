@@ -53,7 +53,7 @@
 
                 foreach ($allTipoDoc as $clave => $valor) {
                     // $array[3] se actualizará con cada valor de $array...
-                    $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
+                    $nombreTipo[print_r($valor->idTipoDoc,true)] = $valor->nombre;
                 }
                 var_dump($nombreTipo);
               ;
