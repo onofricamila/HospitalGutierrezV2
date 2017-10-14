@@ -72,6 +72,16 @@
             </li>
             {% if isLogged %}
             <li>
+                <!-- Dropdown user -->
+                <ul id="dropdownUser2" class="dropdown-content">
+                    <li>
+                        <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
+                    </li>
+                </ul>
+                <!-- Dropdown User Trigger -->
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdownUser2">{{user}}</a>
+                </li> 
                 <a href="?controller=login&action=logout">
                     <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
             </li>
