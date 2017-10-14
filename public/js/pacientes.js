@@ -208,8 +208,6 @@ function validacion() {
      var idTipoDoc = document.getElementById("idTipoDoc").value;
      var dni = document.getElementById("dni").value;
      var domicilio = document.getElementById("domicilio").value;
-     var telefono = document.getElementById("telefono").value;
-     var idObraSocial = document.getElementById("idObraSocial").value;
      var heladera = document.getElementById("heladera").value;
      var electricidad = document.getElementById("electricidad").value;
      var mascota = document.getElementById("mascota").value;
@@ -217,12 +215,25 @@ function validacion() {
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
      var idTipoAgua = document.getElementById("idTipoAgua").value;
  
-     if( less3(nombre) || empty(nombre)) {
+     if(less3(nombre) || empty(nombre) ||
+        less3(apellido) || empty(apellido) ||
+        less3(fecha_nacimiento) || empty(fecha_nacimiento) ||
+        less3(idGenero) || empty(idGenero) ||
+        less3(idTipoDoc) || empty(idTipoDoc) ||
+        less3(dni) || empty(dni) ||
+        less3(domicilio) || empty(domicilio) ||
+        less3(heladera) || empty(heladera) ||
+        less3(electricidad) || empty(electricidad) ||
+        less3(mascota) || empty(mascota) ||
+        less3(idTipoVivienda) || empty(idTipoVivienda) ||
+        less3(idTipoCalefaccion) || empty(idTipoCalefaccion) ||
+        less3(idTipoAgua) || empty(idTipoAgua)
+        ){
          alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
-     }
+    }
  
-     return true
+    return true
      
  }
  
