@@ -14,7 +14,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="return myFunction()"
+                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="return myFunction();"
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -167,8 +167,11 @@ function myFunction(){
     var idTipoVivienda = document.getElementById("idTipoVivienda").value;
     var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
     var idTipoAgua = document.idTipoAgua("electricidad").value;
- 
-	if (empty(nombre)){
+   
+    alert("No se envía el formulario");
+	return false;
+    
+	/*if (empty(nombre)){
         alert("No se envía el formulario");
 		return false;
 		
@@ -176,7 +179,7 @@ function myFunction(){
 		alert("Enviando el formulario");
 		formulario.submit();
 		return true;
-	}
+	} */
 }
 </script>
 {% endblock %}
