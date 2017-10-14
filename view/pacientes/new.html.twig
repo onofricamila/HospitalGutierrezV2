@@ -14,7 +14,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="event.preventDefault(); myFunction()">
+                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="event.preventDefault(); myFunction("form-new")">
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -152,12 +152,13 @@ function less3(valor) {
     }
 }
 /* como el form se enviaba de todas formas pusimos el event.preventDefault() y si la fx devuelve false no se manda el form */
-function myFunction() {
+function myFunction(form) {
    
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
+    /*
     var fecha_nacimiento = document.form-new.fecha_nacimiento.value;
-    var idGenero = document.getElementById("idGenero").value;
+    var idGenero = document.+form+.idGenero.value;
     var idTipoDoc = document.getElementById("idTipoDoc").value;
     var dni = document.getElementById("dni").value;
     var domicilio = document.getElementById("domicilio").value;
@@ -169,6 +170,7 @@ function myFunction() {
     var idTipoVivienda = document.getElementById("idTipoVivienda").value;
     var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
     var idTipoAgua = document.idTipoAgua("electricidad").value;
+    */
 
     alert("holi");
 
