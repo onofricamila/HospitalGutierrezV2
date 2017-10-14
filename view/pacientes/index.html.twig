@@ -88,7 +88,7 @@
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                 
-                    {% if ({{paciente_show? }} == true)  %}
+                    {% if {{paciente_show? }}== true  %}
                             <li>
                                 <a href="?controller=Pacientes&action=showPaciente&idPaciente={{ paciente.idPaciente }}">Show</a>
                         </li>
