@@ -215,7 +215,7 @@ function validacion() {
      var mascota = document.getElementById("mascota").value;
      var idTipoVivienda = document.getElementById("idTipoVivienda").value;
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
-     var idTipoAgua = document.idTipoAgua("electricidad").value;
+     var idTipoAgua = document.getElementById("idTipoAgua").value;
  
      if( less3(nombre) || empty(nombre)) {
          alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres. Recuerda que son todos obligatorios menos obra social y telefono.');
