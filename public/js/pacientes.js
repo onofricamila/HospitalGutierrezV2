@@ -186,7 +186,7 @@ function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, masco
     $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
 }
 
-/* para validar formularios
+/* para validar formularios */
 
 function empty(valor) {
     if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
@@ -199,13 +199,12 @@ function less3(valor) {
     }
 }
 /* como el form se enviaba de todas formas pusimos el event.preventDefault() y si la fx devuelve false no se manda el form */
-function myFunction(form) {
+function myFunction() {
     
      var nombre = document.getElementById("nombre").value;
      var apellido = document.getElementById("apellido").value;
-     /*
-     var fecha_nacimiento = document.form-new.fecha_nacimiento.value;
-     var idGenero = document.+form+.idGenero.value;
+     /*    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+     var idGenero = document.getElementById("idGenero").value;
      var idTipoDoc = document.getElementById("idTipoDoc").value;
      var dni = document.getElementById("dni").value;
      var domicilio = document.getElementById("domicilio").value;
