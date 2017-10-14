@@ -76,7 +76,7 @@
                         <p>Tipo de Documento:
                             {% for tipo in allTipoDoc %}
                                 {% if paciente.idTipoDoc == tipo.idTipoDoc  %}
-                                        <span> tipo.nombre </span>
+                                        <span> {{tipo.nombre}} </span>
                                 {% endif %} 
                             {% endfor %}
                          </p>
