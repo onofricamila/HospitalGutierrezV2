@@ -206,7 +206,7 @@ function nan(num){
 
 function nas(text){
     var reg = /^[A-Za-z ]+$/;
-    return !(re.test(text));
+    return (re.test(text));
 }
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
