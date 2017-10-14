@@ -125,6 +125,8 @@
                 echo 'No llenaste los campos obligatorios';
                 die;
             }
+            var_dump($fecha_nacimiento);
+            die;
             if(!isset($_POST['idObraSocial'])){
                 $idObraSocial = 3;
             }
@@ -236,6 +238,8 @@
                 die;
             }
 
+            var_dump($fecha_nacimiento);
+            die;
             $idPaciente = $_POST['idPaciente'];
             $telefono = trim($_POST['telefono']);
             if(!isset($_POST['idObraSocial'])){
