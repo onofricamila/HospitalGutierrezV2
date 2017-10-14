@@ -49,15 +49,15 @@ function validacionAdmin(){
     var email = document.getElementById("email").value;
     var elementos = document.getElementById("elementos").value;
 
-    if(lessThan(titulo, 3) || empty(titulo) {
+    if(lessThan(titulo, 3) || empty(titulo)) {
         alert('[ERROR] El titulo es vacio o menor a 4 chars.');
         return false;
     }
-    if(notEmail(email) || empty(email) {
+    if(notEmail(email) || empty(email)) {
         alert('[ERROR] El email es vacio o invalido.');
         return false;
     }
-    if(empty(elementos) ||  nan(elementos){
+    if(empty(elementos) ||  nan(elementos)){
         alert('[ERROR] La cantidad de elementos por pagina es requerida y debe ser un numero.');
         return false;
     }
