@@ -33,7 +33,7 @@ class TwigController{
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
         $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
-        $context['paciente_destroy'] = AppController::getInstance()->checkPermissions('paciente_destroy');
+        $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
        
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
