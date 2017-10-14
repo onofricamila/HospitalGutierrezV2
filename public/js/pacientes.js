@@ -232,6 +232,6 @@ function validacion() {
 
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
-$(".modal-content #deletePacienteContent").val( idAndName[1] );
-$(".form-eliminar #nombrePaciente").val( idAndName[0] );
+$(".modal-content #nombrePaciente").val( idAndName[1] );
+$(".form-eliminar #idPaciente").val( idAndName[0] );
 });
