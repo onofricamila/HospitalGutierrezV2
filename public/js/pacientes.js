@@ -227,12 +227,11 @@ function validacion() {
 */
 
 /* para eliminar un paciente */
-/* data('id') me trae el valor del att data-id del boton clickeado, que es: id/name del paciente en cuestion. Con la funcion split lo que hago es crear un arreglo que separa sus elementos por el delimitador "/". Al abrir el modal le asigna el valor de ese arreglo creado en la pos 0 al anchor para formar la url y el valor de ese arreglo creado en la pos 1 (corresponde al nombre y apellido) a cualquier elemento html dentro del modal-content con id="nombrePaciente".
+/* data('id') me trae el valor del att data-id del boton clickeado, que es: id/surname+name del paciente en cuestion. Con la funcion split lo que hago es crear un arreglo que separa sus elementos por el delimitador "/". Al abrir el modal le asigna el valor de ese arreglo creado en la pos 0 al anchor para formar la url y el valor de ese arreglo creado en la pos 1 (corresponde al nombre y apellido) a cualquier elemento html dentro del modal-content con id="totallocal".
 */
 
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
 document.getElementById('totalLocal').innerHTML = idAndName[1];
-$(".modal-content #nombrePaciente").val( idAndName[1] );
 document.getElementById('enlace').setAttribute('href', "index.php?controller=Pacientes&action=deletePaciente&idPaciente=" + idAndName[0]);
 });
