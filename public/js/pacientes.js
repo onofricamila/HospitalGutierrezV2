@@ -198,7 +198,7 @@ function less3(valor) {
         return true;
     }
 }
-/* como el form se enviaba de todas formas pusimos el event.preventDefault() y si la fx devuelve false no se manda el form */
+/*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
 function validacion() {
     
      var nombre = document.getElementById("nombre").value;
@@ -218,10 +218,8 @@ function validacion() {
      var idTipoAgua = document.idTipoAgua("electricidad").value;
      */
  
-     alert("holi");
- 
      if( less3(nombre) || empty(nombre)) {
-         alert('[ERROR] El campo debe tener un valor de...'+nombre);
+         alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres! Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
      }
  
