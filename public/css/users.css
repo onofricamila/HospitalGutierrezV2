@@ -61,5 +61,5 @@ div.divider-margin {
 }
 
 .center-align {
-    text-align: center;
+    text-align: center!important;
 }
