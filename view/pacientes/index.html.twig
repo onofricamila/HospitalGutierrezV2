@@ -1,11 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% set nombreTipo = {} %}
-{% for tipo in allTipoDoc %}
-       
-{% endfor %}
-
-
 {% block body %}
 <section class="container" style="">
     <div class="row">
@@ -79,7 +73,7 @@
                     <div class="contenido-card">
                         <p style="display: none;">{{ paciente.idPaciente }}</p>
                         <p>DNI: {{ paciente.dni }}</p>
-                        <p>Tipo de documento: {{ paciente.idTipoDoc }}</p>
+                        <p>Tipo de documento: {{ nombreTipo[{{paciente.idTipoDoc}}] }}</p>
                         <p style="display: none;">{{ paciente.nombre }}</p>
                         <p style="display: none;">{{ paciente.apellido }}</p>
                     </div>
