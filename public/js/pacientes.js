@@ -203,7 +203,7 @@ function validacion() {
     
      var nombre = document.getElementById("nombre").value;
      var apellido = document.getElementById("apellido").value;
-     /*    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+     var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
      var idGenero = document.getElementById("idGenero").value;
      var idTipoDoc = document.getElementById("idTipoDoc").value;
      var dni = document.getElementById("dni").value;
@@ -216,10 +216,9 @@ function validacion() {
      var idTipoVivienda = document.getElementById("idTipoVivienda").value;
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
      var idTipoAgua = document.idTipoAgua("electricidad").value;
-     */
  
      if( less3(nombre) || empty(nombre)) {
-         alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres! Recuerda que son todos obligatorios menos obra social y telefono.');
+         alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
      }
  
