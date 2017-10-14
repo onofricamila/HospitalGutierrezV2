@@ -198,6 +198,17 @@ function lessThan(valor, limit) {
         return true;
     }
 }
+
+function nan(num){
+    var reg = /^\d+$/;
+    return !(re.test(num));
+}    
+
+function nas(text){
+    var reg = /^[A-Za-z ]+$/;
+    return !(re.test(text));
+}
+
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
 function validacion() {
     
@@ -208,6 +219,7 @@ function validacion() {
      var idTipoDoc = document.getElementById("idTipoDoc").value;
      var dni = document.getElementById("dni").value;
      var domicilio = document.getElementById("domicilio").value;
+     var telefono = document.getElementById("telefono").value;
      var heladera = document.getElementById("heladera").value;
      var electricidad = document.getElementById("electricidad").value;
      var mascota = document.getElementById("mascota").value;
@@ -232,7 +244,22 @@ function validacion() {
          alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
     }
- 
+
+    if(nas(nombre) || nas(apellido)){
+        alert('[ERROR] Respeta el formato de numeros para el dni.');
+        return false;
+       }
+    
+    if(nan(dni) ){
+     alert('[ERROR] Respeta el formato de numeros para el dni.');
+     return false;
+    }
+
+    if(!(empty(telefono || lessThan(telefono, 3) )) & nan(telefono)){
+        alert('[ERROR] Respeta el formato de numeros para el telefono.');
+        return false;
+       }
+
     return true
      
  }
