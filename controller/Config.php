@@ -30,7 +30,7 @@ class ConfigController {
             || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "" || strlen($descripcion2) < 4)
             || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "" || strlen($descripcion3) < 4)
             || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
-            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == "" || $elementos < 1 || !isInteger($elementos)))
+            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == "" || $elementos < 1 ))
         {
             AppController::req_fields();
             
