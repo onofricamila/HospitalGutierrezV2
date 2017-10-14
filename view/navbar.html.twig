@@ -65,9 +65,10 @@
                 <a href="index.php">
                     <span class="fa fa-home" aria-hidden="true"></span> Inicio</a>
             </li>
+            {% if isLogged %}
             <li>
                 <a href="?controller=login&action=index">
-                    <span class="fa fa-sign-in" aria-hidden="true"></span> Log in</a>
+                    <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
             </li>
             <li>
                 <a href="?controller=Pacientes&action=index">
@@ -95,6 +96,12 @@
                     <span>&#9660; Administracion</span>
                 </a>
             </li>
+            {% else %}
+            <li>
+                <a href="?controller=login&action=index">
+                    <span class="fa fa-sign-in" aria-hidden="true"></span> Log in</a>
+            </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
