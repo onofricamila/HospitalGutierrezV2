@@ -233,12 +233,5 @@ function validacion() {
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
 $(".modal-content #deletePacienteContent").val( idAndName[1] );
-$(".form-eliminar #idPaciente").val( idAndName[0] );
-});
-
-/* Para edditar cates ..*/
-$(document).on("click", ".openEditModal", function () {
-var idAndName = $(this).data('id').split("/", 2);
-$(".modal-body #nameCategory").val( idAndName[1] );
-$(".form-edit #idCategory").val( idAndName[0] );
+$(".form-eliminar #nombrePaciente").val( idAndName[0] );
 });
