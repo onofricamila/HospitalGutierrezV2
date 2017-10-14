@@ -5,10 +5,10 @@
       <p>Estas a punto de eliminar el paciente <input type="text" class="input-field" style="display:inline; width: 20%;" id="nombrePaciente" disabled> de forma permanente. Estas seguro que quieres proseguir?</p>
     </div>
     <div class="modal-footer">
-              <button href="#!" onclick=" $('#deletePaciente').modal('close');" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</button>
+              <a href="#!" onclick=" $('#deletePaciente').modal('close');" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
               <form class="form-eliminar col-md-6" action="index.php?controller=Pacientes&action=deletePaciente" method="get" target="_self" accept-charset="UTF-8" autocomplete="on" name="deletePatientForm">
                 <input type="number" id="idPaciente" name="idPaciente" hidden>
-                <button type="submit" role="button" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Si, deseo eliminar</button>
+                <a type="submit" href="index.php?controller=Pacientes&action=deletePaciente" role="button" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat">Si, deseo eliminar</a>
               </form>
     </div>
   </div>
