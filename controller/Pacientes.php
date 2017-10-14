@@ -125,8 +125,7 @@
                 echo 'No llenaste los campos obligatorios';
                 die;
             }
-            var_dump($fecha_nacimiento);
-            die;
+          ;
             if(!isset($_POST['idObraSocial'])){
                 $idObraSocial = 3;
             }
