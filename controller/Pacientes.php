@@ -237,8 +237,6 @@
                 die;
             }
 
-            var_dump($fecha_nacimiento);
-            die;
             $idPaciente = $_POST['idPaciente'];
             $telefono = trim($_POST['telefono']);
             if(!isset($_POST['idObraSocial'])){
