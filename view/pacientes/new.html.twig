@@ -153,24 +153,24 @@ function less3(valor) {
 }
 /* como el form se enviaba de todas formas pusimos el event.preventDefault() y si la fx devuelve false no se manda el form */
 function myFunction() {
-    alert("Hello! I am an alert box!!");
    
-    nombre = document.getElementById("nombre").value;
-    apellido = document.getElementById("apellido").value;
-    fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
-    idGenero = document.getElementById("idGenero").value;
-    idTipoDoc = document.getElementById("idTipoDoc").value;
-    dni = document.getElementById("dni").value;
-    domicilio = document.getElementById("domicilio").value;
-    telefono = document.getElementById("telefono").value;
-    idObraSocial = document.getElementById("idObraSocial").value;
-    heladera = document.getElementById("heladera").value;
-    electricidad = document.getElementById("electricidad").value;
-    mascota = document.getElementById("mascota").value;
-    idTipoVivienda = document.getElementById("idTipoVivienda").value;
-    idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
-    idTipoAgua = document.idTipoAgua("electricidad").value;
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+    var idGenero = document.getElementById("idGenero").value;
+    var idTipoDoc = document.getElementById("idTipoDoc").value;
+    var dni = document.getElementById("dni").value;
+    var domicilio = document.getElementById("domicilio").value;
+    var telefono = document.getElementById("telefono").value;
+    var idObraSocial = document.getElementById("idObraSocial").value;
+    var heladera = document.getElementById("heladera").value;
+    var electricidad = document.getElementById("electricidad").value;
+    var mascota = document.getElementById("mascota").value;
+    var idTipoVivienda = document.getElementById("idTipoVivienda").value;
+    var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
+    var idTipoAgua = document.idTipoAgua("electricidad").value;
 
+    alert(nombre);
 
     if( less3(nombre) || empty(nombre)) {
         alert('[ERROR] El campo debe tener un valor de...'+nombre);
