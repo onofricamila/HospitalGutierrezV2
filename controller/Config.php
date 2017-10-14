@@ -22,15 +22,15 @@ class ConfigController {
     
         AppController::allowed('configuracion_update');  
         
-        if ((!isset($_POST['titulo']) || ($titulo = trim($_POST['titulo'])) == "")
-            || (!isset($_POST['titulo1']) || ($titulo1 = trim($_POST['titulo1'])) == "")
-            || (!isset($_POST['titulo2']) || ($titulo2 = trim($_POST['titulo2'])) == "")
-            || (!isset($_POST['titulo3']) || ($titulo3 = trim($_POST['titulo3'])) == "")
-            || (!isset($_POST['descripcion1']) || ($descripcion1 = trim($_POST['descripcion1'])) == "")
-            || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "")
-            || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "")
-            || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "")
-            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == ""))
+        if ((!isset($_POST['titulo']) || ($titulo = trim($_POST['titulo'])) == "" || strlen($titulo) < 4)
+            || (!isset($_POST['titulo1']) || ($titulo1 = trim($_POST['titulo1'])) == "" || strlen($titulo1) < 4)
+            || (!isset($_POST['titulo2']) || ($titulo2 = trim($_POST['titulo2'])) == "" || strlen($titulo2) < 4)
+            || (!isset($_POST['titulo3']) || ($titulo3 = trim($_POST['titulo3'])) == "" || strlen($titulo3) < 4)
+            || (!isset($_POST['descripcion1']) || ($descripcion1 = trim($_POST['descripcion1'])) == "" || strlen($descripcion1) < 4)
+            || (!isset($_POST['descripcion2']) || ($descripcion2 = trim($_POST['descripcion2'])) == "" || strlen($descripcion2) < 4)
+            || (!isset($_POST['descripcion3']) || ($descripcion3 = trim($_POST['descripcion3'])) == "" || strlen($descripcion3) < 4)
+            || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
+            || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == "" || is_int($elementos)))
         {
             echo 'No llenaste bien los campos';
             die;
