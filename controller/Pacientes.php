@@ -122,8 +122,8 @@
             || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
             || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
             {
-                echo 'No llenaste los campos obligatorios';
-                die;
+                AppController::req_fields();
+                
             }
           ;
             if(!isset($_POST['idObraSocial'])){
@@ -233,8 +233,8 @@
             || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
             || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
             {
-                echo 'No llenaste los campos obligatorios';
-                die;
+                AppController::req_fields();
+                
             }
 
             $idPaciente = $_POST['idPaciente'];

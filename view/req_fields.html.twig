@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+<section class="mantenimiento-container">
+    <div class="mantenimiento-article">
+        <img width="120" src="../../public/imgs/attention.png" alt="Imagen presta atencion.">
+        <h2 class="mantenimiento-h1">Campos mal completados!</h2>
+        <div class="mantenimiento-div">
+            <p class="mantenimiento-p">Recuerda completar los campos requeridos y poner mas de 3 caracteres en los campos que no son de seleccion de opciones.</p>
+            <p class="mantenimiento-p">&mdash; {{ titulo }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

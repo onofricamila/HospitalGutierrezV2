@@ -32,8 +32,8 @@ class ConfigController {
             || (!isset($_POST['email']) || ($email = trim($_POST['email'])) == "" || !filter_var($email, FILTER_VALIDATE_EMAIL))
             || (!isset($_POST['elementos']) || ($elementos =trim($_POST['elementos'])) == "" || $elementos < 1))
         {
-            echo 'No llenaste bien los campos';
-            die;
+            AppController::req_fields();
+            
         }
 
         $config = Configuration::getInstance();

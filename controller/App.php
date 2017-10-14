@@ -87,5 +87,17 @@ class AppController {
         TwigController::renderTwig($path, $context);
         die;
     }
+
+    public static function req_fields(){
+        
+        $context = [];
+        $path = '/req_fields.html.twig';
+        /* use el mismo diseño que para mantain*/
+        $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
+        $context['titulo'] = 'Sin resultados';
+        
+        TwigController::renderTwig($path, $context);
+        die;
+    }
 }
 

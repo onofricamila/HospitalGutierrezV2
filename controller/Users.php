@@ -88,8 +88,8 @@ class UsersController {
             || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$first_name) )
             || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$last_name) )
         {
-            echo 'No llenaste bien los campos';
-            die;
+            AppController::req_fields();
+            
         }
 
         User::newUser($email, $user, $pass, $first_name, $last_name);
@@ -138,8 +138,8 @@ class UsersController {
             || (!isset($_POST['first_name']) || ($first_name =trim($_POST['first_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$first_name) )
             || (!isset($_POST['last_name'])) || ($last_name = trim($_POST['last_name'])) == "" || !preg_match("/^[a-zA-Z ]*$/",$last_name) )
         {
-        echo 'No llenaste bien los campos';
-            die;
+            AppController::req_fields();
+            
         }
 
         $user = User::id($id);
