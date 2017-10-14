@@ -96,7 +96,7 @@
 
         public static function all($args) {
           
-            $query = "SELECT * FROM paciente WHERE 1 = 1";
+            $query = "SELECT * FROM paciente WHERE 1 = 1 ORDER BY idPaciente ASC";
             $array = array();
     
             if (array_key_exists("nombre", $args)) {
