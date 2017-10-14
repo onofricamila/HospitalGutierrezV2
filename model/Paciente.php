@@ -96,7 +96,7 @@
 
         public static function all($args) {
           
-            $query = "SELECT * FROM paciente WHERE 1 = 1 ORDER BY idPaciente DESC";
+            $query = "SELECT * FROM paciente WHERE 1 = 1";
             $array = array();
     
             if (array_key_exists("nombre", $args)) {
@@ -118,7 +118,7 @@
                 $array[':idTipoDoc'] = $args['idTipoDoc'];
                 $query = $query." AND idTipoDoc = :idTipoDoc";
             }
-    
+            $query = $query. "ORDER BY idPaciente DESC";
             $connection = Connection::getInstance();
     
             $query = $connection->prepare($query);
