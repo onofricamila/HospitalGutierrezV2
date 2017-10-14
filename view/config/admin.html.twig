@@ -24,19 +24,19 @@
                     <td>
                         <span class="data">{{ titulo }}</span>
                         <div class="input-field">
-                            <input name="titulo" type="text" class="validate" value="{{titulo}}" name="titulo">
+                            <input name="titulo" type="text" class="validate" value="{{titulo}}" name="titulo" required>
                         </div>
                     </td>
                     <td>
                         <span class="data">{{ email }}</span>
                         <div class="input-field">
-                            <input name="email" type="text" class="validate" value="{{email}}" name="email">
+                            <input name="email" type="text" class="validate" value="{{email}}" name="email" required>
                         </div>
                     </td>
                     <td>
                         <span class="data">{{ elementos }}</span>
                         <div class="input-field">
-                            <input name="elementos" type="number" min="1" class="validate" value="{{elementos}}" name="elementos">
+                            <input name="elementos" type="number" min="1" class="validate" value="{{elementos}}" name="elementos" required>
                         </div>
                     </td>
                     <td>
@@ -54,13 +54,13 @@
                 <h4 class="card-header">
                     <small><span class="data">{{ card.titulo }}</span></small>
                     <div class="input-field">
-                        <input name="titulo{{loop.index}}" type="text" class="validate" value="{{card.titulo}}">
+                        <input name="titulo{{loop.index}}" type="text" class="validate" value="{{card.titulo}}" required>
                     </div>
                 </h4>
                 <div class="card-body">
-                    <p class="card-text"><span class="data">{{ card.descripcion }}</span></p>
+                    <p class="card-text"><span class="data" required>{{ card.descripcion }}</span></p>
                     <div class="input-field">
-                        <textarea name="descripcion{{loop.index}}" class="validate materialize-textarea">{{card.descripcion}}</textarea>
+                        <textarea name="descripcion{{loop.index}}" class="validate materialize-textarea" required>{{card.descripcion}}</textarea>
                     </div>
                 </div>
             </div>
