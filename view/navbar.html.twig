@@ -21,17 +21,6 @@
             <ul class="right hide-on-med-and-down">
 
                 {% if isLogged %}
-                <!-- Dropdown user -->
-                <ul id="dropdownUser2" class="dropdown-content">
-                    <li>
-                        <a href="?controller=login&action=logout" target="_self"><span class="fa fa-sign-in" aria-hidden="true"></span> Log out <br></a>
-                    
-                    </li>
-                </ul>
-                <!-- Dropdown User Trigger -->
-                <li>
-                    <a class="dropdown-button" href="#!" data-activates="dropdownUser2">{{user}} &#9660;</a>
-                </li> 
                 <li class="">
                     <a href="?controller=login&action=logout" target="_self">Log out</a>
                 </li>
@@ -83,13 +72,23 @@
             </li>
             {% if isLogged %}
             <li>
-                
+                <!-- Dropdown user -->
+                <ul id="dropdownUser" class="dropdown-content">
+                    <li>
+                        <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
+                    </li>
+                </ul>
+                <!-- Dropdown Trigger -->
+            {% if (paciente_new == false)  %}
+                         <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown1">Administracion &#9660;</a>
+                        </li> 
                 <a href="?controller=login&action=logout">
                     <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
             </li>
              {% if (paciente_index == true)  %}
                     <li class="">
-                     <a href="?controller=Pacientes&action=index" target="_self"> <span class="fa fa-users" aria-hidden="true"></span>Pacientes</a>
+                     <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
                     </li>
             {% endif %} 
         
