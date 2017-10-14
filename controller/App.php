@@ -94,7 +94,7 @@ class AppController {
         $path = '/req_fields.html.twig';
         /* use el mismo diseño que para mantain*/
         $context['stylesheets'] = ['/public/css/config-mantenimiento.css'];
-        $context['titulo'] = 'Sin resultados';
+        $context['titulo'] = 'Campos mal completados';
         
         TwigController::renderTwig($path, $context);
         die;
