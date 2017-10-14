@@ -14,7 +14,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="event.preventDefault(); myFunction()">
+                        <form id="form-new" class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="event.preventDefault(); myFunction()">
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -156,7 +156,7 @@ function myFunction() {
    
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
-    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+    var fecha_nacimiento = document.form-new.fecha_nacimiento.value;
     var idGenero = document.getElementById("idGenero").value;
     var idTipoDoc = document.getElementById("idTipoDoc").value;
     var dni = document.getElementById("dni").value;
