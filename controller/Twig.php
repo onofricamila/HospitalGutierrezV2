@@ -34,7 +34,10 @@ class TwigController{
         $context['isLogged'] = AppController::isLogged();
         $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
         $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
-      
+        if( $context['isLogged']){
+            /* por si se quiere mostrar algo del current user */
+            $context['user'] = AppController::getUser()->last_name." ".AppController::getUser()->first_name;
+        }
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
     }
