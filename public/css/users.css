@@ -59,3 +59,7 @@ div.divider-margin {
 .pagination-li.active {
     background-color: #009688!important;
 }
+
+.center-align {
+    text-align: center;
+}
