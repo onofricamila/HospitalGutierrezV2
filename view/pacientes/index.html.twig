@@ -74,7 +74,7 @@
                         <p style="display: none;">{{ paciente.idPaciente }}</p>
                         <p>DNI: {{ paciente.dni }}</p>
                         <p>Tipo de documento: 
-                            {% for key,value in nombreTipo %}
+                            {% for key,value in {{nombreTipo}} %}
                                 {% if {{paciente.idTipo}} == {{ key }}  %}
                                        <span> {{ value }} </span>
                                 {% endif %}
