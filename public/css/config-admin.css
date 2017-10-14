@@ -106,3 +106,6 @@ input {
         display: block;
     }
 }
+.buttons-container {
+    margin-top: 20px;
+}
