@@ -28,11 +28,11 @@
                                 </div>
                                 
                                 <div class="input-field col s12 m4">
-                                    <input type="text" name="fecha_nacimiento"  class="datepicker">
+                                    <input type="text" name="fecha_nacimiento" id="fecha_nacimiento"  class="datepicker">
                                     <label for="fecha_nacimiento">Fecha de nacimiento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <select name="idGenero" class="icons">
+                                    <select name="idGenero" id="idGenero" class="icons">
                                             <option value="" disabled selected>Genero</option>
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="input-field col s12 m4">
-                                    <select name="idTipoDoc" >
+                                    <select name="idTipoDoc" id="idTipoDoc" >
                                             <option value="" disabled selected>Tipo de documento</option>
                                             {% for tipo in allTipoDoc %}
                                                 <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
@@ -60,7 +60,7 @@
                                     <label for="telefono">Telefono</label>
                                 </div>
                                 <div class="input-field col s12 m4">
-                                    <select name="idObraSocial">
+                                    <select name="idObraSocial" id="idObraSocial">
                                             <option value="" disabled selected>Obra Social</option>
                                             {% for obra in allObraSocial %}                                            
                                                 <option value="{{ obra.idObraSocial }}">{{ obra.nombre }}</option>
@@ -71,14 +71,14 @@
                                 <h5 id="#datos-demo" >Datos demograficos</h5>
                                 <br>
                                 <div class="input-field col s12 m6">
-                                    <select name="heladera" class="icons">
+                                    <select name="heladera" id="heladera" class="icons">
                                         <option value="" disabled selected>Heladera?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="electricidad" class="icons">
+                                    <select name="electricidad" id="electricidad" class="icons">
                                         <option value="" disabled selected>Electricidad?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
@@ -86,14 +86,14 @@
                                 </div>
                                 
                                 <div class="input-field col s12 m6">
-                                    <select name="mascota" class="icons">
+                                    <select name="mascota" id="mascota" class="icons">
                                         <option value="" disabled selected>Mascota?</option>
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoVivienda">
+                                    <select name="idTipoVivienda" id="idTipoVivienda">
                                             <option value="" disabled selected>Tipo Vivienda</option>
                                             {% for tipo in allTipoVivienda %}
                                                 <option value="{{ tipo.idTipoVivienda }}">{{ tipo.nombre }}</option>
@@ -102,7 +102,7 @@
                                 </div>
 
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoCalefaccion">
+                                    <select name="idTipoCalefaccion" id="idTipoCalefaccion">
                                             <option value="" disabled selected>Tipo Calefaccion</option>
                                             {% for tipo in allTipoCalefaccion %}
                                                 <option value="{{ tipo.idTipoCalefaccion }}">{{ tipo.nombre }}</option>
@@ -110,7 +110,7 @@
                                     </select>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <select name="idTipoAgua">
+                                    <select name="idTipoAgua" id="idTipoAgua">
                                             <option value="" disabled selected>Tipo Agua</option>
                                             {% for tipo in allTipoAgua %}
                                                 <option value="{{ tipo.idTipoAgua }}">{{ tipo.nombre }}</option>
@@ -156,6 +156,7 @@ function myFunction() {
    
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
+    var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
     var idGenero = document.getElementById("idGenero").value;
     var idTipoDoc = document.getElementById("idTipoDoc").value;
     var dni = document.getElementById("dni").value;
