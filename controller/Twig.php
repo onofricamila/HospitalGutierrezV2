@@ -31,7 +31,7 @@ class TwigController{
         $context['titulo'] = $config->titulo;
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
-        $context['user'] = AppController::getUser()->$first_name;
+        $context['user'] = AppController::getUser()->first_name;
         $context['isLogged'] = AppController::isLogged();
         $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
         $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
