@@ -21,16 +21,16 @@
                                 <input id="idPaciente" name="idPaciente" type="text" class="validate" hidden value="{{ paciente.idPaciente }}">
                                 <div class="input-field col s12 m4">
                                     <input id="nombre" name="nombre" type="text" class="validate" value="{{ paciente.nombre }}">
-                                    <label for="nombre">Nombre</label>
+                                    <label for="nombre">*Nombre</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="apellido" name="apellido" type="text" class="validate" value="{{ paciente.apellido }}">
-                                    <label for="apellido">Apellido</label>
+                                    <label for="apellido">*Apellido</label>
                                 </div>
                                 
                                 <div class="input-field col s12 m4">
                                     <input type="text" name="fecha_nacimiento"  class="datepicker" value="{{ paciente.fecha_nacimiento }}">
-                                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                                    <label for="fecha_nacimiento">*Fecha de nacimiento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <select name="idGenero" id="idGenero" class="icons">
@@ -38,7 +38,7 @@
                                             <option data-icon="/public/imgs/female.png" class="circle" value="1">Femenino</option>
                                             <option data-icon="/public/imgs/male.png" class="circle" value="2">Masculino</option>
                                     </select>
-                                    <label>Genero</label>
+                                    <label>*Genero</label>
                                 </div>
 
                                 <div class="input-field col s12 m4">
@@ -47,15 +47,15 @@
                                                 <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
-                                    <label>Tipo de documento</label>
+                                    <label>*Tipo de documento</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="dni" name="dni" type="number" class="validate" value="{{ paciente.dni }}">
-                                    <label for="dni">DNI</label>
+                                    <label for="dni">*DNI</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="domicilio" name="domicilio" type="text" class="validate" value="{{ paciente.domicilio }}">
-                                    <label for="domicilio">Domicilio</label>
+                                    <label for="domicilio">*Domicilio</label>
                                 </div>
                                 <div class="input-field col s12 m4">
                                     <input id="telefono" name="telefono" type="number" class="validate" value="{{ paciente.telefono }}">
@@ -77,14 +77,14 @@
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
-                                    <label>Heladera?</label>
+                                    <label>*Heladera?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="electricidad" id="electricidad" class="icons">
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
-                                    <label>Electricidad?</label>
+                                    <label>*Electricidad?</label>
                                 </div>
                                 
                                 <div class="input-field col s12 m6">
@@ -92,7 +92,7 @@
                                         <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
                                         <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
                                     </select>
-                                    <label>Mascota?</label>
+                                    <label>*Mascota?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoVivienda" id="idTipoVivienda">
@@ -100,7 +100,7 @@
                                                 <option value="{{ tipo.idTipoVivienda }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
-                                    <label>Tipo de Vivienda?</label>
+                                    <label>*Tipo de Vivienda?</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
@@ -109,7 +109,7 @@
                                                 <option value="{{ tipo.idTipoCalefaccion }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
-                                    <label>Tipo de Calefaccion?</label>
+                                    <label>*Tipo de Calefaccion?</label>
                                 </div>
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoAgua" id="idTipoAgua">
@@ -117,7 +117,7 @@
                                                 <option value="{{ tipo.idTipoAgua }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
-                                    <label>Tipo de Agua?</label>
+                                    <label>*Tipo de Agua?</label>
                                 </div>
                                 <div class="row col m12">
                                     <div class="col s12 m6">
