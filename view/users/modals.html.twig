@@ -9,11 +9,11 @@
 
     <!-- Modal Structure -->
     <div id="modalNewUser" class="modal">
+        <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" id="form">
         <div class="modal-content">
             <h4 class="center-align" id="title"></h4>
             <div class="divider"></div>
             <div class="row margint-25">
-                <form class="col s12" method="post" action="index.php?controller=Users&action=newUser" id="form">
                     <div class="row modal-form-row">
                         <div class="input-field col s12">
                             <input id="email" name="email" type="text" class="validate">
@@ -39,26 +39,17 @@
                         <label for="last_name">Apellido</label>
                     </div>
                     <input type="text" id="id" name="id" hidden>
-
-                    <div class="row">
-                        <div class="center-align">
-                            <button class="btn waves-effect waves-light right-align modal-btn" type="reset" name="submit">Limpiar
-                                <i class="material-icons right">backspace</i>
-                            </button>
-                            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
-
         <div class="modal-footer">
             <button class="modal-action modal-close waves-effect waves-green btn-flat">Volver
                 <i class="material-icons right">arrow_back</i>
             </button>
+            <button class="btn waves-effect waves-light modal-btn" type="submit" name="submit">Aceptar
+                <i class="material-icons right">send</i>
+            </button>
         </div>
+        </form>
     </div>
 </section>
 <section>
