@@ -225,3 +225,20 @@ function validacion() {
     
 }
 */
+
+/* para eliminar un paciente */
+/* data('id') me trae el valor del att data-id del boton clickeado, que es: id/name de la categoria en cuestion. Con la funcion split lo que hago es crear un arreglo que separa sus elementos por el delimitador "/". Al abrir el modal le asigna el valor de ese arreglo creado en la pos 0 (corresponde al id de la categoria) a cualquier elemento html dentro del modal-body con id="idCategory" y el valor de ese arreglo creado en la pos 1 (corresponde al nombre de la categoria) a cualquier elemento html dentro del modal-body con id="nameCategory".
+*/
+
+$(document).on("click", ".openDeleteModal", function () {
+var idAndName = $(this).data('id').split("/", 2);
+$(".modal-content #deletePacienteContent").val( idAndName[1] );
+$(".form-eliminar #idPaciente").val( idAndName[0] );
+});
+
+/* Para edditar cates ..*/
+$(document).on("click", ".openEditModal", function () {
+var idAndName = $(this).data('id').split("/", 2);
+$(".modal-body #nameCategory").val( idAndName[1] );
+$(".form-edit #idCategory").val( idAndName[0] );
+});
