@@ -43,6 +43,10 @@
     <div class="divider divider-margin"></div>
 
     <div class="row">
+        {% if noResults %}
+            {% include 'noresults.html.twig' %}
+        {% else %}
+
         <span id="paginacion" style="display: none">{{ elementos }}</span>
 
         {% for user in users %}
@@ -103,6 +107,8 @@
             <li class="pagination-next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
         </ul>
     </div>
+
+    {% endif %}
 
 </section>
 

@@ -25,6 +25,7 @@ class UsersController {
         
         $context['busquedaActive'] = false;
         $context['busquedaUser'] = false;
+        $context['noResults'] = false;
         if (isset($_GET['active'])) {
             $args['active'] = $_GET['active'];
             $context['busquedaActive'] = true;
@@ -58,6 +59,7 @@ class UsersController {
         }
         else {
             $context['stylesheets'][] = '/public/css/config-mantenimiento.css';
+            $context['noResults'] = true;
         }
 
         TwigController::renderTwig($path, $context);
