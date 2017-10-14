@@ -32,6 +32,7 @@ class TwigController{
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
+        /* lo de aca era para ver q links le muestro a quien */
         $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
         $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
        
