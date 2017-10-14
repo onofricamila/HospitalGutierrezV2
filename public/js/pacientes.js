@@ -233,5 +233,5 @@ function validacion() {
 $(document).on("click", ".openDeleteModal", function () {
 var idAndName = $(this).data('id').split("/", 2);
 $(".modal-content #nombrePaciente").val( idAndName[1] );
-document.getElementById('enlace').setAttribute('href', "index.php?controller=Pacientes&action=deletePaciente&idPaciente" + idAndName[0]);
+document.getElementById('enlace').setAttribute('href', "index.php?controller=Pacientes&action=deletePaciente&idPaciente=" + idAndName[0]);
 });
