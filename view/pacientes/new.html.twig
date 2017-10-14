@@ -14,7 +14,7 @@
                 </div>
             
                 <div id="" class="col s12">
-                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="return validacion()">
+                        <form class="col s12" method="post" action="index.php?controller=Pacientes&action=auxNewPaciente" autocomplete="off" onsubmit="onsubmit="return validacion()">
                                 <br>
                                 <h5>Informacion personal</h5>
                                 <br>
@@ -139,5 +139,43 @@
     </div>
 </div>           
        
+<script>
+    
+function empty(valor) {
+    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+        return true;
+    }
+}
+function less3(valor) {
+    if(  valor.length < 3) {
+        return true;
+    }
+}
+function validacion() {
+    nombre = document.getElementById("nombre").value;
+    apellido = document.getElementById("apellido").value;
+    fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
+    idGenero = document.getElementById("idGenero").value;
+    idTipoDoc = document.getElementById("idTipoDoc").value;
+    dni = document.getElementById("dni").value;
+    domicilio = document.getElementById("domicilio").value;
+    telefono = document.getElementById("telefono").value;
+    idObraSocial = document.getElementById("idObraSocial").value;
+    heladera = document.getElementById("heladera").value;
+    electricidad = document.getElementById("electricidad").value;
+    mascota = document.getElementById("mascota").value;
+    idTipoVivienda = document.getElementById("idTipoVivienda").value;
+    idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
+    idTipoAgua = document.idTipoAgua("electricidad").value;
 
+    alert("Hello! I am an alert box!!");
+    if( less3(nombre) || empty(nombre)) {
+        alert('[ERROR] El campo debe tener un valor de...');
+        return false;
+    }
+
+    return true
+    
+}
+</script>
 {% endblock %}
