@@ -73,7 +73,13 @@
                     <div class="contenido-card">
                         <p style="display: none;">{{ paciente.idPaciente }}</p>
                         <p>DNI: {{ paciente.dni }}</p>
-                        <p>Tipo de documento: {{ nombreTipo.2 }}</p>
+                        <p>Tipo de documento: 
+                            {% for key,value in nombreTipo %}
+                                {% if paciente.idTipo == {{ key }}  %}
+                                       <span> {{ value }} </span>
+                                {% endif %}
+                            {% endfor %}
+                        </p>
                         <p style="display: none;">{{ paciente.nombre }}</p>
                         <p style="display: none;">{{ paciente.apellido }}</p>
                     </div>
