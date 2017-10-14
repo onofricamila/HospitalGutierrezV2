@@ -125,7 +125,7 @@
                 echo 'No llenaste los campos obligatorios';
                 die;
             }
-            if(!isset($_POST['idObraSocial']){
+            if(!isset($_POST['idObraSocial'])){
                 $idObraSocial = 3;
             }
             else{
