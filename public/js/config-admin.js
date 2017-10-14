@@ -38,6 +38,12 @@ function notEmail(email){
     return !(re.test(email));
 }
 
+function nan(num){
+    var reg = /^\d+$/;
+    return !(re.test(num));
+    
+}
+
 function validacionAdmin(){
     var titulo = document.getElementById("titulo").value;
     var email = document.getElementById("email").value;
@@ -51,8 +57,8 @@ function validacionAdmin(){
         alert('[ERROR] El email es vacio o invalido.');
         return false;
     }
-    if(lessThan(empty(titulo) {
-        alert('[ERROR] La cantidad de elementos por pagina es requerida.');
+    if(empty(elementos) ||  nan(elementos){
+        alert('[ERROR] La cantidad de elementos por pagina es requerida y debe ser un numero.');
         return false;
     }
 
