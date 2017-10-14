@@ -21,15 +21,28 @@ class UsersController {
         AppController::allowed('usuario_index');  
 
         $args = [];
-
+        $context = [];
+        
+        $context['busquedaActive'] = false;
+        $context['busquedaUser'] = false;
         if (isset($_GET['active'])) {
             $args['active'] = $_GET['active'];
+            $context['busquedaActive'] = true;
+            $context['active'] = $_GET['active'];
         }
 
         if (isset($_GET['search']) && $_GET['search'] != "") {
             $args['search'] = $_GET['search'];
+            $context['busquedaUser'] = true;
+            $context['Username'] = $_GET['search'];
         }
 
+        $context['stylesheets'] = ['/public/css/users.css'];
+        $context['javascripts'] = ['/public/js/users.js'];
+        $context['pagename'] = 'Usuarios';
+        $context['titulo'] = 'Usuarios';
+        $path = '/users/view.html.twig';
+        
         if ($users = User::all($args)) {
 
             /*
@@ -39,25 +52,16 @@ class UsersController {
             require_once 'view/footer.html';
             */
 
-            $context = [];
-            
-            $context['stylesheets'] = ['/public/css/users.css'];
-            $context['javascripts'] = ['/public/js/users.js'];
-            $context['pagename'] = 'Usuarios';
             $context['users'] = $users;
             $context['allRoles'] = Rol::all();
             $context['usersCant'] = count($users);
-            $context['titulo'] = 'Usuarios';
-            
-            $path = '/users/view.html.twig';
-            
-            TwigController::renderTwig($path, $context);
-            die;
         }
         else {
-            echo "Error";
-            die;
+            $context['stylesheets'][] = '/public/css/config-mantenimiento.css';
         }
+
+        TwigController::renderTwig($path, $context);
+        die;
     }
 
     public function togglestate() {

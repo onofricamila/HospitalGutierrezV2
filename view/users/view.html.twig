@@ -15,10 +15,10 @@
             <div class="col s3 l2 height-100">
                 <div class="input-field">
                     <select name="active">
-                        <option value="" disabled selected>Estado</option>
+                        <option value="" disabled {% if busquedaActive == false %} {{ "selected" }} {% endif %}>Estado</option>
                         <option value="2">Todos</option>
-                        <option value="1">Activos</option>
-                        <option value="0">Bloqueados</option>
+                        <option value="1" {% if busquedaActive %} {% if active == 1 %} {{ "selected" }} {% endif %} {% endif %}>Activos</option>
+                        <option value="0" {% if busquedaActive %} {% if active == 0 %} {{ "selected" }} {% endif %} {% endif %}>Bloqueados</option>
                     </select>
                     <label>Estado</label>
                 </div>
