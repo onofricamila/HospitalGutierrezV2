@@ -87,9 +87,13 @@
 
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
-                    <li>
-                         <a href="?controller=Pacientes&action=showPaciente&idPaciente={{ paciente.idPaciente }}">Show</a>
-                    </li>
+                
+                    {% if paciente_show == true  %}
+                            <li>
+                                <a href="?controller=Pacientes&action=showPaciente&idPaciente={{ paciente.idPaciente }}">Show</a>
+                        </li>
+                    {% endif %} 
+                    
                     <li class="divider"></li>
                     <li>       
                          <a data-target="modal1" class="modal-trigger openDeleteModal" data-id="{{ paciente.idPaciente }}/{{ paciente.apellido }}, {{ paciente.nombre }}">Delete</a>

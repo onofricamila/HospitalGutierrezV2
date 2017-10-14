@@ -61,6 +61,11 @@
                 $context['allPaciente'] = $allPaciente;
                 $context['allTipoDoc'] =  TipoDoc::all();
                 $context['pacientesCant'] = count($allPaciente);
+                $context['paciente_update?'] = AppController:: checkPermissions('paciente_update');
+                $context['paciente_show?'] = AppController:: checkPermissions('paciente_show');
+                $context['paciente_destroy?'] = AppController:: checkPermissions('paciente_destroy');
+                $context['paciente_new?'] = AppController:: checkPermissions('paciente_new');
+               
     
                 $path = '/pacientes/index.html.twig';
                 
