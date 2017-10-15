@@ -206,13 +206,13 @@ function validateFormPac() {
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
      var idTipoAgua = document.getElementById("idTipoAgua").value;
  
-     if(lessThan(nombre, 3) || empty(nombre) ||
-        lessThan(apellido, 3) || empty(apellido) ||
+     if(empty(nombre) ||
+        empty(apellido) ||
         empty(fecha_nacimiento) ||
         empty(idGenero) ||
         empty(idTipoDoc) ||
-        lessThan(dni, 3) || empty(dni) ||
-        lessThan(domicilio, 3) || empty(domicilio) ||
+        empty(dni) ||
+        empty(domicilio) ||
         empty(heladera) ||
         empty(electricidad) ||
         empty(mascota) ||
@@ -220,7 +220,7 @@ function validateFormPac() {
         empty(idTipoCalefaccion) ||
         empty(idTipoAgua)
         ){
-         alert('[ERROR] Hay algun campo requerido que esta vacio o no tiene mas de 3 caracteres. Recuerda que son todos obligatorios menos obra social y telefono.');
+         alert('[ERROR] Hay algun campo requerido que esta vacio. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
     }
 
@@ -234,7 +234,7 @@ function validateFormPac() {
      return false;
     }
 
-    if(!(empty(telefono || lessThan(telefono, 3) )) && notANumber(telefono)){
+    if(!(empty(telefono) || lessThan(telefono, 5) )) && notANumber(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
     }

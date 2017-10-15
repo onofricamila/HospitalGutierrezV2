@@ -15,6 +15,8 @@ function notANumber(num){
 }    
 
 function notOnlyLetters(text){
+    alert('[ERROR] Entra a not only letters.');
+    
     var reg = /^[A-Za-z ]+$/;
     return reg.test(text);
 }
