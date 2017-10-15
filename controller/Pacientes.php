@@ -24,12 +24,19 @@
         public function index(){
             AppController::allowed('paciente_index');
             
+            $context = [];
+            $nombreTipo = [];
+            $allTipoDoc= TipoDoc::all();
+
+            foreach ($allTipoDoc as $clave => $valor) {
+                $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
+            }
+
             $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
             $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Pacientes - Index';
-            $context['allTipoDoc'] =  TipoDoc::all();
+            $context['allTipoDoc'] =  $allTipoDoc;
             $context['titulo'] = 'Pacientes';
-            $context['noResults'] = false;
             $args= [];
 
             if (isset($_GET['nombre']) && $_GET['nombre'] != "") {
@@ -53,16 +60,8 @@
                 require_once 'view/navbar.php';
                 require_once 'view/pacientes/pacientes.php';
                 require_once 'view/footer.html';  */
-                $context = [];
-                $nombreTipo = [];
-                $allTipoDoc= TipoDoc::all();
-            
-
-                foreach ($allTipoDoc as $clave => $valor) {
-                    $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
-                }
-              
                
+                $context['noResults'] = false;
                 $context['allPaciente'] = $allPaciente;
                 $context['pacientesCant'] = count($allPaciente);
                 $context['paciente_update'] = AppController::getInstance()->checkPermissions('paciente_update');
