@@ -92,24 +92,18 @@
                 <!-- Dropdown Structure -->
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                 
-                    {% if (paciente_show == true)  %}
                         <li>
                             <a href="?controller=Pacientes&action=showPaciente&idPaciente={{ paciente.idPaciente }}">Show</a>
                         </li>
                         <li class="divider"></li>
-                    {% endif %} 
-                    {% if (paciente_destroy == true)  %}
                         <li>
                             <a data-target="modal1" class="modal-trigger openDeleteModal" data-id="{{ paciente.idPaciente }}/{{ paciente.apellido }}, {{ paciente.nombre }}">Delete</a>
                         </li>
                         <li class="divider"></li>
-                    {% endif %} 
-                    {% if (paciente_update == true)  %}
                         <li>
                             <a href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">Update</a>
                         </li>
                         <li class="divider"></li>
-                    {% endif %} 
                     
                 </ul>
             </div>
@@ -133,13 +127,11 @@
 
 </section>
 
-{% if (paciente_new == true)  %}
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Pacientes&action=newPaciente">
              <i class="large material-icons">add</i>
         </a>
     </div>
-{% endif %} 
 
 
 {% include '/pacientes/modals.html.twig' %}
