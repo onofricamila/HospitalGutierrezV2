@@ -159,7 +159,7 @@ function selectOptions(idGenero, idTipoDoc, idObraSocial, heladera, electricidad
     $("#idTipoCalefaccion option[value="+ idTipoCalefaccion +"]").attr("selected",true);
     $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
 }
-return selectOptions({{ paciente.idGenero }},{{ paciente.idTipoDoc }},{{ paciente.idObraSocial }},{{ paciente.heladera }},{{ paciente.electricidad }},{{ paciente.mascota }},{{ paciente.idTipoVivienda }},{{ paciente.idTipoCalefaccion }},{{ paciente.idTipoAgua }});
+ selectOptions({{ paciente.idGenero }},{{ paciente.idTipoDoc }},{{ paciente.idObraSocial }},{{ paciente.heladera }},{{ paciente.electricidad }},{{ paciente.mascota }},{{ paciente.idTipoVivienda }},{{ paciente.idTipoCalefaccion }},{{ paciente.idTipoAgua }});
 </script>
 
 {% endblock %}
