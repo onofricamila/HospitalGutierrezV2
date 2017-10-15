@@ -244,21 +244,21 @@ function validacion() {
  }
  
  /* para el buscador */
-function validateSearch(){
+function validateSearchPac(){
     var nombre = document.getElementById("nombre").value;
     var apellido = document.getElementById("apellido").value;
     var dni = document.getElementById("dni").value;
     var idTipoDoc = document.getElementById("idTipoDoc").value;
     
-    if( !(empty(nombre)) && nas(nombre)){
+    if( !(empty(nombre)) && notOnlyLetters(nombre)){
         alert('[ERROR] Respeta el formato de letras para el nombre.');
         return false;
     }
-    if( !(empty(apellido)) && nas(apellido)){
-        alert('[ERROR] Respeta el formato de letras para el nombre.');
+    if( !(empty(apellido)) && notOnlyLetters(apellido)){
+        alert('[ERROR] Respeta el formato de letras para el apellido.');
         return false;
     }
-    if(!(empty(dni)) && nan(dni)){
+    if(!(empty(dni)) && notANumber(dni)){
         alert('[ERROR] Respeta el formato de numeros para el dni.');
         return false;
     }
