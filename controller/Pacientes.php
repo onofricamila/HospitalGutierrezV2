@@ -23,7 +23,11 @@
         
         public function index(){
             AppController::allowed('paciente_index');
-        
+            
+            $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
+            $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
+            $context['pagename'] = 'Pacientes - Index';
+            $context['allTipoDoc'] =  TipoDoc::all();
             $context['titulo'] = 'Pacientes';
             $context['noResults'] = false;
             $args= [];
@@ -58,11 +62,8 @@
                     $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
                 }
               
-                $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
-                $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
-                $context['pagename'] = 'Pacientes - Index';
+               
                 $context['allPaciente'] = $allPaciente;
-                $context['allTipoDoc'] =  TipoDoc::all();
                 $context['pacientesCant'] = count($allPaciente);
                 $context['paciente_update'] = AppController::getInstance()->checkPermissions('paciente_update');
                 $context['paciente_show'] = AppController::getInstance()->checkPermissions('paciente_show');
