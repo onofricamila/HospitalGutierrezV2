@@ -206,7 +206,7 @@ function nan(num){
 
 function nas(text){
     var reg = /^[A-Za-z ]+$/;
-    return !re.test(num);
+    return re.test(num);
 }
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
@@ -254,6 +254,10 @@ function validacion() {
      alert('[ERROR] Respeta el formato de numeros para el dni.');
      return false;
     }
+    if(empty(dni) ){
+        alert('[ERROR] Respeta el formato de numeros para el dni.');
+        return false;
+       }
 
     if(!(empty(telefono || lessThan(telefono, 3) )) && nan(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
