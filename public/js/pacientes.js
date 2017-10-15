@@ -238,7 +238,7 @@ function validateFormPac() {
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
     }
-    if(!(empty(telefono)) && lessThan(telefono,4)){
+    if(!(empty(telefono)) && lessThan(telefono,4) && telefono != 0){
         alert('[ERROR] El telefono debe tener mas de 4 digitos.');
         return false;
     }
