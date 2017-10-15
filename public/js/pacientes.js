@@ -201,12 +201,12 @@ function lessThan(valor, limit) {
 
 function NaN(num){
     var reg = /^\d+$/;
-    return !(reg.test(num));
+    return !(re.test(num));
 }    
 
 function notAStr(text){
     var reg = /^[A-Za-z ]+$/;
-    return reg.test(num);
+    return re.test(num);
 }
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */

@@ -35,12 +35,12 @@ function lessThan(valor, limit) {
 
 function notEmail(email){
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return !(reg.test(email));
+    return !(re.test(email));
 }
 
 function NaN(num){
     var reg = /^\d+$/;
-    return !(reg.test(num));
+    return !(re.test(num));
     
 }
 

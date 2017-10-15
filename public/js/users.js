@@ -131,8 +131,3 @@ $('.pagination-next').click(function() {
     }
 });
 (jQuery); // end of jQuery name space
-
-/* validation */
-function validateUser(){
-    
-}
