@@ -188,27 +188,6 @@ function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, masco
 
 /* para validar formularios */
 
-function empty(valor) {
-    if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
-        return true;
-    }
-}
-function lessThan(valor, limit) {
-    if(  valor.length <= limit) {
-        return true;
-    }
-}
-
-function nan(num){
-    var reg = /^\d+$/;
-    return !(re.test(num));
-}    
-
-function nas(text){
-    var reg = /^[A-Za-z ]+$/;
-    return re.test(num);
-}
-
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
 function validacion() {
     

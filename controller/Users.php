@@ -39,7 +39,7 @@ class UsersController {
         }
 
         $context['stylesheets'] = ['/public/css/users.css'];
-        $context['javascripts'] = ['/public/js/users.js'];
+        $context['javascripts'] = ['/public/js/users.js', '/public/js/validacion.js'];
         $context['pagename'] = 'Usuarios';
         $context['titulo'] = 'Usuarios';
         $path = '/users/view.html.twig';

@@ -56,7 +56,7 @@
                 }
               
                 $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
-                $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js'];
+                $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
                 $context['pagename'] = 'Pacientes - Index';
                 $context['allPaciente'] = $allPaciente;
                 $context['allTipoDoc'] =  TipoDoc::all();
@@ -95,7 +95,7 @@
             $context = [];
             
             $context['stylesheets'] = ['/public/css/pacientes.css'];
-            $context['javascripts'] = ['/public/js/pacientes.js'];
+            $context['javascripts'] = ['/public/js/pacientes.js','/public/js/validacion.js'];
             $context['pagename'] = 'Pacientes - New';
             $context['allTipoDoc'] = TipoDoc::all();
             $context['allObraSocial'] = ObraSocial::all();
@@ -206,7 +206,7 @@
             $context = [];
             
             $context['stylesheets'] = ['/public/css/pacientes.css'];
-            $context['javascripts'] = ['/public/js/pacientes.js'];
+            $context['javascripts'] = ['/public/js/pacientes.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Pacientes - Update';
             $context['paciente'] =  Paciente::getPaciente($_GET['idPaciente']);
             $context['allTipoDoc'] = TipoDoc::all();
