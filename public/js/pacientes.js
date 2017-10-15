@@ -174,7 +174,7 @@ $('.deleteModalTrigger').click(function () {
 });
 
 /* para marcar como selected los options en el update */
-function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
+function selectOptions(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
     $("#idGenero option[value="+ idGenero +"]").attr("selected",true);
     $("#idTipoDoc option[value="+ idTipoDoc +"]").attr("selected",true);
     $("#idObraSocial option[value="+ idObraSocial +"]").attr("selected",true);
