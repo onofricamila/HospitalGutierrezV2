@@ -205,12 +205,8 @@ function nan(num){
 }    
 
 function nas(text){
-    for(i=0;i<text.length;i++){
-        carac=texto.charCodeAt(i);
-        if(carac<48 || carac>57) { // valida numeros
-        return false;
-        }
-    }
+    var reg = /^[A-Za-z ]+$/;
+    return re.test(num);
 }
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
@@ -252,7 +248,7 @@ function validacion() {
     if(nas(nombre) || nas(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
-       }
+    }
     
     if(nan(dni) ){
      alert('[ERROR] Respeta el formato de numeros para el dni.');
@@ -262,7 +258,7 @@ function validacion() {
     if(!(empty(telefono || lessThan(telefono, 3) )) & nan(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
-       }
+    }
 
     return true
      
