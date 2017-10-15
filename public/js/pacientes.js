@@ -210,7 +210,7 @@ function notAStr(text){
 }
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
-function validacion() {
+/*function validacion() {
     
      var nombre = document.getElementById("nombre").value;
      var apellido = document.getElementById("apellido").value;
@@ -258,12 +258,12 @@ function validacion() {
     if(!(empty(telefono || lessThan(telefono, 3) )) && NaN(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
-    } */
+    } 
 
     return true
      
  }
- 
+ */
  /* para el buscador */
 function validateSearch(){
     var nombre = document.getElementById("nombre").value;
