@@ -22,6 +22,7 @@ $('.backTrigger').click(function () {
     Materialize.updateTextFields();
 });
 
+/*
 function empty(valor) {
     if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
         return true;
@@ -35,12 +36,12 @@ function lessThan(valor, limit) {
 
 function notEmail(email){
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return !(re.test(email));
+    return !(reg.test(email));
 }
 
 function NaN(num){
     var reg = /^\d+$/;
-    return !(re.test(num));
+    return !(reg.test(num));
     
 }
 
@@ -57,10 +58,10 @@ function validacionAdmin(){
         alert('[ERROR] El email es vacio o invalido.');
         return false;
     }
-    if(empty(elementos) ||  nan(elementos)){
+    if(empty(elementos) ||  NaN(elementos)){
         alert('[ERROR] La cantidad de elementos por pagina es requerida y debe ser un numero.');
         return false;
     }
 
     return true
-}
+}*/

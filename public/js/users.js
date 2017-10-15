@@ -132,14 +132,15 @@ $('.pagination-next').click(function() {
 });
 (jQuery); // end of jQuery name space
 
-/* validation */
-function validateUser(){
+/* validation *//*
+function validateUser(){ 
     var first_name = document.getElementById("first_name").value;
     var email = document.getElementById("email").value;
     var last_name = document.getElementById("last_name").value;
     var pass = document.getElementById("pass").value;
     var user = document.getElementById("user").value;
 
-    
+    alert('[ERROR]');
+    return false;
 
-}
+}*/
