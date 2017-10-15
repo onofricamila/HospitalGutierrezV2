@@ -38,7 +38,7 @@ function notEmail(email){
     return !(re.test(email));
 }
 
-function nan(num){
+function NaN(num){
     var reg = /^\d+$/;
     return !(re.test(num));
     
@@ -57,7 +57,7 @@ function validacionAdmin(){
         alert('[ERROR] El email es vacio o invalido.');
         return false;
     }
-    if(empty(elementos) ||  nan(elementos)){
+    if(empty(elementos) ||  NaN(elementos)){
         alert('[ERROR] La cantidad de elementos por pagina es requerida y debe ser un numero.');
         return false;
     }
