@@ -22,7 +22,6 @@ $('.backTrigger').click(function () {
     Materialize.updateTextFields();
 });
 
-/*
 function empty(valor) {
     if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
         return true;
@@ -64,4 +63,4 @@ function validacionAdmin(){
     }
 
     return true
-}*/
+}
