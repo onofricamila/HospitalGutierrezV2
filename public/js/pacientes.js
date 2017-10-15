@@ -173,19 +173,6 @@ $('.deleteModalTrigger').click(function () {
     Materialize.updateTextFields();
 });
 
-/* para marcar como selected los options en el update */
-function selectOptions(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, mascota, idTipoVivienda, idTipoCalefaccion, idTipoAgua){
-    $("#idGenero option[value="+ idGenero +"]").attr("selected",true);
-    $("#idTipoDoc option[value="+ idTipoDoc +"]").attr("selected",true);
-    $("#idObraSocial option[value="+ idObraSocial +"]").attr("selected",true);
-    $("#heladera option[value="+ heladera +"]").attr("selected",true);
-    $("#electricidad option[value="+ electricidad +"]").attr("selected",true);
-    $("#mascota option[value="+ mascota +"]").attr("selected",true);
-    $("#idTipoVivienda option[value="+ idTipoVivienda +"]").attr("selected",true);
-    $("#idTipoCalefaccion option[value="+ idTipoCalefaccion +"]").attr("selected",true);
-    $("#idTipoAgua option[value="+ idTipoAgua +"]").attr("selected",true);
-}
-
 /* para validar formularios */
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
