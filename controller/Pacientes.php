@@ -68,10 +68,6 @@
                 $context['paciente_show'] = AppController::getInstance()->checkPermissions('paciente_show');
                 $context['paciente_destroy'] = AppController::getInstance()->checkPermissions('paciente_destroy');
                 $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
-               
-    
-                $path = '/pacientes/index.html.twig';
-                
                 
             }
             else {
@@ -79,6 +75,7 @@
                 $context['noResults'] = true;
             }
 
+            $path = '/pacientes/index.html.twig';
             TwigController::renderTwig($path, $context);
             die;
 
