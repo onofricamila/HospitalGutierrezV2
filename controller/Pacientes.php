@@ -23,7 +23,8 @@
         
         public function index(){
             AppController::allowed('paciente_index');
-
+           
+            $context['noResults'] = false;
             $args= [];
 
             if (isset($_GET['nombre']) && $_GET['nombre'] != "") {
@@ -74,7 +75,8 @@
                 die;
             }
             else {
-                AppController::no_elements();
+                $context['stylesheets'][] = '/public/css/config-mantenimiento.css';
+                $context['noResults'] = true;
             }
 
         }
