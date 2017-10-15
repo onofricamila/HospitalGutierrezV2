@@ -30,7 +30,7 @@
     }
  
  
-    /* funcion que hace la separacion de paginotAStr*/
+    /* funcion que hace la separacion de paginas*/
     $.fn.paginationTdA = function( options ) {
          
         var settings = $.extend({
@@ -199,12 +199,12 @@ function lessThan(valor, limit) {
     }
 }
 
-function NaN(num){
+function nan(num){
     var reg = /^\d+$/;
     return !(re.test(num));
 }    
 
-function notAStr(text){
+function nas(text){
     var reg = /^[A-Za-z ]+$/;
     return re.test(num);
 }
@@ -245,17 +245,17 @@ function validacion() {
          return false;
     }
 
-    if(notAStr(nombre) || notAStr(apellido)){
+    if(nas(nombre) || nas(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
     }
     
-    if(NaN(dni) ){
+    if(nan(dni) ){
      alert('[ERROR] Respeta el formato de numeros para el dni.');
      return false;
     }
 
-    if(!(empty(telefono || lessThan(telefono, 3) )) && NaN(telefono)){
+    if(!(empty(telefono || lessThan(telefono, 3) )) && nan(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
     }
@@ -271,15 +271,15 @@ function validateSearch(){
     var dni = document.getElementById("dni").value;
     var idTipoDoc = document.getElementById("idTipoDoc").value;
     
-    if( !(empty(nombre)) && notAStr(nombre)){
+    if( !(empty(nombre)) && nas(nombre)){
         alert('[ERROR] Respeta el formato de letras para el nombre.');
         return false;
     }
-    if( !(empty(apellido)) && notAStr(apellido)){
+    if( !(empty(apellido)) && nas(apellido)){
         alert('[ERROR] Respeta el formato de letras para el nombre.');
         return false;
     }
-    if(!(empty(dni)) && NaN(dni)){
+    if(!(empty(dni)) && nan(dni)){
         alert('[ERROR] Respeta el formato de numeros para el dni.');
         return false;
     }
