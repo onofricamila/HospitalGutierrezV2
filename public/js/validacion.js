@@ -16,7 +16,7 @@ function notANumber(num){
 
 function notOnlyLetters(text){
     var reg =/^[A-Za-z]+$/;
-    return !(reg.test(text.trim()));
+    return !(   reg.test(text.replace(/\s/g, ""))   );
 }
 
 function notEmail(email){
