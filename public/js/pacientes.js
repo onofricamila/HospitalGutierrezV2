@@ -234,8 +234,12 @@ function validateFormPac() {
      return false;
     }
 
-    if(!(empty(telefono) || lessThan(telefono, 5) )) && notANumber(telefono)){
+    if(!(empty(telefono)) && notANumber(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
+        return false;
+    }
+    if(!(empty(telefono)) && lessThan(telefono,4)){
+        alert('[ERROR] El telefono debe tener mas de 4 digitos.');
         return false;
     }
 
