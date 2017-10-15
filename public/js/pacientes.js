@@ -255,7 +255,7 @@ function validacion() {
      return false;
     }
 
-    if(!(empty(telefono || lessThan(telefono, 3) )) & nan(telefono)){
+    if(!(empty(telefono || lessThan(telefono, 3) )) && nan(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
     }
@@ -264,6 +264,28 @@ function validacion() {
      
  }
  
+ /* para el buscador */
+function validateSearch(){
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var dni = document.getElementById("dni").value;
+    var idTipoDoc = document.getElementById("idTipoDoc").value;
+    
+    if( !(empty(nombre)) && nas(nombre)){
+        alert('[ERROR] Respeta el formato de letras para el nombre.');
+        return false;
+    }
+    if( !(empty(apellido)) && nas(apellido)){
+        alert('[ERROR] Respeta el formato de letras para el nombre.');
+        return false;
+    }
+    if(!(empty(dni)) && nan(dni)){
+        alert('[ERROR] Respeta el formato de numeros para el dni.');
+        return false;
+    }
+
+    return true;
+} 
 
 /* para eliminar un paciente */
 /* data('id') me trae el valor del att data-id del boton clickeado, que es: id/surname+name del paciente en cuestion. Con la funcion split lo que hago es crear un arreglo que separa sus elementos por el delimitador "/". Al abrir el modal le asigna el valor de ese arreglo creado en la pos 0 al anchor para formar la url y el valor de ese arreglo creado en la pos 1 (corresponde al nombre y apellido) a cualquier elemento html dentro del modal-content con id="totallocal".

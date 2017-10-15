@@ -7,14 +7,14 @@
             <h3>Pacientes</h3>
         </div>
         <br clear="all">
-        <form class="search-form" method="get" target="_self">
+        <form class="search-form" method="get" target="_self" onsubmit="return validateSearch()">
 
             <input type="text" name="controller" value="Pacientes" hidden>
             <input type="text" name="action" value="index" hidden>
 
             <div class="col s4  height-100">
                 <div class="input-field">
-                    <select name="idTipoDoc">
+                    <select name="idTipoDoc" id="idTipoDoc">
                         <option value="" disabled selected>Tipo de Documento</option>
                         {% for tipo in allTipoDoc %}
                             <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
