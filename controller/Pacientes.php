@@ -23,7 +23,8 @@
         
         public function index(){
             AppController::allowed('paciente_index');
-           
+        
+            $context['titulo'] = 'Pacientes';
             $context['noResults'] = false;
             $args= [];
 
@@ -51,6 +52,7 @@
                 $context = [];
                 $nombreTipo = [];
                 $allTipoDoc= TipoDoc::all();
+            
 
                 foreach ($allTipoDoc as $clave => $valor) {
                     $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
@@ -70,14 +72,15 @@
     
                 $path = '/pacientes/index.html.twig';
                 
-                $context['titulo'] = 'Pacientes';
-                TwigController::renderTwig($path, $context);
-                die;
+                
             }
             else {
                 $context['stylesheets'][] = '/public/css/config-mantenimiento.css';
                 $context['noResults'] = true;
             }
+
+            TwigController::renderTwig($path, $context);
+            die;
 
         }
 
