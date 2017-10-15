@@ -30,7 +30,7 @@
     }
  
  
-    /* funcion que hace la separacion de paginas*/
+    /* funcion que hace la separacion de paginotOnlyLetters*/
     $.fn.paginationTdA = function( options ) {
          
         var settings = $.extend({
@@ -189,7 +189,7 @@ function select(idGenero, idTipoDoc, idObraSocial, heladera, electricidad, masco
 /* para validar formularios */
 
 /*si el form se envia de todas formas poner en el onsubmit del form event.preventDefault() y si la fx devuelve false no se manda el form */
-function validacion() {
+function validateFormPac() {
     
      var nombre = document.getElementById("nombre").value;
      var apellido = document.getElementById("apellido").value;
@@ -224,17 +224,17 @@ function validacion() {
          return false;
     }
 
-    if(nas(nombre) || nas(apellido)){
+    if(notOnlyLetters(nombre) || notOnlyLetters(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
     }
     
-    if(nan(dni) ){
+    if(notANumber(dni) ){
      alert('[ERROR] Respeta el formato de numeros para el dni.');
      return false;
     }
 
-    if(!(empty(telefono || lessThan(telefono, 3) )) && nan(telefono)){
+    if(!(empty(telefono || lessThan(telefono, 3) )) && notANumber(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
     }
