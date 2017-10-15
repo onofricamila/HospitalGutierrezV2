@@ -37,7 +37,7 @@ function validacionAdmin(){
         alert('[ERROR] El email es vacio o invalido.');
         return false;
     }
-    if(empty(elementos) ||  nan(elementos)){
+    if(empty(elementos) ||  notANumber(elementos)){
         alert('[ERROR] La cantidad de elementos por pagina es requerida y debe ser un numero.');
         return false;
     }
