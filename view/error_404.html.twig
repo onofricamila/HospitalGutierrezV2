@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %} 
+
+{% block body %}
+<section class="mantenimiento-container">
+    <div class="mantenimiento-article">
+        <img width="120" src="../../public/imgs/404.jpg" alt="Imagen error 404.">
+        <h2 class="mantenimiento-h1">Acceso denegado!</h2>
+        <div class="mantenimiento-div">
+            <p class="mantenimiento-p">Lo sentimos, no tiene permisos para acceder a esta funcionlidad.</p>
+            <p class="mantenimiento-p">&mdash; {{ titulo }}</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
