@@ -29,7 +29,7 @@ function validacionAdmin(){
     var email = document.getElementById("email").value;
     var elementos = document.getElementById("elementos").value;
 
-    if(lessThan(titulo, 3) || empty(titulo)) {
+    if(lessThan(titulo, 4) || empty(titulo)) {
         alert('[ERROR] El titulo es vacio o menor a 4 chars.');
         return false;
     }

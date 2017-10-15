@@ -239,7 +239,7 @@ function validateFormPac() {
         return false;
     }
     if(!(empty(telefono)) && lessThan(telefono,4) && telefono != 0){
-        alert('[ERROR] El telefono debe tener mas de 4 digitos.');
+        alert('[ERROR] El telefono debe tener minimo 4 digitos.');
         return false;
     }
 

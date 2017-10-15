@@ -131,3 +131,47 @@ $('.pagination-next').click(function() {
     }
 });
 (jQuery); // end of jQuery name space
+
+/* para validar new user */
+function validateFormUser(){
+    var email = document.getElementById("email").value;
+    var user = document.getElementById("user").value;
+    var pass = document.getElementById("pass").value;
+    var last_name = document.getElementById("last_name").value;
+    var first_name = document.getElementById("first_name").value;
+
+    if(empty(email) ||
+    empty(user) ||
+    empty(pass) ||
+    empty(last_name) ||
+    empty(first_name) ||
+    ){
+        alert('[ERROR] Hay algun campo requerido que esta vacio. Recuerda que son todos obligatorios.');
+        return false;
+    }
+
+    if(notEmail(email)) {
+        alert('[ERROR] El email es invalido.');
+        return false;
+    }
+
+    if(lessThan(user, 4)){
+        alert('[ERROR] El user no debe ser menor a 4 chars.');
+        return false;
+    }
+
+    if(lessThan(pass, 4)){
+        alert('[ERROR] La contraseña no debe ser menor a 4 chars.');
+        return false;
+    }
+
+    if( !(empty(first_name)) && notOnlyLetters(first_name)){
+        alert('[ERROR] Respeta el formato de letras para el nombre.');
+        return false;
+    }
+    if( !(empty(last_name)) && notOnlyLetters(last_name)){
+        alert('[ERROR] Respeta el formato de letras para el apellido.');
+        return false;
+    }
+    return true;
+}
