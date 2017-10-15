@@ -245,7 +245,7 @@ function validacion() {
          return false;
     }
 
-   /* if(notAStr(nombre) || notAStr(apellido)){
+    if(notAStr(nombre) || notAStr(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
     }
@@ -258,7 +258,7 @@ function validacion() {
     if(!(empty(telefono || lessThan(telefono, 3) )) && NaN(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
         return false;
-    } */
+    }
 
     return true
      
