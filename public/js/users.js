@@ -144,7 +144,7 @@ function validateFormUser(){
     empty(user) ||
     empty(pass) ||
     empty(last_name) ||
-    empty(first_name) ||
+    empty(first_name)
     ){
         alert('[ERROR] Hay algun campo requerido que esta vacio. Recuerda que son todos obligatorios.');
         return false;
