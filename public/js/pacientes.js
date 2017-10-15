@@ -254,10 +254,6 @@ function validacion() {
      alert('[ERROR] Respeta el formato de numeros para el dni.');
      return false;
     }
-    if(empty(dni) ){
-        alert('[ERROR] Respeta el formato de numeros para el dni.');
-        return false;
-       }
 
     if(!(empty(telefono || lessThan(telefono, 3) )) && nan(telefono)){
         alert('[ERROR] Respeta el formato de numeros para el telefono.');
