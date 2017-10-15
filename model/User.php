@@ -65,7 +65,6 @@ class User extends UserBase {
             $query = $query." AND activo = :active";
         }
 
-        $query = $query." ORDER BY last_name, first_name, username";
         $connection = Connection::getInstance();
 
         $query = $connection->prepare($query);
