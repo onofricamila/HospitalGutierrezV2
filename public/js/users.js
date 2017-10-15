@@ -133,7 +133,7 @@ $('.pagination-next').click(function() {
 (jQuery); // end of jQuery name space
 
 /* validation */
-function validateUser(){ /*
+function validateUser(){
     var first_name = document.getElementById("first_name").value;
     var email = document.getElementById("email").value;
     var last_name = document.getElementById("last_name").value;
@@ -142,5 +142,5 @@ function validateUser(){ /*
 
     alert('[ERROR]');
     return false;
-*/
+
 }
