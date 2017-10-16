@@ -160,10 +160,21 @@ function validateFormUser(){
         return false;
     }
 
+    if(contieneBlancos(user)){
+        alert('[ERROR] El nombre de usuario no debe contener blancos.');
+        return false;
+    }
+
+    if(contieneBlancos(pass)){
+        alert('[ERROR] La contraseña no debe contener blancos.');
+        return false;
+    }
+
     if(lessThan(pass, 4)){
         alert('[ERROR] La contraseña no debe ser menor a 4 chars.');
         return false;
     }
+
 
     if( !(empty(first_name)) && notOnlyLetters(first_name)){
         alert('[ERROR] Respeta el formato de letras para el nombre.');
