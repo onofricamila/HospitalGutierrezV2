@@ -25,7 +25,6 @@ function notEmail(email){
 }
 
 function contieneBlancos(text){
-    alert('[ERROR] entra a contiene blancos.');
     var reg =/\s/g;
     return reg.test(text);
 }
