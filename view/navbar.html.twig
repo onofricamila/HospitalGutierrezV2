@@ -18,32 +18,32 @@
                 </small>
             </a>
             <!-- Barra principal con links alineados a la izq excepto el logo -->
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+                <li>
+                    <a href="?controller=Users&action=index" target="_self">Usuarios</a>
+                </li>
+                <li>
+                    <a href="#!">Roles</a>
+                </li>
+                <li>
+                    <a href="#!">Permisos</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="?controller=Config&action=admin">Configuracion</a>
+                </li>
+            </ul>
             <ul class="right hide-on-med-and-down">
 
                 {% if isLogged %}
                 <li class="">
                     <a href="?controller=login&action=logout" target="_self">Log out</a>
                 </li>
-                         <li class="">
-                            <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
-                        </li>
+                <li class="">
+                    <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
+                </li>
 
-                <!-- Dropdown Structure -->
-                <ul id="dropdown1" class="dropdown-content">
-                    <li>
-                        <a href="?controller=Users&action=index" target="_self">Usuarios</a>
-                    </li>
-                    <li>
-                        <a href="#!">Roles</a>
-                    </li>
-                    <li>
-                        <a href="#!">Permisos</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="?controller=Config&action=admin">Configuracion</a>
-                    </li>
-                </ul>
                 <!-- Dropdown Trigger -->
                 <li>
                     <a class="dropdown-button" href="#!" data-activates="dropdown1">Administracion &#9660;</a>
@@ -58,6 +58,22 @@
             </ul>
         </div>
         <!-- Side bar -->
+        <!-- Dropdown Structure -->
+        <ul id="dropdown2" class="dropdown-content">
+            <li>
+                <a href="?controller=Users&action=index">Usuarios</a>
+            </li>
+            <li>
+                <a href="#!">Roles</a>
+            </li>
+            <li>
+                <a href="#!">Permisos</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="?controller=Config&action=admin">Configuracion</a>
+            </li>
+        </ul>
         <ul class="side-nav" id="slide-out">
 
             <!-- Links -->
@@ -71,25 +87,10 @@
                     <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
             </li>
             <li class="">
-                <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
+                <a href="?controller=Pacientes&action=index" target="_self">
+                     <span class="fa fa-users" aria-hidden="true"></span> Pacientes</a>
             </li>
-        
-            <!-- Dropdown Structure -->
-            <ul id="dropdown2" class="dropdown-content">
-                <li>
-                    <a href="?controller=Users&action=index">Usuarios</a>
-                </li>
-                <li>
-                    <a href="#!">Roles</a>
-                </li>
-                <li>
-                    <a href="#!">Permisos</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="?controller=Config&action=admin">Configuracion</a>
-                </li>
-            </ul>
+            
             <!-- Dropdown Trigger -->
             <li>
                 <a class="dropdown-button" href="#!" data-activates="dropdown2">Administracion &#9660;</a>
