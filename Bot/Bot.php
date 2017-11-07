@@ -17,7 +17,7 @@ function sendMessage($chatId, $message)
 
 switch ($message) {
     case '/test':
-        sendMessage($chatId, var_dump($_POST));
+        sendMessage($chatId, json_encode(var_dump($_POST)));
         break;
     case '/hi':
         sendMessage($chatId, "Hello!");
