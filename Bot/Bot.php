@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';     // Twig
+require_once '/vendor/autoload.php';     // Twig
 
 $botToken = '453768563:AAFJjd8WdUf3fm-SBiIlKpg-HGv0kZdXRmg';
 $website = 'https://api.telegram.org/bot'.$botToken;
