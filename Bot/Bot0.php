@@ -1,7 +1,5 @@
 <?php
 
-require_once 'vendor/autoload.php';     // Twig
-
 $botToken = '453768563:AAFJjd8WdUf3fm-SBiIlKpg-HGv0kZdXRmg';
 $website = 'https://api.telegram.org/bot'.$botToken;
 
@@ -17,12 +15,14 @@ function sendMessage($chatId, $message)
     file_get_contents($url);
 }
 
-
-// instantiate the App object
-$app = new \Slim\App();
-// Add route callbacks
-$app->get('/hi', function ($request, $response, $args) {
-    sendMessage($chatId, $message);
-});
-// Run application
-$app->run();
+switch ($message) {
+    case '/test':
+        sendMessage($chatId, "test");
+        break;
+    case '/hi':
+        sendMessage($chatId, "Hello!");
+        break;
+    default:
+        sendMessage($chatId, "Command not found");
+        break;
+}
