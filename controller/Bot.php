@@ -18,19 +18,21 @@
             $returnArray = true;
             $rawData = file_get_contents('php://input');
             $response = json_decode($rawData, $returnArray);
-            $id_del_chat = $response['message']['chat']['id'];
+            $chatId = $response['message']['chat']['id'];
 
             // Obtener comando (y sus posibles parametros)
             $regExp = '#^(\/[a-zA-Z0-9\/]+?)(\ .*?)$#i';
             $tmp = preg_match($regExp, $response['message']['text'], $aResults);
+
             if (isset($aResults[1])) {
                 $cmd = trim($aResults[1]);
-                $cmd_params = trim($aResults[2]);
+                $params = trim($aResults[2]);
             } else {
                 $cmd = trim($response['message']['text']);
-                $cmd_params = '';
+                $params = '';
             }
-            self::sendMessage($id_del_chat, 'cmd = '.$cmd.' & cmd_params = '.$cmd_params);
+
+            self::dispatcher($chatId, $cmd, $params);
         }
 
         private static function sendMessage($chatId, $message)
@@ -47,5 +49,20 @@
         private static function website()
         {
             return 'https://api.telegram.org/bot'.self::token();
+        }
+
+        public static function dispatcher($chatId, $cmd, $params)
+        {
+            switch ($cmd) {
+                case '/test':
+                    self::sendMessage($chatId, "test");
+                    break;
+                case '/hi':
+                    self::sendMessage($chatId, "Hello!");
+                    break;
+                default:
+                    self::sendMessage($chatId, "Command not found");
+                    break;
+            }
         }
     }
