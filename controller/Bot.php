@@ -38,14 +38,19 @@
             self::dispatcher($chatId, $cmd, $params, $response);
         }
 
-        private static function sendMessage($chatId, $message, $reply = "")
+        private static function sendMessage($chatId, $msg)
         {
-            if ($reply != "") {
-                $reply = "&reply_to_message_id=".$reply;
-            }
-
-            $url = self::website()."/sendMessage?chat_id=".$chatId.$reply."&text=".urlencode($message);
-            file_get_contents($url);
+            $url = 'https://api.telegram.org/bot453768563:AAFJjd8WdUf3fm-SBiIlKpg-HGv0kZdXRmg/sendMessage';
+            $options = array(
+                'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($msg)
+                )
+            );
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            exit(0);
         }
 
         private static function token()
@@ -60,35 +65,42 @@
 
         public static function dispatcher($chatId, $cmd, $params, $response)
         {
+            $msg = array();
+            $msg['chat_id'] = $chatId;
+            $msg['text'] = null;
+            $msg['disable_web_page_preview'] = true;
+            $msg['reply_markup'] = null;
+
             switch ($cmd) {
                 case '/start':
                     $name = $response['message']['from']['first_name'];
                     $user = $response['message']['from']['username'];
-                    $text = 'Hola '.$name." Usuario: ".$user.'!'.PHP_EOL;
-                    $text .= '¿Como puedo ayudarte? /help';
-                    self::sendMessage($chatId, $text);
+                    $msg['text'] = 'Hola '.$name." Usuario: ".$user.'!'.PHP_EOL;
+                    $msg['text'] .= '¿Como puedo ayudarte? /help';
+                    self::sendMessage($chatId, $msg);
                     break;
                 case '/help':
-                    $text = 'Los comandos disponibles son estos:' . PHP_EOL;
-                    $text .= '/start Inicializa el bot' . PHP_EOL;
-                    $text .= '/turnos dd-mm-aaaa Muestra los turnos disponibles del día' . PHP_EOL;
-                    $text .= '/reservar dd-mm-aaaa hh:mm Realiza la reserva del turno' . PHP_EOL;
-                    $text .= '/help Muestra esta ayuda flaca';
-                    self::sendMessage($chatId, $text);
+                    $msg['text'] = 'Los comandos disponibles son estos:'.PHP_EOL;
+                    $msg['text'] .= '/start Inicializa el bot'.PHP_EOL;
+                    $msg['text'] .= '/turnos dd-mm-aaaa Muestra los turnos disponibles del día'.PHP_EOL;
+                    $msg['text'] .= '/reservar dd-mm-aaaa hh:mm Realiza la reserva del turno'.PHP_EOL;
+                    $msg['text'] .= '/help Muestra esta ayuda flaca';
+                    self::sendMessage($chatId, $msg);
                     break;
                 case '/reservar':
-                    $text = 'Te confirmamos el turno para:' . PHP_EOL;
-                    $text .= '10:30' . PHP_EOL;
-                    self::sendMessage($chatId, $text);
+                    $msg['text'] = 'Te confirmamos el turno para:'.PHP_EOL;
+                    $msg['text'] .= '10:30'.PHP_EOL;
+                    self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
-                    $text = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
-                    self::sendMessage($chatId, $text);
+                    $msg['text'] = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
+                    self::sendMessage($chatId, $msg);
                     break
                 default:
-                    $text = 'Lo siento, no es un comando válido.' . PHP_EOL;
-                    $text .= 'Prueba /help para ver la lista de comandos disponibles';
-                    self::sendMessage($chatId, $text);
+                    $msg['text'] = 'Lo siento, no es un comando válido.'.PHP_EOL;
+                    $msg['text'] .= 'Prueba /help para ver la lista de comandos disponibles';
+                    $msg['reply_to_message_id'] = $response['message']['message_id'];
+                    self::sendMessage($chatId, $msg);
                     break;
             }
         }
