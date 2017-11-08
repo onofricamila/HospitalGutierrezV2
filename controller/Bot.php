@@ -95,7 +95,7 @@
                 case '/turnos':
                     $msg['text'] = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
                     self::sendMessage($chatId, $msg);
-                    break
+                    break;
                 default:
                     $msg['text'] = 'Lo siento, no es un comando válido.'.PHP_EOL;
                     $msg['text'] .= 'Prueba /help para ver la lista de comandos disponibles';
