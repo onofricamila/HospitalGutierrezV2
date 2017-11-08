@@ -61,18 +61,12 @@
         public static function dispatcher($chatId, $cmd, $params, $response)
         {
             switch ($cmd) {
-                case '/test':
-                    self::sendMessage($chatId, $reply, "test");
-                    break;
-                case '/hi':
-                    self::sendMessage($chatId, $reply, "Hello!");
-                    break;
                 case '/start':
                     $name = $response['message']['from']['first_name'];
                     $user = $response['message']['from']['username'];
                     $text = 'Hola '.$name." Usuario: ".$user.'!'.PHP_EOL;
                     $text .= '¿Como puedo ayudarte? /help';
-                    sendMessage($chatId, $text);
+                    self::sendMessage($chatId, $text);
                     break;
                 case '/help':
                     $text = 'Los comandos disponibles son estos:' . PHP_EOL;
@@ -80,21 +74,21 @@
                     $text .= '/turnos dd-mm-aaaa Muestra los turnos disponibles del día' . PHP_EOL;
                     $text .= '/reservar dd-mm-aaaa hh:mm Realiza la reserva del turno' . PHP_EOL;
                     $text .= '/help Muestra esta ayuda flaca';
-                    sendMessage($chatId, $text);
+                    self::sendMessage($chatId, $text);
                     break;
                 case '/reservar':
                     $text = 'Te confirmamos el turno para:' . PHP_EOL;
                     $text .= '10:30' . PHP_EOL;
-                    sendMessage($chatId, $text);
+                    self::sendMessage($chatId, $text);
                     break;
                 case '/turnos':
                     $text = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
-                    sendMessage($chatId, $text);
+                    self::sendMessage($chatId, $text);
                     break
                 default:
                     $text = 'Lo siento, no es un comando válido.' . PHP_EOL;
                     $text .= 'Prueba /help para ver la lista de comandos disponibles';
-                    sendMessage($chatId, $text);
+                    self::sendMessage($chatId, $text);
                     break;
             }
         }
