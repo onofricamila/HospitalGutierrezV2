@@ -46,6 +46,6 @@
 
         private static function website()
         {
-            $website = 'https://api.telegram.org/bot'.self::token();
+            return 'https://api.telegram.org/bot'.self::token();
         }
     }
