@@ -17,7 +17,7 @@
                     <select name="idTipoDoc" id="idTipoDoc">
                         <option value="" disabled selected>Tipo de Documento</option>
                         {% for tipo in allTipoDoc %}
-                            <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
+                            <option value="{{ tipo.id }}" >{{ tipo.nombre }}</option>
                         {% endfor %}
                     </select>
                     <label>Tipo de Documento</label>
