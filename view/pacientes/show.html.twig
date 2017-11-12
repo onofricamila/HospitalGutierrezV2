@@ -32,7 +32,12 @@
                                     {% else %}
                                        <span> {{paciente.telefono}} </span>
                                     {% endif %} </li>
-                                    <li class="collection-item">Obra social: {{ obra_social.nombre }} </li>
+                                    <li class="collection-item">Obra social:
+                                    {% if paciente.obra_social == null  %}
+                                        <span> - - - </span>
+                                    {% else %}
+                                       <span> {{paciente.obra_social}} </span>
+                                    {% endif %} </li>
                                 </ul>
                         </div>
                         <div id="test-swipe-2" class="col s12">
