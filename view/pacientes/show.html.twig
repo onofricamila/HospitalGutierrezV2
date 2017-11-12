@@ -27,7 +27,7 @@
                                     <li class="collection-item">DNI: {{ paciente.dni }} </li>
                                     <li class="collection-item">Domicilio: {{ paciente.domicilio }} </li>
                                     <li class="collection-item">Tel/Cel:
-                                    {% if paciente.telefono == 0  %}
+                                    {% if paciente.telefono == null  %}
                                         <span> - - - </span>
                                     {% else %}
                                        <span> {{paciente.telefono}} </span>

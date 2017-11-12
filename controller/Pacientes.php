@@ -112,15 +112,20 @@
                 AppController::req_fields();
                 
             }
-          ;
+          
             if(!isset($_POST['idObraSocial'])){
-                $idObraSocial = 3;
+                $idObraSocial = NULL;
             }
             else{
                 $idObraSocial = trim($_POST['idObraSocial']);
             }
-            
-            $telefono = trim($_POST['telefono']);
+
+            if(!isset($_POST['telefono'])){
+                $telefono = NULL;
+            }
+            else{
+                $telefono = trim($_POST['telefono']);
+            }
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
