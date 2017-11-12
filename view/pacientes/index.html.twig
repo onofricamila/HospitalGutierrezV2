@@ -80,7 +80,7 @@
                         <p>DNI: {{ paciente.dni }}</p>
                         <p>Tipo de Documento:
                             {% for tipo in allTipoDoc %}
-                                {% if paciente.idTipoDoc == tipo.idTipoDoc  %}
+                                {% if paciente.idTipoDoc == tipo.id  %}
                                         <span> {{tipo.nombre}} </span>
                                 {% endif %} 
                             {% endfor %}

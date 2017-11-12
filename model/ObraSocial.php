@@ -1,37 +1,54 @@
 <?php
 class ObraSocial {
-    public $idObraSocial, $nombre;
-
-    public function __construct($idObraSocial) {
-        $this->idObraSocial = $idObraSocial;
-        $this->nombre = $this->buildNombre();
-    }
-
-    public function buildNombre() {
-        $connection = Connection::getInstance();
+   
+    public static function id($id){
+        $url ="https://api-referencias.proyecto2017.linti.unlp.edu.ar/obra-social/$id"; 
         
-        $query = $connection->prepare("SELECT nombre FROM obra_social WHERE idObraSocial=?");
-        $query->execute(array($this->idObraSocial));
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        if ($query->rowCount() == 1) {
-            $row = $query->fetch(PDO::FETCH_ASSOC);
-            return $row['nombre'];
-        }
+        $obra_social = json_decode($response, true);  
+        if (! empty($obra_social)) {
+            return $obra_social;
+        }   
         return false;
     }
+
+
     public static function all() {
-        $connection = Connection::getInstance();
+        // test api
 
-        $result = $connection->query("SELECT * FROM obra_social");
+        $url ='https://api-referencias.proyecto2017.linti.unlp.edu.ar/obra-social'; 
+        
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        $allObraSocial = [];
-
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $allObraSocial[] = new ObraSocial($row['idObraSocial']);
-            }
+        $allObraSocial = json_decode($response, true);  
+        if (! empty($allObraSocial)) {
             return $allObraSocial;
-        }
+        }   
         return false;
     }
 

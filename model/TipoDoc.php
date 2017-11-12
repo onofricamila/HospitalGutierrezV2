@@ -1,37 +1,54 @@
 <?php
 class TipoDoc {
-    public $idTipoDoc, $nombre;
-
-    public function __construct($idTipoDoc) {
-        $this->idTipoDoc = $idTipoDoc;
-        $this->nombre = $this->buildNombre();
-    }
-
-    public function buildNombre() {
-        $connection = Connection::getInstance();
+    
+    public static function id($id){
+        $url ="https://api-referencias.proyecto2017.linti.unlp.edu.ar/tipo-documento/$id"; 
         
-        $query = $connection->prepare("SELECT nombre FROM tipo_doc WHERE idTipoDoc=?");
-        $query->execute(array($this->idTipoDoc));
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        if ($query->rowCount() == 1) {
-            $row = $query->fetch(PDO::FETCH_ASSOC);
-            return $row['nombre'];
-        }
+        $tipo_doc = json_decode($response, true);  
+        if (! empty($tipo_doc)) {
+            return $tipo_doc;
+        }   
         return false;
     }
+
+
     public static function all() {
-        $connection = Connection::getInstance();
+        // test api
 
-        $result = $connection->query("SELECT * FROM tipo_doc");
+        $url ='https://api-referencias.proyecto2017.linti.unlp.edu.ar/tipo-documento'; 
+        
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        $allTipoDoc = [];
-
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $allTipoDoc[] = new TipoDoc($row['idTipoDoc']);
-            }
+        $allTipoDoc = json_decode($response, true);  
+        if (! empty($allTipoDoc)) {
             return $allTipoDoc;
-        }
+        }   
         return false;
     }
 }

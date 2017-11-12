@@ -28,10 +28,6 @@
             $nombreTipo = [];
             $allTipoDoc= TipoDoc::all();
 
-            foreach ($allTipoDoc as $clave => $valor) {
-                $nombreTipo[$valor->idTipoDoc] = $valor->nombre;
-            }
-
             $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
             $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Pacientes - Index';
@@ -55,11 +51,6 @@
             
            
             if ($allPaciente = Paciente::all($args)) {
-                
-                /* require_once 'view/header.html';
-                require_once 'view/navbar.php';
-                require_once 'view/pacientes/pacientes.php';
-                require_once 'view/footer.html';  */
                
                 $context['noResults'] = false;
                 $context['allPaciente'] = $allPaciente;
@@ -83,16 +74,6 @@
 
         public function newPaciente(){
             AppController::allowed('paciente_new');
-            
-           /* $allTipoAgua = TipoAgua::all();
-            $allTipoCalefaccion = TipoCalefaccion::all();
-            $allTipoVivienda = TipoVivienda::all();
-            $allObraSocial = ObraSocial::all();
-            $allTipoDoc = TipoDoc::all();
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once 'view/pacientes/newPaciente.php';
-            require_once 'view/footer.html'; */
 
             $context = [];
             
@@ -156,19 +137,6 @@
         
             AppController::allowed('paciente_show');
             $paciente = Paciente::getPaciente($_GET['idPaciente']); 
-            /*
-            $genero = new Genero($paciente -> idGenero);
-            $obra_social = new ObraSocial($paciente -> idObraSocial);
-            $tipo_doc = new TipoDoc($paciente -> idTipoDoc);
-            $tipo_vivienda = new TipoVivienda($paciente -> idTipoVivienda);
-            $tipo_calefaccion = new TipoCalefaccion($paciente -> idTipoCalefaccion);
-            $tipo_agua = new TipoAgua($paciente -> idTipoAgua);
-
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once 'view/pacientes/showPaciente.php';
-            require_once 'view/footer.html'; 
-            */
 
             $context = [];
             
@@ -177,11 +145,11 @@
             $context['pagename'] = 'Pacientes - Show';
             $context['paciente'] = $paciente;
             $context['genero'] =  new Genero($paciente -> idGenero);
-            $context['obra_social'] =  new ObraSocial($paciente -> idObraSocial);
-            $context['tipo_doc'] =  new TipoDoc($paciente -> idTipoDoc);
-            $context['tipo_vivienda'] =  new TipoVivienda($paciente -> idTipoVivienda);
-            $context['tipo_calefaccion'] =  new TipoCalefaccion($paciente -> idTipoCalefaccion);
-            $context['tipo_agua'] = new TipoAgua($paciente -> idTipoAgua);
+            $context['obra_social'] =  ObraSocial::id($paciente -> idObraSocial);
+            $context['tipo_doc'] =  TipoDoc::id($paciente -> idTipoDoc);
+            $context['tipo_vivienda'] =  TipoVivienda::id($paciente -> idTipoVivienda);
+            $context['tipo_calefaccion'] =  TipoCalefaccion::id($paciente -> idTipoCalefaccion);
+            $context['tipo_agua'] = TipoAgua::id($paciente -> idTipoAgua);
 
             $path = '/pacientes/show.html.twig';
             
@@ -193,17 +161,6 @@
         public function updatePaciente(){
         
             AppController::allowed('paciente_update');
-          
-            /*  $allTipoAgua = TipoAgua::all();
-            $allTipoCalefaccion = TipoCalefaccion::all();
-            $allTipoVivienda = TipoVivienda::all();
-            $allObraSocial = ObraSocial::all();
-            $allTipoDoc = TipoDoc::all(); 
-
-            require_once 'view/header.html';
-            require_once 'view/navbar.php';
-            require_once 'view/pacientes/updatePaciente.php';
-            require_once 'view/footer.html'; */
 
             $context = [];
             

@@ -1,37 +1,54 @@
 <?php
 class TipoVivienda {
-    public $idTipoVivienda, $nombre;
-
-    public function __construct($idTipoVivienda) {
-        $this->idTipoVivienda = $idTipoVivienda;
-        $this->nombre = $this->buildNombre();
-    }
-
-    public function buildNombre() {
-        $connection = Connection::getInstance();
+    
+    public static function id($id){
+        $url ="https://api-referencias.proyecto2017.linti.unlp.edu.ar/tipo-vivienda/$id"; 
         
-        $query = $connection->prepare("SELECT nombre FROM tipo_vivienda WHERE idTipoVivienda=?");
-        $query->execute(array($this->idTipoVivienda));
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        if ($query->rowCount() == 1) {
-            $row = $query->fetch(PDO::FETCH_ASSOC);
-            return $row['nombre'];
-        }
+        $tipo_vivienda = json_decode($response, true);  
+        if (! empty($tipo_vivienda)) {
+            return $tipo_vivienda;
+        }   
         return false;
     }
+
+
     public static function all() {
-        $connection = Connection::getInstance();
+        // test api
 
-        $result = $connection->query("SELECT * FROM tipo_vivienda");
+        $url ='https://api-referencias.proyecto2017.linti.unlp.edu.ar/tipo-vivienda'; 
+        
+        $ch = curl_init($url); 
+        // Configuring curl options 
+        $options = array( 
+            CURLOPT_RETURNTRANSFER => true,     
+            CURLOPT_HTTPHEADER => array('Accept: application/json'), 
+            CURLOPT_SSL_VERIFYPEER => false,     
+        ); 
+        // Setting curl options 
+        curl_setopt_array( $ch, $options );     
+        // Getting results 
+        $response = curl_exec($ch); // Getting jSON result string   
+        // Cerrar el recurso cURL y liberar recursos del sistema 
+        curl_close($ch);   
 
-        $allTipoVivienda = [];
-
-        if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                $allTipoVivienda[] = new TipoVivienda($row['idTipoVivienda']);
-            }
+        $allTipoVivienda = json_decode($response, true);  
+        if (! empty($allTipoVivienda)) {
             return $allTipoVivienda;
-        }
+        }   
         return false;
     }
 }
