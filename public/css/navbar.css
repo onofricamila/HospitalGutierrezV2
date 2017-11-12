@@ -3,6 +3,7 @@ nav ul a.active {
 }
 
 nav .right a:hover {
+    border-bottom: none;
     background-color: transparent!important;
     border-bottom: 2px solid #00bfa5;
 }
