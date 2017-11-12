@@ -49,7 +49,7 @@
                                 <div class="input-field col s12 m4">
                                     <select name="idTipoDoc" id="idTipoDoc" >
                                             {% for tipo in allTipoDoc %}
-                                                <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}" >{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de documento</label>
@@ -69,7 +69,7 @@
                                 <div class="input-field col s12 m4">
                                     <select name="idObraSocial" id="idObraSocial">
                                              {% for obra in allObraSocial %}                                            
-                                                <option value="{{ obra.idObraSocial }}">{{ obra.nombre }}</option>
+                                                <option value="{{ obra.id }}">{{ obra.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>Obra Social</label>
@@ -102,7 +102,7 @@
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoVivienda" id="idTipoVivienda">
                                             {% for tipo in allTipoVivienda %}
-                                                <option value="{{ tipo.idTipoVivienda }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Vivienda?</label>
@@ -111,7 +111,7 @@
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoCalefaccion" id="idTipoCalefaccion">
                                             {% for tipo in allTipoCalefaccion %}
-                                                <option value="{{ tipo.idTipoCalefaccion }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Calefaccion?</label>
@@ -119,7 +119,7 @@
                                 <div class="input-field col s12 m6">
                                     <select name="idTipoAgua" id="idTipoAgua">
                                             {% for tipo in allTipoAgua %}
-                                                <option value="{{ tipo.idTipoAgua }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Agua?</label>
