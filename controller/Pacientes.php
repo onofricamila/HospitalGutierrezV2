@@ -94,7 +94,19 @@
         }
 
         public function auxNewPaciente() {
-
+var_dump("apellido".$_POST['apellido']);
+var_dump("nombre".$_POST['nombre']);
+var_dump("fecha_nacimiento".$_POST['fecha_nacimiento']);
+var_dump("idGenero".$_POST['idGenero']);
+var_dump("idTipoDoc".$_POST['idTipoDoc']);
+var_dump("dni".$_POST['dni']);
+var_dump("domicilio".$_POST['domicilio']);
+var_dump("heladera".$_POST['heladera']);
+var_dump("electricidad".$_POST['electricidad']);
+var_dump("mascota".$_POST['mascota']);
+var_dump("idTipoVivienda".$_POST['idTipoVivienda']);
+var_dump("idTipoCalefaccion".$_POST['idTipoCalefaccion']);
+var_dump("idTipoAgua".$_POST['idTipoAgua']);
             if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
             || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
             || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
