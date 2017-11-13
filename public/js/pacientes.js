@@ -192,62 +192,25 @@ function validateFormPac() {
      var idTipoVivienda = document.getElementById("idTipoVivienda").value;
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
      var idTipoAgua = document.getElementById("idTipoAgua").value;
- 
-    /* is empty? */
-    if(empty(nombre) ){
-         alert('[ERROR] El campo requerido nombre tipo agua esta vacio.');
+ /*
+     if(empty(nombre) ||
+        empty(apellido) ||
+        empty(fecha_nacimiento) ||
+        empty(idGenero) ||
+        empty(idTipoDoc) ||
+        empty(dni) ||
+        empty(domicilio) ||
+        empty(heladera) ||
+        empty(electricidad) ||
+        empty(mascota) ||
+        empty(idTipoVivienda) ||
+        empty(idTipoCalefaccion) ||
+        empty(idTipoAgua)
+        ){
+         alert('[ERROR] Hay algun campo requerido que esta vacio. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
     }
-    if(empty(apellido) ){
-         alert('[ERROR] El campo requerido apellido tipo agua esta vacio.');
-         return false;
-    }
-    if(empty(fecha_nacimiento) ){
-         alert('[ERROR] El campo requerido fecha de nacimiento tipo agua esta vacio.');
-         return false;
-    }
-    if(empty(idGenero) ){
-         alert('[ERROR] El campo requerido genero esta vacio.');
-         return false;
-    }
-    if(empty(idTipoDoc) ){
-         alert('[ERROR] El campo requerido tipo doc esta vacio.');
-         return false;
-    }
-    if(empty(dni) ){
-         alert('[ERROR] El campo requerido dni esta vacio.');
-         return false;
-    }
-    if(empty(domicilio) ){
-         alert('[ERROR] El campo requerido domicilio esta vacio.');
-         return false;
-    }
-    if(empty(heladera) ){
-         alert('[ERROR] El campo requerido heladera esta vacio.');
-         return false;
-    }
-    if(empty(electricidad) ){
-         alert('[ERROR] El campo requerido rlrctricidad esta vacio.');
-         return false;
-    }
-    if(empty(mascota) ){
-         alert('[ERROR] El campo requerido mascota esta vacio.');
-         return false;
-    }
-    if(empty(idTipoVivienda) ){
-         alert('[ERROR] El campo requerido tipo vivienda esta vacio.');
-         return false;
-    }
-    if(empty(idTipoCalefaccion) ){
-         alert('[ERROR] El campo requerido tipo calefaccion esta vacio.');
-         return false;
-    }
-    if(empty(idTipoAgua)){
-         alert('[ERROR] El campo requerido tipo agua esta vacio.');
-         return false;
-    }
-        
-    /* formatos */
+*/
     if(notOnlyLetters(nombre) || notOnlyLetters(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
