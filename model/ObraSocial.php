@@ -18,7 +18,8 @@ class ObraSocial {
         // Cerrar el recurso cURL y liberar recursos del sistema 
         curl_close($ch);   
 
-        $obra_social = json_decode($response, true);  
+        $obra_social = json_decode($response, true); 
+        var_dump(  $obra_social); 
         if (! empty($obra_social)) {
             return $obra_social;
         }   
