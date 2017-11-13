@@ -44,7 +44,7 @@
                                     <select name="idTipoDoc" id="idTipoDoc" >
                                             <option value="" disabled selected>Tipo de documento</option>
                                             {% for tipo in allTipoDoc %}
-                                                <option value="{{ tipo.idTipoDoc }}" >{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}" >{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Documento?</label>
@@ -65,7 +65,7 @@
                                     <select name="idObraSocial" id="idObraSocial">
                                             <option value="" disabled selected>Obra Social</option>
                                             {% for obra in allObraSocial %}                                            
-                                                <option value="{{ obra.idObraSocial }}">{{ obra.nombre }}</option>
+                                                <option value="{{ obra.id }}">{{ obra.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>Obra Social</label>
@@ -102,7 +102,7 @@
                                     <select name="idTipoVivienda"  id="idTipoVivienda">
                                             <option value="" disabled selected>Tipo Vivienda</option>
                                             {% for tipo in allTipoVivienda %}
-                                                <option value="{{ tipo.idTipoVivienda }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Vivienda?</label>
@@ -112,7 +112,7 @@
                                     <select name="idTipoCalefaccion" id="idTipoCalefaccion">
                                             <option value="" disabled selected>Tipo Calefaccion</option>
                                             {% for tipo in allTipoCalefaccion %}
-                                                <option value="{{ tipo.idTipoCalefaccion }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Calefaccion?</label>
@@ -121,7 +121,7 @@
                                     <select name="idTipoAgua" id="idTipoAgua">
                                             <option value="" disabled selected>Tipo Agua</option>
                                             {% for tipo in allTipoAgua %}
-                                                <option value="{{ tipo.idTipoAgua }}">{{ tipo.nombre }}</option>
+                                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
                                             {% endfor %}
                                     </select>
                                     <label>*Tipo de Agua?</label>
