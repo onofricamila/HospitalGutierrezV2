@@ -150,7 +150,7 @@
             $context['pagename'] = 'Pacientes - Show';
             $context['paciente'] = $paciente;
             $context['genero'] =  new Genero($paciente -> idGenero);
-            $context['obra_social'] =  (ObraSocial::id($paciente -> idObraSocial))['nombre'];
+            $context['obra_social'] =  ObraSocial::id($paciente -> idObraSocial);
             $context['tipo_doc'] =  TipoDoc::id($paciente -> idTipoDoc);
             $context['tipo_vivienda'] =  TipoVivienda::id($paciente -> idTipoVivienda);
             $context['tipo_calefaccion'] =  TipoCalefaccion::id($paciente -> idTipoCalefaccion);
