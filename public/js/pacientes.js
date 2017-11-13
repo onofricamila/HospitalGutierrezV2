@@ -192,7 +192,7 @@ function validateFormPac() {
      var idTipoVivienda = document.getElementById("idTipoVivienda").value;
      var idTipoCalefaccion = document.getElementById("idTipoCalefaccion").value;
      var idTipoAgua = document.getElementById("idTipoAgua").value;
- 
+ /*
      if(empty(nombre) ||
         empty(apellido) ||
         empty(fecha_nacimiento) ||
@@ -210,7 +210,7 @@ function validateFormPac() {
          alert('[ERROR] Hay algun campo requerido que esta vacio. Recuerda que son todos obligatorios menos obra social y telefono.');
          return false;
     }
-
+*/
     if(notOnlyLetters(nombre) || notOnlyLetters(apellido)){
         alert('[ERROR] Respeta el formato solo letras para el nombre y el apellido.');
         return false;
