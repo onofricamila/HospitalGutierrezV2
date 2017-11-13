@@ -19,7 +19,6 @@ class ObraSocial {
         curl_close($ch);   
 
         $obra_social = json_decode($response, true); 
-        var_dump(  $obra_social); 
         if (! empty($obra_social)) {
             return $obra_social;
         }   
