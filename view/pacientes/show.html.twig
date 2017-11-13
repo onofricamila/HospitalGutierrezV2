@@ -33,10 +33,10 @@
                                        <span> {{paciente.telefono}} </span>
                                     {% endif %} </li>
                                     <li class="collection-item">Obra social:
-                                    {% if (obra_social == null)  %}
+                                    {% if (obra_social.nombre == null)  %}
                                         <span> - - - </span>
                                     {% else %}
-                                       <span> {{obra_social}} </span>
+                                       <span> {{obra_social.nombre}} </span>
                                     {% endif %} </li>
                                      </li>
                                 </ul>
