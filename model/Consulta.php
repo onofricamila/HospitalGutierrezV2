@@ -100,7 +100,7 @@
     
             $query = $connection->prepare("DELETE FROM consulta WHERE idPaciente=?");
             $query->execute(array($idPaciente));
-            
+
             return $query->rowCount() == 1;
         }
 
