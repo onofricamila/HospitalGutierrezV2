@@ -1,6 +1,4 @@
 <?php
-require_once 'UserBase.php';
-
 class Horario
 {
     public $idHorario;
@@ -10,8 +8,24 @@ class Horario
     {
         $connection = Connection::getInstance();
 
-        $query = $connection->prepare("SELECT * FROM horarios WHERE id=?");
+        $query = $connection->prepare("SELECT * FROM horarios WHERE idHorario=?");
         $query->execute(array($id));
+
+        if ($query->rowCount() == 1) {
+            $query->setFetchMode(PDO::FETCH_CLASS, 'Horario');
+            return ($query->fetch());
+        }
+        return false;
+    }
+
+    public static function hora($hora)
+    {
+        $connection = Connection::getInstance();
+
+        $query = $connection->prepare("SELECT * FROM horarios WHERE comienzo=:hora");
+        $query->execute([
+            ':hora' => $hora
+        ]);
 
         if ($query->rowCount() == 1) {
             $query->setFetchMode(PDO::FETCH_CLASS, 'Horario');
@@ -24,7 +38,7 @@ class Horario
     {
         $connection = Connection::getInstance();
 
-        $query = "SELECT * FROM usuario";
+        $query = "SELECT * FROM horarios";
         $query = $connection->prepare($query);
         $query->execute();
 
