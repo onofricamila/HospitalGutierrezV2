@@ -2,6 +2,10 @@
     class Paciente {
         public $idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua;
 
+        public function edad(){
+            return (date("Y-m-d") - $this->fecha_nacimiento);
+        }
+
         public static function getPaciente($idPaciente) {
             $connection = Connection::getInstance();
     
