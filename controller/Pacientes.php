@@ -55,10 +55,16 @@
                 $context['noResults'] = false;
                 $context['allPaciente'] = $allPaciente;
                 $context['pacientesCant'] = count($allPaciente);
+                /* permisos para acciones sobre pacientes */
                 $context['paciente_update'] = AppController::getInstance()->checkPermissions('paciente_update');
                 $context['paciente_show'] = AppController::getInstance()->checkPermissions('paciente_show');
                 $context['paciente_destroy'] = AppController::getInstance()->checkPermissions('paciente_destroy');
                 $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
+                /* permisos para acciones sobre la historia clinica de los pacientes */             
+                $context['consulta_update'] = AppController::getInstance()->checkPermissions('consulta_update');
+                $context['consulta_show'] = AppController::getInstance()->checkPermissions('consulta_show');
+                $context['consulta_destroy'] = AppController::getInstance()->checkPermissions('consulta_destroy');
+                $context['consulta_new'] = AppController::getInstance()->checkPermissions('consulta_new');
                 
             }
             else {
