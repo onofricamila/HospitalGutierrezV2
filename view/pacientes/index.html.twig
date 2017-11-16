@@ -107,7 +107,24 @@
                             <a href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">Update</a>
                         </li>
                         <li class="divider"></li>
-                    
+                    {% if (consulta_new == true)  %}
+                        <li>
+                            Cargar consulta
+                        </li>
+                        <li class="divider"></li>
+                    {% endif %} 
+                    {% if (consulta_show == true)  %}
+                        <li>
+                            Ver historia
+                        </li>
+                        <li class="divider"></li>
+                    {% endif %} 
+                    {% if (consulta_destroy == true)  %}
+                        <li>
+                            Eliminar historia
+                        </li>
+                        <li class="divider"></li>
+                    {% endif %} 
                 </ul>
             </div>
         </div>
