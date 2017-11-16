@@ -61,7 +61,7 @@
                 $context['paciente_destroy'] = AppController::getInstance()->checkPermissions('paciente_destroy');
                 $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
                 /* permisos para acciones sobre la historia clinica de los pacientes */             
-                $context['consulta_update'] = AppController::getInstance()->checkPermissions('consulta_update');
+                $context['consulta_index'] = AppController::getInstance()->checkPermissions('consulta_index');
                 $context['consulta_show'] = AppController::getInstance()->checkPermissions('consulta_show');
                 $context['consulta_destroy'] = AppController::getInstance()->checkPermissions('consulta_destroy');
                 $context['consulta_new'] = AppController::getInstance()->checkPermissions('consulta_new');
