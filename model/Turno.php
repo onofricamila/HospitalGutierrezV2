@@ -94,6 +94,6 @@ class Turno
             ':fecha' => $fecha
         ]);
 
-        return $query->rowCount() == 1
+        return $query->rowCount() == 1;
     }
 }
