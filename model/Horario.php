@@ -55,6 +55,21 @@ class Horario
         return false;
     }
 
+    public static function last()
+    {
+        $connection = Connection::getInstance();
+
+        $query = "SELECT * FROM horarios ORDER BY comienzo DESC LIMIT 1";
+        $query = $connection->prepare($query);
+        $query->execute();
+
+        if ($query->rowCount() == 1) {
+            $query->setFetchMode(PDO::FETCH_CLASS, 'Horario');
+            return ($query->fetch());
+        }
+        return false;
+    }
+
     public function yaPaso()
     {
         return strtotime($this->comienzo) <= strtotime(date('H:i:s'));

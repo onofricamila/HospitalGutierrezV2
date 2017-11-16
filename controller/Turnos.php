@@ -25,23 +25,27 @@ class TurnosController
             return $this->badDate('Formato de fecha invalido. Solo se acepta el formato dd-mm-yyyy');
         }
 
-        if (strtotime($fecha) < strtotime(date('d-m-Y'))) {
+        $fechaTime = strtotime($fecha);
+        $todayTime = strtotime(date('d-m-Y'));
+        if ($fechaTime < $todayTime) {
             return $this->badDate('La fecha ingresada ya paso.');
         }
 
-        if (strtotime($fecha) == strtotime(date('d-m-Y')) && strtotime('19:30:00') <= strtotime(date('H:i:s'))) {
-            return $this->badDate('La fecha seleccionada es la del dia de hoy y ya comenzo el ultimo turno del dia.');
+        $nowTime = strtotime(date('H:i:s'));
+        require_once 'model/Horario.php';
+        $lastTurno = Horario::last();
+        $lastTurnoTime = strtotime($lastTurno->comienzo);
+        if ($fechaTime == $todayTime && $currentTime >= $lastTurnoTime) {
+            return $this->badDate('La fecha seleccionada es la de hoy y ya comenzo el ultimo turno del dia.');
         }
 
-        require_once 'model/Horario.php';
         require_once 'model/Turno.php';
-
-        $turnos = Turno::fecha($fecha);
+        $turnos = Turno::fecha(date('Y-m-d', strtotime($fecha)));
         $horarios = Horario::all();
         $libres = [];
 
         foreach ($horarios as $horario) {
-            if (!isset($turnos[$horario->idHorario]) && !$horario->yaPaso()) {
+            if (!isset($turnos[$horario->idHorario]) && ($fechaTime != $todayTime || !$horario->yaPaso())) {
                 $libres[] = $horario->comienzo;
             }
         }
