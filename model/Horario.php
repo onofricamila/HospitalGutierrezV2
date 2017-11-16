@@ -54,4 +54,9 @@ class Horario
         }
         return false;
     }
+
+    public function yaPaso()
+    {
+        return strtotime($this->comienzo) <= strtotime(date('H:i:s'));
+    }
 }
