@@ -9,3 +9,15 @@
         <a href="#"  id="enlace" class="modal-action modal-close waves-effect waves-green btn-flat">Si, deseo eliminar</a>
     </div>
   </div>
+
+   <!-- Delete Patient HISTORY Modal Structure -->
+ <div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content" id="deleteHistoryContent">
+      <h4> <i class=" material-icons">sms_failed</i> ¡Atención! Operación irreversible.</h4>
+      <p>Estas a punto de eliminar la historia clinica COMPLETA del paciente '<span id=paciente></span>' de forma permanente. Estas seguro que quieres proseguir?</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" onclick=" $('#deleteHistoryContent').modal('close');" class="modal-action modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#"  id="enlace_historia" class="modal-action modal-close waves-effect waves-green btn-flat">Si, deseo eliminar</a>
+    </div>
+  </div>

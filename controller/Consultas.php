@@ -16,7 +16,8 @@
         }
         
         public function index(){
-            AppController::allowed('consulta_index');
+            AppController::allowed('consulta_show');
+            $idPaciente = $_GET['idPaciente'];
             
             $context = [];
 
@@ -24,7 +25,8 @@
             $context['javascripts'] = ['/public/js/users.js', '/public/js/consultas.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - Index';
             $context['titulo'] = 'consultas';            
-           
+            $context['paciente'] = Paciente::getPaciente($idPaciente);
+            
             if ($allConsulta = consulta::all($_GET['idPaciente'])) {
                
                 $context['noResults'] = false;
@@ -50,16 +52,18 @@
 
         public function newConsulta(){
             AppController::allowed('consulta_new');
+            $idPaciente = $_GET['idPaciente'];
 
             $context = [];
             
             $context['stylesheets'] = ['/public/css/pacientes.css'];
             $context['javascripts'] = ['/public/js/consultas.js','/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - New';
-
+            $context['titulo'] = 'Nueva consulta';
+            $context['paciente'] = Paciente::getPaciente($idPaciente);
+            
             $path = '/consultas/new.html.twig';
             
-            $context['titulo'] = 'Nueva consulta';
             TwigController::renderTwig($path, $context);
             die;
         }
@@ -105,7 +109,14 @@
         public function deleteConsulta() {
             $idconsulta = $_GET['idConsulta'];
     
-            consulta::deleteconsulta($idConsulta);
+            consulta::deleteConsulta($idConsulta);
+            $this->index();
+        }
+
+        public function deleteHistoria() {
+            $idPaciente = $_GET['idPaciente'];
+    
+            consulta::deleteHistoria($idPaciente);
             $this->index();
         }
 

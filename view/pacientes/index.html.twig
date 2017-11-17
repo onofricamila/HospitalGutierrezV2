@@ -109,19 +109,19 @@
                         <li class="divider"></li>
                     {% if (consulta_new == true)  %}
                         <li>
-                            Cargar consulta
+                            <a href="?controller=Consultas&action=newConsulta&idPaciente={{ paciente.idPaciente }}">Cargar consulta</a>
                         </li>
                         <li class="divider"></li>
                     {% endif %} 
                     {% if (consulta_show == true)  %}
                         <li>
-                            Ver historia
+                            <a href="?controller=Consultas&action=index&idPaciente={{ paciente.idPaciente }}">Ver historia</a>
                         </li>
                         <li class="divider"></li>
                     {% endif %} 
                     {% if (consulta_destroy == true)  %}
                         <li>
-                            Eliminar historia
+                            <a data-target="modal2" class="modal-trigger openDeleteHistoryModal" data-id="{{ paciente.idPaciente }}/{{ paciente.apellido }}, {{ paciente.nombre }}">Eliminar historia</a>
                         </li>
                         <li class="divider"></li>
                     {% endif %} 

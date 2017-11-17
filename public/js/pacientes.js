@@ -303,3 +303,11 @@ var idAndName = $(this).data('id').split("/", 2);
 document.getElementById('totalLocal').innerHTML = idAndName[1];
 document.getElementById('enlace').setAttribute('href', "index.php?controller=Pacientes&action=deletePaciente&idPaciente=" + idAndName[0]);
 });
+
+
+/* para eliminar la historia clinica de un paciente */
+$(document).on("click", ".openDeleteHistoryModal", function () {
+    var idAndName = $(this).data('id').split("/", 2);
+    document.getElementById('paciente').innerHTML = idAndName[1];
+    document.getElementById('enlace_historia').setAttribute('href', "index.php?controller=Consultas&action=deleteHistoria&idPaciente=" + idAndName[0]);
+});
