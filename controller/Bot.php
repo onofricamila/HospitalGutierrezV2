@@ -111,7 +111,7 @@
                 case '/turnos':
                     $params = explode(" ", $params);
 
-                    if ($paramsError = (count($params) != 1)) {
+                    if ($paramsError = (count($params) != 1 || $params[0] == "")) {
                         $msg['text'] = 'El formato del comando /turnos es "/turnos dd-mm-yyyy".';
                     }
 
