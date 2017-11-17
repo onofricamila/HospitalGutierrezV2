@@ -137,7 +137,6 @@
             var_dump($fecha_nacimiento);
             $formato = 'Y-m-d';
             $fecha_nacimiento = DateTime::createFromFormat($formato, $fecha_nacimiento);
-            echo "Formato: $formato; " . $fecha_nacimiento->format('Y-m-d H:i:s') . "\n";
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
