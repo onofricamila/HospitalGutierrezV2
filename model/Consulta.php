@@ -41,14 +41,13 @@
             /* (Paciente::getPaciente($this ->idPaciente))->edad() */
         }
        
-        public static function newConsulta($idPaciente,$fecha, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario) {
+        public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc,  $talla, $alimentacion, $obs_grales, $usuario) {
             $connection = Connection::getInstance();
 
-           $query = $connection->prepare("INSERT INTO consulta (idPaciente, fecha, peso, vacunas_completas, vacunas_obs, maduracion_acorde, maduracion_obs, examen_fisico_normal, examen_fisico_obs, pc, ppc, alimentacion, obs_grales, talla, usuario) 
-            VALUES (:idPaciente, :fecha,:peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario, :idTipoCalefaccion, :idTipoAgua)");
+           $query = $connection->prepare("INSERT INTO consulta (idPaciente, peso, vacunas_completas, vacunas_obs, maduracion_acorde, maduracion_obs, examen_fisico_normal, examen_fisico_obs, pc, ppc, alimentacion, obs_grales, talla, usuario) 
+            VALUES (:idPaciente,:peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario)");
            
            $query->execute(array('idPaciente' => $idPaciente,
-                ':fecha' => $fecha, 
                 ':peso' => $peso, 
                 ':vacunas_completas' => $vacunas_completas, 
                 ':vacunas_obs' => $vacunas_obs, 

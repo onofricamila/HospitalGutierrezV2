@@ -73,10 +73,26 @@
 
         public function auxNewconsulta() { 
 
+            var_dump($_POST['peso']);
+            var_dump($_POST['vacunas_completas']);
+            var_dump($_POST['vacunas_obs']);
+            var_dump($_POST['examen_fisico_normal']);
+            var_dump($_POST['examen_fisico_obs']);
+            var_dump($_POST['maduracion_acorde']);
+            var_dump($_POST['maduracion_obs']);
+            var_dump($_POST['idPaciente']);
+            var_dump($_POST['usuario']);
+            echo "<br>Hasta aca lo obligatorio<br>";
+            var_dump($_POST['pc']);
+            var_dump($_POST['ppc']);
+            var_dump($_POST['talla']);
+            var_dump($_POST['alimentacion']);
+            var_dump($_POST['obs_grales']);
+
             if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
             || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
             || (!isset($_POST['vacunas_obs']) || ($vacunas_obs = trim($_POST['vacunas_obs'])) == "")
-            || (!isset($_POST['examen_ficico_normal']) || ($examen_ficico_normal = trim($_POST['examen_ficico_normal'])) == "")
+            || (!isset($_POST['examen_fisico_normal']) || ($examen_ficico_normal = trim($_POST['examen_fisico_normal'])) == "")
             || (!isset($_POST['examen_fisico_obs']) || ($examen_fisico_obs = trim($_POST['examen_fisico_obs'])) == "")
             || (!isset($_POST['maduracion_acorde']) || ($maduracion_acorde = trim($_POST['maduracion_acorde'])) == "")
             || (!isset($_POST['maduracion_obs']) || ($maduracion_obs = trim($_POST['maduracion_obs'])) == "")
@@ -84,6 +100,9 @@
                 AppController::req_fields();
                 
             }
+
+            $idPaciente = $_POST['idPaciente'];
+            $usuario = $_POST['usuario'];
           
             if(!isset($_POST['pc'])){
                 $pc = NULL;
@@ -121,8 +140,8 @@
             }
 
 
-            Consulta::newConsulta($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
-            $this->index(); 
+            Consulta::newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_ficico_normal, $examen_fisico_obs, $pc, $ppc, $talla, $alimentacion, $obs_grales, $usuario);
+            header("Location: index.php?controller=consultas&action=index&idPaciente=$idPaciente"); 
         }
     
         public function deleteConsulta() {
