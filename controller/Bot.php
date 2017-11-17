@@ -99,7 +99,7 @@
                     if ($decoded->error) {
                         $msg['text'] = $decoded->content;
                     } else {
-                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
+                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded;
                     }
 
                     self::sendMessage($chatId, $msg);
