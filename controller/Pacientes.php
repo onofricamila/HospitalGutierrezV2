@@ -135,7 +135,7 @@
 
             var_dump($fecha_nacimiento);
             $formato = 'Y-m-d';
-            $fecha = DateTime::createFromFormat($formato, '2009-02-15');
+            $fecha = DateTime::createFromFormat($formato, $fecha_nacimiento);
             echo "Formato: $formato; " . $fecha->format('Y-m-d H:i:s') . "\n";
             die;
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
