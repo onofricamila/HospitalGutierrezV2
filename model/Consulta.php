@@ -37,11 +37,9 @@
             $this ->obs_grales = $array['obs_grales'];
             $this ->talla = $array['talla'];
             $this ->usuario = $array['usuario'];
-            
+            /* calculo edad */
             $paciente = Paciente::getPaciente( $this ->idPaciente);
             $this ->edad = $paciente->edad();
-            var_dump($this ->edad);
-            die;
         }
        
         public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc,  $talla, $alimentacion, $obs_grales, $usuario) {
