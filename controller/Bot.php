@@ -108,7 +108,7 @@
                             } else {
                                 $first = false;
                             }
-                            $msg['text'] .= $hora;
+                            $msg['text'] .= substr($hora, 0, -3);
                         }
                     }
 
