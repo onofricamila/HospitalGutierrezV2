@@ -93,7 +93,25 @@
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
-                    $msg['text'] = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
+                    $var = file_get_contents('http://localhost/api.php/turnos/16-11-2017');
+                    $decoded = json_decode($var);
+
+                    if ($decoded->error) {
+                        $msg['text'] = $decoded->content;
+                    } else {
+                        $msg['text'] = 'Los turnos disponibles son: ';
+
+                        $first = true;
+                        foreach ($decoded->content as $hora) {
+                            if (!$first) {
+                                $msg['text'] .= ' | ';
+                            } else {
+                                $first = false;
+                            }
+                            $msg['text'] .= $hora;
+                        }
+                    }
+
                     self::sendMessage($chatId, $msg);
                     break;
                 default:

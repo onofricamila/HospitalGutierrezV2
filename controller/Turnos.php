@@ -23,7 +23,7 @@ class TurnosController
         $fechaTime = strtotime($fecha);
         $todayTime = strtotime(date('d-m-Y'));
         if ($fechaTime < $todayTime) {
-            return $this->badDate('La fecha ingresada ya paso.');
+            return $this->response('DateError', 'La fecha ingresada ya paso.');
         }
 
         $nowTime = strtotime(date('H:i:s'));
@@ -31,7 +31,7 @@ class TurnosController
         $lastTurno = Horario::last();
         $lastTurnoTime = strtotime($lastTurno->comienzo);
         if ($fechaTime == $todayTime && $nowTime >= $lastTurnoTime) {
-            return $this->badDate('La fecha seleccionada es la de hoy y ya comenzo el ultimo turno del dia.');
+            return $this->response('DateError', 'La fecha seleccionada es la de hoy y ya comenzo el ultimo turno del dia.');
         }
 
         require_once 'model/Turno.php';
@@ -43,6 +43,10 @@ class TurnosController
             if (!isset($turnos[$horario->idHorario]) && ($fechaTime != $todayTime || !$horario->yaPaso())) {
                 $libres[] = $horario->comienzo;
             }
+        }
+
+        if (count($libres) == 0) {
+            return $this->response('FullError', 'Todos los turnos de la fecha ingresada estan reservados :(');
         }
 
         return $this->response(false, $libres);
