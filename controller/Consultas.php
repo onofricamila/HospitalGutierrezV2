@@ -1,5 +1,7 @@
 <?php
     require_once './model/Consulta.php';
+    require_once './model/Paciente.php';
+    require_once './model/User.php';
 
     class ConsultasController {
         private static $instance;
@@ -123,7 +125,9 @@
         public function showConsulta(){
         
             AppController::allowed('consulta_show');
-            $consulta = consulta::getconsulta($_GET['idConsulta']); 
+            $consulta = Consulta::getConsulta($_GET['idConsulta']); 
+            $paciente = Paciente::getPaciente( $consulta->idPaciente );
+            $usuario = User::id( $consulta->usuario );
 
             $context = [];
             
@@ -131,10 +135,12 @@
             $context['javascripts'] = ['/public/js/consultas.js'];
             $context['pagename'] = 'Consultas - Show';
             $context['consulta'] = $consulta;
-
+            $context['titulo'] = 'Consulta';
+            $context['paciente'] = $paciente;
+            $context['usuario'] = $usuario;
+            
             $path = '/consultas/show.html.twig';
             
-            $context['titulo'] = 'Consulta';
             TwigController::renderTwig($path, $context);
             die;
         }
@@ -148,11 +154,11 @@
             $context['stylesheets'] = ['/public/css/pacientes.css'];
             $context['javascripts'] = ['/public/js/consultas.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - Update';
-            $context['consulta'] =  consulta::getconsulta($_GET['idConsulta']);
+            $context['titulo'] = 'Actualizar consulta';
+            $context['consulta'] =  consulta::getConsulta($_GET['idConsulta']);
 
             $path = '/consultas/update.html.twig';
             
-            $context['titulo'] = 'Actualizar consulta';
             TwigController::renderTwig($path, $context);
             die;
         }

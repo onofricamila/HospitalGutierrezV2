@@ -12,69 +12,95 @@
                 <div class="useravatar">
                     <img alt="" src="../../public/imgs/patient.png">
                 </div>
-                <div class="card-info"> <span class="card-title">{{ paciente.apellido }},  {{ paciente.nombre }} </span> </div>
+                <div class="card-info"> <span class="card-title">Consulta para el paciente '{{ paciente.apellido }}', del dia '{{consulta.fecha}}' </span> </div>
             </div>
             <div>
                     <ul id="tabs-swipe-demo" class="tabs">
-                            <li class="tab col s6"><a class="active" href="#test-swipe-1">Info personal</a></li>
-                            <li class="tab col s6"><a href="#test-swipe-2">Datos demograficos</a></li>
-                        </ul>
-                        <div id="test-swipe-1" class="col s12">
-                                <ul class="collection">
-                                    <li class="collection-item">Fecha de nacimiento: {{ paciente.fecha_nacimiento }} </li>
-                                    <li class="collection-item">Género: {{ genero.nombre }} </li>
-                                    <li class="collection-item">Tipo de documento: {{ tipo_doc.nombre }} </li>
-                                    <li class="collection-item">DNI: {{ paciente.dni }} </li>
-                                    <li class="collection-item">Domicilio: {{ paciente.domicilio }} </li>
-                                    <li class="collection-item">Tel/Cel:
-                                    {% if (paciente.telefono == null or paciente.telefono == 0)  %}
-                                        <span> - - - </span>
-                                    {% else %}
-                                       <span> {{paciente.telefono}} </span>
-                                    {% endif %} </li>
-                                    <li class="collection-item">Obra social:
-                                    {% if (obra_social.nombre == null)  %}
-                                        <span> - - - </span>
-                                    {% else %}
-                                       <span> {{obra_social.nombre}} </span>
-                                    {% endif %} </li>
-                                     </li>
-                                </ul>
-                        </div>
-                        <div id="test-swipe-2" class="col s12">
+                            <li class="tab col s6"><a class="active" href="#test-swipe-1">Info obligatoria</a></li>
+                            <li class="tab col s6"><a href="#test-swipe-2">Info complementaria</a></li>
+                    </ul>
+                    <div id="test-swipe-1" class="col s12">
                             <ul class="collection">
-                                <li class="collection-item">
-                                    Heladera?
-                                    {% if paciente.heladera == 1  %}
-                                       <span> Si </span>
-                                    {% else %}
-                                       <span> No </span>
-                                    {% endif %}
+                                <li class="collection-item">Usuario que realizó la carga: {{ usuario.last_name }}, {{ usuario.first_name }} </li>
+                                <li class="collection-item">Edad del paciente: {{ consulta.edad }} </li>
+                                <li class="collection-item">Peso del paciente: {{ consulta.peso }} </li>
+                                <li class="collection-item">Vacunas completas?:
+                                {% if consulta.vacunas_completas == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
                                 </li>
-                                <li class="collection-item">
-                                    Electricidad?
-                                    {% if paciente.electricidad == 1  %}
-                                       <span> Si </span>
-                                    {% else %}
-                                       <span> No </span>
-                                    {% endif %}
+                                <li class="collection-item">Vacunas obs: {{ consulta.vacunas_obs }} </li>
+                                <li class="collection-item">Maduracion acorde?:
+                                {% if consulta.maduracion_acorde == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
                                 </li>
-                                <li class="collection-item">
-                                   Mascota(s)?
-                                   {% if paciente.mascota == 1  %}
-                                       <span> Si </span>
-                                    {% else %}
-                                       <span> No </span>
-                                    {% endif %}
+                                <li class="collection-item">Maduracion obs: {{ consulta.maduracion_obs }} </li>
+                                <li class="collection-item">Examen fisico normal?:
+                                {% if consulta.examen_fisico_normal == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
                                 </li>
-                                <li class="collection-item">Tipo de vivienda? {{ tipo_vivienda.nombre }}</li>
-                                <li class="collection-item">Tipo de calefaccion? {{ tipo_calefaccion.nombre }} </li>
-                                <li class="collection-item">Tipo de agua? {{ tipo_agua.nombre }} </li>
+                                <li class="collection-item">Examen fisico obs: {{ consulta.examen_fisico_obs }} </li>
+                                
                             </ul>
-                        </div>
+                    </div>
+                    <div id="test-swipe-2" class="col s12">
+                        <ul class="collection">
+                                <li class="collection-item">Percentilo Cefálico:
+                                {% if (consulta.pc == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.pc}} </span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Percentilo Perímetro Cefálico:
+                                {% if (consulta.ppc == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.ppc}} </span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Talla:
+                                {% if (consulta.talla == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.talla}} </span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Alimentacion:
+                                {% if (consulta.alimentacion == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.alimentacion}} </span>
+                                {% endif %}
+                                </li>
+
+                                <li class="collection-item">Observaciones:
+                                {% if (consulta.obs_grales == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.obs_grales}} </span>
+                                {% endif %}
+                                </li>
+                                
+                        </ul>
+                    </div>
             </div>
         </div>
 </div>
+<br>
+<br>
+<br>
 </div>    
 <div class="fixed-action-btn">
     <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">

@@ -11,7 +11,7 @@
             $query->execute(array($idConsulta));
             
             if ($query->rowCount() == 1) {
-                return (new Paciente($query->fetch(PDO::FETCH_ASSOC)));
+                return (new Consulta($query->fetch(PDO::FETCH_ASSOC)));
             }
             return false;
         }
