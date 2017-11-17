@@ -102,9 +102,6 @@
                         $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
                     }
 
-
-                    $msg['text'] = 'Te confirmamos el turno para:'.PHP_EOL;
-                    $msg['text'] .= '10:30'.PHP_EOL;
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
