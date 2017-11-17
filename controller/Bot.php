@@ -111,7 +111,7 @@
                 case '/turnos':
                     $params = explode(" ", $params);
 
-                    if ($paramsError = count($params) != 1) {
+                    if ($paramsError = ($params[0] == "")) {
                         $msg['text'] = 'El formato del comando /turnos es "/turnos dd-mm-yyyy".';
                     }
 
@@ -133,8 +133,6 @@
                             $msg['text'] .= str_replace(':', '-', substr($hora, 0, -3));
                         }
                     }
-
-                    $msg['text'] = 'isset0: '.isset($params[0]).'. content: '.$params[0];
 
                     self::sendMessage($chatId, $msg);
                     break;
