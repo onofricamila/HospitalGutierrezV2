@@ -92,7 +92,6 @@
             var_dump($_POST['talla']);
             var_dump($_POST['alimentacion']);
             var_dump($_POST['obs_grales']);
-            die;
 
             if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
             || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
