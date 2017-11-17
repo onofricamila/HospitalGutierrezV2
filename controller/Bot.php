@@ -96,6 +96,7 @@
                     $var = file_get_contents('http://localhost/API.php/turnos/'.$params);
                     $decoded = json_decode($var);
 
+                    /*
                     if ($decoded->error) {
                         $msg['text'] = $decoded->content;
                     } else {
@@ -111,8 +112,10 @@
                             $msg['text'] .= $hora;
                         }
                     }
+                    */
+                    $msg['text'] = json_encode($params);
 
-                    self::sendMessage($chatId, $params);
+                    self::sendMessage($chatId, $msg);
                     break;
                 default:
                     $msg['text'] = 'Lo siento, no es un comando válido.'.PHP_EOL;
