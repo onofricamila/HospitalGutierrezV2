@@ -96,7 +96,6 @@
                     $var = file_get_contents('http://localhost/API.php/turnos/'.$params);
                     $decoded = json_decode($var);
 
-                    /*
                     if ($decoded->error) {
                         $msg['text'] = $decoded->content;
                     } else {
@@ -112,8 +111,6 @@
                             $msg['text'] .= $hora;
                         }
                     }
-                    */
-                    $msg['text'] = $params;
 
                     self::sendMessage($chatId, $msg);
                     break;
