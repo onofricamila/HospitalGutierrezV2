@@ -3,6 +3,8 @@
         public $idPaciente, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua;
 
         public function edad(){
+            var_dump(date("Y-m-d"));
+            var_dump($this->fecha_nacimiento);
             return (date("Y-m-d") - $this->fecha_nacimiento);
         }
 
