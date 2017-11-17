@@ -136,7 +136,7 @@
             /* por el date picker ...*/
             var_dump($fecha_nacimiento);
             $formato = 'Y-m-d';
-            $fecha_nacimiento = DateTime::createFromFormat($formato, $fecha_nacimiento);
+            // $fecha_nacimiento = DateTime::createFromFormat($formato, $fecha_nacimiento);
 
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
