@@ -54,15 +54,16 @@
 
         public function newConsulta(){
             AppController::allowed('consulta_new');
-            $idPaciente = $_GET['idPaciente'];
+            $paciente = Paciente::getPaciente($_GET['idPaciente']);
+            $loggedid = $_SESSION['loggedid'];
 
             $context = [];
             
             $context['stylesheets'] = ['/public/css/pacientes.css'];
-            $context['javascripts'] = ['/public/js/consultas.js','/public/js/validacion.js'];
+            $context['javascripts'] = ['/public/js/consultas.js','/public/js/pacientes.js','/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - New';
             $context['titulo'] = 'Nueva consulta';
-            $context['paciente'] = Paciente::getPaciente($idPaciente);
+            $context['paciente'] = $paciente;
             
             $path = '/consultas/new.html.twig';
             

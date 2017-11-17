@@ -10,9 +10,9 @@
                     
                 </div>
                 <div class="useravatar">
-                    <img alt="" src="../../public/imgs/patient.png">
+                    <img alt="" src="../../public/imgs/consult11.png">
                 </div>
-                <div class="card-info"> <span class="card-title">Consulta para el paciente '{{ paciente.apellido }}', del dia '{{consulta.fecha}}' </span> </div>
+                <div class="card-info"> <span class="card-title">Datos de la consulta para el paciente '{{ paciente.apellido }}', del dia '{{consulta.fecha}}' </span> </div>
             </div>
             <div>
                     <ul id="tabs-swipe-demo" class="tabs">
@@ -21,9 +21,9 @@
                     </ul>
                     <div id="test-swipe-1" class="col s12">
                             <ul class="collection">
-                                <li class="collection-item">Usuario que realizó la carga: {{ usuario.last_name }}, {{ usuario.first_name }} </li>
-                                <li class="collection-item">Edad del paciente: {{ consulta.edad }} </li>
-                                <li class="collection-item">Peso del paciente: {{ consulta.peso }} </li>
+                                <li class="collection-item">Usuario que realizó la carga de la consulta: {{ usuario.last_name }}, {{ usuario.first_name }} </li>
+                                <li class="collection-item">Edad del paciente: {{ consulta.edad }}  años</li>
+                                <li class="collection-item">Peso del paciente: {{ consulta.peso }}  kg</li>
                                 <li class="collection-item">Vacunas completas?:
                                 {% if consulta.vacunas_completas == 0 %}
                                     No
@@ -73,7 +73,7 @@
                                 {% if (consulta.talla == null)  %}
                                     <span> - - - </span>
                                 {% else %}
-                                    <span> {{consulta.talla}} </span>
+                                    <span> {{consulta.talla}} mts</span>
                                 {% endif %}
                                 </li>
                                 
@@ -103,7 +103,7 @@
 <br>
 </div>    
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Pacientes&action=updatePaciente&idPaciente={{ paciente.idPaciente }}">
+    <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Consultas&action=updateConsulta&idConsulta={{ consulta.idConsulta }}">
         <i class="large material-icons">edit</i>
     </a>
 </div>       
