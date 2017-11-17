@@ -122,7 +122,7 @@
                             } else {
                                 $first = false;
                             }
-                            $msg['text'] .= substr($hora, 0, -3);
+                            $msg['text'] .= str_replace(':', '-', substr($hora, 0, -3));
                         }
                     }
 
