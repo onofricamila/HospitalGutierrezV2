@@ -21,6 +21,14 @@ $app->get('/turnos/{fecha}', function ($request, $response, $args) {
     return $response->write($controller->getTurnos($fecha));
 });
 $app->get('/turnos/{dni}/fecha/{fecha}/hora/{hora}', function ($request, $response, $args) {
-    return $response->write(var_dump($args));
+    require_once 'controller/Turnos.php';
+
+    $dni = $request->getAttribute('dni');
+    $fecha = $request->getAttribute('fecha');
+    $hora = $request->getAttribute('hora');
+
+    $controller = TurnosController::getInstance();
+
+    return $response->write($controller->newTurno($dni, $fecha, $hora));
 });
 $app->run();

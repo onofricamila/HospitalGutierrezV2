@@ -29,7 +29,7 @@ class Horario
 
         if ($query->rowCount() == 1) {
             $query->setFetchMode(PDO::FETCH_CLASS, 'Horario');
-            return ($query->fetch());
+            return $query->fetch();
         }
         return false;
     }

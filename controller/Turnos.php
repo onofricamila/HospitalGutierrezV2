@@ -18,12 +18,7 @@ class TurnosController
 
     public function getTurnos($fecha)
     {
-        $pattern = '/(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13578]|1[02]))|((29|30)[-](0[4,6,9]|11)))[-](19|[2-9][0-9])\d\d$)|(^29[-]02[-](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/';
-        $match = preg_match($pattern, $fecha);
-
-        if (!$match) {
-            return $this->badDate('Formato de fecha invalido. Solo se acepta el formato dd-mm-yyyy');
-        }
+        $matchFecha = $this->validateFecha($fecha);
 
         $fechaTime = strtotime($fecha);
         $todayTime = strtotime(date('d-m-Y'));
@@ -53,10 +48,66 @@ class TurnosController
         return json_encode($libres);
     }
 
-    public function badDate($msg)
+    private function error($type, $msg)
     {
         require_once 'JsonError.php';
-        $error = new JsonError('DateError', $msg);
+        $error = new JsonError($type, $msg);
         return json_encode($error);
+    }
+
+    public function newTurno($dni, $fecha, $hora)
+    {
+        if ($matchDni = $this->validateDni($dni)) {
+            return $matchDni;
+        }
+        if ($matchFecha = $this->validateFecha($fecha)) {
+            return $matchFecha;
+        }
+        if ($matchHora = $this->validateHora($hora)) {
+            return $matchHora;
+        }
+
+        $hora = $hora.'-00';
+        $hora = str_replace('-', ':', $hora);
+
+        $fecha = date('Y-m-d', strtotime($fecha));
+        require_once 'model/Horario.php';
+        require_once 'model/Turno.php';
+
+        $horario = Horario::hora($hora);
+        $result = Turno::reservar($dni, $horario->idHorario, $fecha);
+
+        return $result;
+    }
+
+    public function validateFecha($fecha)
+    {
+        $pattern = '/(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13578]|1[02]))|((29|30)[-](0[4,6,9]|11)))[-](19|[2-9][0-9])\d\d$)|(^29[-]02[-](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/';
+        $match = preg_match($pattern, $fecha);
+
+        if (!$match) {
+            return $this->error('DateError', 'Formato de fecha invalido. Formato aceptado: dd-mm-yyyy');
+        }
+        return false;
+    }
+    public function validateDni($dni)
+    {
+        $pattern = '/\d{8}/';
+        $match = preg_match($pattern, $dni);
+
+        if (!$match) {
+            return $this->error('DniError', 'Formato de dni invalido. Formato aceptado: 8 digitos');
+        }
+        return false;
+    }
+    public function validateHora($hora)
+    {
+        $pattern = '/(0[89]|1[0-9])-[03]0/';
+        $match = preg_match($pattern, $hora);
+
+        if (!$match) {
+            return $this->error('TimeError', 'Formato de hora invalido. Formato aceptado: hh-mm, de 08-00 a 19-30');
+        }
+        return false;
     }
 }
