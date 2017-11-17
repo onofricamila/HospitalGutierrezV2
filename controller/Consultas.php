@@ -72,6 +72,9 @@
         }
 
         public function auxNewconsulta() { 
+            $usuario = AppController::getUser();
+            $usuario =$usuario->id;
+            $idPaciente = $_POST['idPaciente'];
 
             var_dump($_POST['peso']);
             var_dump($_POST['vacunas_completas']);
@@ -81,13 +84,14 @@
             var_dump($_POST['maduracion_acorde']);
             var_dump($_POST['maduracion_obs']);
             var_dump($_POST['idPaciente']);
-            var_dump($_POST['usuario']);
+            var_dump($usuario);
             echo "<br>Hasta aca lo obligatorio<br>";
             var_dump($_POST['pc']);
             var_dump($_POST['ppc']);
             var_dump($_POST['talla']);
             var_dump($_POST['alimentacion']);
             var_dump($_POST['obs_grales']);
+            die;
 
             if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
             || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
@@ -100,10 +104,7 @@
                 AppController::req_fields();
                 
             }
-
-            $idPaciente = $_POST['idPaciente'];
-            $usuario = $_POST['usuario'];
-          
+           
             if(!isset($_POST['pc'])){
                 $pc = NULL;
             }
@@ -145,17 +146,19 @@
         }
     
         public function deleteConsulta() {
-            $idconsulta = $_GET['idConsulta'];
-    
-            consulta::deleteConsulta($idConsulta);
-            $this->index();
+            $idConsulta = $_GET['idConsulta'];
+            $consulta = Consulta::getConsulta($idConsulta);
+            $idPaciente = $consulta->idPaciente;
+
+            Consulta::deleteConsulta($idConsulta);
+            header("Location: index.php?controller=consultas&action=index&idPaciente=$idPaciente"); 
         }
 
         public function deleteHistoria() {
             $idPaciente = $_GET['idPaciente'];
     
-            consulta::deleteHistoria($idPaciente);
-            $this->index();
+            Consulta::deleteHistoria($idPaciente);
+            PacientesController::getInstance()->index();
         }
 
         public function showConsulta(){

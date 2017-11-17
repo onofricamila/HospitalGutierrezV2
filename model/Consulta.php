@@ -45,7 +45,7 @@
             $connection = Connection::getInstance();
 
            $query = $connection->prepare("INSERT INTO consulta (idPaciente, peso, vacunas_completas, vacunas_obs, maduracion_acorde, maduracion_obs, examen_fisico_normal, examen_fisico_obs, pc, ppc, alimentacion, obs_grales, talla, usuario) 
-            VALUES (:idPaciente,:peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario)");
+                                                         VALUES (:idPaciente,:peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario)");
            
            $query->execute(array('idPaciente' => $idPaciente,
                 ':peso' => $peso, 
@@ -98,7 +98,7 @@
         }
 
         /* para borrar la historia clinica de un paciente */
-        public static function deleteHitoria($idPaciente) {
+        public static function deleteHistoria($idPaciente) {
             $connection = Connection::getInstance();
     
             $query = $connection->prepare("DELETE FROM consulta WHERE idPaciente=?");
