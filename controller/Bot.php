@@ -91,7 +91,7 @@
                     $params = explode(" ", $params);
 
                     if ($paramsError = count($params) != 3) {
-                        $msg['text'] = 'El formato del comando /reservar es "/reservar dni dd-mm-yyyy hh-mm".';
+                        $msg['text'] = count($params);
                     }
                     $dni = $params[0];
                     $fecha = $params[1];
