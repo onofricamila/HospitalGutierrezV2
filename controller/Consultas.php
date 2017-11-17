@@ -71,42 +71,58 @@
             die;
         }
 
-        public function auxNewconsulta() { /*
+        public function auxNewconsulta() { 
 
-            if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
-            || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
-            || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
-            || (!isset($_POST['idGenero']) || ($idGenero = trim($_POST['idGenero'])) == "")
-            || (!isset($_POST['idTipoDoc']) || ($idTipoDoc = trim($_POST['idTipoDoc'])) == "")
-            || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
-            || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
-            || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
-            || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
-            || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
-            || (!isset($_POST['idTipoVivienda']) || ($idTipoVivienda =trim($_POST['idTipoVivienda'])) == "")
-            || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
-            || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
-            {
+            if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
+            || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
+            || (!isset($_POST['vacunas_obs']) || ($vacunas_obs = trim($_POST['vacunas_obs'])) == "")
+            || (!isset($_POST['examen_ficico_normal']) || ($examen_ficico_normal = trim($_POST['examen_ficico_normal'])) == "")
+            || (!isset($_POST['examen_fisico_obs']) || ($examen_fisico_obs = trim($_POST['examen_fisico_obs'])) == "")
+            || (!isset($_POST['maduracion_acorde']) || ($maduracion_acorde = trim($_POST['maduracion_acorde'])) == "")
+            || (!isset($_POST['maduracion_obs']) || ($maduracion_obs = trim($_POST['maduracion_obs'])) == "")
+            ){
                 AppController::req_fields();
                 
             }
           
-            if(!isset($_POST['idObraSocial'])){
-                $idObraSocial = NULL;
+            if(!isset($_POST['pc'])){
+                $pc = NULL;
             }
             else{
-                $idObraSocial = trim($_POST['idObraSocial']);
+                $pc = trim($_POST['pc']);
             }
 
-            if(!isset($_POST['telefono'])){
-                $telefono = NULL;
+            if(!isset($_POST['ppc'])){
+                $ppc = NULL;
             }
             else{
-                $telefono = trim($_POST['telefono']);
+                $ppc = trim($_POST['ppc']);
             }
 
-            consulta::newconsulta($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
-            $this->index(); */
+            if(!isset($_POST['talla'])){
+                $talla = NULL;
+            }
+            else{
+                $talla = trim($_POST['talla']);
+            }
+
+            if(!isset($_POST['alimentacion'])){
+                $alimentacion = NULL;
+            }
+            else{
+                $alimentacion = trim($_POST['alimentacion']);
+            }
+
+            if(!isset($_POST['obs_grales'])){
+                $obs_grales = NULL;
+            }
+            else{
+                $obs_grales = trim($_POST['obs_grales']);
+            }
+
+
+            Consulta::newConsulta($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
+            $this->index(); 
         }
     
         public function deleteConsulta() {
