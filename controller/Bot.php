@@ -134,7 +134,7 @@
                         }
                     }
 
-                    $msg['text'] = 'Params Count: '.count($params).'. Var_dump($params): '.var_dump($params);
+                    $msg['text'] = 'isset0: '.isset($params[0]).'. content: '.$params[0];
 
                     self::sendMessage($chatId, $msg);
                     break;
