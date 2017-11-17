@@ -54,37 +54,20 @@
                 <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
                 
                         <li>
-                            <a href="?controller=consultas&action=showconsulta&idconsulta={{ consulta.idconsulta }}">Show</a>
+                            <a href="?controller=consultas&action=showConsulta&idConsulta={{ consulta.idConsulta }}">Show</a>
                         </li>
                         <li class="divider"></li>
                     {% if (consulta_destroy == true)  %}
                         <li>
-                            <a data-target="modal1" class="modal-trigger openDeleteModal" data-id="{{ consulta.idconsulta }}/{{ consulta.apellido }}, {{ consulta.nombre }}">Delete</a>
+                            <a data-target="modal3" class="modal-trigger openDeleteConsultModal" data-id="{{ consulta.idConsulta }}/{{ paciente.apellido }}/{{ consulta.fecha }}">Delete</a>
                         </li>
                         <li class="divider"></li>
                     {% endif %} 
                         <li>
-                            <a href="?controller=consultas&action=updateconsulta&idconsulta={{ consulta.idconsulta }}">Update</a>
+                            <a href="?controller=consultas&action=updateConsulta&idConsulta={{ consulta.idConsulta }}">Update</a>
                         </li>
                         <li class="divider"></li>
-                    {% if (consulta_new == true)  %}
-                        <li>
-                            <a href="?controller=Consultas&action=newConsulta">Cargar consulta</a>
-                        </li>
-                        <li class="divider"></li>
-                    {% endif %} 
-                    {% if (consulta_show == true)  %}
-                        <li>
-                            <a href="?controller=Consultas&action=index&idconsulta={{ consulta.idconsulta }}">Ver historia</a>
-                        </li>
-                        <li class="divider"></li>
-                    {% endif %} 
-                    {% if (consulta_destroy == true)  %}
-                        <li>
-                            <a data-target="modal2" class="modal-trigger openDeleteHistoryModal" data-id="{{ consulta.idconsulta }}/{{ consulta.apellido }}, {{ consulta.nombre }}">Eliminar historia</a>
-                        </li>
-                        <li class="divider"></li>
-                    {% endif %} 
+
                 </ul>
             </div>
         </div>

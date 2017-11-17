@@ -21,7 +21,7 @@
         }
 
         public function baseBuild($array) {
-            $this ->idPaciente = $array['idConsulta'];
+            $this ->idConsulta = $array['idConsulta'];
             $this ->idPaciente = $array['idPaciente'];
             $this ->fecha = $array['fecha'];
             $this ->peso = $array['peso'];
