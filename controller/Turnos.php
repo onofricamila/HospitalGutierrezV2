@@ -19,6 +19,9 @@ class TurnosController
     public function getTurnos($fecha)
     {
         $matchFecha = $this->validateFecha($fecha);
+        if ($matchFecha) {
+            return $matchFecha;
+        }
 
         $fechaTime = strtotime($fecha);
         $todayTime = strtotime(date('d-m-Y'));
