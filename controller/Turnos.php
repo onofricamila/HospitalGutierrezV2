@@ -86,9 +86,8 @@ class TurnosController
 
         if ($result) {
             return $this->response(false, $hora);
-        }
-        else {
-            return $this->response(true, 'Error al intentar reservar el turno. Intente nuevamente.')
+        } else {
+            return $this->response(true, 'Error al intentar reservar el turno. Intente nuevamente.');
         }
     }
 
