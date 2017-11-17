@@ -84,7 +84,12 @@ class TurnosController
         $horario = Horario::hora($hora);
         $result = Turno::reservar($dni, $horario->idHorario, $fecha);
 
-        return $result;
+        if ($result) {
+            return $this->response(false, $hora);
+        }
+        else {
+            return $this->response(true, 'Error al intentar reservar el turno. Intente nuevamente.')
+        }
     }
 
     public function validateFecha($fecha)

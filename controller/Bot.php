@@ -88,6 +88,21 @@
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/reservar':
+                    $params = explode(" ", $params);
+                    $dni = $params[0];
+                    $fecha = $params[1];
+                    $hora = $params[2];
+
+                    $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$dni.'/fecha/'.$fecha.'/hora/'.$hora);
+                    $decoded = json_decode($var);
+
+                    if ($decoded->error) {
+                        $msg['text'] = $decoded->content;
+                    } else {
+                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
+                    }
+
+
                     $msg['text'] = 'Te confirmamos el turno para:'.PHP_EOL;
                     $msg['text'] .= '10:30'.PHP_EOL;
                     self::sendMessage($chatId, $msg);
