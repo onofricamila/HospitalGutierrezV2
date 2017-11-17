@@ -89,6 +89,10 @@
                     break;
                 case '/reservar':
                     $params = explode(" ", $params);
+
+                    if ($paramsError = count($params) != 3) {
+                        $msg['text'] = 'El formato del comando /reservar es "/reservar dni dd-mm-yyyy hh-mm".';
+                    }
                     $dni = $params[0];
                     $fecha = $params[1];
                     $hora = $params[2];
@@ -96,10 +100,10 @@
                     $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$dni.'/fecha/'.$fecha.'/hora/'.$hora);
                     $decoded = json_decode($var);
 
-                    if ($decoded->error) {
+                    if ($decoded->error && !$paramsError) {
                         $msg['text'] = $decoded->content;
-                    } else {
-                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded;
+                    } elseif (!$paramsError) {
+                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
                     }
 
                     self::sendMessage($chatId, $msg);
