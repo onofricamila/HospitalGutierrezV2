@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class=" col s8 offset-s2">
+        <div class="row">
+            <div class="col s8 offset-s2">
+                <div class="card hovercard">
+                    <div class="card-background"></div>
+                    <div class="useravatar">
+                        <img alt="" src="../../public/imgs/consult13.png">
+                    </div>
+                    <div class="card-info"> <span class="card-title">Edita la consulta del dia {{consulta.fecha}}, paciente {{paciente.nombre}}, {{paciente.apellido}}.</span> </div>
+                </div>
+            
+                <div class="col s12">
+                        <form class="col s12" method="post" action="index.php?controller=Consultas&action=auxUpdateConsulta" autocomplete="off" onsubmit="return validateFormConsult()">
+                                <br>
+                                <h5>Datos de consulta</h5>
+                                <br>
+                                <input id="idPaciente" name="idPaciente" type="number" value="{{paciente.idPaciente}}" hidden>
+                                <input id="idConsulta" name="idConsulta" type="number" value="{{consulta.idConsulta}}" hidden>
+
+                                <div class="input-field col s12 m4">
+                                    <select name="vacunas_completas" id="vacunas_completas" class="icons">
+                                            <option value="" disabled selected>Vacunas completas?</option>
+                                            <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                            <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                    </select>
+                                    <label>*Vacunas completas?</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <select name="maduracion_acorde" id="maduracion_acorde" class="icons">
+                                            <option value="" disabled selected>Maduración acorde?</option>
+                                            <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                            <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                    </select>
+                                    <label>*Maduración acorde?</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <select name="examen_fisico_normal" id="examen_fisico_normal" class="icons">
+                                            <option value="" disabled selected>Exámen físico normal?</option>
+                                            <option data-icon="/public/imgs/yes.png" class="circle" value="1">Sí</option>
+                                            <option data-icon="/public/imgs/no.png" class="circle" value="0">No</option>
+                                    </select>
+                                    <label>*Exámen físico normal?</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <textarea name="vacunas_obs" class="validate materialize-textarea" required>{{consulta.vacunas_obs}}</textarea>
+                                    <label for="vacunas_obs">*Vacunas obs</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <textarea name="maduracion_obs" class="validate materialize-textarea" required>{{consulta.maduracion_obs}}</textarea>
+                                    <label for="maduracion_obs">*Maduración obs</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <textarea name="examen_fisico_obs" class="validate materialize-textarea" required>{{consulta.examen_fisico_obs}}</textarea>
+                                    <label for="examen_fisico_obs">*Examen físico obs</label>
+                                </div>
+
+                                <div class="input-field col s12 m2">
+                                    <input id="peso" name="peso" type="number" step="0.01" min="0" class="validate"  value="{{consulta.peso}}" required>
+                                    <label for="peso">*Peso</label>
+                                </div>
+
+                                <div class="input-field col s12 m2">
+                                    <input id="talla" name="talla" type="number" step="0.01" min="0" class="validate" value="{{consulta.talla}}" >
+                                    <label for="talla">Talla</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <input id="pc" name="pc" type="number" step="0.01" min="0" class="validate" value="{{consulta.pc}}" >
+                                    <label for="pc">Percentilo Cefalico</label>
+                                </div>
+
+                                <div class="input-field col s12 m4">
+                                    <input id="ppc" name="ppc" type="number" step="0.01" min="0" class="validate" value="{{consulta.ppc}}" >
+                                    <label for="ppc">Percentilo Perímetro Cefalico</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea name="alimentacion" class="validate materialize-textarea">{{consulta.alimentacion}}</textarea>
+                                    <label for="alimentacion">Alimentacion</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea name="obs_grales" class="validate materialize-textarea">{{consulta.obs_grales}}</textarea>
+                                    <label for="obs_grales">Observaciones generales</label>
+                                </div>
+                                
+                                <div class="row col m12">
+                                    <div class="col s12 m6">
+                                        <button class="col s12 m6 btn waves-effect waves-light right-align" type="reset" name="limpiar">Limpiar
+                                            <i class="material-icons right">backspace</i>
+                                        </button>
+                                    </div>
+                                    <div class="col s12 m6">
+                                        <button class="col s12 m6 btn waves-effect waves-light" type="submit" name="submit">Enviar
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <br>        
+                                <br>        
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>           
+       
+<script>
+/* para marcar como selected los options en el update */
+function selectOptions(vacunas_completas, maduracion_acorde, examen_fisico_normal){
+    $("#vacunas_completas option[value="+ vacunas_completas +"]").attr("selected",true);
+    $("#maduracion_acorde option[value="+ maduracion_acorde +"]").attr("selected",true);
+    $("#examen_fisico_normal option[value="+ examen_fisico_normal +"]").attr("selected",true);
+}
+ selectOptions({{ consulta.vacunas_completas }},{{ consulta.maduracion_acorde }},{{ consulta.examen_fisico_normal }} );
+</script>
+
+{% endblock %}

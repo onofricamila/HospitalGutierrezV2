@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class=" col s8 offset-s2">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card hovercard">
+                <div class="card-background">
+                    
+                </div>
+                <div class="useravatar">
+                    <img alt="" src="../../public/imgs/consult11.png">
+                </div>
+                <div class="card-info"> <span class="card-title">Consulta del dia '{{consulta.fecha}}', paciente '{{ paciente.apellido }}'.  </span> </div>
+            </div>
+            <div>
+                    <ul id="tabs-swipe-demo" class="tabs">
+                            <li class="tab col s6"><a class="active" href="#test-swipe-1">Info obligatoria</a></li>
+                            <li class="tab col s6"><a href="#test-swipe-2">Info complementaria</a></li>
+                    </ul>
+                    <div id="test-swipe-1" class="col s12">
+                            <ul class="collection">
+                                <li class="collection-item">Usuario que realizó la carga de la consulta: {{ usuario.last_name }}, {{ usuario.first_name }} </li>
+                                <li class="collection-item">Edad del paciente: {{ consulta.edad }}  años</li>
+                                <li class="collection-item">Peso del paciente: {{ consulta.peso }}  kg</li>
+                                <li class="collection-item">Vacunas completas?:
+                                {% if consulta.vacunas_completas == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
+                                </li>
+                                <li class="collection-item">Vacunas obs: {{ consulta.vacunas_obs }} </li>
+                                <li class="collection-item">Maduracion acorde?:
+                                {% if consulta.maduracion_acorde == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
+                                </li>
+                                <li class="collection-item">Maduracion obs: {{ consulta.maduracion_obs }} </li>
+                                <li class="collection-item">Examen fisico normal?:
+                                {% if consulta.examen_fisico_normal == 0 %}
+                                    No
+                                {% else %}
+                                    Si
+                                {% endif %}
+                                </li>
+                                <li class="collection-item">Examen fisico obs: {{ consulta.examen_fisico_obs }} </li>
+                                
+                            </ul>
+                    </div>
+                    <div id="test-swipe-2" class="col s12">
+                        <ul class="collection">
+                                <li class="collection-item">Percentilo Cefálico:
+                                {% if (consulta.pc == null or consulta.pc == 0)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.pc}} </span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Percentilo Perímetro Cefálico:
+                                {% if (consulta.ppc == null or consulta.ppc == 0)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.ppc}} </span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Talla:
+                                {% if (consulta.talla == null or consulta.talla == 0)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.talla}} mts</span>
+                                {% endif %}
+                                </li>
+                                
+                                <li class="collection-item">Alimentacion:
+                                {% if (consulta.alimentacion == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.alimentacion}} </span>
+                                {% endif %}
+                                </li>
+
+                                <li class="collection-item">Observaciones:
+                                {% if (consulta.obs_grales == null)  %}
+                                    <span> - - - </span>
+                                {% else %}
+                                    <span> {{consulta.obs_grales}} </span>
+                                {% endif %}
+                                </li>
+                                
+                        </ul>
+                    </div>
+            </div>
+        </div>
+</div>
+<br>
+<br>
+<br>
+</div>    
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Consultas&action=updateConsulta&idConsulta={{ consulta.idConsulta }}">
+        <i class="large material-icons">edit</i>
+    </a>
+</div>       
+
+{% endblock %}

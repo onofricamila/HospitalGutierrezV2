@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="container" style="">
+    <div class="row">
+        <div class="col s12">
+            <h3>Historia clinica de {{paciente.apellido}}, {{paciente.nombre}}</h3>
+        </div>
+        <br clear="all">
+    </div>
+
+    <div class="divider divider-margin"></div>
+
+    <div class="row">
+        {% if noResults %}
+            {% include '/noresults.html.twig' %}
+            </div> <!-- para cerrar el div del row -->
+        {% else %}
+
+        <span id="paginacion" style="display: none">{{ elementos }}</span>
+
+        {% for consulta in allConsulta %}
+        <div class="col s12 l6 cardContainer">
+            <div class="card">
+                <div class="card-content black-text">
+                    <span class="card-title">
+                        {{consulta.fecha}}
+                        <!-- Dropdown Trigger -->
+                        <a href="#!" data-activates="{{ "card-dropdown#{loop.index}" }}" class="secondary-content dropdown-button float-right">
+                            <i class="icon-cyan material-icons">settings</i>
+                        </a>
+                    </span>
+
+                    <div class="divider"></div>
+
+                    <div class="contenido-card">
+                        <p style="display: none;">{{ consulta.idconsulta }}</p>
+                        <p>Edad: {{consulta.edad}}  </p>
+                        <p>Peso: {{consulta.peso}} </p>
+                         <p>Talla: 
+                        {% if ( consulta.talla == null or  consulta.talla == 0)  %}
+                                        <span> - - - </span>
+                        {% else %}
+                                       <span>  {{ consulta.talla }} </span>
+                        {% endif %}
+                        </p>
+                        <p>Observciones: 
+                        {% if ( consulta.obs_grales == null)  %}
+                                        <span> - - - </span>
+                        {% else %}
+                                       <span>  {{ consulta.obs_grales }} </span>
+                        {% endif %}
+                        </p>
+                        <p>Pediatra/Adm:
+                        {% for usuario in usuarios %}
+                            {% if usuario.id == consulta.usuario %}
+                                     {{usuario.last_name}}, {{usuario.first_name}}
+                            {% endif %}
+                        {% endfor %}
+                        </p>
+                
+                    </div>
+                </div>
+
+                <!-- Dropdown Structure -->
+                <ul id="card-dropdown{{ loop.index }}" class='dropdown-content'>
+                
+                        <li>
+                            <a href="?controller=Consultas&action=showConsulta&idConsulta={{ consulta.idConsulta }}">Show</a>
+                        </li>
+                        <li class="divider"></li>
+                    {% if (consulta_destroy == true)  %}
+                        <li>
+                            <a data-target="modal3" class="modal-trigger openDeleteConsultModal" data-id="{{ consulta.idConsulta }}/{{ paciente.apellido }}/{{ consulta.fecha }}">Delete</a>
+                        </li>
+                        <li class="divider"></li>
+                    {% endif %} 
+                        <li>
+                            <a href="?controller=Consultas&action=updateConsulta&idConsulta={{ consulta.idConsulta }}">Update</a>
+                        </li>
+                        <li class="divider"></li>
+
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="divider divider-margin"></div>
+
+    <div class="paginacionDiv">
+        <ul class="pagination center-align">
+            <li class="disabled pagination-back"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            {% for i in range(0, (consultasCant // elementos)) %}
+                <li class="pagination-li waves-effect"><a href="#!">{{ loop.index }}</a></li>
+            {% endfor %}
+            <li class="pagination-next"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+    </div>
+
+{% endif %} <!-- Del noResults -->
+
+</section>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large waves-effect waves-light icon-cyan" href="?controller=Consultas&action=newConsulta&idPaciente={{paciente.idPaciente}}">
+             <i class="large material-icons">add</i>
+        </a>
+    </div>
+
+
+{% include '/consultas/modals.html.twig' %}
+
+{% endblock %}

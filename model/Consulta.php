@@ -2,7 +2,7 @@
     require_once './model/Paciente.php';
     
     class Consulta {
-        public $idConsulta, $idPaciente, $edad, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario;
+        public $idConsulta, $idPaciente,$fecha, $edad, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario;
 
         public static function getConsulta($idConsulta) {
             $connection = Connection::getInstance();
@@ -11,7 +11,7 @@
             $query->execute(array($idConsulta));
             
             if ($query->rowCount() == 1) {
-                return (new Paciente($query->fetch(PDO::FETCH_ASSOC)));
+                return (new Consulta($query->fetch(PDO::FETCH_ASSOC)));
             }
             return false;
         }
@@ -21,8 +21,9 @@
         }
 
         public function baseBuild($array) {
-            $this ->idPaciente = $array['idConsulta'];
+            $this ->idConsulta = $array['idConsulta'];
             $this ->idPaciente = $array['idPaciente'];
+            $this ->fecha = $array['fecha'];
             $this ->peso = $array['peso'];
             $this ->vacunas_completas = $array['vacunas_completas'];
             $this ->vacunas_obs =  $array['vacunas_obs'];
@@ -36,14 +37,15 @@
             $this ->obs_grales = $array['obs_grales'];
             $this ->talla = $array['talla'];
             $this ->usuario = $array['usuario'];
-            $this ->edad = (Paciente::getPaciente($this ->idPaciente))->edad();
+            $this ->edad = 30;
+            /* (Paciente::getPaciente($this ->idPaciente))->edad() */
         }
        
-        public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario) {
+        public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc,  $talla, $alimentacion, $obs_grales, $usuario) {
             $connection = Connection::getInstance();
 
            $query = $connection->prepare("INSERT INTO consulta (idPaciente, peso, vacunas_completas, vacunas_obs, maduracion_acorde, maduracion_obs, examen_fisico_normal, examen_fisico_obs, pc, ppc, alimentacion, obs_grales, talla, usuario) 
-            VALUES (:idPaciente, :peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario, :idTipoCalefaccion, :idTipoAgua)");
+                                                         VALUES (:idPaciente,:peso, :vacunas_completas, :vacunas_obs, :maduracion_acorde, :maduracion_obs, :examen_fisico_normal, :examen_fisico_obs, :pc, :ppc, :alimentacion, :obs_grales, :talla, :usuario)");
            
            $query->execute(array('idPaciente' => $idPaciente,
                 ':peso' => $peso, 
@@ -63,10 +65,10 @@
             return $query->rowCount() == 1;
         }
     
-        public static function updateConsulta($idConsulta, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario,, ) {
+        public static function updateConsulta($idConsulta, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $talla, $alimentacion, $obs_grales ) {
             $connection = Connection::getInstance();
             
-            $query = $connection->prepare("UPDATE consulta SET peso=:peso, vacunas_completas=:vacunas_completas, vacunas_obs=:vacunas_obs, maduracion_acorde=:maduracion_acorde, maduracion_obs=:maduracion_obs, examen_fisico_normal=:examen_fisico_normal, examen_fisico_obs=:examen_fisico_obs, pc=:pc, ppc=:ppc, alimentacion=:alimentacion, obs_grales=:obs_grales, talla=:talla, usuario=:usuario WHERE idConsulta=:idConsulta");
+            $query = $connection->prepare("UPDATE consulta SET peso=:peso, vacunas_completas=:vacunas_completas, vacunas_obs=:vacunas_obs, maduracion_acorde=:maduracion_acorde, maduracion_obs=:maduracion_obs, examen_fisico_normal=:examen_fisico_normal, examen_fisico_obs=:examen_fisico_obs, pc=:pc, ppc=:ppc, alimentacion=:alimentacion, obs_grales=:obs_grales, talla=:talla WHERE idConsulta=:idConsulta");
             $query->execute(array(':peso' => $peso, 
                                     ':vacunas_completas' => $vacunas_completas, 
                                     ':idConsulta' => $idConsulta, 
@@ -78,7 +80,6 @@
                                     ':pc' => $pc, 
                                     ':ppc' => $ppc, 
                                     ':alimentacion' => $alimentacion, 
-                                    ':usuario' => $usuario, 
                                     ':obs_grales' => $obs_grales, 
                                     ':talla' => $talla));
             return $query->rowCount() == 1;
@@ -95,7 +96,7 @@
         }
 
         /* para borrar la historia clinica de un paciente */
-        public static function deleteHitoria($idPaciente) {
+        public static function deleteHistoria($idPaciente) {
             $connection = Connection::getInstance();
     
             $query = $connection->prepare("DELETE FROM consulta WHERE idPaciente=?");
