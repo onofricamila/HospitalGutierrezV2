@@ -37,7 +37,9 @@
             $this ->obs_grales = $array['obs_grales'];
             $this ->talla = $array['talla'];
             $this ->usuario = $array['usuario'];
-            $this ->edad = 30;
+            
+            $paciente = Paciente::getPaciente( $this ->idPaciente);
+            $this ->edad = $paciente->edad();
             /* (Paciente::getPaciente($this ->idPaciente))->edad() */
         }
        
