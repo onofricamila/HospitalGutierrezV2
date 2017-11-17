@@ -112,7 +112,7 @@
                         }
                     }
 
-                    self::sendMessage($chatId, $msg);
+                    self::sendMessage($chatId, $params);
                     break;
                 default:
                     $msg['text'] = 'Lo siento, no es un comando válido.'.PHP_EOL;
