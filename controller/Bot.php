@@ -93,7 +93,7 @@
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
-                    $var = file_get_contents('http://localhost/API.php/turnos/'.$params);
+                    $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$params);
                     $decoded = json_decode($var);
 
                     if ($decoded->error) {
