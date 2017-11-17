@@ -51,8 +51,12 @@
                                        <span>  {{ consulta.obs_grales }} </span>
                         {% endif %}
                         </p>
-                        <p style="display: none;">{{ consulta.nombre }}</p>
-                        <p style="display: none;">{{ consulta.apellido }}
+                        <p>Pediatra/Administrador:
+                        {% for usuario in usuarios %}
+                            {% if usuario.id == consulta.usuario %}
+                                     {{usuario.last_name}}, {{usuario.first_name}}
+                            {% endif %}
+                        {% endfor %}
                         </p>
                 
                     </div>

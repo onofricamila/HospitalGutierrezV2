@@ -28,6 +28,7 @@
             $context['javascripts'] = ['/public/js/users.js', '/public/js/consultas.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - Index';
             $context['titulo'] = 'consultas';            
+            $context['usuarios'] = User::all();            
             $context['paciente'] = Paciente::getPaciente($idPaciente);
             
             if ($allConsulta = consulta::all($_GET['idPaciente'])) {
