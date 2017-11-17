@@ -111,6 +111,10 @@
                 case '/turnos':
                     $params = explode(" ", $params);
 
+                    if ($paramsError = count($params) != 1) {
+                        $msg['text'] = 'El formato del comando /turnos es "/turnos dd-mm-yyyy".';
+                    }
+
                     $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$params[0]);
                     $decoded = json_decode($var);
 
