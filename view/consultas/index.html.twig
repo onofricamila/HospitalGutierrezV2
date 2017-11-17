@@ -36,8 +36,14 @@
                     <div class="contenido-card">
                         <p style="display: none;">{{ consulta.idconsulta }}</p>
                         <p>Edad: {{consulta.edad}}  </p>
-                        <p>Talla: {{consulta.talla}} </p>
                         <p>Peso: {{consulta.peso}} </p>
+                         <p>Talla: 
+                        {% if ( consulta.talla == null or  consulta.talla == 0)  %}
+                                        <span> - - - </span>
+                        {% else %}
+                                       <span>  {{ consulta.talla }} </span>
+                        {% endif %}
+                        </p>
                         <p>Observciones: 
                         {% if ( consulta.obs_grales == null)  %}
                                         <span> - - - </span>
@@ -46,7 +52,9 @@
                         {% endif %}
                         </p>
                         <p style="display: none;">{{ consulta.nombre }}</p>
-                        <p style="display: none;">{{ consulta.apellido }}</p>
+                        <p style="display: none;">{{ consulta.apellido }}
+                        </p>
+                
                     </div>
                 </div>
 
