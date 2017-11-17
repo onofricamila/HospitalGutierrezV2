@@ -101,9 +101,9 @@
                     $decoded = json_decode($var);
 
                     if ($decoded->error && !$paramsError) {
-                        $msg['text'] = $decoded->content;
+                        $msg['text'] = str_replace(':', '-', substr($hora, 0, -3));
                     } elseif (!$paramsError) {
-                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
+                        $msg['text'] = 'Te confirmamos el turno para las : '.str_replace(':', '-', substr($hora, 0, -3));
                     }
 
                     self::sendMessage($chatId, $msg);
