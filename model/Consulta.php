@@ -65,12 +65,11 @@
             return $query->rowCount() == 1;
         }
     
-        public static function updateConsulta($idConsulta, $fecha, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $alimentacion, $obs_grales, $talla, $usuario ) {
+        public static function updateConsulta($idConsulta, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $talla, $alimentacion, $obs_grales ) {
             $connection = Connection::getInstance();
             
-            $query = $connection->prepare("UPDATE consulta SET fecha=:fecha,peso=:peso, vacunas_completas=:vacunas_completas, vacunas_obs=:vacunas_obs, maduracion_acorde=:maduracion_acorde, maduracion_obs=:maduracion_obs, examen_fisico_normal=:examen_fisico_normal, examen_fisico_obs=:examen_fisico_obs, pc=:pc, ppc=:ppc, alimentacion=:alimentacion, obs_grales=:obs_grales, talla=:talla, usuario=:usuario WHERE idConsulta=:idConsulta");
+            $query = $connection->prepare("UPDATE consulta SET peso=:peso, vacunas_completas=:vacunas_completas, vacunas_obs=:vacunas_obs, maduracion_acorde=:maduracion_acorde, maduracion_obs=:maduracion_obs, examen_fisico_normal=:examen_fisico_normal, examen_fisico_obs=:examen_fisico_obs, pc=:pc, ppc=:ppc, alimentacion=:alimentacion, obs_grales=:obs_grales, talla=:talla WHERE idConsulta=:idConsulta");
             $query->execute(array(':peso' => $peso, 
-                                    ':fecha' => $fecha, 
                                     ':vacunas_completas' => $vacunas_completas, 
                                     ':idConsulta' => $idConsulta, 
                                     ':vacunas_obs' => $vacunas_obs, 
@@ -81,7 +80,6 @@
                                     ':pc' => $pc, 
                                     ':ppc' => $ppc, 
                                     ':alimentacion' => $alimentacion, 
-                                    ':usuario' => $usuario, 
                                     ':obs_grales' => $obs_grales, 
                                     ':talla' => $talla));
             return $query->rowCount() == 1;

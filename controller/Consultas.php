@@ -188,14 +188,17 @@
         public function updateConsulta(){
         
             AppController::allowed('consulta_update');
+            $consulta = Consulta::getConsulta($_GET['idConsulta']);
+            $paciente = Paciente::getPaciente($consulta->idPaciente);
 
             $context = [];
             
             $context['stylesheets'] = ['/public/css/pacientes.css'];
-            $context['javascripts'] = ['/public/js/consultas.js', '/public/js/validacion.js'];
+            $context['javascripts'] = ['/public/js/pacientes.js','/public/js/consultas.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Consultas - Update';
             $context['titulo'] = 'Actualizar consulta';
-            $context['consulta'] =  consulta::getConsulta($_GET['idConsulta']);
+            $context['consulta'] = $consulta ;
+            $context['paciente'] = $paciente ;
 
             $path = '/consultas/update.html.twig';
             
@@ -203,36 +206,75 @@
             die;
         }
 
-        public function auxUpdateconsulta() { /*
-            if ((!isset($_POST['apellido']) || ($apellido = trim($_POST['apellido'])) == "")
-            || (!isset($_POST['nombre']) || ($nombre = trim($_POST['nombre'])) == "")
-            || (!isset($_POST['fecha_nacimiento']) || ($fecha_nacimiento = trim($_POST['fecha_nacimiento'])) == "")
-            || (!isset($_POST['idGenero']) || ($idGenero = trim($_POST['idGenero'])) == "")
-            || (!isset($_POST['idTipoDoc']) || ($idTipoDoc = trim($_POST['idTipoDoc'])) == "")
-            || (!isset($_POST['dni']) || ($dni = trim($_POST['dni'])) == "")
-            || (!isset($_POST['domicilio']) || ($domicilio = trim($_POST['domicilio'])) == "")
-            || (!isset($_POST['heladera']) || ($heladera = trim($_POST['heladera'])) == "")
-            || (!isset($_POST['electricidad']) || ($electricidad = trim($_POST['electricidad'])) == "")
-            || (!isset($_POST['mascota']) || ($mascota =trim($_POST['mascota'])) == "")
-            || (!isset($_POST['idTipoVivienda']) || ($idTipoVivienda =trim($_POST['idTipoVivienda'])) == "")
-            || (!isset($_POST['idTipoCalefaccion']) || ($idTipoCalefaccion =trim($_POST['idTipoCalefaccion'])) == "")
-            || (!isset($_POST['idTipoAgua'])) || ($idTipoAgua = trim($_POST['idTipoAgua'])) == "")
-            {
+        public function auxUpdateconsulta() { 
+            $idPaciente = $_POST['idPaciente'];
+            $idConsulta = $_POST['idConsulta'];
+
+            var_dump($_POST['peso']);
+            var_dump($_POST['vacunas_completas']);
+            var_dump($_POST['vacunas_obs']);
+            var_dump($_POST['examen_fisico_normal']);
+            var_dump($_POST['examen_fisico_obs']);
+            var_dump($_POST['maduracion_acorde']);
+            var_dump($_POST['maduracion_obs']);
+            var_dump($_POST['idPaciente']);
+            echo "<br>Hasta aca lo obligatorio<br>";
+            var_dump($_POST['pc']);
+            var_dump($_POST['ppc']);
+            var_dump($_POST['talla']);
+            var_dump($_POST['alimentacion']);
+            var_dump($_POST['obs_grales']);
+
+            if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
+            || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
+            || (!isset($_POST['vacunas_obs']) || ($vacunas_obs = trim($_POST['vacunas_obs'])) == "")
+            || (!isset($_POST['examen_fisico_normal']) || ($examen_ficico_normal = trim($_POST['examen_fisico_normal'])) == "")
+            || (!isset($_POST['examen_fisico_obs']) || ($examen_fisico_obs = trim($_POST['examen_fisico_obs'])) == "")
+            || (!isset($_POST['maduracion_acorde']) || ($maduracion_acorde = trim($_POST['maduracion_acorde'])) == "")
+            || (!isset($_POST['maduracion_obs']) || ($maduracion_obs = trim($_POST['maduracion_obs'])) == "")
+            ){
                 AppController::req_fields();
                 
             }
-
-            $idconsulta = $_POST['idconsulta'];
-            $telefono = trim($_POST['telefono']);
-            if(!isset($_POST['idObraSocial'])){
-                $idObraSocial = 3;
+           
+            if(!isset($_POST['pc'])){
+                $pc = NULL;
             }
             else{
-                $idObraSocial = trim($_POST['idObraSocial']);
+                $pc = trim($_POST['pc']);
             }
 
-            consulta::updateconsulta($idconsulta, $apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
-            $this->index(); */
-        } 
+            if(!isset($_POST['ppc'])){
+                $ppc = NULL;
+            }
+            else{
+                $ppc = trim($_POST['ppc']);
+            }
+
+            if(!isset($_POST['talla'])){
+                $talla = NULL;
+            }
+            else{
+                $talla = trim($_POST['talla']);
+            }
+
+            if(!isset($_POST['alimentacion'])){
+                $alimentacion = NULL;
+            }
+            else{
+                $alimentacion = trim($_POST['alimentacion']);
+            }
+
+            if(!isset($_POST['obs_grales'])){
+                $obs_grales = NULL;
+            }
+            else{
+                $obs_grales = trim($_POST['obs_grales']);
+            }
+
+
+            Consulta::updateConsulta($idConsulta, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_ficico_normal, $examen_fisico_obs, $pc, $ppc, $talla, $alimentacion, $obs_grales);
+            header("Location: index.php?controller=consultas&action=index&idPaciente=$idPaciente"); 
+        }
     }
 ?>
