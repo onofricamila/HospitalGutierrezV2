@@ -40,7 +40,8 @@
             
             $paciente = Paciente::getPaciente( $this ->idPaciente);
             $this ->edad = $paciente->edad();
-            /* (Paciente::getPaciente($this ->idPaciente))->edad() */
+            var_dump($this ->edad);
+            die;
         }
        
         public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc,  $talla, $alimentacion, $obs_grales, $usuario) {
