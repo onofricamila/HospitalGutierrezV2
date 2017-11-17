@@ -30,7 +30,7 @@ class TurnosController
         require_once 'model/Horario.php';
         $lastTurno = Horario::last();
         $lastTurnoTime = strtotime($lastTurno->comienzo);
-        if ($fechaTime == $todayTime && $currentTime >= $lastTurnoTime) {
+        if ($fechaTime == $todayTime && $nowTime >= $lastTurnoTime) {
             return $this->badDate('La fecha seleccionada es la de hoy y ya comenzo el ultimo turno del dia.');
         }
 
@@ -45,14 +45,14 @@ class TurnosController
             }
         }
 
-        return json_encode($libres);
+        return $this->response(false, $libres);
     }
 
-    private function error($type, $msg)
+    private function response($type, $msg)
     {
-        require_once 'JsonError.php';
-        $error = new JsonError($type, $msg);
-        return json_encode($error);
+        require_once 'ApiResponse.php';
+        $response = new ApiResponse($type, $msg);
+        return json_encode($response);
     }
 
     public function newTurno($dni, $fecha, $hora)
@@ -86,7 +86,7 @@ class TurnosController
         $match = preg_match($pattern, $fecha);
 
         if (!$match) {
-            return $this->error('DateError', 'Formato de fecha invalido. Formato aceptado: dd-mm-yyyy');
+            return $this->response('DateError', 'Formato de fecha invalido. Formato aceptado: dd-mm-yyyy');
         }
         return false;
     }
@@ -96,7 +96,7 @@ class TurnosController
         $match = preg_match($pattern, $dni);
 
         if (!$match) {
-            return $this->error('DniError', 'Formato de dni invalido. Formato aceptado: 8 digitos');
+            return $this->response('DniError', 'Formato de dni invalido. Formato aceptado: 8 digitos');
         }
         return false;
     }
@@ -106,7 +106,7 @@ class TurnosController
         $match = preg_match($pattern, $hora);
 
         if (!$match) {
-            return $this->error('TimeError', 'Formato de hora invalido. Formato aceptado: hh-mm, de 08-00 a 19-30');
+            return $this->response('TimeError', 'Formato de hora invalido. Formato aceptado: hh-mm, de 08-00 a 19-30');
         }
         return false;
     }
