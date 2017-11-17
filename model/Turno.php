@@ -4,6 +4,8 @@ class Turno
     public $idTurno;
     public $idHorario;
     public $fecha;
+    public $dni;
+    public $comienzo;
 
     public static function id($id)
     {
@@ -36,9 +38,9 @@ class Turno
             $query->setFetchMode(PDO::FETCH_CLASS, 'Turno');
 
             while ($turno = $query->fetch()) {
-                $turnos[] = $turno;
+                $turnos[$turno->idHorario] = $turno;
             }
-            return $turno;
+            return $turnos;
         }
         return false;
     }
@@ -74,10 +76,24 @@ class Turno
             $query->setFetchMode(PDO::FETCH_CLASS, 'Turno');
 
             while ($turno = $query->fetch()) {
-                $turnos[] = $turno;
+                $turnos[$turno->fecha][$turno->idHorario] = $turno;
             }
-            return $turno;
+            return $turnos;
         }
         return false;
+    }
+
+    public static function reservar($dni, $idHorario, $fecha)
+    {
+        $connection = Connection::getInstance();
+
+        $query = $connection->prepare("INSERT INTO `turnos`(`idTurno`, `idHorario`, `fecha`, `dni`) VALUES (NULL, :idHorario, :fecha, :dni)");
+        $query->execute([
+            ':dni' => $dni,
+            ':idHorario' => $idHorario,
+            ':fecha' => $fecha
+        ]);
+
+        return $query->rowCount() == 1;
     }
 }

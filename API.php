@@ -1,18 +1,34 @@
 <?php
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
+require_once 'Connection.php';          // Database controller
+require_once 'controller/Twig.php';     // TwigController
 
-$app = new \Slim\App;
+$config['displayErrorDetails'] = true;
+$config['addContentLengthHeader'] = false;
+
+$app = new \Slim\App(["settings" => $config]);
 $app->get('/turnos/{fecha}', function ($request, $response, $args) {
-    $pattern = '/(^(((0[1-9]|1[0-9]|2[0-8])[-](0[1-9]|1[012]))|((29|30|31)[-](0[13578]|1[02]))|((29|30)[-](0[4,6,9]|11)))[-](19|[2-9][0-9])\d\d$)|(^29[-]02[-](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)/';
-    $match = preg_match($pattern, $args['fecha']);
+    require_once 'controller/Turnos.php';
 
+    $fecha = $request->getAttribute('fecha');
+    $controller = TurnosController::getInstance();
 
-    return $response->write(var_dump($args));
+    return $response->write($controller->getTurnos($fecha));
 });
 $app->get('/turnos/{dni}/fecha/{fecha}/hora/{hora}', function ($request, $response, $args) {
-    return $response->write(var_dump($args));
+    require_once 'controller/Turnos.php';
+
+    $dni = $request->getAttribute('dni');
+    $fecha = $request->getAttribute('fecha');
+    $hora = $request->getAttribute('hora');
+
+    $controller = TurnosController::getInstance();
+
+    return $response->write($controller->newTurno($dni, $fecha, $hora));
 });
 $app->run();

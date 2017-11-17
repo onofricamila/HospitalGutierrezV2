@@ -83,17 +83,53 @@
                     $msg['text'] = 'Los comandos disponibles son estos:'.PHP_EOL;
                     $msg['text'] .= '/start Inicializa el bot'.PHP_EOL;
                     $msg['text'] .= '/turnos dd-mm-aaaa Muestra los turnos disponibles del día'.PHP_EOL;
-                    $msg['text'] .= '/reservar dd-mm-aaaa hh:mm Realiza la reserva del turno'.PHP_EOL;
+                    $msg['text'] .= '/reservar dni dd-mm-aaaa hh-mm Realiza la reserva del turno'.PHP_EOL;
                     $msg['text'] .= '/help Muestra esta ayuda flaca';
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/reservar':
-                    $msg['text'] = 'Te confirmamos el turno para:'.PHP_EOL;
-                    $msg['text'] .= '10:30'.PHP_EOL;
+                    $params = explode(" ", $params);
+
+                    if ($paramsError = count($params) != 3) {
+                        $msg['text'] = 'El formato del comando /reservar es "/reservar dni dd-mm-yyyy hh-mm".';
+                    }
+                    $dni = $params[0];
+                    $fecha = $params[1];
+                    $hora = $params[2];
+
+                    $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$dni.'/fecha/'.$fecha.'/hora/'.$hora);
+                    $decoded = json_decode($var);
+
+                    if ($decoded->error && !$paramsError) {
+                        $msg['text'] = $decoded->content;
+                    } elseif (!$paramsError) {
+                        $msg['text'] = 'Te confirmamos el turno para las : '.str_replace(':', '-', substr($decoded->content, 0, -3));
+                    }
+
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
-                    $msg['text'] = 'Los turnos disponibles son: 10:30 | 11:45 | 15:15';
+                    $params = explode(" ", $params);
+
+                    $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$params[0]);
+                    $decoded = json_decode($var);
+
+                    if ($decoded->error) {
+                        $msg['text'] = $decoded->content;
+                    } else {
+                        $msg['text'] = 'Los turnos disponibles son: ';
+
+                        $first = true;
+                        foreach ($decoded->content as $hora) {
+                            if (!$first) {
+                                $msg['text'] .= ' | ';
+                            } else {
+                                $first = false;
+                            }
+                            $msg['text'] .= str_replace(':', '-', substr($hora, 0, -3));
+                        }
+                    }
+
                     self::sendMessage($chatId, $msg);
                     break;
                 default:
