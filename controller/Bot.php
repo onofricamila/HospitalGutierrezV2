@@ -83,7 +83,7 @@
                     $msg['text'] = 'Los comandos disponibles son estos:'.PHP_EOL;
                     $msg['text'] .= '/start Inicializa el bot'.PHP_EOL;
                     $msg['text'] .= '/turnos dd-mm-aaaa Muestra los turnos disponibles del día'.PHP_EOL;
-                    $msg['text'] .= '/reservar dd-mm-aaaa hh:mm Realiza la reserva del turno'.PHP_EOL;
+                    $msg['text'] .= '/reservar dni dd-mm-aaaa hh-mm Realiza la reserva del turno'.PHP_EOL;
                     $msg['text'] .= '/help Muestra esta ayuda flaca';
                     self::sendMessage($chatId, $msg);
                     break;
@@ -101,9 +101,9 @@
                     $decoded = json_decode($var);
 
                     if ($decoded->error && !$paramsError) {
-                        $msg['text'] = str_replace(':', '-', substr($hora, 0, -3));
+                        $msg['text'] = $decoded->content;
                     } elseif (!$paramsError) {
-                        $msg['text'] = 'Te confirmamos el turno para las : '.str_replace(':', '-', substr($hora, 0, -3));
+                        $msg['text'] = 'Te confirmamos el turno para las : '.$decoded->content;
                     }
 
                     self::sendMessage($chatId, $msg);
