@@ -93,7 +93,7 @@
                     self::sendMessage($chatId, $msg);
                     break;
                 case '/turnos':
-                    $var = file_get_contents('http://localhost/api.php/turnos/16-11-2017');
+                    $var = file_get_contents('http://localhost/API.php/turnos/16-11-2017');
                     $decoded = json_decode($var);
 
                     if ($decoded->error) {
