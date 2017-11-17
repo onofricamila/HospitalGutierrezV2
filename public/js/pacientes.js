@@ -148,6 +148,7 @@ $(document).ready(function() {
 /* para el date picker */
 $(document).ready(function() {
     $('.datepicker').pickadate({
+    format: 'yyyy/mm/dd', // change the string sentence format to the provided
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 70, // Creates a dropdown of 70 years to control year,
     clear: 'Clear',
