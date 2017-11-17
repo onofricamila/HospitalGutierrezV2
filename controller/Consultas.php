@@ -1,4 +1,5 @@
 <?php
+    require_once './controller/Pacientes.php';
     require_once './model/Consulta.php';
     require_once './model/Paciente.php';
     require_once './model/User.php';
