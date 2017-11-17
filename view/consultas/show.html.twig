@@ -54,7 +54,7 @@
                     <div id="test-swipe-2" class="col s12">
                         <ul class="collection">
                                 <li class="collection-item">Percentilo Cefálico:
-                                {% if (consulta.pc == null)  %}
+                                {% if (consulta.pc == null or consulta.pc == 0)  %}
                                     <span> - - - </span>
                                 {% else %}
                                     <span> {{consulta.pc}} </span>
@@ -62,7 +62,7 @@
                                 </li>
                                 
                                 <li class="collection-item">Percentilo Perímetro Cefálico:
-                                {% if (consulta.ppc == null)  %}
+                                {% if (consulta.ppc == null or consulta.ppc == 0)  %}
                                     <span> - - - </span>
                                 {% else %}
                                     <span> {{consulta.ppc}} </span>
@@ -70,7 +70,7 @@
                                 </li>
                                 
                                 <li class="collection-item">Talla:
-                                {% if (consulta.talla == null)  %}
+                                {% if (consulta.talla == null or consulta.talla == 0)  %}
                                     <span> - - - </span>
                                 {% else %}
                                     <span> {{consulta.talla}} mts</span>
