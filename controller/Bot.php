@@ -113,7 +113,7 @@
                         }
                     }
                     */
-                    $msg['text'] = json_encode($params);
+                    $msg['text'] = $params;
 
                     self::sendMessage($chatId, $msg);
                     break;
