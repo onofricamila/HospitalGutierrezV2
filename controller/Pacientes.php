@@ -134,6 +134,7 @@
             }
 
             var_dump($fecha_nacimiento);
+            var_dump(strtotime($fecha_nacimiento));
             die;
             Paciente::newPaciente($apellido, $nombre, $fecha_nacimiento, $idGenero, $idTipoDoc, $dni, $telefono, $idObraSocial, $domicilio, $heladera, $electricidad, $mascota, $idTipoVivienda, $idTipoCalefaccion, $idTipoAgua);
             $this->index();
