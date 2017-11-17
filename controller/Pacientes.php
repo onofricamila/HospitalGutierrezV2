@@ -28,7 +28,7 @@
             $nombreTipo = [];
             $allTipoDoc= TipoDoc::all();
 
-            $context['stylesheets'] = ['/public/css/users.css', '/public/css/pacientes.css'];
+            $context['stylesheets'] = ['/public/css/users.css'];
             $context['javascripts'] = ['/public/js/users.js', '/public/js/pacientes.js', '/public/js/validacion.js'];
             $context['pagename'] = 'Pacientes - Index';
             $context['allTipoDoc'] =  $allTipoDoc;
