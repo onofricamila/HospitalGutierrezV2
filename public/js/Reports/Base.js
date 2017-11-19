@@ -89,6 +89,7 @@ function chart(id) {
             },
             spanGaps: true,
             maintainAspectRatio: true,
+            responsive: true,
         }
     });
 }
