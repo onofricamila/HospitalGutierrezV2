@@ -47,6 +47,14 @@
                 }
             }
 
+            for ($i=1; $i <= 13; $i++) {
+                if (!array_key_exists($i, $pcs)) {
+                    $pcs[$i] = null;
+                    $pesos[$i] = null;
+                    $tallas[$i] = null;
+                }
+            }
+
             if (!$ok) {
                 $this->noConsultas13();
                 die;
