@@ -196,15 +196,15 @@ function validateFormPac() {
  
     /* is empty? */
     if(empty(nombre) ){
-        alert('[ERROR] El campo requerido nombre tipo agua esta vacio.');
+        alert('[ERROR] El campo requerido nombre esta vacio.');
         return false;
    }
    if(empty(apellido) ){
-        alert('[ERROR] El campo requerido apellido tipo agua esta vacio.');
+        alert('[ERROR] El campo requerido apellido esta vacio.');
         return false;
    }
    if(empty(fecha_nacimiento) ){
-        alert('[ERROR] El campo requerido fecha de nacimiento tipo agua esta vacio.');
+        alert('[ERROR] El campo requerido fecha de nacimiento esta vacio.');
         return false;
    }
    if(empty(idGenero) ){
