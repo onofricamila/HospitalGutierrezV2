@@ -61,7 +61,7 @@
             function downloadPDF(id) {
                 var canvas = document.querySelector(id);
                 //creates image
-                var canvasImg = canvas.toDataURL("image/JPEG");
+                var canvasImg = canvas.toDataURL("image/PNG");
 
                 //creates PDF from img
                 var doc = new jsPDF('landscape');
@@ -73,7 +73,7 @@
                 names['#talla'] = 'Talla para la edad';
 
                 doc.text(15, 15, names[id]);
-                doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
+                doc.addImage(canvasImg, 'PNG', 10, 10, 280, 150);
                 doc.save('canvas.pdf');
             }
             $("#pcPDF").click(function() {
