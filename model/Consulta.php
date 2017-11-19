@@ -21,6 +21,7 @@
         public $talla;
         public $usuario;
         public $semanas;
+        public $paciente;
 
         public static function getConsulta($idConsulta)
         {
