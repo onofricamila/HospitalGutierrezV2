@@ -40,7 +40,7 @@
                         </div>
                     </td>
                     <td>
-                        <a href="?controller=Config&action=toggleMantenimiento">{% if mantenimiento %} {{ "Activado" }} {% else %} {{ "Desactivado" }} {% endif %}</a>
+                        <a data-target="modal4" class="modal-trigger" >{% if mantenimiento %} {{ "Presiona para activar sitio." }} {% else %} {{ "Presiona para desactivar sitio." }} {% endif %}</a>
                     </td>
                 </tr>
             </tbody>
@@ -84,4 +84,7 @@
 
     </form>
 </section>
+
+{% include '/config/modals.html.twig' %}
+
 {% endblock %}
