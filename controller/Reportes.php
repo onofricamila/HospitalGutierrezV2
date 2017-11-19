@@ -53,9 +53,9 @@
             }
 
             $datos = [
-                'PCs' => $pcs,
-                'Pesos' => $pesos,
-                'Tallas' => $tallas
+                'pc' => $pcs,
+                'peso' => $pesos,
+                'talla' => $tallas
             ];
 
             $context = [];

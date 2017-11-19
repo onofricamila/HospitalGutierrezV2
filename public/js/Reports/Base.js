@@ -3,6 +3,7 @@ function chart(id) {
     var rojo = 'rgb(255, 80, 72)';
     var amarillo = 'rgb(255, 161, 46)';
     var verde = 'rgb(56, 226, 148)';
+    var negro = 'rgb(0, 0, 0)';
     var borderWidth = 2;
 
     var ctx = document.getElementById(id).getContext('2d');
@@ -50,6 +51,14 @@ function chart(id) {
                     borderColor: rojo,
                     backgroundColor: rojo,
                     data: chartData[id]['dataset'][4],
+                    fill: false,
+                    borderWidth: borderWidth,
+                },
+                {
+                    label: "Paciente",
+                    borderColor: negro,
+                    backgroundColor: negro,
+                    data: chartData[id]['dataset'][5],
                     fill: false,
                     borderWidth: borderWidth,
                 }
