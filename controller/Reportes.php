@@ -35,12 +35,21 @@
             $pcs = [];
             $pesos = [];
             $tallas = [];
+            $ok = false;
 
             foreach ($consultas as $consulta) {
-                $genero = $consulta->paciente->idGenero;
-                $pcs[$consulta->semanas] = $consulta->pc;
-                $pesos[$consulta->semanas] = $consulta->peso;
-                $tallas[$consulta->semanas] = $consulta->talla;
+                if ($consulta->semanas <= 13) {
+                    $ok = true;
+                    $genero = $consulta->paciente->idGenero;
+                    $pcs[$consulta->semanas] = $consulta->pc;
+                    $pesos[$consulta->semanas] = $consulta->peso;
+                    $tallas[$consulta->semanas] = $consulta->talla;
+                }
+            }
+
+            if (!$ok) {
+                $this->noConsultas13();
+                die;
             }
 
             $datos = [
@@ -50,8 +59,27 @@
                 'Tallas' => $tallas
             ];
 
-            header('Content-Type: application/json');
-            echo json_encode($datos, JSON_PRETTY_PRINT);
+            $context = [];
+            $datajson = json_encode($datos, JSON_PRETTY_PRINT);
+            $path = '/reportes/index.twig';
+            /* use el mismo diseño que para mantain*/
+            $context['stylesheets'] = ['/public/css/reportes.css'];
+            $context['titulo'] = 'Reportes';
+            $context['data'] = $datajson;
+
+            TwigController::renderTwig($path, $context);
+            die;
+        }
+
+        public function noConsultas13()
+        {
+            $context = [];
+            $path = '/noWeeks13.twig';
+            /* use el mismo diseño que para mantain*/
+            $context['stylesheets'] = ['/public/css/noWeeks13.css'];
+            $context['titulo'] = 'Paciente invalido';
+
+            TwigController::renderTwig($path, $context);
             die;
         }
     }

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <body>
+        <script>
+            var data = {{ data }}
+        </script>
+
+        <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
+            <canvas height="450" width="400" id="myChart"></canvas>
+        </div>
+
+        <script src="node_modules\chart.js\dist\Chart.min.js"></script>
+        <script src="public/js/Reports/Ninos/Talla.js"></script>
+        <script src="public/js/Reports/Base.js"></script>
+    </body>
+{% endblock %}
