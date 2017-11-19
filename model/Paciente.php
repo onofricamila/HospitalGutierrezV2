@@ -36,7 +36,7 @@
 
         public function semanas($fecha)
         {
-            return datediffInWeeks($fecha, $this->fecha_nacimiento);
+            return $this->datediffInWeeks($fecha, $this->fecha_nacimiento);
         }
 
         public static function getPaciente($idPaciente)
