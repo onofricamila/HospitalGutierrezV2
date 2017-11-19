@@ -9,9 +9,14 @@
             chartData['talla'] = [];
         </script>
 
-        <button type="button" name="pcButton" id="pcButton">Perimetro Cefálico</button>
-        <button type="button" name="tallaButton" id="tallaButton">Talla</button>
-        <button type="button" name="pesoButton" id="pesoButton">Peso</button>
+        <div style="width: 440px; margin-left: auto; margin-right: auto;">
+            <br>
+            <button type="button" class=" btn waves-effect waves-light icon-cyan" name="pcButton" id="pcButton">Perimetro Cefálico</button>
+            <button type="button" class=" btn waves-effect waves-light icon-cyan" name="tallaButton" id="tallaButton">Talla</button>
+            <button type="button" class=" btn waves-effect waves-light icon-cyan" name="pesoButton" id="pesoButton">Peso</button>
+            <br>
+            <br>
+        </div>
 
         <div style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
             <div id="pcDiv">
@@ -24,8 +29,11 @@
             </div>
             <div id="pesoDiv" style="display: none;">
                 <canvas height="450" width="400" id="peso"></canvas>
-                <button type="button" id="pesoPDF">Descargar como PDF</button>
+                <button type="button" id="pesoPDF" >Descargar como PDF</button>
             </div>
+            <br>
+            <br>
+            <br>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>

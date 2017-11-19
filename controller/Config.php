@@ -59,7 +59,7 @@ class ConfigController {
         $context['mantenimiento'] = $this->mantenimiento();
         $path = '/config/admin.html.twig';
         $context['stylesheets'] = ['/public/css/config-admin.css'];
-        $context['javascripts'] = ['/public/js/config-admin.js', '/public/js/validacion.js'];
+        $context['javascripts'] = ['/public/js/config-admin.js','/public/js/pacientes.js', '/public/js/validacion.js'];
         $context['titulo'] = 'Configuracion';
         TwigController::renderTwig($path, $context);
         die;
