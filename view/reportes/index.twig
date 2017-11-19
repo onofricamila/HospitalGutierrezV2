@@ -15,14 +15,8 @@
 
         <div id="pcDiv" style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
             <canvas height="450" width="400" id="pc"></canvas>
-        </div>
-
-        <div id="pesoDiv" style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
-            <canvas height="450" width="400" id="peso"></canvas>
-        </div>
-
-        <div id="tallaDiv" style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
-            <canvas height="450" width="400" id="talla"></canvas>
+            <canvas height="450" width="400" id="talla" style="display: none;"></canvas>
+            <canvas height="450" width="400" id="peso" style="display: none;"></canvas>
         </div>
 
         <script src="node_modules\chart.js\dist\Chart.min.js"></script>
@@ -35,19 +29,19 @@
             chart('peso');
             chart('talla');
             $("#pcButton").click(function() {
-                $("#pcDiv").show();
-                $("#pesoDiv").hide();
-                $("#tallaDiv").hide();
+                $("#pc").show();
+                $("#peso").hide();
+                $("#talla").hide();
             });
             $("#pesoButton").click(function() {
-                $("#pcDiv").hide();
-                $("#pesoDiv").show();
-                $("#tallaDiv").hide();
+                $("#pc").hide();
+                $("#peso").show();
+                $("#talla").hide();
             });
             $("#tallaButton").click(function() {
-                $("#pcDiv").hide();
-                $("#pesoDiv").hide();
-                $("#tallaDiv").show();
+                $("#pc").hide();
+                $("#peso").hide();
+                $("#talla").show();
             });
         </script>
     </section>
