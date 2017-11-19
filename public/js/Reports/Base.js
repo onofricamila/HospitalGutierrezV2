@@ -1,4 +1,9 @@
 var weeks = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
+var rojo = 'rgb(255, 80, 72)';
+var amarillo = 'rgb(255, 161, 46)';
+var verde = 'rgb(56, 226, 148)';
+var borderWidth = 2;
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
     // The type of chart we want to create
@@ -9,43 +14,43 @@ var chart = new Chart(ctx, {
         labels: weeks,
         datasets: [{
                 label: "P3",
-                borderColor: 'rgb(255, 153, 148)',
-                backgroundColor: 'rgb(255, 153, 148)',
+                borderColor: rojo,
+                backgroundColor: rojo,
                 data: data[0],
                 fill: false,
-                borderWidth: 1,
+                borderWidth: borderWidth,
             },
             {
                 label: "P15",
-                borderColor: 'rgb(255, 207, 148)',
-                backgroundColor: 'rgb(255, 207, 148)',
+                borderColor: amarillo,
+                backgroundColor: amarillo,
                 data: data[1],
                 fill: false,
-                borderWidth: 1,
+                borderWidth: borderWidth,
             },
             {
                 label: "P50",
-                borderColor: 'rgb(94, 255, 183)',
-                backgroundColor: 'rgb(94, 255, 183)',
+                borderColor: verde,
+                backgroundColor: verde,
                 data: data[2],
                 fill: false,
-                borderWidth: 1,
+                borderWidth: borderWidth,
             },
             {
                 label: "P85",
-                borderColor: 'rgb(255, 207, 148)',
-                backgroundColor: 'rgb(255, 207, 148)',
+                borderColor: amarillo,
+                backgroundColor: amarillo,
                 data: data[3],
                 fill: false,
-                borderWidth: 1,
+                borderWidth: borderWidth,
             },
             {
                 label: "P97",
-                borderColor: 'rgb(255, 153, 148)',
-                backgroundColor: 'rgb(255, 153, 148)',
+                borderColor: rojo,
+                backgroundColor: rojo,
                 data: data[4],
                 fill: false,
-                borderWidth: 1,
+                borderWidth: borderWidth,
             }
         ]
     },
@@ -62,9 +67,14 @@ var chart = new Chart(ctx, {
             xAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: 'Semana'
+                    labelString: 'Edad (semanas)'
                 }
             }]
+        },
+        title: {
+            display: true,
+            text: title
         }
+
     }
 });
