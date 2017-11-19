@@ -103,7 +103,7 @@
                     if ($decoded->error && !$paramsError) {
                         $msg['text'] = $decoded->content;
                     } elseif (!$paramsError) {
-                        $msg['text'] = 'Turno reservado exitosamente. Nº de turno: '.$decode->content);
+                        $msg['text'] = 'Turno reservado exitosamente. Nº de turno: '.$decode->content;
                     }
 
                     self::sendMessage($chatId, $msg);
