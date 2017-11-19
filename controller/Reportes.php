@@ -43,24 +43,26 @@
                 $tallas[$i] = null;
             }
 
-            foreach ($consultas as $consulta) {
-                if ($consulta->semanas <= 13) {
-                    $ok = true;
-                    $genero = $consulta->paciente->idGenero;
-                    if ($consulta->pc == 0) {
-                        $consulta->pc = null;
+            if ($consultas) {
+                foreach ($consultas as $consulta) {
+                    if ($consulta->semanas <= 13) {
+                        $ok = true;
+                        $genero = $consulta->paciente->idGenero;
+                        if ($consulta->pc == 0) {
+                            $consulta->pc = null;
+                        }
+                        if ($consulta->peso == 0) {
+                            $consulta->peso = null;
+                        }
+                        if ($consulta->talla == 0) {
+                            $consulta->talla = null;
+                        } else {
+                            $consulta->talla = $consulta->talla * 100;
+                        }
+                        $pcs[$consulta->semanas - 1] = $consulta->pc;
+                        $pesos[$consulta->semanas - 1] = $consulta->peso;
+                        $tallas[$consulta->semanas - 1] = $consulta->talla;
                     }
-                    if ($consulta->peso == 0) {
-                        $consulta->peso = null;
-                    }
-                    if ($consulta->talla == 0) {
-                        $consulta->talla = null;
-                    } else {
-                        $consulta->talla = $consulta->talla * 100;
-                    }
-                    $pcs[$consulta->semanas - 1] = $consulta->pc;
-                    $pesos[$consulta->semanas - 1] = $consulta->peso;
-                    $tallas[$consulta->semanas - 1] = $consulta->talla;
                 }
             }
 
