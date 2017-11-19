@@ -37,7 +37,7 @@
             $tallas = [];
             $ok = false;
 
-            for ($i=1; $i <= 13; $i++) {
+            for ($i=0; $i <= 12; $i++) {
                 $pcs[$i] = null;
                 $pesos[$i] = null;
                 $tallas[$i] = null;
