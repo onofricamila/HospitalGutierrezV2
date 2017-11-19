@@ -3,9 +3,10 @@
     <section>
         <script>
             var datos = {{(data|json_encode|raw)}};
-            var chartData = [
-                'pc' : [], 'peso' : [], 'talla' : []
-            ];
+            var chartData = [];
+            chartData['pc'] = [];
+            chartData['peso'] = [];
+            chartData['talla'] = [];
         </script>
 
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
