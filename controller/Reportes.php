@@ -47,6 +47,15 @@
                 if ($consulta->semanas <= 13) {
                     $ok = true;
                     $genero = $consulta->paciente->idGenero;
+                    if ($consulta->pc == 0) {
+                        $consulta = null;
+                    }
+                    if ($consulta->peso == 0) {
+                        $consulta = null;
+                    }
+                    if ($consulta->talla == 0) {
+                        $consulta = null;
+                    }
                     $pcs[$consulta->semanas - 1] = $consulta->pc;
                     $pesos[$consulta->semanas - 1] = $consulta->peso;
                     $tallas[$consulta->semanas - 1] = $consulta->talla;
