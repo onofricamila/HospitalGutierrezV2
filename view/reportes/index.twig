@@ -2,7 +2,7 @@
 {% block body %}
     <section>
         <script>
-            var datos = {{data}};
+            var datos = {{(data|json_encode|raw)}};
             var chartData = [];
         </script>
 

@@ -65,12 +65,11 @@
                 $context['genero'] = 'Ninos';
             }
 
-            $datajson = htmlspecialchars_decode(json_encode($datos));
             $path = '/reportes/index.twig';
             /* use el mismo diseño que para mantain*/
             $context['stylesheets'] = ['/public/css/reportes.css'];
             $context['titulo'] = 'Reportes';
-            $context['data'] = $datajson;
+            $context['data'] = $datos;
 
             TwigController::renderTwig($path, $context);
             die;
