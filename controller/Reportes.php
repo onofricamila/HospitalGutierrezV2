@@ -32,7 +32,7 @@
 
             $consultas = Consulta::all($paciente);
 
-            echo json_encode($consultas);
+            echo json_encode($consultas, JSON_PRETTY_PRINT);
             die;
         }
     }
