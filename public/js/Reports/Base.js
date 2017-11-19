@@ -7,6 +7,8 @@ function chart(id) {
     var borderWidth = 2;
 
     var ctx = document.getElementById(id).getContext('2d');
+    ctx.height = 450;
+    ctx.width = 450;
     var chart = new Chart(ctx, {
         // The type of chart we want to create
         type: 'line',
