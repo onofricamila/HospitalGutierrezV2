@@ -35,13 +35,13 @@
 
                     <div class="contenido-card">
                         <p style="display: none;">{{ consulta.idconsulta }}</p>
-                        <p>Edad: {{consulta.edad}}  </p>
-                        <p>Peso: {{consulta.peso}} </p>
+                        <p>Edad: {{consulta.edad}} años </p>
+                        <p>Peso: {{consulta.peso}} kg</p>
                          <p>Talla: 
                         {% if ( consulta.talla == null or  consulta.talla == 0)  %}
                                         <span> - - - </span>
                         {% else %}
-                                       <span>  {{ consulta.talla }} </span>
+                                       <span>  {{ consulta.talla }} mts</span>
                         {% endif %}
                         </p>
                         <p>Observciones: 
