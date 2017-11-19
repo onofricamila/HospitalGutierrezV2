@@ -20,7 +20,7 @@ $app->get('/turnos/{fecha}', function ($request, $response, $args) {
 
     return $response->write($controller->getTurnos($fecha));
 });
-$app->get('/turnos/{dni}/fecha/{fecha}/hora/{hora}', function ($request, $response, $args) {
+$app->post('/turnos/{dni}/fecha/{fecha}/hora/{hora}', function ($request, $response, $args) {
     require_once 'controller/Turnos.php';
 
     $dni = $request->getAttribute('dni');
