@@ -43,7 +43,12 @@
                 $tallas[$consulta->semanas] = $consulta->talla;
             }
 
-            $datos = [$genero, $pcs, $pesos, $tallas];
+            $datos = [
+                'genero' => $genero,
+                'PCs' => $pcs,
+                'Pesos' => $pesos,
+                'Tallas' => $tallas
+            ];
 
             header('Content-Type: application/json');
             echo json_encode($datos, JSON_PRETTY_PRINT);
