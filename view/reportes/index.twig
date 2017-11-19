@@ -67,12 +67,6 @@
                 var doc = new jsPDF();
                 doc.setFontSize(20);
 
-                var names = [];
-                names['#pc'] = 'Perimetro Cefálico para la edad';
-                names['#peso'] = 'Peso para la edad';
-                names['#talla'] = 'Talla para la edad';
-
-                doc.text(15, 15, names[id]);
                 doc.addImage(canvasImg, 'PNG', 10, 10, 168, 150);
                 doc.save('canvas.pdf');
             }
