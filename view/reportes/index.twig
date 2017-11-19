@@ -73,6 +73,7 @@
                 names['#talla'] = 'Talla para la edad';
 
                 doc.text(15, 15, names[id]);
+                alert('Width: ' + canvas.width + '. Height: ' + canvas.height);
                 doc.addImage(canvasImg, 'PNG', 0, 0, canvas.width, canvas.height);
                 doc.save('canvas.pdf');
             }
