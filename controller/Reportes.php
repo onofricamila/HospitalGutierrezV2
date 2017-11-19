@@ -65,7 +65,7 @@
                 $context['genero'] = 'Ninos';
             }
 
-            $datajson = json_encode($datos, JSON_PRETTY_PRINT);
+            $datajson = json_encode($datos);
             $path = '/reportes/index.twig';
             /* use el mismo diseño que para mantain*/
             $context['stylesheets'] = ['/public/css/reportes.css'];
