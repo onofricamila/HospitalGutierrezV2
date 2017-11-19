@@ -84,8 +84,8 @@ function chart(id) {
             title: {
                 display: true,
                 text: chartData[id]['title']
-            }
-
+            },
+            spanGaps: true
         }
     });
 }
