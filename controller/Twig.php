@@ -32,9 +32,8 @@ class TwigController{
         $context['email'] = $config->email;
         $context['elementos'] = $config->elementos;
         $context['isLogged'] = AppController::isLogged();
-        /* lo de aca era para ver q links le muestro a quien */
-        $context['paciente_index'] = AppController::getInstance()->checkPermissions('paciente_index');
-        $context['paciente_new'] = AppController::getInstance()->checkPermissions('paciente_new');
+        /* lo de aca era para ver q links le muestro a quien en la navbar. Si tiene permiso de config entonces es admin ... */
+        $context['configuracion_index'] = AppController::getInstance()->checkPermissions('configuracion_index');
        
         $template = self::getInstance()->loadTemplate($path);
         echo $template->render($context);
