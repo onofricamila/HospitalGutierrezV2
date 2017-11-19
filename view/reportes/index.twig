@@ -61,7 +61,7 @@
             function downloadPDF(id) {
                 var canvas = document.querySelector(id);
                 //creates image
-                var canvasImg = canvas.toDataURL("image/png");
+                var canvasImg = canvas.toDataURL("image/JPEG");
 
                 //creates PDF from img
                 var doc = new jsPDF('landscape');
