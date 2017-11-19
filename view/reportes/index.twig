@@ -25,7 +25,9 @@
         <script src="public/js/Reports/{{ genero }}/Talla.js"></script>
         <script src="public/js/Reports/Base.js"></script>
         <script>
-            datos['pc'].forEach(function callback(currentValue, index, array) {});
+            chartData['pc'][5] = datos['pc'];
+            chartData['peso'][5] = datos['peso'];
+            chartData['talla'][5] = datos['talla'];
 
             chart('pc');
             chart('peso');
