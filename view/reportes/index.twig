@@ -9,14 +9,17 @@
             chartData['talla'] = [];
         </script>
 
+        <button type="button" name="Perimetro Cefálico" id="pcButton"></button>
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
             <canvas height="450" width="400" id="pc"></canvas>
         </div>
 
+        <button type="button" name="Peso" id="pesoButton"></button>
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
             <canvas height="450" width="400" id="peso"></canvas>
         </div>
 
+        <button type="button" name="Talla" id="tallaButton"></button>
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
             <canvas height="450" width="400" id="talla"></canvas>
         </div>
@@ -30,6 +33,21 @@
             chart('pc');
             chart('peso');
             chart('talla');
+            $("#pcButton").click(function() {
+                $("#pc").show();
+                $("#peso").hide();
+                $("#talla").hide();
+            });
+            $("#pesoButton").click(function() {
+                $("#pc").hide();
+                $("#peso").show();
+                $("#talla").hide();
+            });
+            $("#tallaButton").click(function() {
+                $("#pc").hide();
+                $("#peso").hide();
+                $("#talla").show();
+            });
         </script>
     </section>
 {% endblock %}
