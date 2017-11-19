@@ -55,6 +55,8 @@
                     }
                     if ($consulta->talla == 0) {
                         $consulta->talla = null;
+                    } else {
+                        $consulta->talla = $consulta->talla * 100;
                     }
                     $pcs[$consulta->semanas - 1] = $consulta->pc;
                     $pesos[$consulta->semanas - 1] = $consulta->peso;
