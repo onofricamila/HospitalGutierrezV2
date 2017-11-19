@@ -32,6 +32,7 @@
 
             $consultas = Consulta::all($paciente);
 
+            header('Content-Type: application/json');
             echo json_encode($consultas, JSON_PRETTY_PRINT);
             die;
         }
