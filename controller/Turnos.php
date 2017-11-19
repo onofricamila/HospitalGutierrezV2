@@ -85,7 +85,7 @@ class TurnosController
         $result = Turno::reservar($dni, $horario->idHorario, $fecha);
 
         if ($result) {
-            return $this->response(false, $hora);
+            return $this->response(false, $result->idTurno);
         } else {
             return $this->response(true, 'El turno ingresado ya fue reservado previamente.');
         }

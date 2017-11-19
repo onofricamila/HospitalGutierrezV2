@@ -94,6 +94,9 @@ class Turno
             ':fecha' => $fecha
         ]);
 
-        return $query->rowCount() == 1;
+        if ($query->rowCount() == 1) {
+            return Turno::horarioFecha($idHorario, $fecha);
+        }
+        return false;
     }
 }

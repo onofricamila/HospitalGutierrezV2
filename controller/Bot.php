@@ -97,13 +97,24 @@
                     $fecha = $params[1];
                     $hora = $params[2];
 
-                    $var = file_get_contents('https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$dni.'/fecha/'.$fecha.'/hora/'.$hora);
-                    $decoded = json_decode($var);
+                    $url = 'https://grupo46.proyecto2017.linti.unlp.edu.ar/API.php/turnos/'.$dni.'/fecha/'.$fecha.'/hora/'.$hora;
+
+                    // use key 'http' even if you send the request to https://...
+                    $options = array(
+                        'http' => array(
+                            'header'  => "Content-type: application/x-www-form-urlencoded",
+                            'method'  => 'POST',
+                        )
+                    );
+                    $context  = stream_context_create($options);
+                    $result = file_get_contents($url, false, $context);
+
+                    $decoded = json_decode($result);
 
                     if ($decoded->error && !$paramsError) {
                         $msg['text'] = $decoded->content;
                     } elseif (!$paramsError) {
-                        $msg['text'] = 'Turno reservado exitosamente. Nº de turno: '.$decode->content);
+                        $msg['text'] = 'Turno reservado exitosamente. Nº de turno: '.$decoded->content;
                     }
 
                     self::sendMessage($chatId, $msg);
