@@ -66,7 +66,13 @@
                 //creates PDF from img
                 var doc = new jsPDF('landscape');
                 doc.setFontSize(20);
-                doc.text(15, 15, "Cool Chart");
+
+                var names = [];
+                names['#pc'] = 'Perimetro Cefálico para la edad';
+                names['#peso'] = 'Peso para la edad';
+                names['#talla'] = 'Talla para la edad';
+
+                doc.text(15, 15, names[id]);
                 doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
                 doc.save('canvas.pdf');
             }
