@@ -59,9 +59,9 @@
             ];
 
             if ($genero == 1) {
-                $datos['genero'] = Ninas;
+                $datos['genero'] = 'Ninas';
             } else {
-                $datos['genero'] = Ninos;
+                $datos['genero'] = 'Ninos';
             }
 
             $context = [];
