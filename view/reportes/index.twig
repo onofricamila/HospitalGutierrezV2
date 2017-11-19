@@ -15,9 +15,7 @@
 
         <div style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
             <div id="pcDiv">
-                <div id="chartDiv" style="heigth: 450; width: 400;">
-                    <canvas height="450" width="400" id="pc"></canvas>
-                </div>
+                <canvas height="450" width="400" id="pc"></canvas>
                 <button type="button" id="pcPDF">Descargar como PDF</button>
             </div>
             <div id="tallaDiv" style="display: none;">
@@ -73,7 +71,7 @@
                 doc.save('canvas.pdf');
             }
             $("#pcPDF").click(function() {
-                downloadPDF('#chartDiv');
+                downloadPDF('#pc');
             });
             $("#tallaPDF").click(function() {
                 downloadPDF('#talla');
