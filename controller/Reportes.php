@@ -48,13 +48,13 @@
                     $ok = true;
                     $genero = $consulta->paciente->idGenero;
                     if ($consulta->pc == 0) {
-                        $consulta = null;
+                        $consulta->pc = null;
                     }
                     if ($consulta->peso == 0) {
-                        $consulta = null;
+                        $consulta->peso = null;
                     }
                     if ($consulta->talla == 0) {
-                        $consulta = null;
+                        $consulta->talla = null;
                     }
                     $pcs[$consulta->semanas - 1] = $consulta->pc;
                     $pesos[$consulta->semanas - 1] = $consulta->peso;
