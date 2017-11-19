@@ -30,7 +30,8 @@
             }
             $first = DateTime::createFromFormat('Y-m-d', $date1);
             $second = DateTime::createFromFormat('Y-m-d H:i:s', $date2);
-            var_dump($date1, $date2);
+            echo $date1.'date1';
+            echo ' date2'.$date2;
             die;
             return floor($first->diff($second)->days/7);
         }
