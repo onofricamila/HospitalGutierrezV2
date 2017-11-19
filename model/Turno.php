@@ -95,7 +95,7 @@ class Turno
         ]);
 
         if ($query->rowCount() == 1) {
-            return Turno::id($idHorario, $fecha);
+            return Turno::horarioFecha($idHorario, $fecha);
         }
         return false;
     }
