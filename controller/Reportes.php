@@ -53,11 +53,16 @@
             }
 
             $datos = [
-                'genero' => $genero,
                 'PCs' => $pcs,
                 'Pesos' => $pesos,
                 'Tallas' => $tallas
             ];
+
+            if ($genero == 1) {
+                $datos['genero'] = Ninas;
+            } else {
+                $datos['genero'] = Ninos;
+            }
 
             $context = [];
             $datajson = json_encode($datos, JSON_PRETTY_PRINT);

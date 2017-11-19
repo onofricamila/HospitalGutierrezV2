@@ -1,16 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <body>
+    <section>
         <script>
-            var data = {{ data }}
+            var datos = {{ data }}
+            var chartData = []
         </script>
 
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
-            <canvas height="450" width="400" id="myChart"></canvas>
+            <canvas height="450" width="400" id="pc"></canvas>
+        </div>
+
+        <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
+            <canvas height="450" width="400" id="peso"></canvas>
+        </div>
+
+        <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
+            <canvas height="450" width="400" id="talla"></canvas>
         </div>
 
         <script src="node_modules\chart.js\dist\Chart.min.js"></script>
-        <script src="public/js/Reports/Ninos/Talla.js"></script>
+        <script src="public/js/Reports/{{ genero }}/PerimetroCefalico.js"></script>
+        <script src="public/js/Reports/{{ genero }}/Peso.js"></script>
+        <script src="public/js/Reports/{{ genero }}/Talla.js"></script>
         <script src="public/js/Reports/Base.js"></script>
-    </body>
+        <script>
+            chart('pc')
+            chart('peso')
+            chart('talla')
+        </script>
+    </section>
 {% endblock %}
