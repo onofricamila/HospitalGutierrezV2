@@ -37,6 +37,12 @@
             $tallas = [];
             $ok = false;
 
+            for ($i=1; $i <= 13; $i++) {
+                $pcs[$i] = null;
+                $pesos[$i] = null;
+                $tallas[$i] = null;
+            }
+
             foreach ($consultas as $consulta) {
                 if ($consulta->semanas <= 13) {
                     $ok = true;
@@ -44,14 +50,6 @@
                     $pcs[$consulta->semanas] = $consulta->pc;
                     $pesos[$consulta->semanas] = $consulta->peso;
                     $tallas[$consulta->semanas] = $consulta->talla;
-                }
-            }
-
-            for ($i=1; $i <= 13; $i++) {
-                if (!array_key_exists($i, $pcs)) {
-                    $pcs[$i] = null;
-                    $pesos[$i] = null;
-                    $tallas[$i] = null;
                 }
             }
 
