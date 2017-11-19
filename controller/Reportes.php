@@ -92,6 +92,83 @@
             die;
         }
 
+        public function all()
+        {
+            AppController::allowed('paciente_index');
+
+            require_once 'model/TipoAgua.php';
+            require_once 'model/TipoCalefaccion.php';
+            require_once 'model/TipoVivienda.php';
+            require_once 'model/Paciente.php';
+            $tipoAgua = TipoAgua::all();
+            $tipoCale = TipoCalefaccion::all();
+            $tipoVivi = TipoVivienda::all();
+            $patients = Paciente::all([]);
+
+            $data = [];
+
+            foreach ($tipoAgua as $t) {
+                $data['Agua'][$t['id']-1] = [
+                    'Cant' => 0,
+                    'Nombre' => $t['nombre']
+                ];
+            }
+            foreach ($tipoCale as $t) {
+                $data['Cale'][$t['id']-1] = [
+                    'Cant' => 0,
+                    'Nombre' => $t['nombre']
+                ];
+            }
+            foreach ($tipoVivi as $t) {
+                $data['Vivi'][$t['id']-1] = [
+                    'Cant' => 0,
+                    'Nombre' => $t['nombre']
+                ];
+            }
+            $data['Hela'][0] = [
+                'Cant' => 0,
+                'Nombre' => 'No'
+            ];
+            $data['Hela'][1] = [
+                'Cant' => 0,
+                'Nombre' => 'Si'
+            ];
+            $data['Elec'][0] = [
+                'Cant' => 0,
+                'Nombre' => 'No'
+            ];
+            $data['Elec'][1] = [
+                'Cant' => 0,
+                'Nombre' => 'Si'
+            ];
+            $data['Masc'][0] = [
+                'Cant' => 0,
+                'Nombre' => 'No'
+            ];
+            $data['Masc'][1] = [
+                'Cant' => 0,
+                'Nombre' => 'Si'
+            ];
+
+            foreach ($patients as $paciente) {
+                $data['Agua'][$paciente->idTipoAgua -1]['Cant']++;
+                $data['Cale'][$paciente->idTipoCalefaccion -1]['Cant']++;
+                $data['Vivi'][$paciente->idTipoVivienda -1]['Cant']++;
+                $data['Hela'][$paciente->heladera]['Cant']++;
+                $data['Elec'][$paciente->electricidad]['Cant']++;
+                $data['Masc'][$paciente->mascota]['Cant']++;
+            }
+
+            $path = '/reportes/all.twig';
+            /* use el mismo diseño que para mantain*/
+            $context['stylesheets'] = ['/public/css/reportesAll.css'];
+            $context['titulo'] = 'Reportes';
+            $context['data'] = $data;
+
+            TwigController::renderTwig($path, $context);
+            die;
+        }
+
         public function noConsultas13()
         {
             $context = [];
