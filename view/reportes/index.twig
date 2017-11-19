@@ -2,8 +2,8 @@
 {% block body %}
     <section>
         <script>
-            var datos = {{ data }}
-            var chartData = []
+            var datos = htmlspecialchars_decode({{ data }});
+            var chartData = [];
         </script>
 
         <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
@@ -24,9 +24,9 @@
         <script src="public/js/Reports/{{ genero }}/Talla.js"></script>
         <script src="public/js/Reports/Base.js"></script>
         <script>
-            chart('pc')
-            chart('peso')
-            chart('talla')
+            chart('pc');
+            chart('peso');
+            chart('talla');
         </script>
     </section>
 {% endblock %}
