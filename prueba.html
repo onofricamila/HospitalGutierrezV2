@@ -7,13 +7,79 @@
 </head>
 
 <body>
-    <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto;">
-        <canvas height="450" width="400" id="myChart"></canvas>
-    </div>
+    <script type="text/javascript">
+        var phpData = [];
 
+        var titles = [];
+        titles['Vivi'] = 'Tipos de vivienda';
+        titles['Cale'] = 'Tipos de calefacción';
+        titles['Agua'] = 'Tipos de agua';
+        titles['Hela'] = 'Tiene heladera?';
+        titles['Elec'] = 'Tiene helectricidad?';
+        titles['Masc'] = 'Tiene mascota?';
+
+        var colors = [];
+        colors[0] = 'rgb(44, 113, 146)';
+        colors[0] = 'rgb(0, 99, 146)';
+        colors[0] = 'rgb(0, 53, 95)';
+
+        var datasets = [];
+        datasets['Vivi'] = [];
+        datasets['Vivi']['label'] = [];
+        datasets['Vivi']['data'] = [];
+
+        datasets['Cale'] = [];
+        datasets['Cale']['label'] = [];
+        datasets['Cale']['data'] = [];
+
+        datasets['Agua'] = [];
+        datasets['Agua']['label'] = [];
+        datasets['Agua']['data'] = [];
+
+        datasets['Hela'] = [];
+        datasets['Hela']['label'] = ['Si', 'No'];
+        datasets['Hela']['data'] = [];
+
+        datasets['Elec'] = [];
+        datasets['Elec']['label'] = ['Si', 'No'];
+        datasets['Elec']['data'] = [];
+
+        datasets['Masc'] = [];
+        datasets['Masc']['label'] = ['Si', 'No'];
+        datasets['Masc']['data'] = [];
+
+        var l = phpData.Agua.length;
+        alert(l);
+        for (var i = 0; i < arrayLength; i++) {
+            alert(myStringArray[i]);
+            //Do something
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <script src="node_modules\chart.js\dist\Chart.min.js"></script>
-    <script src="public/js/Reports/Ninos/Talla.js"></script>
-    <script src="public/js/Reports/Base.js"></script>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'pie',
+
+            // The data for our dataset
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    </script>
 </body>
 
 </html>

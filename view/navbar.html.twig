@@ -24,6 +24,9 @@
                     <a href="?controller=Users&action=index" target="_self">Usuarios</a>
                 </li>
                 <li>
+                    <a href="?controller=reportes&action=all" target="_self">Reportes</a>
+                </li>
+                <li>
                     <a href="#!">Roles</a>
                 </li>
                 <li>
@@ -37,25 +40,25 @@
             <ul class="right hide-on-med-and-down">
 
                 {% if isLogged %}
-                <li class="">
-                    <a href="?controller=login&action=logout" target="_self">Log out</a>
-                </li>
-                <li class="">
-                    <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
-                </li>
+                    <li class="">
+                        <a href="?controller=login&action=logout" target="_self">Log out</a>
+                    </li>
+                    <li class="">
+                        <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
+                    </li>
 
-                {% if configuracion_index %}
-                    <!-- Dropdown Trigger -->
-                    <li>
-                        <a class="dropdown-button" href="#!" data-activates="dropdown1">Administracion &#9660;</a>
-                    </li>  
-                {% endif %} 
+                    {% if configuracion_index %}
+                        <!-- Dropdown Trigger -->
+                        <li>
+                            <a class="dropdown-button" href="#!" data-activates="dropdown1">Administracion &#9660;</a>
+                        </li>
+                    {% endif %}
 
                 {% else %}
-                <li class="">
-                    <a href="?controller=login&action=index" target="_self">Log in</a>
-                </li>
-                {% endif %} 
+                    <li class="">
+                        <a href="?controller=login&action=index" target="_self">Log in</a>
+                    </li>
+                {% endif %}
 
             </ul>
         </div>
@@ -81,30 +84,34 @@
             <!-- Links -->
             <li>
                 <a href="index.php">
-                    <span class="fa fa-home" aria-hidden="true"></span> Inicio</a>
+                    <span class="fa fa-home" aria-hidden="true"></span>
+                    Inicio</a>
             </li>
             {% if isLogged %}
-            <li>
-                <a href="?controller=login&action=logout">
-                    <span class="fa fa-sign-in" aria-hidden="true"></span> Log out</a>
-            </li>
-            <li class="">
-                <a href="?controller=Pacientes&action=index" target="_self">
-                     <span class="fa fa-users" aria-hidden="true"></span> Pacientes</a>
-            </li>
-            
-            {% if configuracion_index %}
-                <!-- Dropdown Trigger -->
                 <li>
-                    <a class="dropdown-button" href="#!" data-activates="dropdown2">Administracion &#9660;</a>
-                </li>  
-            {% endif %}
-            
+                    <a href="?controller=login&action=logout">
+                        <span class="fa fa-sign-in" aria-hidden="true"></span>
+                        Log out</a>
+                </li>
+                <li class="">
+                    <a href="?controller=Pacientes&action=index" target="_self">
+                        <span class="fa fa-users" aria-hidden="true"></span>
+                        Pacientes</a>
+                </li>
+
+                {% if configuracion_index %}
+                    <!-- Dropdown Trigger -->
+                    <li>
+                        <a class="dropdown-button" href="#!" data-activates="dropdown2">Administracion &#9660;</a>
+                    </li>
+                {% endif %}
+
             {% else %}
-            <li>
-                <a href="?controller=login&action=index">
-                    <span class="fa fa-sign-in" aria-hidden="true"></span> Log in</a>
-            </li>
+                <li>
+                    <a href="?controller=login&action=index">
+                        <span class="fa fa-sign-in" aria-hidden="true"></span>
+                        Log in</a>
+                </li>
             {% endif %}
         </ul>
     </div>
