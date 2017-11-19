@@ -24,9 +24,6 @@
                     <a href="?controller=Users&action=index" target="_self">Usuarios</a>
                 </li>
                 <li>
-                    <a href="?controller=reportes&action=all" target="_self">Reportes</a>
-                </li>
-                <li>
                     <a href="#!">Roles</a>
                 </li>
                 <li>
@@ -46,7 +43,10 @@
                     <li class="">
                         <a href="?controller=Pacientes&action=index" target="_self">Pacientes</a>
                     </li>
-
+                    <li>
+                    <a href="?controller=reportes&action=all" target="_self">Reportes</a>
+                    </li>
+                    
                     {% if configuracion_index %}
                         <!-- Dropdown Trigger -->
                         <li>
@@ -97,6 +97,9 @@
                     <a href="?controller=Pacientes&action=index" target="_self">
                         <span class="fa fa-users" aria-hidden="true"></span>
                         Pacientes</a>
+                </li>
+                <li>
+                    <a href="?controller=reportes&action=all" target="_self">Reportes</a>
                 </li>
 
                 {% if configuracion_index %}
