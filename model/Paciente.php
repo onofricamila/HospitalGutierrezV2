@@ -18,9 +18,9 @@
         public $idTipoCalefaccion;
         public $idTipoAgua;
 
-        public function edad()
+        public function edad($fecha)
         {
-            return (date("Y-m-d") - $this->fecha_nacimiento);
+            return ($fecha - $this->fecha_nacimiento);
         }
 
         public function datediffInWeeks($date1, $date2)
