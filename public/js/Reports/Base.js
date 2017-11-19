@@ -87,7 +87,8 @@ function chart(id) {
                 display: true,
                 text: chartData[id]['title']
             },
-            spanGaps: true
+            spanGaps: true,
+            maintainAspectRatio: false,
         }
     });
 }
