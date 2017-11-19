@@ -13,15 +13,15 @@
         <button type="button" name="tallaButton" id="tallaButton">Talla</button>
         <button type="button" name="pesoButton" id="pesoButton">Peso</button>
 
-        <div style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
+        <div id="pcDiv" style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
             <canvas height="450" width="400" id="pc"></canvas>
         </div>
 
-        <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
+        <div id="pesoDiv" style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
             <canvas height="450" width="400" id="peso"></canvas>
         </div>
 
-        <div style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
+        <div id="tallaDiv" style="height: 800px; width: 800px; margin-left: auto; margin-right: auto; display: none;">
             <canvas height="450" width="400" id="talla"></canvas>
         </div>
 
@@ -35,19 +35,19 @@
             chart('peso');
             chart('talla');
             $("#pcButton").click(function() {
-                $("#pc").show();
-                $("#peso").hide();
-                $("#talla").hide();
+                $("#pcDiv").show();
+                $("#pesoDiv").hide();
+                $("#tallaDiv").hide();
             });
             $("#pesoButton").click(function() {
-                $("#pc").hide();
-                $("#peso").show();
-                $("#talla").hide();
+                $("#pcDiv").hide();
+                $("#pesoDiv").show();
+                $("#tallaDiv").hide();
             });
             $("#tallaButton").click(function() {
-                $("#pc").hide();
-                $("#peso").hide();
-                $("#talla").show();
+                $("#pcDiv").hide();
+                $("#pesoDiv").hide();
+                $("#tallaDiv").show();
             });
         </script>
     </section>
