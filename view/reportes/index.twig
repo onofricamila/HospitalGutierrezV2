@@ -13,10 +13,19 @@
         <button type="button" name="tallaButton" id="tallaButton">Talla</button>
         <button type="button" name="pesoButton" id="pesoButton">Peso</button>
 
-        <div id="pcDiv" style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
-            <canvas height="450" width="400" id="pc"></canvas>
-            <canvas height="450" width="400" id="talla" style="display: none;"></canvas>
-            <canvas height="450" width="400" id="peso" style="display: none;"></canvas>
+        <div style="height: 500px; width: 500px; margin-left: auto; margin-right: auto;">
+            <div id="pcDiv">
+                <canvas height="450" width="400" id="pc"></canvas>
+                <button type="button" name="pcPDF"></button>
+            </div>
+            <div class="tallaDiv" style="display: none;">
+                <canvas height="450" width="400" id="talla"></canvas>
+                <button type="button" name="tallaPDF"></button>
+            </div>
+            <div class="pesoDiv" style="display: none;">
+                <canvas height="450" width="400" id="peso"></canvas>
+                <button type="button" name="pesoPDF"></button>
+            </div>
         </div>
 
         <script src="node_modules\chart.js\dist\Chart.min.js"></script>
@@ -33,19 +42,19 @@
             chart('peso');
             chart('talla');
             $("#pcButton").click(function() {
-                $("#pc").show();
-                $("#peso").hide();
-                $("#talla").hide();
+                $("#pcDiv").show();
+                $("#pesoDiv").hide();
+                $("#tallaDiv").hide();
             });
             $("#pesoButton").click(function() {
-                $("#pc").hide();
-                $("#peso").show();
-                $("#talla").hide();
+                $("#pcDiv").hide();
+                $("#pesoDiv").show();
+                $("#tallaDiv").hide();
             });
             $("#tallaButton").click(function() {
-                $("#pc").hide();
-                $("#peso").hide();
-                $("#talla").show();
+                $("#pcDiv").hide();
+                $("#pesoDiv").hide();
+                $("#tallaDiv").show();
             });
         </script>
     </section>
