@@ -61,7 +61,7 @@
             /* calculo edad */
             $paciente = Paciente::getPaciente($this ->idPaciente);
             $this ->edad = $paciente->edad();
-            $this ->semanas = $paciente->semanas($this->edad);
+            $this ->semanas = $paciente->semanas($this->fecha);
         }
 
         public static function newConsulta($idPaciente, $peso, $vacunas_completas, $vacunas_obs, $maduracion_acorde, $maduracion_obs, $examen_fisico_normal, $examen_fisico_obs, $pc, $ppc, $talla, $alimentacion, $obs_grales, $usuario)
