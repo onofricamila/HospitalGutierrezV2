@@ -32,8 +32,20 @@
 
             $consultas = Consulta::all($paciente);
 
+            $pcs = [];
+            $pesos = [];
+            $tallas = [];
+
+            foreach ($consulta as $consultas) {
+                $pcs[$consulta->semanas] = $consulta->pc;
+                $pesos[$consulta->semanas] = $consulta->peso;
+                $tallas[$consulta->semanas] = $consulta->talla;
+            }
+
+            $datos = [$pcs, $pesos, $tallas];
+
             header('Content-Type: application/json');
-            echo json_encode($consultas, JSON_PRETTY_PRINT);
+            echo json_encode($datos, JSON_PRETTY_PRINT);
             die;
         }
     }
