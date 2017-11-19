@@ -37,12 +37,13 @@
             $tallas = [];
 
             foreach ($consultas as $consulta) {
+                $genero = $consulta->paciente->idGenero;
                 $pcs[$consulta->semanas] = $consulta->pc;
                 $pesos[$consulta->semanas] = $consulta->peso;
                 $tallas[$consulta->semanas] = $consulta->talla;
             }
 
-            $datos = [$consultas[1]->paciente->idGenero, $pcs, $pesos, $tallas];
+            $datos = [$genero, $pcs, $pesos, $tallas];
 
             header('Content-Type: application/json');
             echo json_encode($datos, JSON_PRETTY_PRINT);
