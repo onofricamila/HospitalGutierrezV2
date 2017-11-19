@@ -78,22 +78,6 @@
             $usuario =$usuario->id;
             $idPaciente = $_POST['idPaciente'];
 
-            var_dump($_POST['peso']);
-            var_dump($_POST['vacunas_completas']);
-            var_dump($_POST['vacunas_obs']);
-            var_dump($_POST['examen_fisico_normal']);
-            var_dump($_POST['examen_fisico_obs']);
-            var_dump($_POST['maduracion_acorde']);
-            var_dump($_POST['maduracion_obs']);
-            var_dump($_POST['idPaciente']);
-            var_dump($usuario);
-            echo "<br>Hasta aca lo obligatorio<br>";
-            var_dump($_POST['pc']);
-            var_dump($_POST['ppc']);
-            var_dump($_POST['talla']);
-            var_dump($_POST['alimentacion']);
-            var_dump($_POST['obs_grales']);
-
             if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
             || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
             || (!isset($_POST['vacunas_obs']) || ($vacunas_obs = trim($_POST['vacunas_obs'])) == "")
@@ -209,21 +193,6 @@
         public function auxUpdateconsulta() { 
             $idPaciente = $_POST['idPaciente'];
             $idConsulta = $_POST['idConsulta'];
-
-            var_dump($_POST['peso']);
-            var_dump($_POST['vacunas_completas']);
-            var_dump($_POST['vacunas_obs']);
-            var_dump($_POST['examen_fisico_normal']);
-            var_dump($_POST['examen_fisico_obs']);
-            var_dump($_POST['maduracion_acorde']);
-            var_dump($_POST['maduracion_obs']);
-            var_dump($_POST['idPaciente']);
-            echo "<br>Hasta aca lo obligatorio<br>";
-            var_dump($_POST['pc']);
-            var_dump($_POST['ppc']);
-            var_dump($_POST['talla']);
-            var_dump($_POST['alimentacion']);
-            var_dump($_POST['obs_grales']);
 
             if ((!isset($_POST['peso']) || ($peso = trim($_POST['peso'])) == "")
             || (!isset($_POST['vacunas_completas']) || ($vacunas_completas = trim($_POST['vacunas_completas'])) == "")
