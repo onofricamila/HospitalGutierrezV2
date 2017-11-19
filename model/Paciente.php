@@ -26,7 +26,7 @@
         public function datediffInWeeks($date1, $date2)
         {
             if ($date1 > $date2) {
-                return datediffInWeeks($date2, $date1);
+                return $this->datediffInWeeks($date2, $date1);
             }
             $first = DateTime::createFromFormat('Y-m-d', $date1);
             $second = DateTime::createFromFormat('Y-m-d H:i:s', $date2);
