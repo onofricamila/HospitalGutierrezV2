@@ -36,7 +36,7 @@
             $pesos = [];
             $tallas = [];
 
-            foreach ($consulta as $consultas) {
+            foreach ($consultas as $consulta) {
                 $pcs[$consulta->semanas] = $consulta->pc;
                 $pesos[$consulta->semanas] = $consulta->peso;
                 $tallas[$consulta->semanas] = $consulta->talla;
