@@ -86,6 +86,7 @@ function chart(id) {
                 text: chartData[id]['title']
             },
             spanGaps: true,
+            responsive: false
         }
     });
 }
