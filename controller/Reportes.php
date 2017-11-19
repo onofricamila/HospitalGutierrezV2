@@ -58,13 +58,13 @@
                 'Tallas' => $tallas
             ];
 
+            $context = [];
             if ($genero == 1) {
-                $datos['genero'] = 'Ninas';
+                $context['genero'] = 'Ninas';
             } else {
-                $datos['genero'] = 'Ninos';
+                $context['genero'] = 'Ninos';
             }
 
-            $context = [];
             $datajson = json_encode($datos, JSON_PRETTY_PRINT);
             $path = '/reportes/index.twig';
             /* use el mismo diseño que para mantain*/
