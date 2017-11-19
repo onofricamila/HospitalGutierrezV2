@@ -28,8 +28,8 @@
             if ($date1 > $date2) {
                 return datediffInWeeks($date2, $date1);
             }
-            $first = DateTime::createFromFormat('Y-m-d H:i:s', $date1);
-            $second = DateTime::createFromFormat('Y-m-d', $date2);
+            $first = DateTime::createFromFormat('Y-m-d', $date1);
+            $second = DateTime::createFromFormat('Y-m-d H:i:s', $date2);
             return floor($first->diff($second)->days/7);
         }
 
