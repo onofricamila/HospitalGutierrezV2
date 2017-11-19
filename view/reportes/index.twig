@@ -25,9 +25,9 @@
         <script src="public/js/Reports/{{ genero }}/Talla.js"></script>
         <script src="public/js/Reports/Base.js"></script>
         <script>
-            chartData['pc'][5] = datos['pc'];
-            chartData['peso'][5] = datos['peso'];
-            chartData['talla'][5] = datos['talla'];
+            chartData['pc']['dataset'][5] = datos['pc'];
+            chartData['peso']['dataset'][5] = datos['peso'];
+            chartData['talla']['dataset'][5] = datos['talla'];
 
             chart('pc');
             chart('peso');
