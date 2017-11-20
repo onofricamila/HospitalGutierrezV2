@@ -61,7 +61,7 @@
             $this ->usuario = $array['usuario'];
             /* calculo edad */
             $paciente = Paciente::getPaciente($this ->idPaciente);
-            $this ->edad = $paciente->edad();
+            $this ->edad = $paciente->edad( $this ->fecha);
             $this ->semanas = $paciente->semanas($this->fecha);
             $this ->paciente = $paciente;
         }
