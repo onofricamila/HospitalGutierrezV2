@@ -1,0 +1,207 @@
+{
+  "name": "Configuration",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "title2": {
+      "type": "string",
+      "required": true
+    },
+    "title3": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion1": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion2": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion3": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "elements": {
+      "type": "number",
+      "required": true
+    },
+    "maintenance": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "cards": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "cards",
+          "type": "object",
+          "root": true,
+          "description": "Response, contains response code and array of cards, each card contains title and description"
+        }
+      ],
+      "description": "Gets card title and description",
+      "http": [
+        {
+          "path": "/cards",
+          "verb": "get"
+        }
+      ]
+    },
+    "toggleMaintainance": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Response"
+        }
+      ],
+      "description": "Toggles maintainance",
+      "http": [
+        {
+          "path": "/toggleMaintenance",
+          "verb": "put"
+        }
+      ]
+    },
+    "activateMaintenance": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Response"
+        }
+      ],
+      "description": "Activates maintenance",
+      "http": [
+        {
+          "path": "/activateMaintenance",
+          "verb": "put"
+        }
+      ]
+    },
+    "deactivateMaintenance": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Result"
+        }
+      ],
+      "description": "Deactivates Maintenance",
+      "http": [
+        {
+          "path": "/deactivateMaintenance",
+          "verb": "put"
+        }
+      ]
+    },
+    "maintenance": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "maintenance",
+          "type": "boolean",
+          "root": true,
+          "description": "Maintenance status"
+        }
+      ],
+      "description": "Returns maintenance status",
+      "http": [
+        {
+          "path": "/maintenance",
+          "verb": "get"
+        }
+      ]
+    },
+    "title": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Contains title"
+        }
+      ],
+      "description": "Returns title",
+      "http": [
+        {
+          "path": "/title",
+          "verb": "get"
+        }
+      ]
+    },
+    "email": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Contains email"
+        }
+      ],
+      "description": "Returns email",
+      "http": [
+        {
+          "path": "/email",
+          "verb": "get"
+        }
+      ]
+    },
+    "elements": {
+      "isStatic": true,
+      "accepts": [],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Contains elements"
+        }
+      ],
+      "description": "Returns elements",
+      "http": [
+        {
+          "path": "/elements",
+          "verb": "get"
+        }
+      ]
+    }
+  }
+}

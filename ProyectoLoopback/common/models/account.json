@@ -1,0 +1,123 @@
+{
+  "name": "account",
+  "plural": "accounts",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "active": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrador",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {
+    "activate": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": true,
+          "description": "Account id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Activation result"
+        }
+      ],
+      "description": "Activates an user",
+      "http": [
+        {
+          "path": "/:id/activate",
+          "verb": "put"
+        }
+      ]
+    },
+    "deactivate": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": true,
+          "description": "Account id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Deactivation result"
+        }
+      ],
+      "description": "Deactivates an account",
+      "http": [
+        {
+          "path": "/:id/deactivate",
+          "verb": "put"
+        }
+      ]
+    },
+    "toggleState": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": true,
+          "description": "Account id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "result",
+          "type": "object",
+          "root": true,
+          "description": "Toggle result"
+        }
+      ],
+      "description": "Toggles activation",
+      "http": [
+        {
+          "path": "/:id/toggleState",
+          "verb": "put"
+        }
+      ]
+    }
+  }
+}
