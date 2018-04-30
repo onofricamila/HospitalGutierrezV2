@@ -57,6 +57,6 @@ Sebastian:
 * npm install axios --save
 * npm install --save react-router react-router-dom
 * to be able to have css modules ...
-```
-run `npm run eject`
-```
+    * run `npm run eject`
+    * en webpack.config.dev.js buscar  _test: /\.css$/_ y dentro del objeto _options_ que esta en _use_ poner los siguientes atributos: _modules: true, localIdentName: '[name]__[local]__[hash:base64:5]'_
+    * hacer lo mismo para webpack.config.prod.js
