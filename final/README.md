@@ -51,3 +51,6 @@ Sebastian:
 
 ### Fsorma de manejar el MVC
 
+# Cosas que instale para el frontend
+
+*  npm install material-ui@next
