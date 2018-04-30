@@ -56,3 +56,7 @@ Sebastian:
 * npm install material-ui@next
 * npm install axios --save
 * npm install --save react-router react-router-dom
+* to be able to have css modules ...
+```
+run `npm run eject`
+```
