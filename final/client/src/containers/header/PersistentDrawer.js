@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import classNames from 'classnames';
@@ -20,15 +20,17 @@ const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    width: '100%',
+    marginTop: 0,
+    zIndex: 1,
+    height: '100%',
+    overflow: 'hidden',
   },
   appFrame: {
-    height: 430,
-    zIndex: 1,
-    overflow: 'hidden',
     position: 'relative',
     display: 'flex',
     width: '100%',
+    height: '100%',
   },
   appBar: {
     position: 'absolute',
@@ -70,7 +72,15 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
+    width: '100%',
     backgroundColor: theme.palette.background.default,
+    height: 'calc(100% - 56px)',
+    marginTop: 56,
+    [theme.breakpoints.up('sm')]: {
+      height: 'calc(100% - 64px)',
+      marginTop: 64,
+    },
+    'overflow-x': 'scroll',
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -94,6 +104,13 @@ const styles = theme => ({
   },
   'contentShift-right': {
     marginRight: 0,
+  },
+  gridRoot: {
+    flexGrow: 1,
+  },
+  gridPaper: {
+    padding: theme.spacing.unit * 2,
+    height: '100%',
   },
 });
 
@@ -145,7 +162,7 @@ class PersistentDrawer extends React.Component {
     let before = null;
     let after = null;
 
-      before = drawer;
+    before = drawer;
 
     return (
       <div className={classes.root}>
@@ -179,7 +196,9 @@ class PersistentDrawer extends React.Component {
             })}
           >
             <div className={classes.drawerHeader} />
-            <Typography>{'You think water moves fast? You should see ice.'}</Typography>
+            <Fragment>
+              {this.props.subcontent}
+            </ Fragment>
           </main>
           {after}
         </div>

@@ -7,10 +7,11 @@ import PeopleOutlineIcon from 'material-ui-icons/PeopleOutline';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ExitToAppIcon from 'material-ui-icons/ExitToApp';
 import ReportIcon from 'material-ui-icons/Report';
+import Error404 from "../../scenes/Errors/404";
 
 export const listItems = (
   <div>
-    <ListItem button component="a" href="https://www.google.com">
+    <ListItem button>
       <ListItemIcon >
         <HomeIcon />
       </ListItemIcon>

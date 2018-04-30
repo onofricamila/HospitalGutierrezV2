@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter basename="/">
-       <Layout >
+       <Layout>
             <Switch>
               {/* <Route path="/login" component={LoginPage} />
               <Route path="/patients" component={PatientsListPage} />
