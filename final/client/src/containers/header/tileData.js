@@ -1,61 +1,55 @@
 import React from 'react';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import InboxIcon from 'material-ui-icons/MoveToInbox';
-import DraftsIcon from 'material-ui-icons/Drafts';
-import StarIcon from 'material-ui-icons/Star';
-import SendIcon from 'material-ui-icons/Send';
-import MailIcon from 'material-ui-icons/Mail';
-import DeleteIcon from 'material-ui-icons/Delete';
+import HomeIcon from 'material-ui-icons/Home';
+import BubbleChartIcon from 'material-ui-icons/BubbleChart';
+import PeopleIcon from 'material-ui-icons/People';
+import PeopleOutlineIcon from 'material-ui-icons/PeopleOutline';
+import SettingsIcon from 'material-ui-icons/Settings';
+import ExitToAppIcon from 'material-ui-icons/ExitToApp';
 import ReportIcon from 'material-ui-icons/Report';
 
-export const mailFolderListItems = (
+export const listItems = (
   <div>
     <ListItem button component="a" href="https://www.google.com">
       <ListItemIcon >
-        <InboxIcon />
+        <HomeIcon />
       </ListItemIcon>
-      <ListItemText primary="Inbox" />
+      <ListItemText primary="Inicio" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <StarIcon />
+        <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Starred" />
+      <ListItemText primary="Pacientes" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <SendIcon />
+        <PeopleOutlineIcon />
       </ListItemIcon>
-      <ListItemText primary="Send mail" />
+      <ListItemText primary="Usuarios" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <DraftsIcon />
+        <BubbleChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Drafts" />
+      <ListItemText primary="Reportes" />
     </ListItem>
   </div>
 );
 
-export const otherMailFolderListItems = (
+export const otherListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <MailIcon />
+        <SettingsIcon />
       </ListItemIcon>
-      <ListItemText primary="All mail" />
+      <ListItemText primary="Configuración" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <DeleteIcon />
+        <ExitToAppIcon />
       </ListItemIcon>
-      <ListItemText primary="Trash" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ReportIcon />
-      </ListItemIcon>
-      <ListItemText primary="Spam" />
+      <ListItemText primary="Salir" />
     </ListItem>
   </div>
 );

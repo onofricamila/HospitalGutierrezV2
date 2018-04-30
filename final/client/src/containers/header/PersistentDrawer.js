@@ -14,7 +14,7 @@ import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import { listItems, otherListItems } from './tileData';
 
 const drawerWidth = 240;
 
@@ -136,9 +136,9 @@ class PersistentDrawer extends React.Component {
           </IconButton>
         </div>
         <Divider />
-        <List>{mailFolderListItems}</List>
+        <List>{listItems}</List>
         <Divider />
-        <List>{otherMailFolderListItems}</List>
+        <List>{otherListItems}</List>
       </Drawer>
     );
 
