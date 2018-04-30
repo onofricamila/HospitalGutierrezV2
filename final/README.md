@@ -53,4 +53,5 @@ Sebastian:
 
 # Cosas que instale para el frontend
 
-*  npm install material-ui@next
+* npm install material-ui@next
+* npm install axios --save
