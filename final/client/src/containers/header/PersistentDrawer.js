@@ -73,7 +73,7 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     width: '100%',
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: 'white',
     height: 'calc(100% - 56px)',
     marginTop: 56,
     [theme.breakpoints.up('sm')]: {
