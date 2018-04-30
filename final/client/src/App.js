@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+// import HomePage from "./scenes/Home/Home";
+import Error404 from "./scenes/Errors/404";
+import Error505 from "./scenes/Errors/505";
+import Maintenance from "./scenes/Errors/Maintenance";
+
 import './App.css';
-import Button from 'material-ui/Button';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Button variant="raised" color="primary">
-          Hello World
-        </Button>
-      </div>
+      <BrowserRouter basename="/">
+          <Switch>
+            {/* <Route path="/login" component={LoginPage} />
+            <Route path="/patients" component={PatientsListPage} />
+            <Route path="/users" component={UsersListPage} /> */}
+            {/* <Route path="/" exact component={HomePage} /> */}
+            <Route path="/Maintenance" exact component={Maintenance} />
+            <Route path="/505" exact component={Error505} />
+            <Route component={Error404} />
+          </Switch>
+      </BrowserRouter>
     );
   }
 }
