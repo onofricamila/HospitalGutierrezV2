@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment} from "react";
 import axios from "../../axios/AxiosAPIReferences.js";
 import EnhancedTable from './EnhancedTable';
 import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
+import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 
 class Patients extends Component{
     state = {
@@ -78,7 +79,13 @@ class Patients extends Component{
             show = < CircularIndeterminate />
         }
         else{
-            show = <EnhancedTable rowsPerPage={1} data={this.state.data} documentTypes={this.state.documentTypes}/> ;
+        show = (
+            <Fragment>
+                <EnhancedTable rowsPerPage={1} data={this.state.data} documentTypes={this.state.documentTypes}/>
+                <FixedBottomButton path="/patients/new" />
+            </Fragment>
+            
+        ) ;
         }
         return show;
     }
