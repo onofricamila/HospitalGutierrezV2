@@ -8,6 +8,7 @@ import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import axios from "../../../axios/AxiosAPIReferences.js";
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
+import Grid from 'material-ui/Grid';
 
 const styles = theme => ({
   container: {
@@ -15,8 +16,16 @@ const styles = theme => ({
     flexWrap: 'wrap',
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing.unit * 2,
+    width: 200,
   },
+  root: {
+    
+  },
+  textField: {
+    margin: theme.spacing.unit * 2,
+    width: 200,
+  }
 });
 
 class ComposedTextField extends React.Component {
@@ -68,7 +77,10 @@ componentDidMount = () => {
 
       show = (
           <div className={classes.container}>
-            <form>
+          <Grid container spacing={40}>
+            <Grid item xs={12}>
+                <Grid container justify="center" spacing={40}>
+            <form className={classes.root}>
               <TextField
                 id="name"
                 label="Nombre"
@@ -111,6 +123,9 @@ componentDidMount = () => {
                 margin="normal"
               />
             </form>
+            </Grid>
+            </Grid>
+            </Grid>
           </div>
         );
     }
