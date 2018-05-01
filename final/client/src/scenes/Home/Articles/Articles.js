@@ -1,17 +1,8 @@
 import React from 'react';
 import Grid from 'material-ui/Grid';
-import SimpleMediaCard from '../SimpleMediaCard/SimpleMediaCard';
+import SimpleMediaCard from '../../../components/SimpleMediaCard/SimpleMediaCard';
 
 const articles = props => {
-
-    // const articles = [...props.articles].map(article => (
-    //   <Article
-    //     key={article.id}
-    //     title={article.title}
-    //     text={article.text}
-    //     icon={article.icon}
-    //   />
-    // ))
   
     return (
         <Grid container spacing={40}>
