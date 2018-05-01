@@ -19,7 +19,7 @@ export const listItems = (
         <ListItemText primary="Inicio" />
       </ListItem>
     </Link> 
-    <Link to="/Pacientes"> 
+    <Link to="/patients"> 
       <ListItem button>
         <ListItemIcon>
           <PeopleIcon />
