@@ -4,6 +4,7 @@ import EnhancedTable from './EnhancedTable';
 import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class Patients extends Component{
     state = {
@@ -79,13 +80,13 @@ class Patients extends Component{
             show = < CircularIndeterminate />
         }
         else{
-        show = (
-            <Fragment>
-                <EnhancedTable rowsPerPage={1} data={this.state.data} documentTypes={this.state.documentTypes}/>
-                <FixedBottomButton path="/patients/new" />
-            </Fragment>
-            
-        ) ;
+            show = (
+                <Fragment>
+                    <EnhancedTable rowsPerPage={5} data={this.state.data} documentTypes={this.state.documentTypes}/>
+                    <FixedBottomButton path="/patients/new" />
+                </Fragment>
+                
+            ) ;
         }
         return show;
     }

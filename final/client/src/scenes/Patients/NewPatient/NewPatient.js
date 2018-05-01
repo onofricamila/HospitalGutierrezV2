@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl, FormHelperText } from 'material-ui/Form';
+import MenuItem from 'material-ui/Menu/MenuItem';
+import TextField from 'material-ui/TextField';
+import Select from 'material-ui/Select';
+import axios from "../../../axios/AxiosAPIReferences.js";
+import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 
 const styles = theme => ({
   container: {
@@ -16,39 +21,102 @@ const styles = theme => ({
 
 class ComposedTextField extends React.Component {
   state = {
-    name: 'Composed TextField',
+    documentTypes: null,
+    loading:true,
+    patient: {
+      name:'',
+      lastname:'',
+      documentType:'',
+      dni:''
+    }
   };
 
-  handleChange = event => {
-    this.setState({ name: event.target.value });
+componentDidMount = () => {
+  axios.get("tipo-documento").then(response => {
+      this.setState({
+      documentTypes: response.data,
+      loading: false
+      });
+  });
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      patient:{
+        ...this.state.patient, 
+        [name]: event.target.value
+      }
+    });
   };
 
   render() {
     const { classes } = this.props;
 
-    return (
-      <div className={classes.container}>
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="name-simple">Name</InputLabel>
-          <Input id="name-simple" value={this.state.name} onChange={this.handleChange} />
-        </FormControl>
-        <FormControl className={classes.formControl} aria-describedby="name-helper-text">
-          <InputLabel htmlFor="name-helper">Name</InputLabel>
-          <Input id="name-helper" value={this.state.name} onChange={this.handleChange} />
-          <FormHelperText id="name-helper-text">Some important helper text</FormHelperText>
-        </FormControl>
-        <FormControl className={classes.formControl} disabled>
-          <InputLabel htmlFor="name-disabled">Name</InputLabel>
-          <Input id="name-disabled" value={this.state.name} onChange={this.handleChange} />
-          <FormHelperText>Disabled</FormHelperText>
-        </FormControl>
-        <FormControl className={classes.formControl} error aria-describedby="name-error-text">
-          <InputLabel htmlFor="name-error">Name</InputLabel>
-          <Input id="name-error" value={this.state.name} onChange={this.handleChange} />
-          <FormHelperText id="name-error-text">Error</FormHelperText>
-        </FormControl>
-      </div>
-    );
+    const { patient: {  name, lastname, documentType, dni } } = this.state;
+
+    let show;
+    
+    if (this.state.loading) {
+      show = < CircularIndeterminate />
+      
+    } else {
+
+      const documentTypes = [];
+      Object.values(this.state.documentTypes).forEach(value => {
+          documentTypes[value.id] = value.nombre
+      });
+
+      show = (
+          <div className={classes.container}>
+            <form>
+              <TextField
+                id="name"
+                label="Nombre"
+                className={classes.textField}
+                value={name}
+                onChange={this.handleChange('name')}
+                margin="normal"
+              />
+              <TextField
+                id="lastname"
+                label="Apellido"
+                className={classes.textField}
+                value={lastname}
+                onChange={this.handleChange('lastname')}
+                margin="normal"
+              />
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
+                <Select
+                  value={documentType}
+                  onChange={this.handleChange('documentType')}
+                >
+                  {
+                  documentTypes.map((docType, index) =>
+                    <MenuItem value={index}>{docType}</MenuItem>
+                  )
+                  }
+                </Select>
+              </FormControl>
+              <TextField
+                id="dni"
+                label="dni"
+                value={dni}
+                onChange={this.handleChange('dni')}
+                type="number"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                margin="normal"
+              />
+            </form>
+          </div>
+        );
+    }
+    
+
+    return show;
   }
 }
 

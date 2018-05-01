@@ -47,11 +47,15 @@ const columnData = [
 }
 ];
 
+
 class EnhancedTableHead extends React.Component {
+  
   createSortHandler = property => event => {
     this.props.onRequestSort(event, property);
   };
 
+  
+  
   render() {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
 
@@ -188,6 +192,7 @@ const styles = theme => ({
 });
 
 class EnhancedTable extends React.Component {
+  
   constructor(props, context) {
     super(props, context);
 
@@ -260,6 +265,11 @@ class EnhancedTable extends React.Component {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
+    
+    const documentTypes = [];
+    Object.values(this.props.documentTypes).forEach(value => {
+        documentTypes[value.id] = value.nombre
+    });
 
     return (
       <Paper className={classes.root}>
@@ -294,7 +304,7 @@ class EnhancedTable extends React.Component {
                     <TableCell >{n.lastname}</TableCell>
                     <TableCell numeric>
                       {
-                        n.documentType
+                        documentTypes[n.documentType]
                       }
                     </TableCell>
                     <TableCell numeric>{n.dni}</TableCell>
