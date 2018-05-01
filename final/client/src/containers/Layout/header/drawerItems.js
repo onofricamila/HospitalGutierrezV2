@@ -6,7 +6,6 @@ import PeopleIcon from 'material-ui-icons/People';
 import PeopleOutlineIcon from 'material-ui-icons/PeopleOutline';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ExitToAppIcon from 'material-ui-icons/ExitToApp';
-import ReportIcon from 'material-ui-icons/Report';
 import {Link} from 'react-router-dom'
 
 export const listItems = (
