@@ -7,50 +7,62 @@ import PeopleOutlineIcon from 'material-ui-icons/PeopleOutline';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ExitToAppIcon from 'material-ui-icons/ExitToApp';
 import ReportIcon from 'material-ui-icons/Report';
-import Error404 from "../../scenes/Errors/404";
+import {Link} from 'react-router-dom'
 
 export const listItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon >
-        <HomeIcon />
-      </ListItemIcon>
-      <ListItemText primary="Inicio" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Pacientes" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleOutlineIcon />
-      </ListItemIcon>
-      <ListItemText primary="Usuarios" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BubbleChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reportes" />
-    </ListItem>
+    <Link to="/"> 
+      <ListItem button>
+        <ListItemIcon >
+          <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Inicio" />
+      </ListItem>
+    </Link> 
+    <Link to="/Pacientes"> 
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Pacientes" />
+      </ListItem>
+    </Link> 
+    <Link to="/Usuarios"> 
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleOutlineIcon />
+        </ListItemIcon>
+        <ListItemText primary="Usuarios" />
+      </ListItem>
+    </Link> 
+    <Link to="/Reportes"> 
+      <ListItem button>
+        <ListItemIcon>
+          <BubbleChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Reportes" />
+      </ListItem>
+    </Link> 
   </div>
 );
 
 export const otherListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <SettingsIcon />
-      </ListItemIcon>
-      <ListItemText primary="Configuración" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ExitToAppIcon />
-      </ListItemIcon>
-      <ListItemText primary="Salir" />
-    </ListItem>
+    <Link to="/Configuracion"> 
+      <ListItem button>
+        <ListItemIcon>
+          <SettingsIcon />
+        </ListItemIcon>
+        <ListItemText primary="Configuración" />
+      </ListItem>
+    </Link> 
+    <Link to="/Logout"> 
+      <ListItem button>
+        <ListItemIcon>
+          <ExitToAppIcon />
+        </ListItemIcon>
+        <ListItemText primary="Salir" />
+      </ListItem>
+    </Link> 
   </div>
 );
