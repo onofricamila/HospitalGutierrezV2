@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "../../axios/AxiosAPIReferences.js";
 import EnhancedTable from './EnhancedTable';
 import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
+import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 
 class Patients extends Component{
     state = {
@@ -72,10 +73,14 @@ class Patients extends Component{
     }
 
     render() {
-
-        return (
-            <EnhancedTable rowsPerPage={1} data={this.state.data} documentTypes={this.state.documentTypes}/>
-        );
+        let show;
+        if (this.state.loading){
+            show = < CircularIndeterminate />
+        }
+        else{
+            show = <EnhancedTable rowsPerPage={1} data={this.state.data} documentTypes={this.state.documentTypes}/> ;
+        }
+        return show;
     }
       
 }

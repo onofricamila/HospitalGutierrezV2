@@ -7,7 +7,7 @@ import Error505 from "./scenes/Errors/505";
 import Maintenance from "./scenes/Errors/Maintenance";
 import NoResults from "./scenes/Errors/NoResults";
 import AccessDenied from "./scenes/Errors/AccessDenied";
-import Layout from "./components/Layout/Layout";
+import Layout from "./containers/Layout/Layout";
 
 import './App.css';
 

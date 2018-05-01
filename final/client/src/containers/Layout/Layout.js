@@ -1,6 +1,6 @@
 import React, {Fragment} from "react";
-import PersistentDrawer from "../../containers/header/PersistentDrawer";
-import LabelBottomNavigation from "../../containers/footer/LabelBottomNavigation";
+import PersistentDrawer from "./header/PersistentDrawer";
+import LabelBottomNavigation from "./footer/LabelBottomNavigation";
 
 const layout = props => (
   <Fragment>
