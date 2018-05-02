@@ -80,6 +80,7 @@ class ComposedTextField extends React.Component {
       },
       dni:{
         required: true,
+        numeric: true,
         helperText: '',
         valid: true,
       }, 
@@ -90,6 +91,7 @@ class ComposedTextField extends React.Component {
       },
       phoneNumber:{
         required: false,
+        numeric: true,
         helperText: '',
         valid: true,
       },
@@ -139,33 +141,53 @@ class ComposedTextField extends React.Component {
     
   };
 
-  handleChange = fieldId => event => {
+  handleChange = field => event => {
     this.setState({
       patient:{
         ...this.state.patient, 
-        [fieldId]: event.target.value
+        [field]: event.target.value
       },
       rules:{
         ...this.state.rules, 
-        [fieldId]: {
-          ...this.state.rules[fieldId],
-          valid: this.validate(fieldId, event.target.value, this.state.rules[fieldId])
+        [field]: {
+          ...this.state.rules[field],
+          valid: this.validate(field, event.target.value, this.state.rules[field])
         } 
       }
     });
   };
 
+  validateRequired(field, value, rules){
+    return typeof value === "string" ?
+              value.trim().length > 0 :
+              value.toString().length > 0;
+  }
+
   validate(field, value, rules){
-    let isValid = true;
 
     if(rules.required){
-      isValid = value.trim()!== '';
-      if (!isValid) {
+      if (!this.validateRequired(field, value, rules)) {
         this.state.rules[field].helperText = 'Campo obligatorio';
+        return false;
       }
     }
 
-    return isValid;
+    if(rules.numeric){
+      if (!/^([0-9])*$/.test(value)) {
+        this.state.rules[field].helperText = 'Solo números';
+        return false;
+      }
+    }
+
+    // if(field == 'dni'){
+    //   regex = /^\d{8}[a-zA-Z]$/;
+    //   isValid = regex.test(value);
+    //   if (!isValid) {
+    //     this.state.rules[field].helperText = 'DNI invalido';
+    //   }
+    // }
+    if(this.state.rules[field].valid) this.state.rules[field].helperText = '';
+    return true;
   }
 
   handleSubmit = () =>{
@@ -185,7 +207,7 @@ class ComposedTextField extends React.Component {
         <Grid container spacing={40}>
           <Grid item xs={12}>
               <Grid container justify="center" spacing={40}>
-          <form className={classes.root} validate autoComplete="on">
+          <form className={classes.root} validate autoComplete="off">
             <TextField
               id="name"
               label="Nombre"
@@ -204,7 +226,7 @@ class ComposedTextField extends React.Component {
               onChange={this.handleChange('lastname')}
               margin="normal"
               error={!this.state.rules.lastname.valid}
-                helperText={this.state.rules.lastname.helperText}
+              helperText={!this.state.rules.lastname.valid ? this.state.rules.lastname.helperText : ''}
             />
             <TextField
               id="date"
@@ -217,9 +239,11 @@ class ComposedTextField extends React.Component {
                 shrink: true,
               }}
               error={!this.state.rules.date.valid}
-                helperText={this.state.rules.date.helperText}
+              helperText={this.state.rules.date.helperText}
             />
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} 
+                error={!this.state.rules.genre.valid}
+                helperText={this.state.rules.genre.helperText}>
               <InputLabel htmlFor="genre">Género</InputLabel>
               <Select
                 value={genre}
@@ -231,13 +255,13 @@ class ComposedTextField extends React.Component {
                   <MenuItem value='male'>Masculino</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl}
+              error={!this.state.rules.documentType.valid}
+              helperText={this.state.rules.documentType.helperText}>
               <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
               <Select
                 value={documentType}
                 onChange={this.handleChange('documentType')}
-                error={!this.state.rules.documentType.valid}
-                helperText={this.state.rules.documentType.helperText}
               >
                 {
                 documentTypes.map((docType, index) =>
@@ -251,7 +275,6 @@ class ComposedTextField extends React.Component {
               label="dni"
               value={dni}
               onChange={this.handleChange('dni')}
-              type="number"
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
@@ -277,7 +300,6 @@ class ComposedTextField extends React.Component {
               label="Numero de telefono"
               value={phoneNumber}
               onChange={this.handleChange('phoneNumber')}
-              type="number"
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
@@ -286,13 +308,13 @@ class ComposedTextField extends React.Component {
               error={!this.state.rules.phoneNumber.valid}
                 helperText={this.state.rules.phoneNumber.helperText}
             />
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} 
+              error={!this.state.rules.insurance.valid}
+              helperText={this.state.rules.insurance.helperText} >
               <InputLabel htmlFor="insurance">Obra social</InputLabel>
               <Select
                 value={insurance}
                 onChange={this.handleChange('insurance')}
-                error={!this.state.rules.insurance.valid}
-                helperText={this.state.rules.insurance.helperText}
               >
                 {
                 insurances.map((ins, index) =>
@@ -301,49 +323,49 @@ class ComposedTextField extends React.Component {
                 }
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} 
+                error={!this.state.rules.fridge.valid}
+                helperText={this.state.rules.fridge.helperText}>
               <InputLabel htmlFor="fridge">Heladera?</InputLabel>
               <Select
                 value={fridge}
                 onChange={this.handleChange('fridge')}
-                error={!this.state.rules.fridge.valid}
-                helperText={this.state.rules.fridge.helperText}
               >
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl}
+              error={!this.state.rules.electricity.valid}
+              helperText={this.state.rules.electricity.helperText}>
               <InputLabel htmlFor="electricity">Electricidad?</InputLabel>
               <Select
                 value={electricity}
                 onChange={this.handleChange('electricity')}
-                error={!this.state.rules.electricity.valid}
-                helperText={this.state.rules.electricity.helperText}
               >
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} 
+               error={!this.state.rules.pet.valid}
+               helperText={this.state.rules.pet.helperText}>
               <InputLabel htmlFor="pet">Mascota?</InputLabel>
               <Select
                 value={pet}
                 onChange={this.handleChange('pet')}
-                error={!this.state.rules.pet.valid}
-                helperText={this.state.rules.pet.helperText}
               >
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl} 
+               error={!this.state.rules.waterType.valid}
+               helperText={this.state.rules.waterType.helperText}>
               <InputLabel htmlFor="waterType">Tipo de agua</InputLabel>
               <Select
                 value={waterType}
                 onChange={this.handleChange('waterType')}
-                error={!this.state.rules.waterType.valid}
-                helperText={this.state.rules.waterType.helperText}
               >
                 {
                 waterTypes.map((watType, index) =>
@@ -352,13 +374,13 @@ class ComposedTextField extends React.Component {
                 }
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl}
+              error={!this.state.rules.houseType.valid}
+              helperText={this.state.rules.houseType.helperText}>
               <InputLabel htmlFor="houseType">Tipo de casa</InputLabel>
               <Select
                 value={houseType}
                 onChange={this.handleChange('houseType')}
-                error={!this.state.rules.houseType.valid}
-                helperText={this.state.rules.houseType.helperText}
               >
                 {
                 houseTypes.map((houType, index) =>
@@ -367,13 +389,13 @@ class ComposedTextField extends React.Component {
                 }
               </Select>
             </FormControl>
-            <FormControl className={classes.formControl}>
+            <FormControl className={classes.formControl}
+              error={!this.state.rules.heatingType.valid}
+              helperText={this.state.rules.heatingType.helperText}>
               <InputLabel htmlFor="heatingType">Tipo de calefacción</InputLabel>
               <Select
                 value={heatingType}
                 onChange={this.handleChange('heatingType')}
-                error={!this.state.rules.heatingType.valid}
-                helperText={this.state.rules.heatingType.helperText}
               >
                 {
                 heatingTypes.map((heaType, index) =>
