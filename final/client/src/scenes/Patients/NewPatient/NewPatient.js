@@ -52,6 +52,83 @@ class ComposedTextField extends React.Component {
       houseType: '',
       heatingType: '',
     },
+    rules: {
+      name: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      lastname:{
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      date:{
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      genre:{
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      documentType:{
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      dni:{
+        required: true,
+        helperText: '',
+        valid: true,
+      }, 
+      address: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      phoneNumber:{
+        required: false,
+        helperText: '',
+        valid: true,
+      },
+      insurance: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      fridge: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      electricity: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      pet: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      waterType: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      houseType: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+      heatingType: {
+        required: true,
+        helperText: '',
+        valid: true,
+      },
+    },
     apiData: {
       documentTypes: this.props.documentTypes,
       insurances: this.props.insurances,
@@ -62,14 +139,34 @@ class ComposedTextField extends React.Component {
     
   };
 
-  handleChange = name => event => {
+  handleChange = fieldId => event => {
     this.setState({
       patient:{
         ...this.state.patient, 
-        [name]: event.target.value
+        [fieldId]: event.target.value
+      },
+      rules:{
+        ...this.state.rules, 
+        [fieldId]: {
+          ...this.state.rules[fieldId],
+          valid: this.validate(fieldId, event.target.value, this.state.rules[fieldId])
+        } 
       }
     });
   };
+
+  validate(field, value, rules){
+    let isValid = true;
+
+    if(rules.required){
+      isValid = value.trim()!== '';
+      if (!isValid) {
+        this.state.rules[field].helperText = 'Campo obligatorio';
+      }
+    }
+
+    return isValid;
+  }
 
   handleSubmit = () =>{
     // TODO: validate
@@ -96,6 +193,8 @@ class ComposedTextField extends React.Component {
               value={name}
               onChange={this.handleChange('name')}
               margin="normal"
+              error={!this.state.rules.name.valid}
+              helperText={this.state.rules.name.helperText}
             />
             <TextField
               id="lastname"
@@ -104,6 +203,8 @@ class ComposedTextField extends React.Component {
               value={lastname}
               onChange={this.handleChange('lastname')}
               margin="normal"
+              error={!this.state.rules.lastname.valid}
+                helperText={this.state.rules.lastname.helperText}
             />
             <TextField
               id="date"
@@ -115,12 +216,16 @@ class ComposedTextField extends React.Component {
               InputLabelProps={{
                 shrink: true,
               }}
+              error={!this.state.rules.date.valid}
+                helperText={this.state.rules.date.helperText}
             />
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="genre">Género</InputLabel>
               <Select
                 value={genre}
                 onChange={this.handleChange('genre')}
+                error={!this.state.rules.genre.valid}
+                helperText={this.state.rules.genre.helperText}
               >
                   <MenuItem value='female'>Femenino</MenuItem>
                   <MenuItem value='male'>Masculino</MenuItem>
@@ -131,6 +236,8 @@ class ComposedTextField extends React.Component {
               <Select
                 value={documentType}
                 onChange={this.handleChange('documentType')}
+                error={!this.state.rules.documentType.valid}
+                helperText={this.state.rules.documentType.helperText}
               >
                 {
                 documentTypes.map((docType, index) =>
@@ -150,16 +257,20 @@ class ComposedTextField extends React.Component {
                 shrink: true,
               }}
               margin="normal"
+              error={!this.state.rules.dni.valid}
+                helperText={this.state.rules.dni.helperText}
             />
             <TextField
               id="address"
-              label="Direccion"
+              label="Dirección"
               multiline
               rowsMax="4"
               value={address}
               onChange={this.handleChange('address')}
               className={classes.textField}
               margin="normal"
+              error={!this.state.rules.address.valid}
+                helperText={this.state.rules.address.helperText}
             />
             <TextField
               id="phoneNumber"
@@ -172,12 +283,16 @@ class ComposedTextField extends React.Component {
                 shrink: true,
               }}
               margin="normal"
+              error={!this.state.rules.phoneNumber.valid}
+                helperText={this.state.rules.phoneNumber.helperText}
             />
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="insurance">Obra social</InputLabel>
               <Select
                 value={insurance}
                 onChange={this.handleChange('insurance')}
+                error={!this.state.rules.insurance.valid}
+                helperText={this.state.rules.insurance.helperText}
               >
                 {
                 insurances.map((ins, index) =>
@@ -191,9 +306,11 @@ class ComposedTextField extends React.Component {
               <Select
                 value={fridge}
                 onChange={this.handleChange('fridge')}
+                error={!this.state.rules.fridge.valid}
+                helperText={this.state.rules.fridge.helperText}
               >
-                  <MenuItem value={1}>Si</MenuItem>
-                  <MenuItem value={0}>No</MenuItem>
+                  <MenuItem value={true}>Si</MenuItem>
+                  <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
@@ -201,9 +318,11 @@ class ComposedTextField extends React.Component {
               <Select
                 value={electricity}
                 onChange={this.handleChange('electricity')}
+                error={!this.state.rules.electricity.valid}
+                helperText={this.state.rules.electricity.helperText}
               >
-                  <MenuItem value={1}>Si</MenuItem>
-                  <MenuItem value={0}>No</MenuItem>
+                  <MenuItem value={true}>Si</MenuItem>
+                  <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
@@ -211,9 +330,11 @@ class ComposedTextField extends React.Component {
               <Select
                 value={pet}
                 onChange={this.handleChange('pet')}
+                error={!this.state.rules.pet.valid}
+                helperText={this.state.rules.pet.helperText}
               >
-                  <MenuItem value={1}>Si</MenuItem>
-                  <MenuItem value={0}>No</MenuItem>
+                  <MenuItem value={true}>Si</MenuItem>
+                  <MenuItem value={false}>No</MenuItem>
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
@@ -221,6 +342,8 @@ class ComposedTextField extends React.Component {
               <Select
                 value={waterType}
                 onChange={this.handleChange('waterType')}
+                error={!this.state.rules.waterType.valid}
+                helperText={this.state.rules.waterType.helperText}
               >
                 {
                 waterTypes.map((watType, index) =>
@@ -234,6 +357,8 @@ class ComposedTextField extends React.Component {
               <Select
                 value={houseType}
                 onChange={this.handleChange('houseType')}
+                error={!this.state.rules.houseType.valid}
+                helperText={this.state.rules.houseType.helperText}
               >
                 {
                 houseTypes.map((houType, index) =>
@@ -247,6 +372,8 @@ class ComposedTextField extends React.Component {
               <Select
                 value={heatingType}
                 onChange={this.handleChange('heatingType')}
+                error={!this.state.rules.heatingType.valid}
+                helperText={this.state.rules.heatingType.helperText}
               >
                 {
                 heatingTypes.map((heaType, index) =>
