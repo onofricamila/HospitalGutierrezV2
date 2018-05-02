@@ -1,5 +1,6 @@
 import React, { Component, Fragment} from "react";
 import axios from "../../axios/AxiosAPIReferences.js";
+import {path} from "../../axios/AxiosAPIReferences.js";
 import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
@@ -12,6 +13,10 @@ class Patients extends Component{
         loading: true,
         searching: false,
         documentTypes: [],
+        insurances: [],
+        houseTypes: [],
+        waterTypes: [],
+        heatingTypes: [],
         data: [
             {
               id: "1",
@@ -45,12 +50,56 @@ class Patients extends Component{
       }
     
     componentDidMount = () => {
-    axios.get("tipo-documento").then(response => {
-        this.setState({
-        loading: false,
-        documentTypes: response.data
+        axios.get("tipo-documento").then(response => {
+            this.setState({
+            documentTypes: response.data
+            });
         });
-    });
+        axios.get("obra-social").then(response => {
+            this.setState({
+            insurances: response.data,
+            });
+        });
+        axios.get("tipo-vivienda").then(response => {
+            this.setState({
+            houseTypes: response.data,
+            });
+        });
+        axios.get("tipo-agua").then(response => {
+            this.setState({
+            waterTypes: response.data,
+            });
+        });
+        axios.get("tipo-calefaccion").then(response => {
+            this.setState({
+            heatingTypes: response.data,
+            loading: false
+            });
+        });
+    // no anda lo de abajo
+    // axios
+    //   .all([
+    //     axios.get(path + "tipo-documento"),
+    //     axios.get(path + "obra-social"),
+    //     axios.get(path + "tipo-vivienda"),
+    //     axios.get(path + "tipo-agua"),
+    //     axios.get(path + "tipo-calefaccion")
+    //   ])
+    //   .then(
+    //     axios.spread(
+    //       (documentTypes, insurances, houseTypes, waterTypes, heatingTypes) => {
+    //         this.setState({
+    //           apiData: {
+    //             documentTypes: documentTypes.data,
+    //             insurances: insurances.data,
+    //             houseTypes: houseTypes.data,
+    //             waterTypes: waterTypes.data,
+    //             heatingTypes: heatingTypes.data
+    //           }
+    //         })
+    //       }
+    //     )
+    //   )
     }
 
     searchHandler = data => {
@@ -74,28 +123,35 @@ class Patients extends Component{
     // }
 
     render() {
-        // let show;
-        // if (this.state.loading){
-        //     show = < CircularIndeterminate />
-        // }
-        // else{
-        //     show = (
-        //         <Fragment>
-        //             <EnhancedTable rowsPerPage={5} data={this.state.data} documentTypes={this.state.documentTypes}/>
-        //             <FixedBottomButton path="/patients/new" />
-        //         </Fragment>
-                
-        //     ) ;
-        // }
-        // return show;
-        let toDo = null;
+    
+        let show = null;
         if (this.state.loading){
-                toDo = < CircularIndeterminate />
+                show = < CircularIndeterminate />
         }
         
         const documentTypes = [];
         Object.values(this.state.documentTypes).forEach(value => {
             documentTypes[value.id] = value.nombre
+        });
+
+        const insurances = [];
+        Object.values(this.state.insurances).forEach(value => {
+            insurances[value.id] = value.nombre
+        });
+
+        const waterTypes = [];
+        Object.values(this.state.waterTypes).forEach(value => {
+            waterTypes[value.id] = value.nombre
+        });
+
+        const houseTypes = [];
+        Object.values(this.state.houseTypes).forEach(value => {
+            houseTypes[value.id] = value.nombre
+        });
+
+        const heatingTypes = [];
+        Object.values(this.state.heatingTypes).forEach(value => {
+            heatingTypes[value.id] = value.nombre
         });
 
         const columnData = [
@@ -127,11 +183,18 @@ class Patients extends Component{
 
         return (
             <Fragment>
-                {toDo}
+                {show}
                 <Switch>
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
-                            <NewPatientPage routeProps={routeProps} documentTypes={documentTypes}/>
+                            <NewPatientPage 
+                                routeProps={routeProps} 
+                                documentTypes={documentTypes} 
+                                insurances={insurances}
+                                waterTypes={waterTypes}
+                                houseTypes={houseTypes}
+                                heatingTypes={heatingTypes}
+                                />
                     } /> 
                     <Route path="/patients" exact 
                         render={ (routeProps) => 

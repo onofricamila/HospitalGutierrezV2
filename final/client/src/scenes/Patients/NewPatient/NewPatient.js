@@ -35,44 +35,32 @@ const styles = theme => ({
 
 class ComposedTextField extends React.Component {
   state = {
-    loading:true,
     patient: {
       name:'',
       lastname:'',
+      date:'',
+      genre:'',
       documentType:'',
-      dni:''
+      dni:'', 
+      address: '',
+      phoneNumber:'',
+      insurance: '',
+      fridge: '',
+      electricity: '',
+      pet: '',
+      waterType: '',
+      houseType: '',
+      heatingType: '',
     },
-    demographicData: {},
     apiData: {
       documentTypes: this.props.documentTypes,
+      insurances: this.props.insurances,
+      waterTypes: this.props.waterTypes,
+      houseTypes: this.props.houseTypes,
+      heatingTypes: this.props.heatingTypes,
     }
     
   };
-
-  // componentDidMount = () => {
-  //   axios
-  //     .all([
-  //       axios.get(path + "obra-social"),
-  //       axios.get(path + "tipo-vivienda"),
-  //       axios.get(path + "tipo-agua"),
-  //       axios.get(path + "tipo-calefaccion")
-  //     ])
-  //     .then(
-  //       axios.spread(
-  //         (insurance, houseTypes, waterTypes, heatingTypes) => {
-  //           this.setState(({ apiData }) => ({
-  //             apiData: {
-  //               ...apiData,
-  //               insurances: insurance.data,
-  //               houseTypes: houseTypes.data,
-  //               waterTypes: waterTypes.data,
-  //               heatingTypes: heatingTypes.data
-  //             }
-  //           }))
-  //         }
-  //       )
-  //     )
-  // }
 
   handleChange = name => event => {
     this.setState({
@@ -85,13 +73,13 @@ class ComposedTextField extends React.Component {
 
   handleSubmit = () =>{
     // TODO: validate
-
+    // post?
   }
 
   render() {
-    const { classes, documentTypes } = this.props;
+    const { classes, documentTypes, insurances, waterTypes, houseTypes, heatingTypes } = this.props;
 
-    const { patient: {  name, lastname, documentType, dni } } = this.state;
+    const { patient: {  name, lastname, date, genre, documentType, dni, address, phoneNumber, insurance, fridge, electricity, pet, waterType, houseType, heatingType } } = this.state;
 
     let show;
     
@@ -100,7 +88,7 @@ class ComposedTextField extends React.Component {
         <Grid container spacing={40}>
           <Grid item xs={12}>
               <Grid container justify="center" spacing={40}>
-          <form className={classes.root}>
+          <form className={classes.root} validate autoComplete="off">
             <TextField
               id="name"
               label="Nombre"
@@ -117,6 +105,27 @@ class ComposedTextField extends React.Component {
               onChange={this.handleChange('lastname')}
               margin="normal"
             />
+            <TextField
+              id="date"
+              label="Fecha de nacimiento"
+              type="date"
+              value={date}
+              defaultValue=""
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="genre">Género</InputLabel>
+              <Select
+                value={genre}
+                onChange={this.handleChange('genre')}
+              >
+                  <MenuItem value='female'>Femenino</MenuItem>
+                  <MenuItem value='male'>Masculino</MenuItem>
+              </Select>
+            </FormControl>
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
               <Select
@@ -124,7 +133,7 @@ class ComposedTextField extends React.Component {
                 onChange={this.handleChange('documentType')}
               >
                 {
-                this.props.documentTypes.map((docType, index) =>
+                documentTypes.map((docType, index) =>
                   <MenuItem value={index}>{docType}</MenuItem>
                 )
                 }
@@ -142,11 +151,115 @@ class ComposedTextField extends React.Component {
               }}
               margin="normal"
             />
+            <TextField
+              id="address"
+              label="Direccion"
+              multiline
+              rowsMax="4"
+              value={address}
+              onChange={this.handleChange('address')}
+              className={classes.textField}
+              margin="normal"
+            />
+            <TextField
+              id="phoneNumber"
+              label="Numero de telefono"
+              value={phoneNumber}
+              onChange={this.handleChange('phoneNumber')}
+              type="number"
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              margin="normal"
+            />
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="insurance">Obra social</InputLabel>
+              <Select
+                value={insurance}
+                onChange={this.handleChange('insurance')}
+              >
+                {
+                insurances.map((ins, index) =>
+                  <MenuItem value={index}>{ins}</MenuItem>
+                )
+                }
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="fridge">Heladera?</InputLabel>
+              <Select
+                value={fridge}
+                onChange={this.handleChange('fridge')}
+              >
+                  <MenuItem value={1}>Si</MenuItem>
+                  <MenuItem value={0}>No</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="electricity">Electricidad?</InputLabel>
+              <Select
+                value={electricity}
+                onChange={this.handleChange('electricity')}
+              >
+                  <MenuItem value={1}>Si</MenuItem>
+                  <MenuItem value={0}>No</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="pet">Mascota?</InputLabel>
+              <Select
+                value={pet}
+                onChange={this.handleChange('pet')}
+              >
+                  <MenuItem value={1}>Si</MenuItem>
+                  <MenuItem value={0}>No</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="waterType">Tipo de agua</InputLabel>
+              <Select
+                value={waterType}
+                onChange={this.handleChange('waterType')}
+              >
+                {
+                waterTypes.map((watType, index) =>
+                  <MenuItem value={index}>{watType}</MenuItem>
+                )
+                }
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="houseType">Tipo de casa</InputLabel>
+              <Select
+                value={houseType}
+                onChange={this.handleChange('houseType')}
+              >
+                {
+                houseTypes.map((houType, index) =>
+                  <MenuItem value={index}>{houType}</MenuItem>
+                )
+                }
+              </Select>
+            </FormControl>
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="heatingType">Tipo de calefacción</InputLabel>
+              <Select
+                value={heatingType}
+                onChange={this.handleChange('heatingType')}
+              >
+                {
+                heatingTypes.map((heaType, index) =>
+                  <MenuItem value={index}>{heaType}</MenuItem>
+                )
+                }
+              </Select>
+            </FormControl>
             <Button 
               color="primary" 
               className={classes.button}
               onClick={this.handleSubmit}>
-              Primary
+              Enviar
             </Button>
           </form>
           </Grid>
