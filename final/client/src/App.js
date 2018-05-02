@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./scenes/Home/Home";
 import PatientsPage from "./scenes/Patients/Patients";
-import NewPatientsPage from "./scenes/Patients/NewPatient/NewPatient";
 import Error404 from "./scenes/Errors/404";
 import Error505 from "./scenes/Errors/505";
 import Maintenance from "./scenes/Errors/Maintenance";
@@ -18,11 +17,8 @@ class App extends Component {
       <BrowserRouter basename="/">
        <Layout>
             <Switch>
-              {/* <Route path="/login" component={LoginPage} />
-              <Route path="/users" component={UsersListPage} /> */}
               <Route path="/" exact component={HomePage} />
-              <Route path="/patients" exact component={PatientsPage} />
-              <Route path="/patients/new" exact component={NewPatientsPage} />
+              <Route path="/patients" component={PatientsPage} />
               <Route path="/AccessDenied" exact component={AccessDenied} />
               <Route path="/NoResults" exact component={NoResults} />
               <Route path="/Maintenance" exact component={Maintenance} />

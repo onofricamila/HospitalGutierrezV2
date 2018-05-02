@@ -20,44 +20,14 @@ import DeleteIcon from 'material-ui-icons/Delete';
 import FilterListIcon from 'material-ui-icons/FilterList';
 import { lighten } from 'material-ui/styles/colorManipulator';
 
-const columnData = [
-{
-  id: 'name',
-  label: "Nombre",
-  numeric: false,
-  disablePadding: false,
-},
-{
-  id: 'lastname',
-  label: "Apellido",
-  numeric: false,
-  disablePadding: false,
-},
-{
-  id: "documentType",
-  label: "Tipo de documento",
-  numeric: true,
-  disablePadding: false,
-},
-{
-  id: "dni",
-  label: "N° de documento",
-  numeric: true,
-  disablePadding: false,
-}
-];
-
-
 class EnhancedTableHead extends React.Component {
   
   createSortHandler = property => event => {
     this.props.onRequestSort(event, property);
   };
 
-  
-  
   render() {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
+    const { onSelectAllClick, order, orderBy, numSelected, rowCount, columnData} = this.props;
 
     return (
       <TableHead>
@@ -266,11 +236,6 @@ class EnhancedTable extends React.Component {
     const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     
-    const documentTypes = [];
-    Object.values(this.props.documentTypes).forEach(value => {
-        documentTypes[value.id] = value.nombre
-    });
-
     return (
       <Paper className={classes.root}>
         <EnhancedTableToolbar numSelected={selected.length} />
@@ -283,6 +248,7 @@ class EnhancedTable extends React.Component {
               onSelectAllClick={this.handleSelectAllClick}
               onRequestSort={this.handleRequestSort}
               rowCount={data.length}
+              columnData={this.props.columnData}
             />
             <TableBody>
               {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
@@ -304,10 +270,10 @@ class EnhancedTable extends React.Component {
                     <TableCell >{n.lastname}</TableCell>
                     <TableCell numeric>
                       {
-                        documentTypes[n.documentType]
+                        this.props.documentTypes[n.documentType]
                       }
                     </TableCell>
-                    <TableCell numeric>{n.dni}</TableCell>
+                    <TableCell numeric>{n.dni}</TableCell> 
                   </TableRow>
                 );
               })}

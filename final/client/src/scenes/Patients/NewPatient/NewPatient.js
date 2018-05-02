@@ -59,21 +59,17 @@ componentDidMount = () => {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, documentTypes } = this.props;
 
     const { patient: {  name, lastname, documentType, dni } } = this.state;
 
     let show;
     
-    if (this.state.loading) {
-      show = < CircularIndeterminate />
-      
-    } else {
 
-      const documentTypes = [];
-      Object.values(this.state.documentTypes).forEach(value => {
-          documentTypes[value.id] = value.nombre
-      });
+      // const documentTypes = [];
+      // Object.values(this.state.documentTypes).forEach(value => {
+      //     documentTypes[value.id] = value.nombre
+      // });
 
       show = (
           <div className={classes.container}>
@@ -104,7 +100,7 @@ componentDidMount = () => {
                   onChange={this.handleChange('documentType')}
                 >
                   {
-                  documentTypes.map((docType, index) =>
+                  this.props.documentTypes.map((docType, index) =>
                     <MenuItem value={index}>{docType}</MenuItem>
                   )
                   }
@@ -128,7 +124,6 @@ componentDidMount = () => {
             </Grid>
           </div>
         );
-    }
     
 
     return show;
