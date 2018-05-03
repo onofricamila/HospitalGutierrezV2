@@ -56,81 +56,96 @@ class ComposedTextField extends React.Component {
       name: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
       },
       lastname:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       date:{
         required: true,
         helperText: '',
         valid: true,
+        touched: false,
       },
       genre:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       documentType:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       dni:{
         required: true,
         numeric: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       }, 
       address: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       phoneNumber:{
         required: false,
         numeric: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       insurance: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       fridge: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       electricity: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       pet: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       waterType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       houseType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
       heatingType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
+        touched: false,
       },
     },
+    formIsValid: false,
     apiData: {
       documentTypes: this.props.documentTypes,
       insurances: this.props.insurances,
@@ -142,57 +157,70 @@ class ComposedTextField extends React.Component {
   };
 
   handleChange = field => event => {
+    let currentRules = this.state.rules;
+    let currentPatient = this.state.patient;
+   
     this.setState({
       patient:{
-        ...this.state.patient, 
+        ...currentPatient, 
         [field]: event.target.value
       },
       rules:{
-        ...this.state.rules, 
+        ...currentRules, 
         [field]: {
-          ...this.state.rules[field],
-          valid: this.validate(field, event.target.value, this.state.rules[field])
+          ...currentRules[field],
+          valid: this.validate(field, event.target.value, currentRules[field]),
+          touched: true
         } 
-      }
+      },
     });
   };
 
-  validateRequired(field, value, rules){
+  validateRequired(value){
     return typeof value === "string" ?
               value.trim().length > 0 :
               value.toString().length > 0;
   }
 
   validate(field, value, rules){
+    // TODO: finish all validations
+
+    let currentRules = this.state.rules;
 
     if(rules.required){
-      if (!this.validateRequired(field, value, rules)) {
-        this.state.rules[field].helperText = 'Campo obligatorio';
+      if (!this.validateRequired(value)) {
+        rules.helperText = 'Campo obligatorio';
         return false;
       }
     }
 
     if(rules.numeric){
       if (!/^([0-9])*$/.test(value)) {
-        this.state.rules[field].helperText = 'Solo números';
+        rules.helperText = 'Solo números';
         return false;
       }
     }
 
-    // if(field == 'dni'){
-    //   regex = /^\d{8}[a-zA-Z]$/;
-    //   isValid = regex.test(value);
-    //   if (!isValid) {
-    //     this.state.rules[field].helperText = 'DNI invalido';
-    //   }
-    // }
-    if(this.state.rules[field].valid) this.state.rules[field].helperText = '';
+    if(rules.valid) rules.helperText = '';
     return true;
   }
 
   handleSubmit = () =>{
-    // TODO: validate
-    // post?
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
+  
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+    alert('El estado del formulario es: ' + formIsValid);
+
+    // post request si true lo anterior
   }
 
   render() {
@@ -215,7 +243,7 @@ class ComposedTextField extends React.Component {
               value={name}
               onChange={this.handleChange('name')}
               margin="normal"
-              error={!this.state.rules.name.valid}
+              error={this.state.rules.name.touched ? !this.state.rules.name.valid : false}
               helperText={this.state.rules.name.helperText}
             />
             <TextField
@@ -225,10 +253,10 @@ class ComposedTextField extends React.Component {
               value={lastname}
               onChange={this.handleChange('lastname')}
               margin="normal"
-              error={!this.state.rules.lastname.valid}
+              error={this.state.rules.lastname.touched ? !this.state.rules.lastname.valid : false}
               helperText={!this.state.rules.lastname.valid ? this.state.rules.lastname.helperText : ''}
             />
-            <TextField
+            {/* <TextField
               id="date"
               label="Fecha de nacimiento"
               type="date"
@@ -238,17 +266,17 @@ class ComposedTextField extends React.Component {
               InputLabelProps={{
                 shrink: true,
               }}
-              error={!this.state.rules.date.valid}
+              error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
               helperText={this.state.rules.date.helperText}
-            />
+            /> */}
             <FormControl className={classes.formControl} 
-                error={!this.state.rules.genre.valid}
+                error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
                 helperText={this.state.rules.genre.helperText}>
               <InputLabel htmlFor="genre">Género</InputLabel>
               <Select
                 value={genre}
                 onChange={this.handleChange('genre')}
-                error={!this.state.rules.genre.valid}
+                error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
                 helperText={this.state.rules.genre.helperText}
               >
                   <MenuItem value='female'>Femenino</MenuItem>
@@ -256,7 +284,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={!this.state.rules.documentType.valid}
+              error={this.state.rules.documentType.tocuhed ? !this.state.rules.documentType.valid : false}
               helperText={this.state.rules.documentType.helperText}>
               <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
               <Select
@@ -280,7 +308,7 @@ class ComposedTextField extends React.Component {
                 shrink: true,
               }}
               margin="normal"
-              error={!this.state.rules.dni.valid}
+              error={this.state.rules.dni.touched ? !this.state.rules.dni.valid : false}
                 helperText={this.state.rules.dni.helperText}
             />
             <TextField
@@ -292,7 +320,7 @@ class ComposedTextField extends React.Component {
               onChange={this.handleChange('address')}
               className={classes.textField}
               margin="normal"
-              error={!this.state.rules.address.valid}
+              error={this.state.rules.address.touched ? !this.state.rules.address.valid : false}
                 helperText={this.state.rules.address.helperText}
             />
             <TextField
@@ -305,11 +333,11 @@ class ComposedTextField extends React.Component {
                 shrink: true,
               }}
               margin="normal"
-              error={!this.state.rules.phoneNumber.valid}
-                helperText={this.state.rules.phoneNumber.helperText}
+              error={this.state.rules.phoneNumber.touched ? !this.state.rules.phoneNumber.valid : false}
+              helperText={this.state.rules.phoneNumber.helperText}
             />
             <FormControl className={classes.formControl} 
-              error={!this.state.rules.insurance.valid}
+              error={this.state.rules.insurance.touched ? !this.state.rules.insurance.valid : false}
               helperText={this.state.rules.insurance.helperText} >
               <InputLabel htmlFor="insurance">Obra social</InputLabel>
               <Select
@@ -324,7 +352,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl} 
-                error={!this.state.rules.fridge.valid}
+                error={this.state.rules.fridge.touched ? !this.state.rules.fridge.valid : false}
                 helperText={this.state.rules.fridge.helperText}>
               <InputLabel htmlFor="fridge">Heladera?</InputLabel>
               <Select
@@ -336,7 +364,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={!this.state.rules.electricity.valid}
+              error={this.state.rules.electricity.touched ? !this.state.rules.electricity.valid : false}
               helperText={this.state.rules.electricity.helperText}>
               <InputLabel htmlFor="electricity">Electricidad?</InputLabel>
               <Select
@@ -348,7 +376,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl} 
-               error={!this.state.rules.pet.valid}
+               error={this.state.rules.pet.touched ? !this.state.rules.pet.valid : false}
                helperText={this.state.rules.pet.helperText}>
               <InputLabel htmlFor="pet">Mascota?</InputLabel>
               <Select
@@ -360,7 +388,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl} 
-               error={!this.state.rules.waterType.valid}
+               error={this.state.rules.waterType.touched ? !this.state.rules.waterType.valid : false}
                helperText={this.state.rules.waterType.helperText}>
               <InputLabel htmlFor="waterType">Tipo de agua</InputLabel>
               <Select
@@ -375,7 +403,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={!this.state.rules.houseType.valid}
+              error={this.state.rules.houseType.touched ? !this.state.rules.houseType.valid : false}
               helperText={this.state.rules.houseType.helperText}>
               <InputLabel htmlFor="houseType">Tipo de casa</InputLabel>
               <Select
@@ -390,7 +418,7 @@ class ComposedTextField extends React.Component {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={!this.state.rules.heatingType.valid}
+              error={this.state.rules.heatingType.ttouched ? !this.state.rules.heatingType.valid : false}
               helperText={this.state.rules.heatingType.helperText}>
               <InputLabel htmlFor="heatingType">Tipo de calefacción</InputLabel>
               <Select

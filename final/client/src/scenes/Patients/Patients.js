@@ -187,14 +187,19 @@ class Patients extends Component{
                 <Switch>
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
-                            <NewPatientPage 
-                                routeProps={routeProps} 
-                                documentTypes={documentTypes} 
-                                insurances={insurances}
-                                waterTypes={waterTypes}
-                                houseTypes={houseTypes}
-                                heatingTypes={heatingTypes}
-                                />
+                            <div>
+                                <h3>
+                                    Registra un nuevo paciente
+                                </h3>
+                                <NewPatientPage 
+                                    routeProps={routeProps} 
+                                    documentTypes={documentTypes} 
+                                    insurances={insurances}
+                                    waterTypes={waterTypes}
+                                    houseTypes={houseTypes}
+                                    heatingTypes={heatingTypes}
+                                    />
+                            </div>
                     } /> 
                     <Route path="/patients" exact 
                         render={ (routeProps) => 
