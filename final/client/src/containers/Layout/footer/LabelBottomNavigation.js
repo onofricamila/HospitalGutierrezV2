@@ -16,19 +16,27 @@ const styles = {
 class LabelBottomNavigation extends React.Component {
   state = {
     value: null,
+    email: '...'
   };
 
   handleChange = (event, value) => {
     this.setState({ value });
   };
 
+  componentDidMount() {
+    fetch('http://localhost:3001/api/Configurations/email')
+      .then(response => response.json())
+      .then(data => this.setState({ email: data.email }));
+  }
+
   render() {
     const { classes } = this.props;
     const { value } = this.state;
+    let email = this.state.email
 
     return (
       <BottomNavigation value={value} onChange={this.handleChange} className={classes.root}>
-        <BottomNavigationAction label="hola@hgutierrez.com" value="mail" icon={<EmailIcon />} />
+        <BottomNavigationAction label={email} value="mail" icon={<EmailIcon />} />
         <BottomNavigationAction label="(0221) 483-0171" value="phone" icon={<PhoneIcon />} />
         <BottomNavigationAction label="Diagonal 114 99" value="location" icon={<LocationOnIcon />} />
       </BottomNavigation>
