@@ -67,7 +67,7 @@ class ComposedTextField extends React.Component {
       date:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       genre:{
@@ -256,19 +256,20 @@ class ComposedTextField extends React.Component {
               error={this.state.rules.lastname.touched ? !this.state.rules.lastname.valid : false}
               helperText={!this.state.rules.lastname.valid ? this.state.rules.lastname.helperText : ''}
             />
-            {/* <TextField
+            <TextField
               id="date"
               label="Fecha de nacimiento"
               type="date"
               value={date}
               defaultValue=""
+              onChange={this.handleChange('date')}
               className={classes.textField}
               InputLabelProps={{
                 shrink: true,
               }}
               error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
               helperText={this.state.rules.date.helperText}
-            /> */}
+            /> 
             <FormControl className={classes.formControl} 
                 error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
                 helperText={this.state.rules.genre.helperText}>
