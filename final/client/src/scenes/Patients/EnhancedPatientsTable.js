@@ -39,7 +39,7 @@ class EnhancedTableHead extends React.Component {
     return (
       <TableHead>
         <TableRow>
-          <TableCell padding="checkbox">
+          <TableCell padding="checkbox" >
             <Checkbox
               indeterminate={numSelected > 0 && numSelected < rowCount}
               checked={numSelected === rowCount}
@@ -48,7 +48,7 @@ class EnhancedTableHead extends React.Component {
           </TableCell>
           {columnData.map(column => {
             return (
-              <TableCell
+              <TableCell 
                 key={column.id}
                 numeric={column.numeric}
                 padding={column.disablePadding ? 'none' : 'default'}
@@ -288,7 +288,6 @@ class EnhancedTable extends React.Component {
       <Grid item xs={12}>
         <form className={classes.root} validate autoComplete="off">
             <TextField
-              style={{margin: 5, width: 200,}}
               id="name"
               label="Nombre"
               className={classes.textField}
