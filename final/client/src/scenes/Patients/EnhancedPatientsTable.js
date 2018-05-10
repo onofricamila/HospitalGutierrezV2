@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
@@ -20,6 +20,12 @@ import DeleteIcon from 'material-ui-icons/Delete';
 import FilterListIcon from 'material-ui-icons/FilterList';
 import { lighten } from 'material-ui/styles/colorManipulator';
 import {Link, Route} from 'react-router-dom';
+import Input, { InputLabel } from 'material-ui/Input';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import MenuItem from 'material-ui/Menu/MenuItem';
+import TextField from 'material-ui/TextField';
+import Select from 'material-ui/Select';
+import Grid from 'material-ui/Grid';
 
 class EnhancedTableHead extends React.Component {
   
@@ -131,11 +137,7 @@ let EnhancedTableToolbar = props => {
             </IconButton>
           </Tooltip>
         ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
+          null
         )}
       </div>
     </Toolbar>
@@ -174,6 +176,10 @@ class EnhancedTable extends React.Component {
       data: this.props.data.sort((a, b) => (a.id < b.id ? -1 : 1)),
       page: 0,
       rowsPerPage: this.props.rowsPerPage,
+      filter: {
+        name: '',
+        lastname: '',
+      }
     };
   }
 
@@ -232,12 +238,70 @@ class EnhancedTable extends React.Component {
 
   isSelected = id => this.state.selected.indexOf(id) !== -1;
 
+  handleFilterChange = field => event => {
+    let currentState = this.state;
+    let currentFilter = this.state.filter;
+    this.setState({
+        ...currentState, 
+        filter: {
+          ...currentFilter, 
+          [field]: event.target.value
+        } 
+    });
+  };
+
+  filterData = (data) =>{
+    let filter = this.state.filter
+    let filteredData = data.filter(item => {
+      for (var key in filter) {
+          console.log(filter[key])
+          console.log(item[key])
+        
+          if (filter[key].trim() != '') {
+            if (!item[key].toLowerCase().includes(filter[key].toLowerCase()))
+              return false;
+          }
+      }
+      return true;
+    });
+    
+    console.log(filter)
+    return filteredData;
+  }
+
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, rowsPerPage, page } = this.state;
+    const { data, order, orderBy, selected, rowsPerPage, page, filter } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     
     return (
+      <Fragment>
+      {/* FILTER FORM */}
+      <div className={classes.container}>
+      <Grid container justify="center"spacing={8}>
+      <Grid item xs={8}>
+        <form className={classes.root} validate autoComplete="off">
+            <TextField
+              id="name"
+              label="Nombre"
+              className={classes.textField}
+              value={filter.name}
+              onChange={this.handleFilterChange('name')}
+              margin="normal"
+            />
+            <TextField
+              id="lastname"
+              label="Apellido"
+              className={classes.textField}
+              value={filter.lastname}
+              onChange={this.handleFilterChange('lastname')}
+              margin="normal"
+            />
+        </form>
+      </Grid>
+      </Grid>
+      </div>
+      {/* TABLE STRUCTURE */}
       <Paper className={classes.root}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <div className={classes.tableWrapper}>
@@ -252,7 +316,7 @@ class EnhancedTable extends React.Component {
               columnData={this.props.columnData}
             />
             <TableBody>
-              {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
+              {this.filterData(data).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
                 const isSelected = this.isSelected(n.id);
                 return (
                   <TableRow
@@ -307,6 +371,8 @@ class EnhancedTable extends React.Component {
           onChangeRowsPerPage={this.handleChangeRowsPerPage}
         />
       </Paper>
+
+      </Fragment>
     );
   }
 }
