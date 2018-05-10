@@ -25,15 +25,15 @@ module.exports = function(Configuration) {
       } else {
         var cards = [{
             "title": config.title1,
-            "description1": config.descripcion1
+            "description": config.descripcion1
           },
           {
             "title": config.title2,
-            "description1": config.descripcion2
+            "description": config.descripcion2
           },
           {
             "title": config.title3,
-            "description1": config.descripcion3
+            "description": config.descripcion3
           }
         ];
         callback(null, cards);
