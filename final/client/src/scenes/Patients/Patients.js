@@ -1,11 +1,11 @@
 import React, { Component, Fragment} from "react";
-import axios from "../../axios/AxiosAPIReferences.js";
-import {path} from "../../axios/AxiosAPIReferences.js";
+import axios from "../../axios/References.js";
 import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
 import NewPatientPage from './NewPatient/NewPatient';
+import FullPatientPage from './FullPatient/FullPatient';
 import PatientsTablePage from './EnhancedPatientsTable';
 
 class Patients extends Component{
@@ -76,30 +76,6 @@ class Patients extends Component{
             loading: false
             });
         });
-    // no anda lo de abajo
-    // axios
-    //   .all([
-    //     axios.get(path + "tipo-documento"),
-    //     axios.get(path + "obra-social"),
-    //     axios.get(path + "tipo-vivienda"),
-    //     axios.get(path + "tipo-agua"),
-    //     axios.get(path + "tipo-calefaccion")
-    //   ])
-    //   .then(
-    //     axios.spread(
-    //       (documentTypes, insurances, houseTypes, waterTypes, heatingTypes) => {
-    //         this.setState({
-    //           apiData: {
-    //             documentTypes: documentTypes.data,
-    //             insurances: insurances.data,
-    //             houseTypes: houseTypes.data,
-    //             waterTypes: waterTypes.data,
-    //             heatingTypes: heatingTypes.data
-    //           }
-    //         })
-    //       }
-    //     )
-    //   )
     }
 
     searchHandler = data => {
@@ -214,6 +190,18 @@ class Patients extends Component{
                             </div>
                         
                     } /> 
+                    <Route path="/patients/:id" exact 
+                        render={ (routeProps) => 
+                            <div>
+                                <FullPatientPage 
+                                    routeProps={routeProps} 
+                                    documentTypes={documentTypes}
+                                    insurances={insurances}
+                                    waterTypes={waterTypes}
+                                    houseTypes={houseTypes}
+                                    heatingTypes={heatingTypes} />
+                            </div> 
+                        }/>
                 </Switch>
             </ Fragment>
         );

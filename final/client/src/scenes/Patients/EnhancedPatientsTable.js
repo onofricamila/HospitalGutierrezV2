@@ -19,6 +19,7 @@ import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
 import FilterListIcon from 'material-ui-icons/FilterList';
 import { lighten } from 'material-ui/styles/colorManipulator';
+import {Link, Route} from 'react-router-dom';
 
 class EnhancedTableHead extends React.Component {
   
@@ -266,7 +267,13 @@ class EnhancedTable extends React.Component {
                     <TableCell padding="checkbox">
                       <Checkbox checked={isSelected} />
                     </TableCell>
-                    <TableCell >{n.name}</TableCell>
+
+                    <TableCell >
+                      <Link to={'patients/' + n.id} key={n.id}>    
+                       {n.name}
+                      </Link>
+                    </TableCell>
+
                     <TableCell >{n.lastname}</TableCell>
                     <TableCell numeric>
                       {
