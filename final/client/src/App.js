@@ -8,14 +8,32 @@ import Maintenance from "./scenes/Errors/Maintenance";
 import NoResults from "./scenes/Errors/NoResults";
 import AccessDenied from "./scenes/Errors/AccessDenied";
 import Layout from "./containers/Layout/Layout";
+import DocumentTitle from "react-document-title";
 
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: '...'
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/Configurations/title')
+      .then(response => response.json())
+      .then(data => this.setState({ title: data.title }));
+  }
+
+
   render() {
+    let title = this.state.title
     return (
-      <BrowserRouter basename="/">
-       <Layout>
+      <DocumentTitle title={title}>
+        <BrowserRouter basename="/">
+          <Layout>
             <Switch>
               <Route path="/" exact component={HomePage} />
               <Route path="/patients" component={PatientsPage} />
@@ -25,8 +43,9 @@ class App extends Component {
               <Route path="/505" exact component={Error505} />
               <Route component={Error404} />
             </Switch>
-        </ Layout>
-      </BrowserRouter>
+          </Layout>
+        </BrowserRouter>
+      </DocumentTitle>
     );
   }
 }
