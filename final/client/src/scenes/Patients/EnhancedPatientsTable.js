@@ -162,6 +162,14 @@ const styles = theme => ({
   tableWrapper: {
     overflowX: 'auto',
   },
+  formControl: {
+    margin: theme.spacing.unit * 2,
+    width: 200,
+  },
+  textField: {
+    margin: theme.spacing.unit * 2,
+    width: 200,
+  },
 });
 
 class EnhancedTable extends React.Component {
@@ -179,6 +187,8 @@ class EnhancedTable extends React.Component {
       filter: {
         name: '',
         lastname: '',
+        documentType: '',
+        dni: '',
       }
     };
   }
@@ -254,18 +264,14 @@ class EnhancedTable extends React.Component {
     let filter = this.state.filter
     let filteredData = data.filter(item => {
       for (var key in filter) {
-          console.log(filter[key])
-          console.log(item[key])
-        
-          if (filter[key].trim() != '') {
-            if (!item[key].toLowerCase().includes(filter[key].toLowerCase()))
+          if (filter[key].toString().trim() != '') {
+            if (!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase()))
               return false;
           }
       }
       return true;
     });
-    
-    console.log(filter)
+
     return filteredData;
   }
 
@@ -278,10 +284,11 @@ class EnhancedTable extends React.Component {
       <Fragment>
       {/* FILTER FORM */}
       <div className={classes.container}>
-      <Grid container justify="center"spacing={8}>
-      <Grid item xs={8}>
+      <Grid container>
+      <Grid item xs={12}>
         <form className={classes.root} validate autoComplete="off">
             <TextField
+              style={{margin: 5, width: 200,}}
               id="name"
               label="Nombre"
               className={classes.textField}
@@ -296,6 +303,28 @@ class EnhancedTable extends React.Component {
               value={filter.lastname}
               onChange={this.handleFilterChange('lastname')}
               margin="normal"
+            />
+            <FormControl className={classes.formControl}>
+              <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
+              <Select
+                value={filter.documentType}
+                onChange={this.handleFilterChange('documentType')}
+              >
+                {
+                this.props.documentTypes.map((docType, index) =>
+                  <MenuItem value={index}>{docType}</MenuItem>
+                )
+                }
+              </Select>
+            </FormControl>
+            <TextField
+              id="dni"
+              label="DNI"
+              className={classes.textField}
+              value={filter.dni}
+              onChange={this.handleFilterChange('dni')}
+              margin="normal"
+              numeric={true}
             />
         </form>
       </Grid>

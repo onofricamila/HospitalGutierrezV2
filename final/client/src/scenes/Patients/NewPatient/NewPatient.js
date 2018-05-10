@@ -20,9 +20,6 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
     width: 200,
   },
-  root: {
-    
-  },
   textField: {
     margin: theme.spacing.unit * 2,
     width: 200,
