@@ -28,7 +28,7 @@ Sebastian:
 1. Instalar **Node.js**, ver [aqui](https://nodejs.org/es/download/package-manager/).
 2. Necesitamos la herramnienta **npm** que viene junto con Node.js. Para ver si estan ambos instalados correctamente, correr en una terminal `node -v` y `npm -v`, respectivamente.
 3. Instalar **Loopback** globalmente corriendo en una termianl `npm install -g loopback-cli`.
-4. Debemos instalar **MongoDB**, ver [aqui](https://docs.mongodb.com/manual/administration/install-community/).
+4. Debemos instalar **MongoDB**, ver [aqui](https://docs.mongodb.com/manual/administration/install-community/). Una vez hecho esto, correr desde consola `sudo service mongod start` para levantar el server de bases de datos.
 5. Situados en la carpeta _'final'_, correr desde una terminal `npm install` para instalar las dependencias que necesita el backend para funcionar correctamente.
 6. Situados en la carpeta _'client'_, correr desde una terminal `npm install` que necesita el frontend para funcionar correctamente.
 
@@ -36,6 +36,21 @@ Sebastian:
 
 1. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con loopback.
 2. Situados en la carpeta _'client'_, correr desde una terminal `npm start` para levantar un servidor web en el puerto 3000 y poder usar la aplicacion del fronted, hecha con React.
+
+## Tips para la DB
+
+* importar (restaurar) --> `sudo mongorestore -d ProyectoLoopback <donde sea que bajes lo de drive>`
+* ver schemas, etc --> `mongo --shell` y luego `use ProyectoLoopback` + `show collections`
+
+## Cosas que instale para el frontend
+
+* npm install material-ui@next
+* npm install axios --save
+* npm install --save react-router react-router-dom
+* to be able to have css modules ...
+    * run `npm run eject`
+    * en webpack.config.dev.js buscar  _test: /\.css$/_ y dentro del objeto _options_ que esta en _use_ poner los siguientes atributos: _modules: true, localIdentName: '[name]__[local]__[hash:base64:5]'_
+    * hacer lo mismo para webpack.config.prod.js
 
 ## Documentación
 
@@ -49,14 +64,6 @@ Sebastian:
 
 ### Mecanismo provisto para operaciones CRUD
 
-### Fsorma de manejar el MVC
+### Forma de manejar el MVC
 
-# Cosas que instale para el frontend
 
-* npm install material-ui@next
-* npm install axios --save
-* npm install --save react-router react-router-dom
-* to be able to have css modules ...
-    * run `npm run eject`
-    * en webpack.config.dev.js buscar  _test: /\.css$/_ y dentro del objeto _options_ que esta en _use_ poner los siguientes atributos: _modules: true, localIdentName: '[name]__[local]__[hash:base64:5]'_
-    * hacer lo mismo para webpack.config.prod.js

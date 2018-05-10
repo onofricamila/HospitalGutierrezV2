@@ -1,5 +1,5 @@
 .FixedBottomButton{
-    position: absolute;
+    position: fixed;
     bottom: 15px!important;
     right: 15px!important;
 }
