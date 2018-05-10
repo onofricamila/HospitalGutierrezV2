@@ -6,7 +6,7 @@ import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomBut
 import { Route, Switch } from "react-router-dom";
 import NewPatientPage from './NewPatient/NewPatient';
 import FullPatientPage from './FullPatient/FullPatient';
-import PatientsTablePage from './EnhancedPatientsTable';
+import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
 
 class Patients extends Component{
     state = {

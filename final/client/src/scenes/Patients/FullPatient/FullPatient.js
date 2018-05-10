@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from "react";
 import axios from "../../../axios/Backend.js";
 import Button from 'material-ui/Button';
+import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 
 class FullPatient extends Component{
 
@@ -30,7 +31,7 @@ class FullPatient extends Component{
     render () {
         let patient ;
         if (this.props.routeProps.match.params.id){
-            patient= <p> Cargando paciente ... </p>
+            patient= < CircularIndeterminate />
         }
         if (this.state.loadedPatient) {
             patient = (
