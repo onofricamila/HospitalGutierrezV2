@@ -218,7 +218,13 @@ class ComposedTextField extends React.Component {
       ...currentState,
       formIsValid: formIsValid
     });
-    alert('El estado del formulario es: ' + formIsValid);
+
+    if (!formIsValid) {
+      alert('El formulario no se puede enviar!');
+      return false;
+    }
+    
+    alert('El estado del formulario es aceptable. Ahora se haria el requerimiento post');
 
     // post request si true lo anterior
   }
