@@ -17,19 +17,54 @@ class App extends Component {
     super(props);
 
     this.state = {
-      title: '...'
+      config: {
+        title: '...',
+        loadedMaintenance: false,
+        maintenance: null
+      }
     }
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/Configurations/title')
+  componentWillMount() {
+    fetch('http://localhost:3001/api/Configurations')
       .then(response => response.json())
-      .then(data => this.setState({ title: data.title }));
+      .then(data => this.loadData(data[0]));
   }
 
+  loadData(data) {
+    let title = data.title
+    let maintenance = data.maintenance
+    let email = data.email
+
+    this.setState({
+      config: {
+        title: title,
+        loadedMaintenance: true,
+        maintenance: maintenance,
+        email: email
+      }
+    })
+  }
 
   render() {
-    let title = this.state.title
+    let config = this.state.config
+    let title = config.title
+    let maintenance = config.maintenance
+    let loadedMaintenance = config.loadedMaintenance
+    let email = config.email
+
+    if (!loadedMaintenance) {
+      return <div></div>
+    }
+
+    if (maintenance) {
+      return (
+        <DocumentTitle title={title}>
+          <Maintenance config={config}/>
+        </DocumentTitle>
+      )
+    }
+
     return (
       <DocumentTitle title={title}>
         <BrowserRouter basename="/">

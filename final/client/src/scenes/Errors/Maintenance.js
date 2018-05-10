@@ -1,8 +1,25 @@
 import BaseError from './base';
-import React from 'react';
+import React, { Component } from 'react';
 
-const maintenance = props => 
-    <BaseError title="Volvemos pronto!" img="mantain8.png" body="Disculpe las molestias, el sitio esta en mantenimiento en este momento. Si lo necesita, puede contactarnos enviando
-    un e-mail a {{ email }} o llamando al telefono +54-221-123-4567." />
 
-export default maintenance;
+
+class Maintenance extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    let email = this.props.config.email
+    let body = "Disculpe las molestias, el sitio esta en mantenimiento en " +
+                "este momento. Si lo necesita, puede contactarnos enviando " +
+                "un e-mail a " + email + " o llamando al telefono " +
+                "+54-221-123-4567."
+
+    return(
+      <BaseError title="Volvemos pronto!" img="mantain8.png" body={body} />
+    )
+  }
+
+}
+
+export default Maintenance;
