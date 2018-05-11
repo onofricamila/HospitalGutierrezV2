@@ -312,11 +312,8 @@ class EnhancedTable extends React.Component {
                 return (
                   <TableRow
                     hover
-                    onClick={event => this.handleClick(event, n.id)}
-                    tabIndex={-1}
                     key={n.id}
                   >
-                    
 
                     <TableCell >
                       <Tooltip title="Show">
