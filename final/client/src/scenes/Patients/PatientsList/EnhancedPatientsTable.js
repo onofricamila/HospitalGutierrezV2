@@ -170,7 +170,7 @@ class EnhancedTable extends React.Component {
       order: 'asc',
       orderBy: 'id',
       selected: [],
-      data: this.props.data.sort((a, b) => (a.id < b.id ? -1 : 1)),
+      data: [],
       page: 0,
       rowsPerPage: 0,
       filter: {
@@ -188,6 +188,11 @@ class EnhancedTable extends React.Component {
         rowsPerPage: response.data.elements,
         });
     });
+    axiosBackend.get("patients").then(response => {
+      this.setState({
+      data: response.data.sort((a, b) => (a.id < b.id ? -1 : 1))
+      });
+  });
   }
   
   handleRequestSort = (event, property) => {

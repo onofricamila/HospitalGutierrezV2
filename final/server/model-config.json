@@ -43,5 +43,9 @@
   "Configuration": {
     "dataSource": "db",
     "public": true
+  },
+  "Patient": {
+    "dataSource": "db",
+    "public": true
   }
 }

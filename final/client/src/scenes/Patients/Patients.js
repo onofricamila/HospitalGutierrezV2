@@ -1,5 +1,6 @@
 import React, { Component, Fragment} from "react";
 import axiosReferences from "../../axios/References";
+import axiosBackend from "../../axios/Backend";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
@@ -15,39 +16,10 @@ class Patients extends Component{
         houseTypes: [],
         waterTypes: [],
         heatingTypes: [],
-        data: [
-            {
-              id: "1",
-              name: "Franco",
-              lastname: "Borrelli",
-              documentType: "1",
-              dni: 32
-            },
-            {
-              id: "2",
-              name: "Pedro",
-              lastname: "Brost",
-              documentType: "2",
-              dni: 3223423432
-            },
-            {
-              id: "3",
-              name: "Juan",
-              lastname: "Perez",
-              documentType: "1",
-              dni: 397872
-            },
-            {
-              id: "4",
-              name: "John",
-              lastname: "Garcia",
-              documentType: "3",
-              dni: 41243
-            }
-          ]
       }
     
     componentWillMount = () => {
+        
         axiosReferences.get("tipo-documento").then(response => {
             this.setState({
             documentTypes: response.data
@@ -96,6 +68,8 @@ class Patients extends Component{
         if (this.state.loading){
                 show = < CircularIndeterminate />
         }
+
+        const data = this.state.data;
 
         const documentTypes = [];
         Object.values(this.state.documentTypes).forEach(value => {
@@ -174,7 +148,6 @@ class Patients extends Component{
                             <div>
                                 <PatientsTablePage 
                                     routeProps={routeProps} 
-                                    data={this.state.data} 
                                     documentTypes={documentTypes}
                                     columnData={columnData}/>
                                 <FixedBottomButton path="/patients/new" />
