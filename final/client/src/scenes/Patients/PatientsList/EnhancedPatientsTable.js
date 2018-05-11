@@ -18,13 +18,14 @@ import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Edit';
 import { lighten } from 'material-ui/styles/colorManipulator';
-import {Link, Route} from 'react-router-dom';
-import Input, { InputLabel } from 'material-ui/Input';
+import {Link} from 'react-router-dom';
+import { InputLabel } from 'material-ui/Input';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import Grid from 'material-ui/Grid';
+import axiosBackend from "../../../axios/Backend";
 
 class EnhancedTableHead extends React.Component {
   
@@ -33,7 +34,7 @@ class EnhancedTableHead extends React.Component {
   };
 
   render() {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount, columnData} = this.props;
+    const { order, orderBy, rowCount, columnData} = this.props;
 
     return (
       <TableHead>
@@ -73,9 +74,7 @@ class EnhancedTableHead extends React.Component {
 }
 
 EnhancedTableHead.propTypes = {
-  numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
-  onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.string.isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
@@ -173,7 +172,7 @@ class EnhancedTable extends React.Component {
       selected: [],
       data: this.props.data.sort((a, b) => (a.id < b.id ? -1 : 1)),
       page: 0,
-      rowsPerPage: this.props.rowsPerPage,
+      rowsPerPage: 0,
       filter: {
         name: '',
         lastname: '',
@@ -183,6 +182,14 @@ class EnhancedTable extends React.Component {
     };
   }
 
+  componentWillMount = () => {
+    axiosBackend.get("Configurations/elements").then(response => {
+        this.setState({
+        rowsPerPage: response.data.elements,
+        });
+    });
+  }
+  
   handleRequestSort = (event, property) => {
     const orderBy = property;
     let order = 'desc';
@@ -232,12 +239,11 @@ class EnhancedTable extends React.Component {
     });
 
     return filteredData;
-  }
+  };
 
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page, filter } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     
     return (
       <Fragment>
@@ -245,7 +251,7 @@ class EnhancedTable extends React.Component {
       <div className={classes.container}>
       <Grid container>
       <Grid item xs={12}>
-        <form className={classes.root} validate autoComplete="off">
+        <form className={classes.root} autoComplete="off">
             <TextField
               id="name"
               label="Nombre"
@@ -282,7 +288,6 @@ class EnhancedTable extends React.Component {
               value={filter.dni}
               onChange={this.handleFilterChange('dni')}
               margin="normal"
-              numeric={true}
             />
         </form>
       </Grid>
@@ -343,11 +348,7 @@ class EnhancedTable extends React.Component {
                   </TableRow>
                 );
               })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 49 * emptyRows }}>
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
+              
             </TableBody>
           </Table>
         </div>

@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { InputLabel } from 'material-ui/Input';
+import { FormControl} from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import axios from "../../../axios/Backend";
-import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 
@@ -180,8 +179,6 @@ class ComposedTextField extends React.Component {
 
   validate(field, value, rules){
     // TODO: finish all validations
-
-    let currentRules = this.state.rules;
 
     if(rules.required){
       if (!this.validateRequired(value)) {

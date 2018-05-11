@@ -1,6 +1,5 @@
 import React, { Component, Fragment} from "react";
-import axios from "../../axios/References.js";
-import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
+import axiosReferences from "../../axios/References";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
@@ -11,7 +10,6 @@ import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
 class Patients extends Component{
     state = {
         loading: true,
-        searching: false,
         documentTypes: [],
         insurances: [],
         houseTypes: [],
@@ -49,39 +47,33 @@ class Patients extends Component{
           ]
       }
     
-    componentDidMount = () => {
-        axios.get("tipo-documento").then(response => {
+    componentWillMount = () => {
+        axiosReferences.get("tipo-documento").then(response => {
             this.setState({
             documentTypes: response.data
             });
         });
-        axios.get("obra-social").then(response => {
+        axiosReferences.get("obra-social").then(response => {
             this.setState({
             insurances: response.data,
             });
         });
-        axios.get("tipo-vivienda").then(response => {
+        axiosReferences.get("tipo-vivienda").then(response => {
             this.setState({
             houseTypes: response.data,
             });
         });
-        axios.get("tipo-agua").then(response => {
+        axiosReferences.get("tipo-agua").then(response => {
             this.setState({
             waterTypes: response.data,
             });
         });
-        axios.get("tipo-calefaccion").then(response => {
+        axiosReferences.get("tipo-calefaccion").then(response => {
             this.setState({
             heatingTypes: response.data,
             loading: false
             });
         });
-    }
-
-    searchHandler = data => {
-        this.setState({ searching: true });
-        //Search Request
-        this.setState({ searching: false });
     }
 
     // deletePatientHandler = patient => {
@@ -92,7 +84,6 @@ class Patients extends Component{
     //         .then(() => {
     //             this.setState({ loading: true });
     //             const name = patient.name + " " + patient.lastname;
-    //             <SimpleSnackbar message={"Se eliminó a " + name + " correctamente."} />
     //             this.setState({ loading: false });
     //         })
     //         .catch(() =>  <SimpleSnackbar message="Algo falló. Intentá nuevamente." />);
@@ -101,10 +92,11 @@ class Patients extends Component{
     render() {
     
         let show = null;
+        
         if (this.state.loading){
                 show = < CircularIndeterminate />
         }
-        
+
         const documentTypes = [];
         Object.values(this.state.documentTypes).forEach(value => {
             documentTypes[value.id] = value.nombre
@@ -182,7 +174,6 @@ class Patients extends Component{
                             <div>
                                 <PatientsTablePage 
                                     routeProps={routeProps} 
-                                    rowsPerPage={5} 
                                     data={this.state.data} 
                                     documentTypes={documentTypes}
                                     columnData={columnData}/>

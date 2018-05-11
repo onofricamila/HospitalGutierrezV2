@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import Articles from "./Articles/Articles";
-import ReactLoading from 'react-loading';
 
 const API = 'http://localhost:3001/api/';
 
