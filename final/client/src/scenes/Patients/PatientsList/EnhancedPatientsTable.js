@@ -13,11 +13,10 @@ import Table, {
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
-import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
-import FilterListIcon from 'material-ui-icons/FilterList';
+import EditIcon from 'material-ui-icons/Edit';
 import { lighten } from 'material-ui/styles/colorManipulator';
 import {Link, Route} from 'react-router-dom';
 import Input, { InputLabel } from 'material-ui/Input';
@@ -39,13 +38,7 @@ class EnhancedTableHead extends React.Component {
     return (
       <TableHead>
         <TableRow>
-          <TableCell padding="checkbox" >
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
-          </TableCell>
+          
           {columnData.map(column => {
             return (
               <TableCell 
@@ -70,6 +63,9 @@ class EnhancedTableHead extends React.Component {
               </TableCell>
             );
           }, this)}
+          <TableCell padding={'default'}>
+            {'Acciones'}
+          </TableCell>
         </TableRow>
       </TableHead>
     );
@@ -120,13 +116,7 @@ let EnhancedTableToolbar = props => {
       })}
     >
       <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="subheading">
-            {numSelected} selected
-          </Typography>
-        ) : (
           <Typography variant="title">PACIENTES</Typography>
-        )}
       </div>
       <div className={classes.spacer} />
       <div className={classes.actions}>
@@ -209,35 +199,6 @@ class EnhancedTable extends React.Component {
     this.setState({ data, order, orderBy });
   };
 
-  handleSelectAllClick = (event, checked) => {
-    if (checked) {
-      this.setState({ selected: this.state.data.map(n => n.id) });
-      return;
-    }
-    this.setState({ selected: [] });
-  };
-
-  handleClick = (event, id) => {
-    const { selected } = this.state;
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1),
-      );
-    }
-
-    this.setState({ selected: newSelected });
-  };
-
   handleChangePage = (event, page) => {
     this.setState({ page });
   };
@@ -245,8 +206,6 @@ class EnhancedTable extends React.Component {
   handleChangeRowsPerPage = event => {
     this.setState({ rowsPerPage: event.target.value });
   };
-
-  isSelected = id => this.state.selected.indexOf(id) !== -1;
 
   handleFilterChange = field => event => {
     let currentState = this.state;
@@ -345,23 +304,17 @@ class EnhancedTable extends React.Component {
             />
             <TableBody>
               {this.filterData(data).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
-                const isSelected = this.isSelected(n.id);
                 return (
                   <TableRow
                     hover
                     onClick={event => this.handleClick(event, n.id)}
-                    role="checkbox"
-                    aria-checked={isSelected}
                     tabIndex={-1}
                     key={n.id}
-                    selected={isSelected}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox checked={isSelected} />
-                    </TableCell>
+                    
 
                     <TableCell >
-                      <Tooltip title="Visualizar">
+                      <Tooltip title="Show">
                         <Link to={'patients/' + n.id} key={n.id}>    
                           {n.name}
                         </Link>
@@ -375,6 +328,18 @@ class EnhancedTable extends React.Component {
                       }
                     </TableCell>
                     <TableCell numeric>{n.dni}</TableCell> 
+                    <TableCell >
+                      <Tooltip title="Delete">
+                        <Link to={'patients/' + n.id} key={n.id}>    
+                          <DeleteIcon />
+                        </Link>
+                      </Tooltip>
+                      <Tooltip title="Edit">
+                        <Link to={'patients/' + n.id} key={n.id}>    
+                          <EditIcon />
+                        </Link>
+                      </Tooltip>
+                    </TableCell>
                   </TableRow>
                 );
               })}
