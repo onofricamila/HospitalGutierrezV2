@@ -6,7 +6,7 @@ import { FormControl} from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
-import axios from "../../../axios/Backend";
+import axiosBackend from "../../../axios/Backend";
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 
@@ -220,6 +220,11 @@ class ComposedTextField extends React.Component {
     alert('El estado del formulario es aceptable. Ahora se haria el requerimiento post');
 
     // post request si true lo anterior
+    const data = this.state.patient;
+
+    axiosBackend.post("patients", data).then( response =>
+      console.log(response)
+    );
   }
 
   render() {
