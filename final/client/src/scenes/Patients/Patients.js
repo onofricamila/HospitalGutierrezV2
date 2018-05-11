@@ -58,7 +58,7 @@ class Patients extends Component{
     //             const name = patient.name + " " + patient.lastname;
     //             this.setState({ loading: false });
     //         })
-    //         .catch(() =>  <SimpleSnackbar message="Algo falló. Intentá nuevamente." />);
+    //         .catch(() =>  );
     // }
 
     render() {
