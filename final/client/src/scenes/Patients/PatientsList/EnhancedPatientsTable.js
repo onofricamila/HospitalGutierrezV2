@@ -361,11 +361,13 @@ class EnhancedTable extends React.Component {
                     </TableCell>
 
                     <TableCell >
-                      <Link to={'patients/' + n.id} key={n.id}>    
-                       {n.name}
-                      </Link>
+                      <Tooltip title="Visualizar">
+                        <Link to={'patients/' + n.id} key={n.id}>    
+                          {n.name}
+                        </Link>
+                      </Tooltip>
                     </TableCell>
-
+                    
                     <TableCell >{n.lastname}</TableCell>
                     <TableCell numeric>
                       {
