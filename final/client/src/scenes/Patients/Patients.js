@@ -48,19 +48,6 @@ class Patients extends Component{
         });
     }
 
-    // deletePatientHandler = patient => {
-    //     return new Promise((resolve, reject) => {
-    //         //Change Timeout for delelte request
-    //         setTimeout(Math.random() > 0.3 ? resolve : reject, 1000)
-    //         })
-    //         .then(() => {
-    //             this.setState({ loading: true });
-    //             const name = patient.name + " " + patient.lastname;
-    //             this.setState({ loading: false });
-    //         })
-    //         .catch(() =>  );
-    // }
-
     render() {
     
         let show = null;

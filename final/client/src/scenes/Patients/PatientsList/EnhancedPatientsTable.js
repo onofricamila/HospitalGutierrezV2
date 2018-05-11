@@ -192,7 +192,7 @@ class EnhancedTable extends React.Component {
       this.setState({
       data: response.data.sort((a, b) => (a.id < b.id ? -1 : 1))
       });
-  });
+    });
   }
   
   handleRequestSort = (event, property) => {
@@ -245,6 +245,22 @@ class EnhancedTable extends React.Component {
 
     return filteredData;
   };
+ 
+  deletePatient = (id) =>{
+    axiosBackend.delete('patients/' + id).then(response => {
+        console.log(response);
+        let patients = this.state.data
+        
+        for (var pat in patients) {
+          if (patients[pat].id == id) {
+            delete patients[pat]; 
+          }
+        }
+        this.setState({
+          patients
+        })
+    });
+  }
 
   render() {
     const { classes } = this.props;
@@ -337,9 +353,7 @@ class EnhancedTable extends React.Component {
                     <TableCell numeric>{n.dni}</TableCell> 
                     <TableCell >
                       <Tooltip title="Delete">
-                        <Link to={'patients/' + n.id} key={n.id}>    
-                          <DeleteIcon />
-                        </Link>
+                          <DeleteIcon onClick={() => this.deletePatient(n.id)}/>
                       </Tooltip>
                       <Tooltip title="Edit">
                         <Link to={'patients/' + n.id} key={n.id}>    
