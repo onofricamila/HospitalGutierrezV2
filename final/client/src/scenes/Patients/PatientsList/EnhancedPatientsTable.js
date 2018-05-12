@@ -246,7 +246,7 @@ class EnhancedTable extends React.Component {
     return filteredData;
   };
  
-  deletePatient = (id) =>{
+  deletePatientHandler = (id) =>{
     axiosBackend.delete('patients/' + id).then(response => {
         console.log(response);
         let patients = this.state.data
@@ -353,7 +353,7 @@ class EnhancedTable extends React.Component {
                     <TableCell numeric>{n.dni}</TableCell> 
                     <TableCell >
                       <Tooltip title="Delete">
-                          <DeleteIcon onClick={() => this.deletePatient(n.id)}/>
+                          <DeleteIcon onClick={() => this.deletePatientHandler(n.id)}/>
                       </Tooltip>
                       <Tooltip title="Edit">
                         <Link to={'patients/' + n.id} key={n.id}>    

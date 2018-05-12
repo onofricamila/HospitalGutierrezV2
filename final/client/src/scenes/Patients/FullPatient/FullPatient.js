@@ -25,6 +25,7 @@ class FullPatient extends Component{
         axios.delete('/patients/' + this.props.routeProps.match.params.id)
                 .then(response => {
                     console.log(response);
+                    this.props.routeProps.history.push("/patients")
                 });
     }
 

@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import NewPatientPage from './NewPatient/NewPatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
+import { Redirect } from 'react-router-dom'
 
 class Patients extends Component{
     state = {
