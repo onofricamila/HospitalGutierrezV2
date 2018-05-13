@@ -294,7 +294,7 @@ class EnhancedTable extends React.Component {
               >
                 {
                 this.props.documentTypes.map((docType, index) =>
-                  <MenuItem value={index}>{docType}</MenuItem>
+                  <MenuItem key={index} value={index}>{docType}</MenuItem>
                 )
                 }
               </Select>
