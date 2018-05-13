@@ -215,10 +215,6 @@ class EnhancedTable extends React.Component {
     this.setState({ page });
   };
 
-  handleChangeRowsPerPage = event => {
-    this.setState({ rowsPerPage: event.target.value });
-  };
-
   handleFilterChange = field => event => {
     let currentState = this.state;
     let currentFilter = this.state.filter;
@@ -381,7 +377,7 @@ class EnhancedTable extends React.Component {
             'aria-label': 'Next Page',
           }}
           onChangePage={this.handleChangePage}
-          onChangeRowsPerPage={this.handleChangeRowsPerPage}
+          rowsPerPageOptions={[]}
         />
       </Paper>
 
