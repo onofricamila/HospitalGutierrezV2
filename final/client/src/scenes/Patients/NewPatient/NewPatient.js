@@ -94,7 +94,7 @@ class ComposedTextField extends React.Component {
         required: false,
         numeric: true,
         helperText: '',
-        valid: false,
+        valid: true,
         touched: false,
       },
       insurance: {
@@ -448,6 +448,7 @@ class ComposedTextField extends React.Component {
             <Button 
               color="primary" 
               className={classes.button}
+              variant="raised"
               onClick={this.handleSubmit}>
               Enviar
             </Button>

@@ -265,7 +265,8 @@ class EnhancedTable extends React.Component {
   render() {
     const { classes } = this.props;
     const { data, order, orderBy, selected, rowsPerPage, page, filter } = this.state;
-    
+    const filteredData = this.filterData(data);
+
     return (
       <Fragment>
       {/* FILTER FORM */}
@@ -329,7 +330,7 @@ class EnhancedTable extends React.Component {
               columnData={this.props.columnData}
             />
             <TableBody>
-              {this.filterData(data).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
+              {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
                 return (
                   <TableRow
                     hover
@@ -370,7 +371,7 @@ class EnhancedTable extends React.Component {
         </div>
         <TablePagination
           component="div"
-          count={data.length}
+          count={filteredData.length}
           rowsPerPage={this.state.rowsPerPage}
           page={page}
           backIconButtonProps={{
