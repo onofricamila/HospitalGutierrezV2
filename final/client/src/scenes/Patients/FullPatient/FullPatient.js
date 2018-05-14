@@ -3,6 +3,55 @@ import axios from "../../../axios/Backend";
 import Button from 'material-ui/Button';
 import DeleteModal from '../DeleteModal';
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
+import classnames from 'classnames';
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import Collapse from '@material-ui/core/Collapse';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import blueGrey from '@material-ui/core/colors/blueGrey';
+import pink from '@material-ui/core/colors/pink';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from 'material-ui/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Moment from 'react-moment';
+const Item = ({ title, value }) => <ListItem>
+    <ListItemText primary={title} secondary={value} />
+</ListItem>
+
+
+const styles = theme => ({
+    card: {
+      width: 600,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+    actions: {
+      display: 'flex',
+    },
+    expand: {
+      transform: 'rotate(0deg)',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+      marginLeft: 'auto',
+    },
+    expandOpen: {
+      transform: 'rotate(180deg)',
+    },
+    avatar: {
+      backgroundColor: pink[400],
+    },
+  });
+
 
 class FullPatient extends Component{
 
@@ -32,11 +81,15 @@ class FullPatient extends Component{
 
     handleDeleteModalClickOpen = () => {
         this.setState({ deleteModalOpen: true });
-      };
+    };
     
     
     render () {
+        const { classes } = this.props;
+
         let patient="" ;
+
+        const {documentTypes, insurances, waterTypes, houseTypes, heatingTypes} = this.props
         
         if (this.state.loadedPatient) {
             patient = (
@@ -49,27 +102,59 @@ class FullPatient extends Component{
                         deletePatientHandler={this.deletePatientHandler}/>
 
                     {/* FULL PATIENT VISIBLE CONTENT */}
-                    <h1>{this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name}</h1>
-                    <div className="Edit">
-                        <Button 
-                            color="primary" 
-                            onClick={this.handleDeleteModalClickOpen}>
-                            Borrar
-                        </Button>
-                        <Button 
-                            color="primary" 
-                            onClick={this.editPatientHandler}>
-                            Editar
-                        </Button>
-                    </div>
+                    <Grid container spacing={40}>
+                    <Grid item xs={12}>
+                    <Grid container justify="center" spacing={40}>
+                    <Card className={classes.card}>
+                        <CardHeader
+                            avatar={
+                            <Avatar aria-label="Recipe" className={classes.avatar}>
+                                {this.state.loadedPatient.lastname.toUpperCase()[0] + this.state.loadedPatient.name.toUpperCase()[0]}
+                            </Avatar>
+                            }
+                           
+                            title={this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name}
+                            subheader={this.state.loadedPatient.dni}
+                        />
+                        <CardContent>
+                            <List>
+                                <Item title='Fecha de nacimiento: ' value={<Moment  format="YYYY/MM/DD">{this.state.loadedPatient.date}</Moment>} />
+                                <Item title='Género: ' value={this.state.loadedPatient.genre.toUpperCase()[0]} />
+                                <Item title='Tipo de documento: ' value={documentTypes[this.state.loadedPatient.documentType]} />
+                                <Item title='Dirección: ' value={this.state.loadedPatient.address} />
+                                <Item title='Número de telefono: ' 
+                                    value={this.state.loadedPatient.phoneNumber? this.state.loadedPatient.phoneNumber : '- - -'} />
+                                <Item title='Obra social: ' value={insurances[this.state.loadedPatient.address]} />
+                                <Item title='Heladera? ' value={this.state.loadedPatient.fridge? 'Si' : 'No'} />
+                                <Item title='Electricidad? ' value={this.state.loadedPatient.electricity? 'Si' : 'No'} />
+                                <Item title='Mascota? ' value={this.state.loadedPatient.pet? 'Si' : 'No'} />
+                                <Item title='Tipo de agua: ' value={waterTypes[this.state.loadedPatient.waterType]} />
+                                <Item title='Tipo de casa: ' value={houseTypes[this.state.loadedPatient.houseType]} />
+                                <Item title='Tipo de calefacción: ' value={heatingTypes[this.state.loadedPatient.heatingType]} />
+                            </List>
+                        </CardContent>
+                        <CardActions className={classes.actions} disableActionSpacing>
+                            <Button 
+                                color="primary" 
+                                onClick={this.handleDeleteModalClickOpen}>
+                                Borrar
+                            </Button>
+                            <Button 
+                                color="primary" 
+                                onClick={this.editPatientHandler}>
+                                Editar
+                            </Button>
+                        </CardActions>
+                    </Card>
+                    </Grid>
+                    </Grid>
+                    </Grid>
                 </div>
-    
             );
         }
         return patient;
     }
-
 }
 
-export default FullPatient;
+export default  withStyles(styles)(FullPatient);
 
