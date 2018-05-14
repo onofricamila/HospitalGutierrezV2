@@ -26,6 +26,7 @@ import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import Grid from 'material-ui/Grid';
 import axiosBackend from "../../../axios/Backend";
+import DeleteModal from '../DeleteModal';
 
 class EnhancedTableHead extends React.Component {
   
@@ -167,6 +168,11 @@ class EnhancedTable extends React.Component {
     super(props, context);
 
     this.state = {
+      deleteModal: {
+        open: false,
+        patient: '',
+        id: ''
+      },
       order: 'asc',
       orderBy: 'id',
       selected: [],
@@ -253,18 +259,37 @@ class EnhancedTable extends React.Component {
           }
         }
         this.setState({
-          patients
+          data: patients,
+          deleteModal: {
+            open: false, 
+          }
         })
     });
   }
 
+  handleDeleteModalClickOpen = (patient, id) => {
+    this.setState({ 
+      deleteModal: {
+        open: true, 
+        patient: patient, 
+        id: id
+      } 
+    });
+  };
+
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, rowsPerPage, page, filter } = this.state;
+    const { data, order, orderBy, selected, rowsPerPage, page, filter, deleteModal } = this.state;
     const filteredData = this.filterData(data);
 
     return (
       <Fragment>
+      {/* DELETE MODAL */}
+      <DeleteModal 
+          patient={deleteModal.patient}
+          open={deleteModal.open} 
+          deletePatientHandler={() => this.deletePatientHandler(deleteModal.id)}/>
+
       {/* FILTER FORM */}
       <div className={classes.container}>
       <Grid container>
@@ -328,39 +353,43 @@ class EnhancedTable extends React.Component {
             <TableBody>
               {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
                 return (
-                  <TableRow
-                    hover
-                    key={n.id}
-                  >
-
-                    <TableCell >
-                      <Tooltip title="Show">
-                        <Link to={'patients/' + n.id} key={n.id}>    
-                          {n.name}
-                        </Link>
-                      </Tooltip>
-                    </TableCell>
-                    
-                    <TableCell >{n.lastname}</TableCell>
-                    <TableCell numeric>
-                      {
-                        this.props.documentTypes[n.documentType]
-                      }
-                    </TableCell>
-                    <TableCell numeric>{n.dni}</TableCell> 
-                    <TableCell >
-                      <Tooltip title="Delete">
-                          <DeleteIcon onClick={() => this.deletePatientHandler(n.id)}/>
-                      </Tooltip>
-                      <Tooltip title="Edit">
-                        <Link to={'patients/' + n.id} key={n.id}>    
-                          <EditIcon />
-                        </Link>
-                      </Tooltip>
-                    </TableCell>
-                  </TableRow>
+                    <TableRow
+                      hover
+                      key={n.id}
+                      >
+                      <TableCell >
+                        <Tooltip title="Show">
+                          <Link to={'patients/' + n.id} key={n.id}>    
+                            {n.name}
+                          </Link>
+                        </Tooltip>
+                      </TableCell>
+                      <TableCell >
+                        {n.lastname}
+                      </TableCell>
+                      <TableCell numeric>
+                        {
+                          this.props.documentTypes[n.documentType]
+                        }
+                      </TableCell>
+                      <TableCell numeric>
+                        {n.dni}
+                      </TableCell> 
+                      <TableCell >
+                        <Tooltip title="Delete">
+                            <DeleteIcon 
+                              onClick={() => this.handleDeleteModalClickOpen(n.lastname + ' ,' + n.name, n.id)}/>
+                        </Tooltip>
+                        <Tooltip title="Edit">
+                          <Link to={'patients/' + n.id} key={n.id}>    
+                            <EditIcon />
+                          </Link>
+                        </Tooltip>
+                      </TableCell>
+                    </TableRow>
                 );
-              })}
+              })
+              }
               
             </TableBody>
           </Table>

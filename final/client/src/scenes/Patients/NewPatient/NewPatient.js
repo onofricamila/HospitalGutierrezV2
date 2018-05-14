@@ -230,8 +230,9 @@ class ComposedTextField extends React.Component {
 
     axiosBackend.post("patients", data).then( response =>
       console.log(response)
-      
     );
+
+    this.props.routeProps.history.push("/patients")
   }
 
   render() {

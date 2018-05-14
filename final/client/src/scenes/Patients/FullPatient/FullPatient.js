@@ -1,12 +1,14 @@
 import React, {Fragment, Component} from "react";
-import axios from "../../../axios/Backend.js";
+import axios from "../../../axios/Backend";
 import Button from 'material-ui/Button';
+import DeleteModal from '../DeleteModal';
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 
 class FullPatient extends Component{
 
     state = {
-        loadedPatient: null
+        loadedPatient: null,
+        deleteModalOpen: false,
     }
 
     componentDidMount(){
@@ -15,7 +17,6 @@ class FullPatient extends Component{
                 axios.get('/patients/' + this.props.routeProps.match.params.id)
                 .then(response => {
                     this.setState({ loadedPatient: response.data });
-                    console.log(response);
                 });
             }
         }
@@ -29,19 +30,30 @@ class FullPatient extends Component{
                 });
     }
 
+    handleDeleteModalClickOpen = () => {
+        this.setState({ deleteModalOpen: true });
+      };
+    
+    
     render () {
-        let patient ;
-        if (this.props.routeProps.match.params.id){
-            patient= < CircularIndeterminate />
-        }
+        let patient="" ;
+        
         if (this.state.loadedPatient) {
             patient = (
                 <div className="FullPatient">
+                    
+                    {/* DELETE PATIENT MODAL */}
+                    <DeleteModal 
+                        patient={this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name}
+                        open={this.state.deleteModalOpen} 
+                        deletePatientHandler={this.deletePatientHandler}/>
+
+                    {/* FULL PATIENT VISIBLE CONTENT */}
                     <h1>{this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name}</h1>
                     <div className="Edit">
                         <Button 
                             color="primary" 
-                            onClick={this.deletePatientHandler}>
+                            onClick={this.handleDeleteModalClickOpen}>
                             Borrar
                         </Button>
                         <Button 
