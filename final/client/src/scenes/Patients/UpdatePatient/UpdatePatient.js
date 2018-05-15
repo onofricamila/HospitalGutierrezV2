@@ -9,6 +9,9 @@ import Select from 'material-ui/Select';
 import axiosBackend from "../../../axios/Backend";
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
+import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import DatePicker from 'material-ui-pickers/DatePicker';
 
 const styles = theme => ({
   container: {
@@ -161,7 +164,17 @@ class ComposedTextField extends React.Component {
             });
         }
     }
-}
+  }
+
+  handleDateChange = (date) => {
+    let currentPatient = this.state.patient
+    this.setState({
+      patient:{
+        ...currentPatient,
+        date: date
+      }
+    });
+  }
 
   handleChange = field => event => {
     let currentRules = this.state.rules;
@@ -277,19 +290,19 @@ class ComposedTextField extends React.Component {
               error={this.state.rules.lastname.touched ? !this.state.rules.lastname.valid : false}
               helperText={!this.state.rules.lastname.valid ? this.state.rules.lastname.helperText : ''}
             />
-            <TextField
-              id="date"
-              label="Fecha de nacimiento"
-              type="date"
-              value={date}
-              onChange={this.handleChange('date')}
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
-              helperText={this.state.rules.date.helperText}
-            /> 
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <DatePicker
+                value={new Date(date)}
+                error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
+                helperText={this.state.rules.date.helperText}
+                className={classes.textField}
+                onChange={this.handleDateChange}
+                disableFuture
+                label="Fecha de nacimiento"
+                format="DD/MM/YYYY"
+                showTodayButton
+              />
+            </MuiPickersUtilsProvider>
             <FormControl className={classes.formControl} 
                 error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
                 >
