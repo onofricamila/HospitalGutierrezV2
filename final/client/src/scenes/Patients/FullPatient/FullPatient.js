@@ -15,6 +15,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import blueGrey from '@material-ui/core/colors/blueGrey';
 import pink from '@material-ui/core/colors/pink';
+import blue from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from 'material-ui/Grid';
 import List from '@material-ui/core/List';
@@ -48,9 +49,12 @@ const styles = theme => ({
     expandOpen: {
       transform: 'rotate(180deg)',
     },
-    avatar: {
+    avatarF: {
       backgroundColor: pink[400],
     },
+    avatarM: {
+        backgroundColor: blue[400],
+      },
     flexContainer: {
         display: 'inline-block',
         width: 250,
@@ -114,7 +118,7 @@ class FullPatient extends Component{
                     <Card className={classes.card}>
                         <CardHeader
                             avatar={
-                            <Avatar aria-label="Recipe" className={classes.avatar}>
+                            <Avatar className={this.state.loadedPatient.genre == 'male' ? classes.avatarM : classes.avatarF }>
                                 {this.state.loadedPatient.lastname.toUpperCase()[0] + this.state.loadedPatient.name.toUpperCase()[0]}
                             </Avatar>
                             }
