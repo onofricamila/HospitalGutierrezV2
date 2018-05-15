@@ -226,11 +226,11 @@ class ComposedTextField extends React.Component {
     // post request si true lo anterior
     const data = this.state.patient;
 
-    axiosBackend.post("patients", data).then( response =>
-      console.log(response)
+    axiosBackend.post("patients", data).then(  
+      this.props.routeProps.history.push("/patients")
     );
 
-    this.props.routeProps.history.push("/patients")
+   
   }
 
   render() {
