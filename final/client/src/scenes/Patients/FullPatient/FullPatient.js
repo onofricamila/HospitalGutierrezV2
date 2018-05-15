@@ -11,14 +11,9 @@ import pink from '@material-ui/core/colors/pink';
 import blue from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from 'material-ui/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import Moment from 'react-moment';
-
-const Item = ({ title, value }) => <ListItem>
-    <ListItemText primary={title} secondary={value} />
-</ListItem>
+import List from '@material-ui/core/List';
+import Item from "../../../components/ListItem/ListItem";
 
 
 const styles = theme => ({
