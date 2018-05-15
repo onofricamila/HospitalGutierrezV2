@@ -234,15 +234,14 @@ class ComposedTextField extends React.Component {
       return false;
     }
     
-
-    // post request si true lo anterior
     const data = this.state.patient;
 
-    axiosBackend.patch("patients/" + data.id, data).then( response =>
-      console.log(response)
+    axiosBackend.put("patients/" + data.id, data).then( res => {
+      this.props.routeProps.history.push("/patients/" + data.id)
+    }
     );
 
-    this.props.routeProps.history.push("/patients/" + data.id)
+    
   }
 
   render() {
