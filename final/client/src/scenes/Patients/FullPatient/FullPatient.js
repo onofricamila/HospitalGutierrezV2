@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axiosBackend from "../../../axios/Backend";
 import Button from 'material-ui/Button';
-import DeleteModal from '../DeleteModal';
+import DeleteModal from '../../../containers/AlertDialog/AlertDialog';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
@@ -95,9 +95,10 @@ class FullPatient extends Component{
                     
                     {/* DELETE PATIENT MODAL */}
                     <DeleteModal 
-                        patient={this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name}
+                        title={'Atención! Operación irreversible'}
+                        body={'Estas a punto de eliminar a "' + this.state.loadedPatient.lastname + ', ' + this.state.loadedPatient.name + '". Estas seguro que quieres proseguir?'}
                         open={this.state.deleteModalOpen} 
-                        deletePatientHandler={this.deletePatientHandler}/>
+                        onAgree={this.deletePatientHandler}/>
 
                     {/* FULL PATIENT VISIBLE CONTENT */}
                     <Grid container spacing={40}>

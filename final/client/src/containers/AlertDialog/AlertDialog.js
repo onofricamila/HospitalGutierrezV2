@@ -32,17 +32,17 @@ class AlertDialog extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">Atención! Operación irreversible</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{this.props.title}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Estas a punto de eliminar a "{this.props.patient}". Estas seguro que quieres proseguir?
+              {this.props.body}
             </DialogContentText>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancelar
             </Button>
-            <Button onClick={this.props.deletePatientHandler} color="primary" autoFocus>
+            <Button onClick={this.props.onAgree} color="primary" autoFocus>
               Sí, estoy seguro
             </Button>
           </DialogActions>

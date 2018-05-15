@@ -26,7 +26,7 @@ import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import Grid from 'material-ui/Grid';
 import axiosBackend from "../../../axios/Backend";
-import DeleteModal from '../DeleteModal';
+import DeleteModal from '../../../containers/AlertDialog/AlertDialog';
 
 class EnhancedTableHead extends React.Component {
   
@@ -286,9 +286,11 @@ class EnhancedTable extends React.Component {
       <Fragment>
       {/* DELETE MODAL */}
       <DeleteModal 
+          title={'Atención! Operación irreversible'}
           patient={deleteModal.patient}
+          body={'Estas a punto de eliminar a "' + deleteModal.patient + '". Estas seguro que quieres proseguir?'}
           open={deleteModal.open} 
-          deletePatientHandler={() => this.deletePatientHandler(deleteModal.id)}/>
+          onAgree={() => this.deletePatientHandler(deleteModal.id)}/>
 
       {/* FILTER FORM */}
       <div className={classes.container}>
