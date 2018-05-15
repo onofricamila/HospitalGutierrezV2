@@ -125,7 +125,7 @@ class FullPatient extends Component{
                         <CardContent>
                           <List >
                             <Grid item xs={5} class={classes.flexContainer}>
-                                <Item title='Fecha de nacimiento: ' value={<Moment  format="DD/MM/YYYY">{this.state.loadedPatient.date}</Moment>} />
+                                <Item title='Fecha de nacimiento: ' value={<Moment  add={{ days: 1 }} format="YYYY/MM/DD">{this.state.loadedPatient.date}</Moment>} />
                             </Grid>
                             <Grid item xs={5} class={classes.flexContainer}>
                                 <Item title='Género: ' value={this.state.loadedPatient.genre.toUpperCase()[0]} />
