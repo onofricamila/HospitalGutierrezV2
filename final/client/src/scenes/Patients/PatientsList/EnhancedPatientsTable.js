@@ -380,11 +380,12 @@ class EnhancedTable extends React.Component {
                       <TableCell >
                         <Tooltip title="Delete">
                             <DeleteIcon 
-                              onClick={() => this.handleDeleteModalClickOpen(n.lastname + ' ,' + n.name, n.id)}/>
+                              style={{cursor: 'pointer', fontSize: 18}}
+                              onClick={() => this.handleDeleteModalClickOpen(n.lastname + ', ' + n.name, n.id)}/>
                         </Tooltip>
                         <Tooltip title="Edit">
                           <Link to={'patients/update/' + n.id} key={n.id}>    
-                            <EditIcon/>
+                            <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
                       </TableCell>
