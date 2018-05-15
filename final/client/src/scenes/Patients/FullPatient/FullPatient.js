@@ -1,19 +1,12 @@
-import React, {Fragment, Component} from "react";
+import React, {Component} from "react";
 import axiosBackend from "../../../axios/Backend";
 import Button from 'material-ui/Button';
 import DeleteModal from '../DeleteModal';
-import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
-import classnames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import blueGrey from '@material-ui/core/colors/blueGrey';
 import pink from '@material-ui/core/colors/pink';
 import blue from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
@@ -118,7 +111,7 @@ class FullPatient extends Component{
                     <Card className={classes.card}>
                         <CardHeader
                             avatar={
-                            <Avatar className={this.state.loadedPatient.genre == 'male' ? classes.avatarM : classes.avatarF }>
+                            <Avatar className={this.state.loadedPatient.genre === 'male' ? classes.avatarM : classes.avatarF }>
                                 {this.state.loadedPatient.lastname.toUpperCase()[0] + this.state.loadedPatient.name.toUpperCase()[0]}
                             </Avatar>
                             }

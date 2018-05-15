@@ -20,13 +20,12 @@ import EditIcon from 'material-ui-icons/Edit';
 import { lighten } from 'material-ui/styles/colorManipulator';
 import {Link} from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { FormControl} from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import Grid from 'material-ui/Grid';
 import axiosBackend from "../../../axios/Backend";
-import grey from '@material-ui/core/colors/grey';
 import DeleteModal from '../DeleteModal';
 
 class EnhancedTableHead extends React.Component {
@@ -36,7 +35,7 @@ class EnhancedTableHead extends React.Component {
   };
 
   render() {
-    const { order, orderBy, rowCount, columnData} = this.props;
+    const { order, orderBy, columnData} = this.props;
 
     return (
       <TableHead>
@@ -238,7 +237,7 @@ class EnhancedTable extends React.Component {
     let filter = this.state.filter
     let filteredData = data.filter(item => {
       for (var key in filter) {
-          if (filter[key].toString().trim() != '') {
+          if (filter[key].toString().trim() !== '') {
             if (!item[key].toString().toLowerCase().includes(filter[key].toString().toLowerCase()))
               return false;
           }
@@ -255,7 +254,7 @@ class EnhancedTable extends React.Component {
         let patients = this.state.data
         
         for (var pat in patients) {
-          if (patients[pat].id == id) {
+          if (patients[pat].id === id) {
             delete patients[pat]; 
           }
         }

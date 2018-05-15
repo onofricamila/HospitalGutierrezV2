@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 
 
 class Maintenance extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let email = this.props.config.email

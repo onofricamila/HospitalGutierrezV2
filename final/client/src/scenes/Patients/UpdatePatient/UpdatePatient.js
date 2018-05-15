@@ -157,12 +157,10 @@ class ComposedTextField extends React.Component {
 
   componentDidMount(){
     if (this.props.routeProps.match.params.id) {
-        if (!this.state.patient || (this.state.patient && this.state.patient.id != this.props.routeProps.match.params.id)) {
             axiosBackend.get('/patients/' + this.props.routeProps.match.params.id)
             .then(response => {
                 this.setState({ patient: response.data });
             });
-        }
     }
   }
 

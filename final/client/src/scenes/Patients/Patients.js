@@ -1,6 +1,5 @@
 import React, { Component, Fragment} from "react";
 import axiosReferences from "../../axios/References";
-import axiosBackend from "../../axios/Backend";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
@@ -8,7 +7,6 @@ import NewPatientPage from './NewPatient/NewPatient';
 import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
-import { Redirect } from 'react-router-dom'
 import Typography from 'material-ui/Typography';
 import Error404 from "../Errors/404";
 
@@ -59,8 +57,6 @@ class Patients extends Component{
         if (this.state.loading){
                 show = < CircularIndeterminate />
         }
-
-        const data = this.state.data;
 
         const documentTypes = [];
         Object.values(this.state.documentTypes).forEach(value => {
