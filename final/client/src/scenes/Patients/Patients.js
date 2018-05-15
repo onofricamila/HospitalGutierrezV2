@@ -19,35 +19,62 @@ class Patients extends Component{
         waterTypes: [],
         heatingTypes: [],
       }
-    
-    componentWillMount = () => {
-        
+
+    getDocumentTypes(){
         axiosReferences.get("tipo-documento").then(response => {
             this.setState({
             documentTypes: response.data
             });
         });
+    }
+    
+    getInsurances(){
         axiosReferences.get("obra-social").then(response => {
             this.setState({
             insurances: response.data,
             });
         });
+    }
+
+    getHouseTypes(){
         axiosReferences.get("tipo-vivienda").then(response => {
             this.setState({
             houseTypes: response.data,
             });
         });
+    }
+
+    getWaterTypes(){
         axiosReferences.get("tipo-agua").then(response => {
             this.setState({
             waterTypes: response.data,
             });
         });
+    }
+
+    getHeatingTypes(){
         axiosReferences.get("tipo-calefaccion").then(response => {
             this.setState({
             heatingTypes: response.data,
             loading: false
             });
         });
+    }
+
+    componentWillMount = () => {
+        this.getDocumentTypes()
+        this.getInsurances()
+        this.getHouseTypes()
+        this.getWaterTypes()
+        this.getHeatingTypes()
+    }
+
+    arrayFromStateField(field){
+        const array = [];
+        Object.values(this.state[field]).forEach(value => {
+            array[value.id] = value.nombre
+        });
+        return array
     }
 
     render() {
@@ -58,30 +85,15 @@ class Patients extends Component{
                 show = < CircularIndeterminate />
         }
 
-        const documentTypes = [];
-        Object.values(this.state.documentTypes).forEach(value => {
-            documentTypes[value.id] = value.nombre
-        });
+        const documentTypes = this.arrayFromStateField('documentTypes');
+        
+        const insurances = this.arrayFromStateField('insurances');
 
-        const insurances = [];
-        Object.values(this.state.insurances).forEach(value => {
-            insurances[value.id] = value.nombre
-        });
+        const waterTypes = this.arrayFromStateField('waterTypes');
 
-        const waterTypes = [];
-        Object.values(this.state.waterTypes).forEach(value => {
-            waterTypes[value.id] = value.nombre
-        });
-
-        const houseTypes = [];
-        Object.values(this.state.houseTypes).forEach(value => {
-            houseTypes[value.id] = value.nombre
-        });
-
-        const heatingTypes = [];
-        Object.values(this.state.heatingTypes).forEach(value => {
-            heatingTypes[value.id] = value.nombre
-        });
+        const houseTypes = this.arrayFromStateField('houseTypes');
+       
+        const heatingTypes = this.arrayFromStateField('heatingTypes');
 
         const columnData = [
             {
