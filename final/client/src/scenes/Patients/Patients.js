@@ -5,6 +5,7 @@ import CircularIndeterminate from '../../components/CircularIndeterminate/Circul
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
 import NewPatientPage from './NewPatient/NewPatient';
+import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
 import { Redirect } from 'react-router-dom'
@@ -147,6 +148,18 @@ class Patients extends Component{
                         render={ (routeProps) => 
                             <div>
                                 <FullPatientPage 
+                                    routeProps={routeProps} 
+                                    documentTypes={documentTypes}
+                                    insurances={insurances}
+                                    waterTypes={waterTypes}
+                                    houseTypes={houseTypes}
+                                    heatingTypes={heatingTypes} />
+                            </div> 
+                        }/>
+                    <Route path="/patients/update/:id" exact 
+                        render={ (routeProps) => 
+                            <div>
+                                <UpdatePatientPage 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes}
                                     insurances={insurances}

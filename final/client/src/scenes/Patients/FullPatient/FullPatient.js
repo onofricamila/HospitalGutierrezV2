@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from "react";
-import axios from "../../../axios/Backend";
+import axiosBackend from "../../../axios/Backend";
 import Button from 'material-ui/Button';
 import DeleteModal from '../DeleteModal';
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
@@ -21,6 +21,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Moment from 'react-moment';
+
 const Item = ({ title, value }) => <ListItem>
     <ListItemText primary={title} secondary={value} />
 </ListItem>
@@ -64,19 +65,17 @@ class FullPatient extends Component{
         deleteModalOpen: false,
     }
 
-    componentDidMount(){
+    componentWillMount(){
         if (this.props.routeProps.match.params.id) {
-            if (!this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id != this.props.routeProps.match.params.id)) {
-                axios.get('/patients/' + this.props.routeProps.match.params.id)
+                axiosBackend.get('/patients/' + this.props.routeProps.match.params.id)
                 .then(response => {
                     this.setState({ loadedPatient: response.data });
                 });
-            }
         }
     }
 
     deletePatientHandler = () =>{
-        axios.delete('/patients/' + this.props.routeProps.match.params.id)
+        axiosBackend.delete('/patients/' + this.props.routeProps.match.params.id)
                 .then(response => {
                     console.log(response);
                     this.props.routeProps.history.push("/patients")
@@ -126,7 +125,7 @@ class FullPatient extends Component{
                         <CardContent>
                           <List >
                             <Grid item xs={5} class={classes.flexContainer}>
-                                <Item title='Fecha de nacimiento: ' value={<Moment  format="YYYY/MM/DD">{this.state.loadedPatient.date}</Moment>} />
+                                <Item title='Fecha de nacimiento: ' value={<Moment  format="DD/MM/YYYY">{this.state.loadedPatient.date}</Moment>} />
                             </Grid>
                             <Grid item xs={5} class={classes.flexContainer}>
                                 <Item title='Género: ' value={this.state.loadedPatient.genre.toUpperCase()[0]} />
