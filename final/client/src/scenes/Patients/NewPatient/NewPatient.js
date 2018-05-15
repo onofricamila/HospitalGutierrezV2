@@ -213,7 +213,6 @@ class ComposedTextField extends React.Component {
     });
 
     if (!formIsValid) {
-      alert('El formulario no se puede enviar!');
       for (let f in currentRules){
         currentRules[f].touched = true;
       }
@@ -223,7 +222,6 @@ class ComposedTextField extends React.Component {
       return false;
     }
     
-    alert('El estado del formulario es aceptable. Ahora se haria el requerimiento post');
 
     // post request si true lo anterior
     const data = this.state.patient;

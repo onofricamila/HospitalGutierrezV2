@@ -26,6 +26,7 @@ import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
 import Grid from 'material-ui/Grid';
 import axiosBackend from "../../../axios/Backend";
+import grey from '@material-ui/core/colors/grey';
 import DeleteModal from '../DeleteModal';
 
 class EnhancedTableHead extends React.Component {
@@ -40,7 +41,6 @@ class EnhancedTableHead extends React.Component {
     return (
       <TableHead>
         <TableRow>
-          
           {columnData.map(column => {
             return (
               <TableCell 
@@ -160,6 +160,7 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
     width: 200,
   },
+  
 });
 
 class EnhancedTable extends React.Component {
@@ -336,6 +337,7 @@ class EnhancedTable extends React.Component {
       </Grid>
       </Grid>
       </div>
+
       {/* TABLE STRUCTURE */}
       <Paper className={classes.root}>
         <EnhancedTableToolbar numSelected={selected.length} />
@@ -381,8 +383,8 @@ class EnhancedTable extends React.Component {
                               onClick={() => this.handleDeleteModalClickOpen(n.lastname + ' ,' + n.name, n.id)}/>
                         </Tooltip>
                         <Tooltip title="Edit">
-                          <Link to={'patients/' + n.id} key={n.id}>    
-                            <EditIcon />
+                          <Link to={'patients/update/' + n.id} key={n.id}>    
+                            <EditIcon/>
                           </Link>
                         </Tooltip>
                       </TableCell>

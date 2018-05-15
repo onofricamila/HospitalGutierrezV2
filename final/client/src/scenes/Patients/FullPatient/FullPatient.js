@@ -87,6 +87,9 @@ class FullPatient extends Component{
         this.setState({ deleteModalOpen: true });
     };
     
+    editPatientHandler = () =>{
+        this.props.routeProps.history.push("/patients/update/" + this.state.loadedPatient.id)
+    }
     
     render () {
         const { classes } = this.props;
@@ -139,7 +142,7 @@ class FullPatient extends Component{
                                     value={this.state.loadedPatient.phoneNumber? this.state.loadedPatient.phoneNumber : '- - -'} />
                             </Grid>
                             <Grid item xs={5} class={classes.flexContainer}>
-                                <Item title='Obra social: ' value={insurances[this.state.loadedPatient.address]} />
+                                <Item title='Obra social: ' value={insurances[this.state.loadedPatient.insurance]} />
                             </Grid>
                             <Grid item xs={5} class={classes.flexContainer}>
                                 <Item title='Heladera? ' value={this.state.loadedPatient.fridge? 'Si' : 'No'} />

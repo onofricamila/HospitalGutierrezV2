@@ -8,6 +8,8 @@ import NewPatientPage from './NewPatient/NewPatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
 import { Redirect } from 'react-router-dom'
+import Typography from 'material-ui/Typography';
+import Error404 from "../Errors/404";
 
 class Patients extends Component{
     state = {
@@ -118,9 +120,8 @@ class Patients extends Component{
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
                             <div>
-                                <h3>
-                                    Registra un nuevo paciente
-                                </h3>
+                                <Typography variant="title">REGISTRA UN NUEVO PACIENTE</Typography>
+                                <br/>
                                 <NewPatientPage 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes} 
@@ -154,6 +155,7 @@ class Patients extends Component{
                                     heatingTypes={heatingTypes} />
                             </div> 
                         }/>
+                    <Route component={Error404} />
                 </Switch>
             </ Fragment>
         );
