@@ -5,7 +5,7 @@ import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomBut
 import { Route, Switch } from "react-router-dom";
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsListPage from './PatientsList/EnhancedTable';
-import BasePatientsForm from './BasePatientsForm';
+import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
 import axiosBackend from "../../axios/Backend";
 
@@ -103,7 +103,7 @@ class Patients extends Component{
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
                             <div>
-                                <BasePatientsForm 
+                                <CreateOrUpdatePatient 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes} 
                                     insurances={insurances}
@@ -138,7 +138,7 @@ class Patients extends Component{
                     <Route path="/patients/update/:id" exact 
                         render={ (routeProps) => 
                             <div>
-                                <BasePatientsForm
+                                <CreateOrUpdatePatient
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes}
                                     insurances={insurances}
