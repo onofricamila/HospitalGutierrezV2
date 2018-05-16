@@ -4,6 +4,7 @@ import CircularIndeterminate from '../../components/CircularIndeterminate/Circul
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
 import FullPatientPage from './FullPatient/FullPatient';
+import ConsultsPage from './Consults/Consults';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
@@ -146,6 +147,7 @@ class Patients extends Component{
                                     heatingTypes={heatingTypes} />
                             </div> 
                         }/>
+                    <Route path="/patients/:id/consults" component={ConsultsPage} />
                     <Route component={Error404} />
                 </Switch>
             </ Fragment>

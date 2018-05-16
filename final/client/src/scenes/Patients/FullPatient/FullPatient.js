@@ -117,41 +117,41 @@ class FullPatient extends Component{
                         />
                         <CardContent>
                           <List >
-                            <Grid item xs={5} class={classes.flexContainer}>
-                                <Item title='Fecha de nacimiento: ' value={<Moment format="YYYY/MM/DD">{this.state.loadedPatient.date}</Moment>} />
+                            <Grid item xs={5} className={classes.flexContainer}>
+                                <Item title='Fecha de nacimiento: ' value={<Moment format="DD/MM/YYYY">{this.state.loadedPatient.date}</Moment>} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Género: ' value={this.state.loadedPatient.genre.toUpperCase()[0]} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Tipo de documento: ' value={documentTypes[this.state.loadedPatient.documentType]} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Dirección: ' value={this.state.loadedPatient.address} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Número de telefono: ' 
                                     value={this.state.loadedPatient.phoneNumber? this.state.loadedPatient.phoneNumber : '- - -'} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Obra social: ' value={insurances[this.state.loadedPatient.insurance]} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Heladera? ' value={this.state.loadedPatient.fridge? 'Si' : 'No'} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Electricidad? ' value={this.state.loadedPatient.electricity? 'Si' : 'No'} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Mascota? ' value={this.state.loadedPatient.pet? 'Si' : 'No'} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Tipo de agua: ' value={waterTypes[this.state.loadedPatient.waterType]} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Tipo de casa: ' value={houseTypes[this.state.loadedPatient.houseType]} />
                             </Grid>
-                            <Grid item xs={5} class={classes.flexContainer}>
+                            <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Tipo de calefacción: ' value={heatingTypes[this.state.loadedPatient.heatingType]} />
                             </Grid>
                           </List>
