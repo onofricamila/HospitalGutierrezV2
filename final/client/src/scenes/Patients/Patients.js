@@ -7,7 +7,6 @@ import FullPatientPage from './FullPatient/FullPatient';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
-import axiosBackend from "../../axios/Backend";
 
 class Patients extends Component{
     state = {

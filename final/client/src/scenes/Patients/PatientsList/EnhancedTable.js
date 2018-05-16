@@ -58,7 +58,6 @@ class EnhancedTable extends React.Component {
       },
       order: 'asc',
       orderBy: 'id',
-      selected: [],
       data: [],
       page: 0,
       rowsPerPage: 0,
@@ -162,7 +161,7 @@ class EnhancedTable extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { data, order, orderBy, selected, rowsPerPage, page, filter, deleteModal } = this.state;
+    const { data, order, orderBy, rowsPerPage, page, filter, deleteModal } = this.state;
     const filteredData = this.filterData(data);
 
     return (
