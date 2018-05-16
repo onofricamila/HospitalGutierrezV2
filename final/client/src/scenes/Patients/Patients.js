@@ -7,7 +7,9 @@ import NewPatientPage from './NewPatient/NewPatient';
 import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsListPage from './PatientsList/EnhancedTable';
+import BasePatientsForm from './BasePatientsForm';
 import Error404 from "../Errors/404";
+import axiosBackend from "../../axios/Backend";
 
 class Patients extends Component{
     state = {
@@ -103,7 +105,7 @@ class Patients extends Component{
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
                             <div>
-                                <NewPatientPage 
+                                <BasePatientsForm 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes} 
                                     insurances={insurances}
@@ -138,7 +140,7 @@ class Patients extends Component{
                     <Route path="/patients/update/:id" exact 
                         render={ (routeProps) => 
                             <div>
-                                <UpdatePatientPage 
+                                <BasePatientsForm
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes}
                                     insurances={insurances}

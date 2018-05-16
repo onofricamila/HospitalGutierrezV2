@@ -33,7 +33,7 @@ const styles = theme => ({
   paper:{ width: 500}
 });
 
-class ComposedTextField extends React.Component {
+class NewPatient extends React.Component {
   state = {
     patient: {
       name:'',
@@ -478,8 +478,8 @@ class ComposedTextField extends React.Component {
   }
 }
 
-ComposedTextField.propTypes = {
+NewPatient.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ComposedTextField);
+export default withStyles(styles)(NewPatient);

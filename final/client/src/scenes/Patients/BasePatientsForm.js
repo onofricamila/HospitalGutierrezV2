@@ -6,7 +6,7 @@ import { FormControl, FormHelperText} from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
-import axiosBackend from "../../../axios/Backend";
+import axiosBackend from "../../axios/Backend";
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
@@ -33,13 +33,12 @@ const styles = theme => ({
   paper:{ width: 500}
 });
 
-class UpdatePatient extends React.Component {
+class BasePatientsForm extends React.Component {
   state = {
     patient: {
-      id: '',
       name:'',
       lastname:'',
-      date:'',
+      date: new Date(),
       genre:'',
       documentType:'',
       dni:'', 
@@ -57,12 +56,12 @@ class UpdatePatient extends React.Component {
       name: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
       },
       lastname:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       date:{
@@ -74,26 +73,26 @@ class UpdatePatient extends React.Component {
       genre:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       documentType:{
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       dni:{
         required: true,
         numeric: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       }, 
       address: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       phoneNumber:{
@@ -106,43 +105,43 @@ class UpdatePatient extends React.Component {
       insurance: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       fridge: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       electricity: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       pet: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       waterType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       houseType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
       heatingType: {
         required: true,
         helperText: '',
-        valid: true,
+        valid: false,
         touched: false,
       },
     },
@@ -158,13 +157,70 @@ class UpdatePatient extends React.Component {
   };
 
   componentDidMount(){
-    if (this.props.routeProps.match.params.id) {
+    if (this.amIUpdating()) {
             axiosBackend.get('/patients/' + this.props.routeProps.match.params.id)
             .then(response => {
                 this.setState({ patient: response.data });
             });
+
+            this.allFiledsValidityToTrue()
     }
   }
+
+  amIUpdating(){
+    if (this.props.routeProps.match.params.id) {
+        return true
+    }
+    return false
+  }
+
+  canSubmit(){
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
+  
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+
+    if (!formIsValid) {
+      for (let f in currentRules){
+        currentRules[f].touched = true;
+      }
+      this.setState({
+        rules: currentRules
+      })
+      return false;
+    }
+    return true
+  }
+
+  handleUpdate = () =>{
+    if(this.canSubmit()){
+        // put request si true lo anterior
+        const data = this.state.patient;
+        axiosBackend.put("patients/" + data.id, data).then( res => {
+            this.props.routeProps.history.push("/patients/" + data.id)
+            }
+        );
+    }
+  }
+
+  handleCreate = () =>{
+    if(this.canSubmit()){
+        // post request si true lo anterior
+        const data = this.state.patient;
+        axiosBackend.post("patients", data).then(  res => {
+            this.props.routeProps.history.push("/patients")
+            }
+        );
+    }
+}
 
   handleDateChange = (date) => {
     let currentPatient = this.state.patient
@@ -223,38 +279,18 @@ class UpdatePatient extends React.Component {
     return true;
   }
 
-  handleUpdate = () =>{
-    let formIsValid = true;
-    let currentState = this.state;
-    let currentRules = this.state.rules;
-  
-    for (let f in currentRules){
-      formIsValid = currentRules[f].valid && formIsValid;
-    }
-
-    this.setState({
-      ...currentState,
-      formIsValid: formIsValid
-    });
-
-    if (!formIsValid) {
-      for (let f in currentRules){
-        currentRules[f].touched = true;
-      }
-      this.setState({
-        rules: currentRules
-      })
-      return false;
-    }
+  allFiledsValidityToTrue(){
+        let currentState = this.state;
+        let currentRules = this.state.rules;
+        
+        for (let f in currentRules){
+           currentRules[f].valid = true;
+        }
     
-    const data = this.state.patient;
-
-    axiosBackend.put("patients/" + data.id, data).then( res => {
-      this.props.routeProps.history.push("/patients/" + data.id)
-    }
-    );
-
-    
+        this.setState({
+            ...currentState,
+            rules: currentRules
+        });
   }
 
   render() {
@@ -263,12 +299,11 @@ class UpdatePatient extends React.Component {
     const { patient: {  name, lastname, date, genre, documentType, dni, address, phoneNumber, insurance, fridge, electricity, pet, waterType, houseType, heatingType } } = this.state;
 
     let show;
-    
-    show = (
 
-          <Grid container>
+    show = (
+          <Grid container spacing={40}>
           <Grid item xs={12}>
-          <Grid container justify="center" spacing={4}>
+          <Grid container justify="center" spacing={40}>
           <Paper className={classes.paper}>
           <form className={classes.root} autoComplete="off">
             <TextField
@@ -472,8 +507,8 @@ class UpdatePatient extends React.Component {
             <Button 
               color="primary" 
               className={classes.button}
-              onClick={this.handleUpdate}>
-              Editar
+              onClick={ this.amIUpdating()? this.handleUpdate : this.handleCreate}>
+              { this.amIUpdating()? 'Editar' : 'Crear'}
             </Button>
           </form>
           </Paper>
@@ -486,8 +521,8 @@ class UpdatePatient extends React.Component {
   }
 }
 
-UpdatePatient.propTypes = {
+BasePatientsForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(UpdatePatient);
+export default withStyles(styles)(BasePatientsForm);
