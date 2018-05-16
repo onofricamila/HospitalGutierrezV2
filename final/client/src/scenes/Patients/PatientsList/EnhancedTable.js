@@ -11,6 +11,7 @@ import Paper from 'material-ui/Paper';
 import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Edit';
+import ListIcon from 'material-ui-icons/List';
 import {Link} from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
 import { FormControl} from 'material-ui/Form';
@@ -225,7 +226,6 @@ class EnhancedTable extends React.Component {
               orderBy={orderBy}
               onRequestSort={this.handleRequestSort}
               rowCount={data.length}
-              columnData={this.props.columnData}
             />
             <TableBody>
               {filteredData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(n => {
@@ -236,7 +236,7 @@ class EnhancedTable extends React.Component {
                       >
                       <TableCell >
                         <Tooltip title="Show">
-                          <Link to={'patients/' + n.id} key={n.id}>    
+                          <Link to={n.id} key={n.id}>    
                             {n.name}
                           </Link>
                         </Tooltip>
@@ -259,8 +259,13 @@ class EnhancedTable extends React.Component {
                               onClick={() => this.handleDeleteModalClickOpen(n.lastname + ', ' + n.name, n.id)}/>
                         </Tooltip>
                         <Tooltip title="Edit">
-                          <Link to={'patients/update/' + n.id} key={n.id}>    
+                          <Link to={'update/' + n.id}>    
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
+                          </Link>
+                        </Tooltip>
+                        <Tooltip title="Health Record">
+                          <Link to={n.id +'/consults/'}>    
+                            <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
                       </TableCell>

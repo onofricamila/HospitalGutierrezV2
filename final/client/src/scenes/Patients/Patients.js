@@ -113,7 +113,7 @@ class Patients extends Component{
                                     />
                             </div>
                     } /> 
-                    <Route path="/patients" exact 
+                    <Route path="/patients/" exact 
                         render={ (routeProps) => 
                             <div>
                                 <PatientsListPage 
