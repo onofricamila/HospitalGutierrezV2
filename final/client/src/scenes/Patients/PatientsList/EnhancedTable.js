@@ -218,14 +218,12 @@ class EnhancedTable extends React.Component {
 
       {/* TABLE STRUCTURE */}
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar />
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
             <EnhancedTableHead
-              numSelected={selected.length}
               order={order}
               orderBy={orderBy}
-              onSelectAllClick={this.handleSelectAllClick}
               onRequestSort={this.handleRequestSort}
               rowCount={data.length}
               columnData={this.props.columnData}

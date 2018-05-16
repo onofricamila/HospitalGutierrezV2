@@ -12,7 +12,7 @@ import Button from 'material-ui/Button';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DatePicker from 'material-ui-pickers/DatePicker';
-
+import Paper from 'material-ui/Paper';
 
 const styles = theme => ({
   container: {
@@ -30,6 +30,7 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
+  paper:{ width: 500}
 });
 
 class ComposedTextField extends React.Component {
@@ -257,10 +258,10 @@ class ComposedTextField extends React.Component {
     let show;
     
     show = (
-        <div className={classes.container}>
-        <Grid container spacing={40}>
+          <Grid container spacing={40}>
           <Grid item xs={12}>
-              <Grid container justify="center" spacing={40}>
+          <Grid container justify="center" spacing={40}>
+          <Paper className={classes.paper}>
           <form className={classes.root} autoComplete="off">
             <TextField
               id="name"
@@ -463,15 +464,14 @@ class ComposedTextField extends React.Component {
             <Button 
               color="primary" 
               className={classes.button}
-              variant="raised"
               onClick={this.handleSubmit}>
               Enviar
             </Button>
           </form>
+          </Paper>
           </Grid>
           </Grid>
           </Grid>
-        </div>
       );
   
     return show;

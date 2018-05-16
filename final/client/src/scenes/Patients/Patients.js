@@ -7,7 +7,6 @@ import NewPatientPage from './NewPatient/NewPatient';
 import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsListPage from './PatientsList/EnhancedTable';
-import Typography from 'material-ui/Typography';
 import Error404 from "../Errors/404";
 
 class Patients extends Component{
@@ -104,8 +103,6 @@ class Patients extends Component{
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
                             <div>
-                                <Typography variant="title">REGISTRA UN NUEVO PACIENTE</Typography>
-                                <br/>
                                 <NewPatientPage 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes} 
