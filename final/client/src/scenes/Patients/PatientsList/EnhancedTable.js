@@ -1,23 +1,16 @@
 import React, {Fragment} from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Table, {
   TableBody,
   TableCell,
-  TableHead,
   TablePagination,
   TableRow,
-  TableSortLabel,
 } from 'material-ui/Table';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
 import Paper from 'material-ui/Paper';
-import IconButton from 'material-ui/IconButton';
 import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
 import EditIcon from 'material-ui-icons/Edit';
-import { lighten } from 'material-ui/styles/colorManipulator';
 import {Link} from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
 import { FormControl} from 'material-ui/Form';
@@ -28,68 +21,7 @@ import Grid from 'material-ui/Grid';
 import axiosBackend from "../../../axios/Backend";
 import DeleteModal from '../../../containers/AlertDialog/AlertDialog';
 import EnhancedTableHead from './EnhancedTableHead.js'
-
-
-
-const toolbarStyles = theme => ({
-  root: {
-    paddingRight: theme.spacing.unit,
-  },
-  highlight:
-    theme.palette.type === 'light'
-      ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
-  spacer: {
-    flex: '1 1 100%',
-  },
-  actions: {
-    color: theme.palette.text.secondary,
-  },
-  title: {
-    flex: '0 0 auto',
-  },
-});
-
-let EnhancedTableToolbar = props => {
-  const { numSelected, classes } = props;
-
-  return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      <div className={classes.title}>
-          <Typography variant="title">PACIENTES</Typography>
-      </div>
-      <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          null
-        )}
-      </div>
-    </Toolbar>
-  );
-};
-
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
-
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
+import EnhancedTableToolbar from './EnhancedTableToolbar'
 
 const styles = theme => ({
   root: {
@@ -244,9 +176,8 @@ class EnhancedTable extends React.Component {
           onAgree={() => this.deletePatientHandler(deleteModal.id)}/>
 
       {/* FILTER FORM */}
-      <Grid container>
       <Grid item xs={12}>
-        <form className={classes.root} autoComplete="off">
+        <form className={classes.root} autoComplete="off" style={{marginTop:0}}>
             <TextField
               id="name"
               label="Nombre"
@@ -268,12 +199,10 @@ class EnhancedTable extends React.Component {
               <Select
                 value={filter.documentType}
                 onChange={this.handleFilterChange('documentType')}
-              >
-                {
-                this.props.documentTypes.map((docType, index) =>
+                >
+                {this.props.documentTypes.map((docType, index) =>
                   <MenuItem key={index} value={index}>{docType}</MenuItem>
-                )
-                }
+                )}
               </Select>
             </FormControl>
             <TextField
@@ -285,7 +214,6 @@ class EnhancedTable extends React.Component {
               margin="normal"
             />
         </form>
-      </Grid>
       </Grid>
 
       {/* TABLE STRUCTURE */}
@@ -342,8 +270,7 @@ class EnhancedTable extends React.Component {
                     </TableRow>
                 );
               })
-              }
-              
+            }
             </TableBody>
           </Table>
         </div>
@@ -362,7 +289,6 @@ class EnhancedTable extends React.Component {
           rowsPerPageOptions={[]}
         />
       </Paper>
-
       </Fragment>
     );
   }
