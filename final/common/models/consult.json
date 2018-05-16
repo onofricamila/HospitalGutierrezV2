@@ -1,0 +1,76 @@
+{
+  "name": "Consult",
+  "plural": "consults",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "date": {
+      "type": "date",
+      "required": true,
+      "default": "$now"
+    },
+    "weight": {
+      "type": "number",
+      "required": true
+    },
+    "completeVaccines": {
+      "type": "boolean",
+      "required": true
+    },
+    "vaccinesObs": {
+      "type": "string",
+      "required": true
+    },
+    "accordingMaturation": {
+      "type": "boolean",
+      "required": true
+    },
+    "maturationObs": {
+      "type": "string",
+      "required": true
+    },
+    "physicalExamOk": {
+      "type": "boolean",
+      "required": true
+    },
+    "physicalExamObs": {
+      "type": "string",
+      "required": true
+    },
+    "PC": {
+      "type": "number"
+    },
+    "PPC": {
+      "type": "number"
+    },
+    "height": {
+      "type": "number"
+    },
+    "feeding": {
+      "type": "string"
+    },
+    "gralObs": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "patient": {
+      "type": "belongsTo",
+      "model": "Patient",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

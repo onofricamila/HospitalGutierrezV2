@@ -68,7 +68,16 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "consults": {
+      "type": "hasMany",
+      "model": "Consult",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }

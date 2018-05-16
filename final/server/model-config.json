@@ -47,5 +47,9 @@
   "Patient": {
     "dataSource": "db",
     "public": true
+  },
+  "Consult": {
+    "dataSource": "db",
+    "public": true
   }
 }
