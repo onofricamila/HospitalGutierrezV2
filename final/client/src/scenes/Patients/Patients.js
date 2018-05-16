@@ -6,7 +6,7 @@ import { Route, Switch } from "react-router-dom";
 import NewPatientPage from './NewPatient/NewPatient';
 import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
-import PatientsTablePage from './PatientsList/EnhancedPatientsTable';
+import PatientsListPage from './PatientsList/EnhancedTable';
 import Typography from 'material-ui/Typography';
 import Error404 from "../Errors/404";
 
@@ -95,32 +95,7 @@ class Patients extends Component{
        
         const heatingTypes = this.arrayFromStateField('heatingTypes');
 
-        const columnData = [
-            {
-              id: 'name',
-              label: "Nombre",
-              numeric: false,
-              disablePadding: false,
-            },
-            {
-              id: 'lastname',
-              label: "Apellido",
-              numeric: false,
-              disablePadding: false,
-            },
-            {
-              id: "documentType",
-              label: "Tipo de documento",
-              numeric: true,
-              disablePadding: false,
-            },
-            {
-              id: "dni",
-              label: "N° de documento",
-              numeric: true,
-              disablePadding: false,
-            }
-        ];
+       
 
         return (
             <Fragment>
@@ -144,10 +119,9 @@ class Patients extends Component{
                     <Route path="/patients" exact 
                         render={ (routeProps) => 
                             <div>
-                                <PatientsTablePage 
+                                <PatientsListPage 
                                     routeProps={routeProps} 
-                                    documentTypes={documentTypes}
-                                    columnData={columnData}/>
+                                    documentTypes={documentTypes}/>
                                 <FixedBottomButton path="/patients/new" />
                             </div>
                         
