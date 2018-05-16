@@ -3,8 +3,6 @@ import axiosReferences from "../../axios/References";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
-import NewPatientPage from './NewPatient/NewPatient';
-import UpdatePatientPage from './UpdatePatient/UpdatePatient';
 import FullPatientPage from './FullPatient/FullPatient';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import BasePatientsForm from './BasePatientsForm';
