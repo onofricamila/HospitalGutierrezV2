@@ -24,11 +24,15 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
   },
   table: {
-    minWidth: 1020,
+   minWidth: 1020,
   },
   tableWrapper: {
     overflowX: 'auto',
   },  
+  tableCell: {
+    width: 200,
+    textAlign: 'left',
+  },
 });
 
 class EnhancedTable extends React.Component {
@@ -166,23 +170,23 @@ class EnhancedTable extends React.Component {
                       hover
                       key={n.id}
                       >
-                      <TableCell >
+                      <TableCell className={classes.tableCell}>
                         <Tooltip title="Show">
                           <Link to={n.id} key={n.id}>    
                             {new Date(n.date).toLocaleDateString()}
                           </Link>
                         </Tooltip>
                       </TableCell>
-                      <TableCell >
+                      <TableCell className={classes.tableCell}>
                       {<Moment to={n.date} ago>{patient.date}</Moment>}
                       </TableCell>
-                      <TableCell >
+                      <TableCell className={classes.tableCell}>
                         {n.weight}
                       </TableCell>
-                      <TableCell numeric>
+                      <TableCell className={classes.tableCell}numeric>
                         {n.user}
                       </TableCell> 
-                      <TableCell >
+                      <TableCell className={classes.tableCell}>
                         <Tooltip title="Delete">
                             <DeleteIcon 
                               style={{cursor: 'pointer', fontSize: 18}}

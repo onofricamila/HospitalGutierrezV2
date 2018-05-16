@@ -7,6 +7,14 @@ import {
   TableSortLabel,
 } from 'material-ui/Table';
 import Tooltip from 'material-ui/Tooltip';
+import { withStyles } from 'material-ui/styles';
+
+const styles = theme => ({
+  tableCell: {
+    width: 200,
+    textAlign: 'left',
+  },
+});
 
 class EnhancedTableHead extends React.Component {
   
@@ -15,7 +23,7 @@ class EnhancedTableHead extends React.Component {
     };
   
     render() {
-      const { order, orderBy} = this.props;
+      const { order, orderBy, classes} = this.props;
 
       const columnData = [
             {
@@ -49,7 +57,7 @@ class EnhancedTableHead extends React.Component {
           <TableRow>
             {columnData.map(column => {
               return (
-                <TableCell 
+                <TableCell className={classes.tableCell}
                   key={column.id}
                   numeric={column.numeric}
                   padding={column.disablePadding ? 'none' : 'default'}
@@ -65,7 +73,7 @@ class EnhancedTableHead extends React.Component {
                       direction={order}
                       onClick={this.createSortHandler(column.id)}
                     >
-                      {column.label}
+                      {column.label.trim()}
                     </TableSortLabel>
                   </Tooltip>
                 </TableCell>
@@ -87,4 +95,4 @@ class EnhancedTableHead extends React.Component {
     rowCount: PropTypes.number.isRequired,
   };
 
-export default EnhancedTableHead
+export default withStyles(styles)(EnhancedTableHead)
