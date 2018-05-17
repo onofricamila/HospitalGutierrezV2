@@ -38,6 +38,19 @@ Por otro lado, usamos la librería Material UI para mejorar la vista de las pant
 
 ### Referencias
 
+**Loopback**
+* [Bases](http://loopback.io/getting-started/)
+* [Modelos anidados](https://www.youtube.com/watch?v=bhQd3bFUQ1Q)
+
+**React**
+* [Bases](https://reactjs.org/tutorial/tutorial.html)
+
+**Material UI**
+* [Bases](https://material-ui-next.com/getting-started/installation/)
+* [Entendiendo Material UI](https://www.youtube.com/watch?v=xm4LX5fJKZ8&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk)
+* [Extendiendo tablas en Material UI](https://www.youtube.com/watch?v=SX_IL7LqSxM)
+
+
 ### Modulos aprovechados
 
 ### Mecanismo provisto para el manejo de seguridad y routing
