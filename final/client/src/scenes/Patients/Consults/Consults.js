@@ -1,5 +1,4 @@
 import React, { Component} from "react";
-import FixedBottomButton from '../../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
 import FullConsultPage from './FullConsult/FullConsult';
 import ConsultsListPage from './ConsultsList/EnhancedTable';
@@ -21,7 +20,6 @@ class Consults extends Component{
                     <div>
                         <ConsultsListPage 
                             routeProps={routeProps} />
-                        <FixedBottomButton path="/patients/:idP/consults/new" />
                     </div>
                 
             } /> 

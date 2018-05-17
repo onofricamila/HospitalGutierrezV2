@@ -17,6 +17,7 @@ import DeleteModal from '../../../../containers/AlertDialog/AlertDialog';
 import EnhancedTableHead from './EnhancedTableHead.js'
 import EnhancedTableToolbar from './EnhancedTableToolbar'
 import Moment from 'react-moment';
+import FixedBottomButton from '../../../../components/FixedBottomButton/FixedBottomButton';
 
 const styles = theme => ({
   root: {
@@ -220,6 +221,7 @@ class EnhancedTable extends React.Component {
           rowsPerPageOptions={[]}
         />
       </Paper>
+      <FixedBottomButton path={'/patients/' + patient.id + '/consults/new'} />
       </Fragment>
     );
   }

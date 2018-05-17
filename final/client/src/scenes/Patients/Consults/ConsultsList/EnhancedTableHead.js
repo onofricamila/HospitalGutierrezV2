@@ -40,7 +40,7 @@ class EnhancedTableHead extends React.Component {
             },
             {
             id: "user",
-            label: "Usuario que la realizó",
+            label: "Usuario que la cargó",
             },
       ];
     

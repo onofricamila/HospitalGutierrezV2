@@ -57,6 +57,7 @@ class BasePatientsForm extends React.Component {
         required: true,
         helperText: '',
         valid: false,
+        touched: false,
       },
       lastname:{
         required: true,
