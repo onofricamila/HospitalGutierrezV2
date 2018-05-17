@@ -72,7 +72,7 @@ class BasePatientsForm extends React.Component {
             vaccinesObs: {
                 required: true,
                 helperText: '',
-                valid: true,
+                valid: false,
                 touched: false,
             },
             accordingMaturation: {
@@ -239,10 +239,13 @@ class BasePatientsForm extends React.Component {
     }
 
     if(rules.decimal){
-      if (!/^[0-9]+([.][0-9]+)?$/g.test(value)) {
-        rules.helperText = 'Solo numeros de hasta 2 decimales';
-        return false;
-      }
+        if(!rules.required){
+           if( value.trim() === ''){ return true }
+        }
+        if (!/^[0-9]+([.][0-9]+)?$/g.test(value)) {
+            rules.helperText = 'Solo numeros de hasta 2 decimales';
+            return false;
+        }
     }
 
     if(rules.valid) rules.helperText = '';
@@ -313,7 +316,7 @@ class BasePatientsForm extends React.Component {
                 startAdornment: <InputAdornment position="start">Cm</InputAdornment>,
               }}
               error={this.state.rules.height.touched ? !this.state.rules.height.valid : false}
-              helperText={this.state.rules.PC.helperText}
+              helperText={this.state.rules.height.helperText}
             />
 
             <TextField

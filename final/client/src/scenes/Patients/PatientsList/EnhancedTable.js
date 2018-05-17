@@ -259,7 +259,7 @@ class EnhancedTable extends React.Component {
                               onClick={() => this.handleDeleteModalClickOpen(n.lastname + ', ' + n.name, n.id)}/>
                         </Tooltip>
                         <Tooltip title="Edit">
-                          <Link to={'update/' + n.id}>    
+                          <Link to={'/patients/update/' + n.id}>    
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>

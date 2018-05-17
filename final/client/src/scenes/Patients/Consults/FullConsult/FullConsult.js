@@ -87,7 +87,7 @@ class FullConsult extends Component{
     };
     
     editConsulttHandler = () =>{
-        this.props.routeProps.history.push("/patients/update/" + this.state.loadedConsult.id)
+        this.props.routeProps.history.push("/patients/" + this.state.loadedPatient.id + "/consults/update/" + this.state.loadedConsult.id)
     }
     
     render () {
@@ -134,7 +134,7 @@ class FullConsult extends Component{
                                 <Item title='Edad: ' value={<Moment to={loadedConsult.date} ago>{loadedPatient.date}</Moment>} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
-                                <Item title='Peso: ' value={loadedConsult.weight} />
+                                <Item title='Peso: ' value={loadedConsult.weight + ' Kg'} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Vacunas completas? ' value={loadedConsult.completeVaccines? 'Si' : 'No'} />
@@ -156,15 +156,15 @@ class FullConsult extends Component{
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='PC: ' 
-                                    value={loadedConsult.PC? loadedConsult.PC : '- - -'} />
+                                    value={loadedConsult.PC? loadedConsult.PC + ' cm' : '- - -'} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='PPC: ' 
-                                    value={loadedConsult.PPC? loadedConsult.PPC : '- - -'} />
+                                    value={loadedConsult.PPC? loadedConsult.PPC  + ' cm' : '- - -'} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Talla: ' 
-                                    value={loadedConsult.height? loadedConsult.height : '- - -'} />
+                                    value={loadedConsult.height? loadedConsult.height  + ' cm' : '- - -'} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Alimentación: ' 
@@ -187,7 +187,7 @@ class FullConsult extends Component{
                             </Button>
                             <Button 
                                 color="primary" 
-                                onClick={this.editPatientHandler}>
+                                onClick={this.editConsulttHandler}>
                                 Editar
                             </Button>
                         </CardActions>
