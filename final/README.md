@@ -43,58 +43,30 @@ Por otro lado, usamos la librería Material UI para mejorar la vista de las pant
 * [Modelos anidados](https://www.youtube.com/watch?v=bhQd3bFUQ1Q)
 
 **React**
-* [Bases](https://reactjs.org/tutorial/tutorial.html)
+* [Bases, tutorial completo](https://reactjs.org/tutorial/tutorial.html)
 
 **Material UI**
 * [Bases](https://material-ui-next.com/getting-started/installation/)
-* [Entendiendo Material UI](https://www.youtube.com/watch?v=xm4LX5fJKZ8&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk)
+* [Entendiendo Material UI, tutorial completo](https://www.youtube.com/watch?v=xm4LX5fJKZ8&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk)
 * [Extendiendo tablas en Material UI](https://www.youtube.com/watch?v=SX_IL7LqSxM)
-
 
 ### Modulos aprovechados
 
+* El CRUD de usuarios, pacientes, datos demográficos e historia clinica se vio totalmente facilitado al usar Loopback (en cuanto a la lógica y el acceso a datos), ya que cada acción es un requerimiento http distinto que se le puede hacer a la API del backend, y el comportamiento ante cada solicitud no lo tenemos que programar nosotros, sino que se genera automaticamente cuando creamos los modelos de datos.
+* El acceso a la API de referencias de la cátedra pudo ser simplificado usando React ya que descargamos una libreria para React llamada 'Axios', que se encarga de facilitar el envio de requerimientos http. También la usamos para comunicarnos con nuestra propia API.
+* La paginación pedida para todos los listados de datos pudo ser aprovechada al usar Material UI como librería de diseño de interfaces de usuario ya que provee una tabla que se encarga de paginar los elementos que lista segun la cantidad que se le parametrice. Por ende, nos comunicamos con nuestra API para obtener los datos de configuracion que refieren a la paginación, le pasamos el número a la tabla, y pagina correctamente.
+
 ### Mecanismo provisto para el manejo de seguridad y routing
 
+En cuanto al manejo de seguridad, Loopback permite el control de acceso a datos mediante la definición de restricciones en los modelos. Así, se puede especificar quien puede leer/escribir datos o ejecutar metodos en los modelos. El control de acceso está determinado por _ACLs_ (Access Control Lists), a través de un archivo '.json' que está relacionado con el modelo que restringe. 
+
+Por otra parte, manejamos ruteo (más específicamente 'rueteo dinámico') en el frontend usando la libreria para react _react-router-dom_, para poder navegar a través de los distintos contenidos de la aplicación. Decimos 'ruteo dinámico' porque el ruteo se va realizando a medida que que la app se renderiza. No en una configuración fuera de la app que se encuentra corriendo, como parte de una 'inicialización' antes de que empiece a correr, lo que es más común ver.
+
 ### Mecanismo provisto para operaciones CRUD
+
+Como detallamos previamente, Loopback nos provee de base las operaciones CRUD cuando generamos un modelo, y además nos expone los REST endpoints de la API del backend en el _API Explorer_ integrado para poder ver bien qué requerimiento http debemos mandar, a qué ruta y con qué parámetros, lo que es de gran ayuda a la hora de hacer los CRUDs.
 
 ### Forma de manejar el MVC
 
 "Quizás nos sirva decir que sería la "V" en un framework "MVC", aunque es solo una manera de hablar, puesto que React podría ocupar también parcelas de lo que sería la "C". Todo depende de nuestra manera de trabajar aunque, no obstante, esta posible carencia con respecto a los frameworks Javascript se soluciona con capas adicionales a React. Lo que podría interpretarse como una desventaja, muchos desarrolladores lo entienden como una ventaja con respecto a frameworks completos, ya que tú puedes desarrollar con React a tu gusto, aplicando aquellas herramientas y librerías adicionales que hacen las cosas como mejor se adapte al proyecto."
-
-
-
-
-
-# Esto se saca después
-
-### Modulos por alumno:
-
-Camila:
-* 2.3 Modulo de Pacientes
-* 2.4 Modulo de Datos Demograficos
-* 3.1 Modulo de Historia Clinica
-* 3.2 Acceso a API de Referencias
-
-Sebastian:
-* 2.1 Manejo de Sesiones
-* 2.2 Modulo de Usuarios
-* 2.5 Modulo de Configuracion
-* 3.3 API de turnos
-* 3.4 Reportes
-
-## Tips para la DB
-
-* importar (restaurar) --> `sudo mongorestore -d ProyectoLoopback <path hacia dump>`(ver dump)
-* ver schemas, etc --> `mongo --shell` y luego `use ProyectoLoopback` + `show collections`
-
-## Cosas que instale para el frontend
-
-* npm install material-ui@next
-* npm install axios --save
-* npm install --save react-router react-router-dom
-* to be able to have css modules ...
-    * run `npm run eject`
-    * en webpack.config.dev.js buscar  _test: /\.css$/_ y dentro del objeto _options_ que esta en _use_ poner los siguientes atributos: _modules: true, localIdentName: '[name]__[local]__[hash:base64:5]'_
-    * hacer lo mismo para webpack.config.prod.js
-* para manipulacion de fechas --> Moment
 
