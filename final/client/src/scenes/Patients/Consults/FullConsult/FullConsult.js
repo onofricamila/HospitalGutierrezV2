@@ -37,12 +37,6 @@ const styles = theme => ({
     expandOpen: {
       transform: 'rotate(180deg)',
     },
-    avatarF: {
-      backgroundColor: pink[400],
-    },
-    avatarM: {
-        backgroundColor: blue[400],
-      },
     flexContainer: {
         display: 'inline-block',
         width: 250,
@@ -125,7 +119,7 @@ class FullConsult extends Component{
                         <CardHeader
                             avatar={
                             <Link to={'/patients/' + loadedPatient.id}>    
-                                <Avatar className={loadedPatient.genre === 'male' ? classes.avatarM : classes.avatarF }>
+                                <Avatar >
                                     {loadedPatient.lastname.toUpperCase()[0] + loadedPatient.name.toUpperCase()[0]}
                                 </Avatar>
                             </Link>    

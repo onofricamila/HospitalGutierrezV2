@@ -14,7 +14,7 @@ import Grid from 'material-ui/Grid';
 import Moment from 'react-moment';
 import List from '@material-ui/core/List';
 import Item from "../../../components/ListItem/ListItem";
-
+import {Link} from 'react-router-dom';
 
 const styles = theme => ({
     card: {
@@ -167,6 +167,13 @@ class FullPatient extends Component{
                                 onClick={this.editPatientHandler}>
                                 Editar
                             </Button>
+                            <Link to={this.state.loadedPatient.id + '/consults/'}>    
+                                <Button 
+                                    color="primary" 
+                                    >
+                                    Historia Clinica
+                                </Button>
+                            </Link>
                         </CardActions>
                     </Card>
                     </Grid>

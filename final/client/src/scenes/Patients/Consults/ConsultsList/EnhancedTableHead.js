@@ -29,26 +29,18 @@ class EnhancedTableHead extends React.Component {
             {
             id: 'date',
             label: "Fecha",
-            numeric: false,
-            disablePadding: false,
             },
             {
             id: 'age',
             label: "Edad",
-            numeric: true,
-            disablePadding: false,
             },
             {
             id: 'weight',
             label: "Peso",
-            numeric: true,
-            disablePadding: false,
             },
             {
             id: "user",
             label: "Usuario que la realizó",
-            numeric: false,
-            disablePadding: false,
             },
       ];
     
