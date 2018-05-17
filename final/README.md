@@ -16,25 +16,24 @@
 ## Cómo usar la app
 
 1. Antes que nada, debemos importar (o mejor dicho 'restaurar') la base de datos. Para esto, debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback <path hacia dump folder>`. Una vez hecho esto, correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. 
-2. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con loopback.
+2. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con Loopback.
 3. Situados en la carpeta _'client'_, correr desde una terminal `npm start` para levantar un servidor web en el puerto 3000 y poder usar la aplicacion del fronted, hecha con React.
-
 
 ## Documentación
 
 ### Fundamentación de frameworks elegidos
 
-Para llevar a cabo la realización del producto de software planteado por la cátedra, optamos por separar totalmente el fronted del backend. Ésto fue todo un desafío para el grupo ya que no estábamos acostumbrados a desarrollar de ésta manera, pero luego de realizar un poco de investigación a la hora de elegir el enfoque a seguir, notamos las numerosas ventajas que tiene considerar el frontend y el backend como proyectos independiente (pero relacionados, por su puesto). Pensamos a la aplicación web planteada como un 'conjunto de pantallas' que consume servicios, los cuales podrian ser reutilizados por 'otras pantallas', de otras aplicaciones. Para explicar mejor lo anterior, planteamos el siguiente ejemplo: ¿Qué pasaría si en un futuro se quisiera hacer un aplicación del hospital para celulares? (¿Por qué no?). Teniendo los servicios donde se ejecuta la logica y se accede a los datos desacoplados totalmente de las interfaces de usuario, no tendriamos ningun tipo de problema en comunicarnos con ese backend realizado para la aplicacion web y así reutilizar lo servicios previamente desarrollados. 
+Para llevar a cabo la realización del producto de software planteado por la cátedra, optamos por separar totalmente el fronted del backend. Ésto fue todo un desafío para el grupo ya que no estábamos acostumbrados a desarrollar de ésta manera, pero luego de realizar un poco de investigación a la hora de elegir el enfoque a seguir, notamos las numerosas ventajas que tiene considerar el frontend y el backend como proyectos independiente (pero relacionados, por su puesto). Pensamos a la aplicación web planteada como un 'conjunto de pantallas' que consumen servicios, los cuales podrian ser reutilizados por 'otras pantallas', de otras aplicaciones. Para explicar mejor lo anterior, planteamos el siguiente ejemplo: ¿Qué pasaría si en un futuro se quisiera hacer un aplicación del hospital para celulares? (¿Por qué no?). Teniendo los servicios donde se ejecuta la logica y se accede a los datos desacoplados totalmente de las interfaces de usuario, no tendriamos ningun tipo de problema en comunicarnos con ese backend previamente realizado y así reutilizar lo servicios desarrollados, con un frontend totalmente distinto al de la aplicación web original. 
 
 Ahora bien, hablando en concreto de las herramientas utilizadas para el desarrollo, para el backend elegimos el framework **Loopback**, y para el frontend usamos la libreria de Javascript **React**, junto con la librería **Material UI**. Procederemos a fundamentar la elección de las herramientas mencionadas.
 
 **¿Por qué Loopback?**
-Loopback es un framework para Node.js que nos permite crear APIs y conectarlas a fuentes de datos. La razón de su uso en éste proyecto se debe al hecho de que genera código de API automáticamente, prácticamente sin escribir ni una linea de código, usando los comandos que provee a través de una terminal. Además, simplifica la conección a bases de datos, proveyendo una capa de abstracción total a la hora de trabajar con éstas. Por otra parte, viene con un _API Explorer_ integrado que nos permite ver fácilmente los resultados de nuestro trabajo a través del navagador.
+Loopback es un framework para Node.js que nos permite crear RESTful APIs y conectarlas a fuentes de datos. La razón de su uso en éste proyecto se debe al hecho de que genera código de API automáticamente, prácticamente sin escribir ni una linea de código, usando los comandos que provee a través de una terminal. Además, simplifica la conección a bases de datos a partir de un ORM integrado, proveyendo una capa de abstracción total a la hora de trabajar con éstas. Por otra parte, viene con un built-in _API Explorer_ que nos permite ver fácilmente los resultados de nuestro trabajo a través del navagador.
 
 **¿Por qué React?**
 React es una librería Javascript que proviene de Facebook, focalizada en el desarrollo de interfaces de usuario. Sirve para desarrollar aplicaciones web de una manera más ordenada, ágil, flexible y con menos código que si usas Javascript puro o librerías como jQuery centradas en la manipulación del DOM. Permite que las vistas se asocien con los datos, de tal forma que si cambian los datos, también cambian las vistas. Así, no necesitamos escribir código para manipular la página cuando los datos cambian. React le pone más 'inteligencia' a la necesidad de actualizar una vista solo cuando es necesario, y lo consigue mediante el "DOM Virtual", que es mucho más rápido que actualizar el DOM del navegador. Ésta característica fue la que nos hizo poner el foco en React cuando estábamos buscando con qué herramienta desarrollar el frontend:  React compara el DOM Virtual con el DOM del navegador y sabe perfectamente qué partes de la página debe actualizar, ahorrando así la necesidad de actualizar la vista entera. Es algo muy potente y permite obtener un rendimiento totalmente optimizado. Lo que nos pareció interesante es que ésto se hace de manera transparente para el desarrollador; no se requiere intervenir en nada para lograr una gran performance.
 
-Por otro lado, usamos la librería Material UI para mejorar la vista de las pantallas, ya que presenta componentes de React que implementan los principios de diseño planteados por Google, los cuales nos parecen muy interesantes y sentimos le dan un estilo muy profesional a las aplicaciones.
+Por otro lado, usamos la librería Material UI para mejorar la vista de las pantallas, ya que provee componentes de React que implementan los principios de diseño planteados por Google, los cuales nos parecen muy interesantes y sentimos le dan un estilo muy profesional a las aplicaciones.
 
 ### Referencias
 
@@ -59,8 +58,9 @@ Por otro lado, usamos la librería Material UI para mejorar la vista de las pant
 ### Mecanismo provisto para el manejo de seguridad y routing
 
 En cuanto al manejo de seguridad, Loopback permite el control de acceso a datos mediante la definición de restricciones en los modelos. Así, se puede especificar quien puede leer/escribir datos o ejecutar metodos en los modelos. El control de acceso está determinado por _ACLs_ (Access Control Lists), a través de un archivo '.json' que está relacionado con el modelo que restringe. 
+Relacionada a la seguridad, se encuentra la Autentificación. Por defecto Loopback viene con un sistema que protege el acceso a datos basado en tokens. Cuando un usuario se autentifica, recibe el token que debe utilizar en las siguientes peticiones, el cual tiene un ttl.
 
-Por otra parte, manejamos ruteo (más específicamente 'rueteo dinámico') en el frontend usando la libreria para react _react-router-dom_, para poder navegar a través de los distintos contenidos de la aplicación. Decimos 'ruteo dinámico' porque el ruteo se va realizando a medida que que la app se renderiza. No en una configuración fuera de la app que se encuentra corriendo, como parte de una 'inicialización' antes de que empiece a correr, lo que es más común ver.
+Por otra parte, manejamos ruteo (más específicamente 'rueteo dinámico') en el frontend usando la libreria para React _react-router-dom_, para poder navegar a través de los distintos contenidos de la aplicación. Decimos 'ruteo dinámico' porque el ruteo se va realizando a medida que que la app se renderiza. No en una configuración fuera de la app que se encuentra corriendo, como parte de una 'inicialización' antes de que empiece a correr, lo que es más común ver.
 
 ### Mecanismo provisto para operaciones CRUD
 
@@ -68,5 +68,7 @@ Como detallamos previamente, Loopback nos provee de base las operaciones CRUD cu
 
 ### Forma de manejar el MVC
 
-"Quizás nos sirva decir que sería la "V" en un framework "MVC", aunque es solo una manera de hablar, puesto que React podría ocupar también parcelas de lo que sería la "C". Todo depende de nuestra manera de trabajar aunque, no obstante, esta posible carencia con respecto a los frameworks Javascript se soluciona con capas adicionales a React. Lo que podría interpretarse como una desventaja, muchos desarrolladores lo entienden como una ventaja con respecto a frameworks completos, ya que tú puedes desarrollar con React a tu gusto, aplicando aquellas herramientas y librerías adicionales que hacen las cosas como mejor se adapte al proyecto."
+"Quizás nos sirva decir que REACT sería la "V" en un framework "MVC", aunque es solo una manera de hablar, puesto que React podría ocupar también parcelas de lo que sería la "C". Todo depende de nuestra manera de trabajar aunque, no obstante, esta posible carencia con respecto a los frameworks Javascript se soluciona con capas adicionales a React. Lo que podría interpretarse como una desventaja, muchos desarrolladores lo entienden como una ventaja con respecto a frameworks completos, ya que tú puedes desarrollar con React a tu gusto, aplicando aquellas herramientas y librerías adicionales que hacen las cosas como mejor se adapte al proyecto."
+
+Loopbak C y M?
 
