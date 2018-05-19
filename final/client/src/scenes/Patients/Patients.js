@@ -1,185 +1,100 @@
 import React, { Component, Fragment} from "react";
-import axios from "../../axios/AxiosAPIReferences.js";
-import {path} from "../../axios/AxiosAPIReferences.js";
-import SimpleSnackbar from '../../containers/SimpleSnackbar/SimpleSnackBar';
+import axiosReferences from "../../axios/References";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";
-import NewPatientPage from './NewPatient/NewPatient';
-import PatientsTablePage from './EnhancedPatientsTable';
+import FullPatientPage from './FullPatient/FullPatient';
+import ConsultsPage from './Consults/Consults';
+import PatientsListPage from './PatientsList/EnhancedTable';
+import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
+import Error404 from "../Errors/404";
 
 class Patients extends Component{
     state = {
         loading: true,
-        searching: false,
         documentTypes: [],
         insurances: [],
         houseTypes: [],
         waterTypes: [],
         heatingTypes: [],
-        data: [
-            {
-              id: "1",
-              name: "Franco",
-              lastname: "Borrelli",
-              documentType: "1",
-              dni: 32
-            },
-            {
-              id: "2",
-              name: "Pedro",
-              lastname: "Brost",
-              documentType: "2",
-              dni: 3223423432
-            },
-            {
-              id: "3",
-              name: "Juan",
-              lastname: "Perez",
-              documentType: "1",
-              dni: 397872
-            },
-            {
-              id: "4",
-              name: "John",
-              lastname: "Garcia",
-              documentType: "3",
-              dni: 41243
-            }
-          ]
       }
-    
-    componentDidMount = () => {
-        axios.get("tipo-documento").then(response => {
+
+    getDocumentTypes(){
+        axiosReferences.get("tipo-documento").then(response => {
             this.setState({
             documentTypes: response.data
             });
         });
-        axios.get("obra-social").then(response => {
+    }
+    
+    getInsurances(){
+        axiosReferences.get("obra-social").then(response => {
             this.setState({
             insurances: response.data,
             });
         });
-        axios.get("tipo-vivienda").then(response => {
+    }
+
+    getHouseTypes(){
+        axiosReferences.get("tipo-vivienda").then(response => {
             this.setState({
             houseTypes: response.data,
             });
         });
-        axios.get("tipo-agua").then(response => {
+    }
+
+    getWaterTypes(){
+        axiosReferences.get("tipo-agua").then(response => {
             this.setState({
             waterTypes: response.data,
             });
         });
-        axios.get("tipo-calefaccion").then(response => {
+    }
+
+    getHeatingTypes(){
+        axiosReferences.get("tipo-calefaccion").then(response => {
             this.setState({
             heatingTypes: response.data,
             loading: false
             });
         });
-    // no anda lo de abajo
-    // axios
-    //   .all([
-    //     axios.get(path + "tipo-documento"),
-    //     axios.get(path + "obra-social"),
-    //     axios.get(path + "tipo-vivienda"),
-    //     axios.get(path + "tipo-agua"),
-    //     axios.get(path + "tipo-calefaccion")
-    //   ])
-    //   .then(
-    //     axios.spread(
-    //       (documentTypes, insurances, houseTypes, waterTypes, heatingTypes) => {
-    //         this.setState({
-    //           apiData: {
-    //             documentTypes: documentTypes.data,
-    //             insurances: insurances.data,
-    //             houseTypes: houseTypes.data,
-    //             waterTypes: waterTypes.data,
-    //             heatingTypes: heatingTypes.data
-    //           }
-    //         })
-    //       }
-    //     )
-    //   )
     }
 
-    searchHandler = data => {
-        this.setState({ searching: true });
-        //Search Request
-        this.setState({ searching: false });
+    componentWillMount = () => {
+        this.getDocumentTypes()
+        this.getInsurances()
+        this.getHouseTypes()
+        this.getWaterTypes()
+        this.getHeatingTypes()
     }
 
-    // deletePatientHandler = patient => {
-    //     return new Promise((resolve, reject) => {
-    //         //Change Timeout for delelte request
-    //         setTimeout(Math.random() > 0.3 ? resolve : reject, 1000)
-    //         })
-    //         .then(() => {
-    //             this.setState({ loading: true });
-    //             const name = patient.name + " " + patient.lastname;
-    //             <SimpleSnackbar message={"Se eliminó a " + name + " correctamente."} />
-    //             this.setState({ loading: false });
-    //         })
-    //         .catch(() =>  <SimpleSnackbar message="Algo falló. Intentá nuevamente." />);
-    // }
+    arrayFromStateField(field){
+        const array = [];
+        Object.values(this.state[field]).forEach(value => {
+            array[value.id] = value.nombre
+        });
+        return array
+    }
 
     render() {
     
         let show = null;
+        
         if (this.state.loading){
                 show = < CircularIndeterminate />
         }
+
+        const documentTypes = this.arrayFromStateField('documentTypes');
         
-        const documentTypes = [];
-        Object.values(this.state.documentTypes).forEach(value => {
-            documentTypes[value.id] = value.nombre
-        });
+        const insurances = this.arrayFromStateField('insurances');
 
-        const insurances = [];
-        Object.values(this.state.insurances).forEach(value => {
-            insurances[value.id] = value.nombre
-        });
+        const waterTypes = this.arrayFromStateField('waterTypes');
 
-        const waterTypes = [];
-        Object.values(this.state.waterTypes).forEach(value => {
-            waterTypes[value.id] = value.nombre
-        });
+        const houseTypes = this.arrayFromStateField('houseTypes');
+       
+        const heatingTypes = this.arrayFromStateField('heatingTypes');
 
-        const houseTypes = [];
-        Object.values(this.state.houseTypes).forEach(value => {
-            houseTypes[value.id] = value.nombre
-        });
-
-        const heatingTypes = [];
-        Object.values(this.state.heatingTypes).forEach(value => {
-            heatingTypes[value.id] = value.nombre
-        });
-
-        const columnData = [
-            {
-              id: 'name',
-              label: "Nombre",
-              numeric: false,
-              disablePadding: false,
-            },
-            {
-              id: 'lastname',
-              label: "Apellido",
-              numeric: false,
-              disablePadding: false,
-            },
-            {
-              id: "documentType",
-              label: "Tipo de documento",
-              numeric: true,
-              disablePadding: false,
-            },
-            {
-              id: "dni",
-              label: "N° de documento",
-              numeric: true,
-              disablePadding: false,
-            }
-        ];
+       
 
         return (
             <Fragment>
@@ -188,10 +103,7 @@ class Patients extends Component{
                     <Route path="/patients/new" exact  
                         render={ (routeProps) => 
                             <div>
-                                <h3>
-                                    Registra un nuevo paciente
-                                </h3>
-                                <NewPatientPage 
+                                <CreateOrUpdatePatient 
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes} 
                                     insurances={insurances}
@@ -201,19 +113,42 @@ class Patients extends Component{
                                     />
                             </div>
                     } /> 
-                    <Route path="/patients" exact 
+                    <Route path="/patients/" exact 
                         render={ (routeProps) => 
                             <div>
-                                <PatientsTablePage 
+                                <PatientsListPage 
                                     routeProps={routeProps} 
-                                    rowsPerPage={5} 
-                                    data={this.state.data} 
-                                    documentTypes={documentTypes}
-                                    columnData={columnData}/>
+                                    documentTypes={documentTypes}/>
                                 <FixedBottomButton path="/patients/new" />
                             </div>
                         
                     } /> 
+                    <Route path="/patients/:id" exact 
+                        render={ (routeProps) => 
+                            <div>
+                                <FullPatientPage 
+                                    routeProps={routeProps} 
+                                    documentTypes={documentTypes}
+                                    insurances={insurances}
+                                    waterTypes={waterTypes}
+                                    houseTypes={houseTypes}
+                                    heatingTypes={heatingTypes} />
+                            </div> 
+                        }/>
+                    <Route path="/patients/update/:id" exact 
+                        render={ (routeProps) => 
+                            <div>
+                                <CreateOrUpdatePatient
+                                    routeProps={routeProps} 
+                                    documentTypes={documentTypes}
+                                    insurances={insurances}
+                                    waterTypes={waterTypes}
+                                    houseTypes={houseTypes}
+                                    heatingTypes={heatingTypes} />
+                            </div> 
+                        }/>
+                    <Route path="/patients/:id/consults" component={ConsultsPage} />
+                    <Route component={Error404} />
                 </Switch>
             </ Fragment>
         );

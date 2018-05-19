@@ -5,9 +5,6 @@ import config from 'react-global-configuration';
 
 
 class Maintenance extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let email = config.get('email')

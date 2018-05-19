@@ -1,0 +1,83 @@
+{
+  "name": "Patient",
+  "plural": "patients",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "genre": {
+      "type": "string",
+      "required": true
+    },
+    "documentType": {
+      "type": "number",
+      "required": true
+    },
+    "dni": {
+      "type": "number",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "number"
+    },
+    "insurance": {
+      "type": "number",
+      "required": true
+    },
+    "fridge": {
+      "type": "boolean",
+      "required": true
+    },
+    "electricity": {
+      "type": "boolean",
+      "required": true
+    },
+    "pet": {
+      "type": "boolean",
+      "required": true
+    },
+    "waterType": {
+      "type": "number",
+      "required": true
+    },
+    "houseType": {
+      "type": "number",
+      "required": true
+    },
+    "heatingType": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "consults": {
+      "type": "hasMany",
+      "model": "Consult",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

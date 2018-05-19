@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Input, { InputLabel } from 'material-ui/Input';
-import { FormControl, FormHelperText } from 'material-ui/Form';
+import { InputLabel } from 'material-ui/Input';
+import { FormControl, FormHelperText} from 'material-ui/Form';
 import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Select from 'material-ui/Select';
-import axios from "../../../axios/AxiosAPIReferences";
-import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
+import axiosBackend from "../../../axios/Backend";
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import { path } from "../../../axios/AxiosAPIReferences"
+import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import DatePicker from 'material-ui-pickers/DatePicker';
+import Paper from 'material-ui/Paper';
 
 const styles = theme => ({
   container: {
@@ -21,9 +23,6 @@ const styles = theme => ({
     margin: theme.spacing.unit * 2,
     width: 200,
   },
-  root: {
-    
-  },
   textField: {
     margin: theme.spacing.unit * 2,
     width: 200,
@@ -31,14 +30,15 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
+  paper:{ width: 500}
 });
 
-class ComposedTextField extends React.Component {
+class BasePatientsForm extends React.Component {
   state = {
     patient: {
       name:'',
       lastname:'',
-      date:'',
+      date: new Date(),
       genre:'',
       documentType:'',
       dni:'', 
@@ -57,6 +57,7 @@ class ComposedTextField extends React.Component {
         required: true,
         helperText: '',
         valid: false,
+        touched: false,
       },
       lastname:{
         required: true,
@@ -99,7 +100,7 @@ class ComposedTextField extends React.Component {
         required: false,
         numeric: true,
         helperText: '',
-        valid: false,
+        valid: true,
         touched: false,
       },
       insurance: {
@@ -156,6 +157,82 @@ class ComposedTextField extends React.Component {
     
   };
 
+  componentDidMount(){
+    if (this.amIUpdating()) {
+            axiosBackend.get('/patients/' + this.props.routeProps.match.params.id)
+            .then(response => {
+                this.setState({ patient: response.data });
+            });
+
+            this.allFiledsValidityToTrue()
+    }
+  }
+
+  amIUpdating(){
+    if (this.props.routeProps.match.params.id) {
+        return true
+    }
+    return false
+  }
+
+  canSubmit(){
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
+  
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+
+    if (!formIsValid) {
+      for (let f in currentRules){
+        currentRules[f].touched = true;
+      }
+      this.setState({
+        rules: currentRules
+      })
+      return false;
+    }
+    return true
+  }
+
+  handleUpdate = () =>{
+    if(this.canSubmit()){
+        // put request si true lo anterior
+        const data = this.state.patient;
+        axiosBackend.put("patients/" + data.id, data).then( res => {
+            this.props.routeProps.history.push("/patients/" + data.id)
+            }
+        );
+    }
+  }
+
+  handleCreate = () =>{
+    if(this.canSubmit()){
+        // post request si true lo anterior
+        const data = this.state.patient;
+        axiosBackend.post("patients", data).then(  res => {
+            this.props.routeProps.history.push("/patients")
+            }
+        );
+    }
+}
+
+  handleDateChange = (date) => {
+    let currentPatient = this.state.patient
+    this.setState({
+      patient:{
+        ...currentPatient,
+        date: date
+      }
+    });
+  }
+
   handleChange = field => event => {
     let currentRules = this.state.rules;
     let currentPatient = this.state.patient;
@@ -185,8 +262,6 @@ class ComposedTextField extends React.Component {
   validate(field, value, rules){
     // TODO: finish all validations
 
-    let currentRules = this.state.rules;
-
     if(rules.required){
       if (!this.validateRequired(value)) {
         rules.helperText = 'Campo obligatorio';
@@ -205,22 +280,18 @@ class ComposedTextField extends React.Component {
     return true;
   }
 
-  handleSubmit = () =>{
-    let formIsValid = true;
-    let currentState = this.state;
-    let currentRules = this.state.rules;
-  
-    for (let f in currentRules){
-      formIsValid = currentRules[f].valid && formIsValid;
-    }
-
-    this.setState({
-      ...currentState,
-      formIsValid: formIsValid
-    });
-    alert('El estado del formulario es: ' + formIsValid);
-
-    // post request si true lo anterior
+  allFiledsValidityToTrue(){
+        let currentState = this.state;
+        let currentRules = this.state.rules;
+        
+        for (let f in currentRules){
+           currentRules[f].valid = true;
+        }
+    
+        this.setState({
+            ...currentState,
+            rules: currentRules
+        });
   }
 
   render() {
@@ -229,13 +300,13 @@ class ComposedTextField extends React.Component {
     const { patient: {  name, lastname, date, genre, documentType, dni, address, phoneNumber, insurance, fridge, electricity, pet, waterType, houseType, heatingType } } = this.state;
 
     let show;
-    
+
     show = (
-        <div className={classes.container}>
-        <Grid container spacing={40}>
+          <Grid container spacing={40}>
           <Grid item xs={12}>
-              <Grid container justify="center" spacing={40}>
-          <form className={classes.root} validate autoComplete="off">
+          <Grid container justify="center" spacing={40}>
+          <Paper className={classes.paper}>
+          <form className={classes.root} autoComplete="off">
             <TextField
               id="name"
               label="Nombre"
@@ -256,60 +327,58 @@ class ComposedTextField extends React.Component {
               error={this.state.rules.lastname.touched ? !this.state.rules.lastname.valid : false}
               helperText={!this.state.rules.lastname.valid ? this.state.rules.lastname.helperText : ''}
             />
-            {/* <TextField
-              id="date"
-              label="Fecha de nacimiento"
-              type="date"
-              value={date}
-              defaultValue=""
-              className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
-              helperText={this.state.rules.date.helperText}
-            /> */}
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+              <DatePicker
+                value={new Date(date)}
+                error={this.state.rules.date.touched ? !this.state.rules.date.valid : false}
+                helperText={this.state.rules.date.helperText}
+                className={classes.textField}
+                onChange={this.handleDateChange}
+                disableFuture
+                label="Fecha de nacimiento"
+                format="DD/MM/YYYY"
+                showTodayButton
+              />
+            </MuiPickersUtilsProvider>
             <FormControl className={classes.formControl} 
                 error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
-                helperText={this.state.rules.genre.helperText}>
+                >
               <InputLabel htmlFor="genre">Género</InputLabel>
               <Select
                 value={genre}
                 onChange={this.handleChange('genre')}
-                error={this.state.rules.genre.touched ? !this.state.rules.genre.valid : false}
-                helperText={this.state.rules.genre.helperText}
               >
                   <MenuItem value='female'>Femenino</MenuItem>
                   <MenuItem value='male'>Masculino</MenuItem>
               </Select>
+              <FormHelperText>{this.state.rules.genre.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={this.state.rules.documentType.tocuhed ? !this.state.rules.documentType.valid : false}
-              helperText={this.state.rules.documentType.helperText}>
+              error={this.state.rules.documentType.touched ? !this.state.rules.documentType.valid : false}
+              >
               <InputLabel htmlFor="documentType">Tipo doc.</InputLabel>
               <Select
                 value={documentType}
                 onChange={this.handleChange('documentType')}
-              >
+                >
                 {
                 documentTypes.map((docType, index) =>
-                  <MenuItem value={index}>{docType}</MenuItem>
+                  <MenuItem key={index} value={index}>{docType}</MenuItem>
                 )
                 }
               </Select>
+              <FormHelperText>{this.state.rules.documentType.helperText}</FormHelperText>
             </FormControl>
             <TextField
               id="dni"
-              label="dni"
+              label="DNI"
               value={dni}
               onChange={this.handleChange('dni')}
               className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
+              
               margin="normal"
               error={this.state.rules.dni.touched ? !this.state.rules.dni.valid : false}
-                helperText={this.state.rules.dni.helperText}
+              helperText={this.state.rules.dni.helperText}
             />
             <TextField
               id="address"
@@ -329,16 +398,13 @@ class ComposedTextField extends React.Component {
               value={phoneNumber}
               onChange={this.handleChange('phoneNumber')}
               className={classes.textField}
-              InputLabelProps={{
-                shrink: true,
-              }}
               margin="normal"
               error={this.state.rules.phoneNumber.touched ? !this.state.rules.phoneNumber.valid : false}
               helperText={this.state.rules.phoneNumber.helperText}
             />
             <FormControl className={classes.formControl} 
               error={this.state.rules.insurance.touched ? !this.state.rules.insurance.valid : false}
-              helperText={this.state.rules.insurance.helperText} >
+              >
               <InputLabel htmlFor="insurance">Obra social</InputLabel>
               <Select
                 value={insurance}
@@ -346,14 +412,15 @@ class ComposedTextField extends React.Component {
               >
                 {
                 insurances.map((ins, index) =>
-                  <MenuItem value={index}>{ins}</MenuItem>
+                  <MenuItem key={index} value={index}>{ins}</MenuItem>
                 )
                 }
               </Select>
+              <FormHelperText>{this.state.rules.insurance.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl} 
                 error={this.state.rules.fridge.touched ? !this.state.rules.fridge.valid : false}
-                helperText={this.state.rules.fridge.helperText}>
+                >
               <InputLabel htmlFor="fridge">Heladera?</InputLabel>
               <Select
                 value={fridge}
@@ -362,10 +429,11 @@ class ComposedTextField extends React.Component {
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
+              <FormHelperText>{this.state.rules.fridge.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}
               error={this.state.rules.electricity.touched ? !this.state.rules.electricity.valid : false}
-              helperText={this.state.rules.electricity.helperText}>
+              >
               <InputLabel htmlFor="electricity">Electricidad?</InputLabel>
               <Select
                 value={electricity}
@@ -374,10 +442,11 @@ class ComposedTextField extends React.Component {
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
+              <FormHelperText>{this.state.rules.electricity.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl} 
                error={this.state.rules.pet.touched ? !this.state.rules.pet.valid : false}
-               helperText={this.state.rules.pet.helperText}>
+               >
               <InputLabel htmlFor="pet">Mascota?</InputLabel>
               <Select
                 value={pet}
@@ -386,10 +455,11 @@ class ComposedTextField extends React.Component {
                   <MenuItem value={true}>Si</MenuItem>
                   <MenuItem value={false}>No</MenuItem>
               </Select>
+              <FormHelperText>{this.state.rules.pet.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl} 
                error={this.state.rules.waterType.touched ? !this.state.rules.waterType.valid : false}
-               helperText={this.state.rules.waterType.helperText}>
+               >
               <InputLabel htmlFor="waterType">Tipo de agua</InputLabel>
               <Select
                 value={waterType}
@@ -397,14 +467,15 @@ class ComposedTextField extends React.Component {
               >
                 {
                 waterTypes.map((watType, index) =>
-                  <MenuItem value={index}>{watType}</MenuItem>
+                  <MenuItem key={index} value={index}>{watType}</MenuItem>
                 )
                 }
               </Select>
+              <FormHelperText>{this.state.rules.waterType.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}
               error={this.state.rules.houseType.touched ? !this.state.rules.houseType.valid : false}
-              helperText={this.state.rules.houseType.helperText}>
+              >
               <InputLabel htmlFor="houseType">Tipo de casa</InputLabel>
               <Select
                 value={houseType}
@@ -412,14 +483,15 @@ class ComposedTextField extends React.Component {
               >
                 {
                 houseTypes.map((houType, index) =>
-                  <MenuItem value={index}>{houType}</MenuItem>
+                  <MenuItem key={index} value={index}>{houType}</MenuItem>
                 )
                 }
               </Select>
+              <FormHelperText>{this.state.rules.houseType.helperText}</FormHelperText>
             </FormControl>
             <FormControl className={classes.formControl}
-              error={this.state.rules.heatingType.ttouched ? !this.state.rules.heatingType.valid : false}
-              helperText={this.state.rules.heatingType.helperText}>
+              error={this.state.rules.heatingType.touched ? !this.state.rules.heatingType.valid : false}
+              >
               <InputLabel htmlFor="heatingType">Tipo de calefacción</InputLabel>
               <Select
                 value={heatingType}
@@ -427,30 +499,31 @@ class ComposedTextField extends React.Component {
               >
                 {
                 heatingTypes.map((heaType, index) =>
-                  <MenuItem value={index}>{heaType}</MenuItem>
+                  <MenuItem key={index} value={index}>{heaType}</MenuItem>
                 )
                 }
               </Select>
+              <FormHelperText>{this.state.rules.heatingType.helperText}</FormHelperText>
             </FormControl>
             <Button 
               color="primary" 
               className={classes.button}
-              onClick={this.handleSubmit}>
-              Enviar
+              onClick={ this.amIUpdating()? this.handleUpdate : this.handleCreate}>
+              { this.amIUpdating()? 'Editar' : 'Crear'}
             </Button>
           </form>
+          </Paper>
           </Grid>
           </Grid>
           </Grid>
-        </div>
       );
   
     return show;
   }
 }
 
-ComposedTextField.propTypes = {
+BasePatientsForm.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ComposedTextField);
+export default withStyles(styles)(BasePatientsForm);
