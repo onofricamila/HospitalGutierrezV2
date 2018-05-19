@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HomePage from "./scenes/Home/Home";
 import PatientsPage from "./scenes/Patients/Patients";
+import ConfigurationPage from "./scenes/Configuration/Configuration";
 import Error404 from "./scenes/Errors/404";
 import Error505 from "./scenes/Errors/505";
 import Maintenance from "./scenes/Errors/Maintenance";
@@ -9,6 +10,7 @@ import NoResults from "./scenes/Errors/NoResults";
 import AccessDenied from "./scenes/Errors/AccessDenied";
 import Layout from "./containers/Layout/Layout";
 import DocumentTitle from "react-document-title";
+import config from 'react-global-configuration';
 
 import './App.css';
 
@@ -17,11 +19,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      config: {
-        title: '...',
-        loadedMaintenance: false,
-        maintenance: null
-      }
+      loadedConfig: false
     }
   }
 
@@ -32,35 +30,29 @@ class App extends Component {
   }
 
   loadData(data) {
-    let title = data.title
-    let maintenance = data.maintenance
-    let email = data.email
-
-    this.setState({
-      config: {
-        title: title,
-        loadedMaintenance: true,
-        maintenance: maintenance,
-        email: email
-      }
+    config.set({
+      title: data.title,
+      email: data.email,
+      elements: data.elements,
+      maintenance: data.maintenance
     })
+
+    this.setState({ loadedConfig: true })
   }
 
   render() {
-    let config = this.state.config
-    let title = config.title
-    let maintenance = config.maintenance
-    let loadedMaintenance = config.loadedMaintenance
-    let email = config.email
-
-    if (!loadedMaintenance) {
+    let loadedConfig = this.state.loadedConfig
+    if (!loadedConfig) {
       return <div></div>
     }
+
+    let maintenance = config.get('maintenance')
+    let title = config.get('title')
 
     if (maintenance) {
       return (
         <DocumentTitle title={title}>
-          <Maintenance config={config}/>
+          <Maintenance/>
         </DocumentTitle>
       )
     }
@@ -75,6 +67,7 @@ class App extends Component {
               <Route path="/AccessDenied" exact component={AccessDenied} />
               <Route path="/NoResults" exact component={NoResults} />
               <Route path="/Maintenance" exact component={Maintenance} />
+              <Route path="/Configuracion" exact component={ConfigurationPage} />
               <Route path="/505" exact component={Error505} />
               <Route component={Error404} />
             </Switch>
