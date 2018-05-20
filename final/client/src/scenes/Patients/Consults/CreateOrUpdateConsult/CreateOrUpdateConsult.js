@@ -243,7 +243,7 @@ class BasePatientsForm extends React.Component {
            if( value.trim() === ''){ return true }
         }
         if (!/^[0-9]+([.][0-9]+)?$/g.test(value)) {
-            rules.helperText = 'Solo numeros de hasta 2 decimales';
+            rules.helperText = 'Solo numeros, incluyendo decimales con "."';
             return false;
         }
     }
