@@ -57,7 +57,11 @@ module.exports = function(Configuration) {
             callback(err);
           } else {
             let msg = (config.maintenance ? 'activated' : 'deactivated');
-            callback(null, 'Maintenance ' + msg);
+            let res = {
+              msg: 'Maintenance ' + msg,
+              maintenance: config.maintenance
+            }
+            callback(null, res);
           }
         });
       };

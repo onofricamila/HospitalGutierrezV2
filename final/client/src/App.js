@@ -19,7 +19,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loadedConfig: false
+      loadedConfig: false,
+      configuration: '',
     }
   }
 
@@ -31,13 +32,23 @@ class App extends Component {
 
   loadData(data) {
     config.set({
+      API: 'http://localhost:3001/api/',
       title: data.title,
       email: data.email,
       elements: data.elements,
-      maintenance: data.maintenance
+      maintenance: data.maintenance,
+      maintenanceUpdate: false,
+      articles: [
+        {title: data.title1, description: data.descripcion1},
+        {title: data.title2, description: data.descripcion2},
+        {title: data.title3, description: data.descripcion3}
+      ]
+    },
+    {
+      freeze: false
     })
 
-    this.setState({ loadedConfig: true })
+    this.setState({ loadedConfig: true, configuration: data })
   }
 
   render() {
@@ -46,13 +57,20 @@ class App extends Component {
       return <div></div>
     }
 
-    let maintenance = config.get('maintenance')
-    let title = config.get('title')
+    let maintenance = this.state.configuration.maintenance
+    let title = this.state.configuration.title
 
     if (maintenance) {
       return (
         <DocumentTitle title={title}>
-          <Maintenance/>
+          <BrowserRouter basename="/">
+            <Layout>
+              <Switch>
+                <Route path="/Configuracion" exact component={ConfigurationPage} />
+                <Route component={Maintenance} />
+              </Switch>
+            </Layout>
+          </BrowserRouter>
         </DocumentTitle>
       )
     }
@@ -67,7 +85,7 @@ class App extends Component {
               <Route path="/AccessDenied" exact component={AccessDenied} />
               <Route path="/NoResults" exact component={NoResults} />
               <Route path="/Maintenance" exact component={Maintenance} />
-              <Route path="/Configuracion" exact component={ConfigurationPage} />
+              <Route path="/Configuracion" component={ConfigurationPage} />
               <Route path="/505" exact component={Error505} />
               <Route component={Error404} />
             </Switch>
