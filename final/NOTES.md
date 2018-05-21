@@ -17,7 +17,8 @@ Sebastian:
 
 ## Tips para la DB
 
-* importar (restaurar) --> `sudo mongorestore -d ProyectoLoopback <path hacia dump>`(ver dump)
+* importar (restaurar) --> `sudo mongorestore -d ProyectoLoopback <path hacia dump>`
+* dump --> `mongodump -d ProyectoLoopback -o <target directory>`
 * ver schemas, etc --> `mongo --shell` y luego `use ProyectoLoopback` + `show collections`
 
 ## Cosas que instale para el frontend

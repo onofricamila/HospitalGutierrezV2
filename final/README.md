@@ -10,12 +10,12 @@
 2. Necesitamos la herramnienta **npm** que viene junto con Node.js. Para ver si estan ambos instalados correctamente, correr en una terminal `node -v` y `npm -v`, respectivamente.
 3. Instalar **Loopback** globalmente corriendo en una termianl `npm install -g loopback-cli`.
 4. Debemos instalar **MongoDB**, ver [aqui](https://docs.mongodb.com/manual/administration/install-community/).
-5. Situados en la carpeta _'final'_, correr desde una terminal `npm install` para instalar las dependencias que necesita el backend para funcionar correctamente.
-6. Situados en la carpeta _'client'_, correr desde una terminal `npm install` que necesita el frontend para funcionar correctamente.
+5. Situados en la carpeta _'final'_ del código fuente, correr desde una terminal `npm install` para instalar las dependencias que necesita el backend para funcionar correctamente.
+6. Situados en la carpeta _'client'_ del código fuente, correr desde una terminal `npm install` que necesita el frontend para funcionar correctamente.
 
 ## Cómo usar la app
 
-1. Antes que nada, debemos importar (o mejor dicho 'restaurar') la base de datos. Para esto, debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback <path hacia dump folder>`. Una vez hecho esto, correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. 
+1. Antes que nada, debemos correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. Una vez hecho esto, importar (o mejor dicho 'restaurar') la base de datos. Para esto, debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback <path hacia dump folder>`.
 2. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con Loopback.
 3. Situados en la carpeta _'client'_, correr desde una terminal `npm start` para levantar un servidor web en el puerto 3000 y poder usar la aplicacion del fronted, hecha con React.
 
