@@ -68,7 +68,9 @@ Como detallamos previamente, Loopback nos provee de base las operaciones CRUD cu
 
 ### Forma de manejar el MVC
 
-"Quizás nos sirva decir que REACT sería la "V" en un framework "MVC", aunque es solo una manera de hablar, puesto que React podría ocupar también parcelas de lo que sería la "C". Todo depende de nuestra manera de trabajar aunque, no obstante, esta posible carencia con respecto a los frameworks Javascript se soluciona con capas adicionales a React. Lo que podría interpretarse como una desventaja, muchos desarrolladores lo entienden como una ventaja con respecto a frameworks completos, ya que tú puedes desarrollar con React a tu gusto, aplicando aquellas herramientas y librerías adicionales que hacen las cosas como mejor se adapte al proyecto."
+Considerando el backend y el fronted como proyectos diferentes, hablaremos de la manera de manejar MVC en cada uno de ellos. 
 
-Loopbak C y M?
+Por un lado, en lo que respecta al backend, la aplicación que provee servicios, el acceso a datos está dado por las funciones propias de loopback, que se generan automaticamente cuando creamos un modelo de datos (M). La lógica de la aplicación (C), se ve en las funciones también propias de loopback que se ejecutan como acción ante cada requerimiento http realizado por el cliente, el fronted, acorde a los endpoints disponibles. Luego, toda función ejecutada ante una solicitud del cliente devuelve información en formato JSON, lo cual puede ser considerado como parte de la vista (V).
+
+Por otro lado, en el frontend, la aplicación que genera las distintas pantallas, podemos considerar la renderización de los componentes de React como la vista (V), la manipulación del estado de los mismos como parte del modelo (M), y los distintos metodos que poseen los componentes como parte del controlador (C).
 
