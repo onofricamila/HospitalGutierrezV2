@@ -235,6 +235,7 @@ class ConfigUpdate extends Component {
               </Grid>
             </Grid>
           </CardContent>
+          <br/>
           <CardActions>
             <Link to={'/Configuracion'}>
               <Button size="large">Cancelar</Button>
