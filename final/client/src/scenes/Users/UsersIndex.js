@@ -15,9 +15,14 @@ import axios from 'axios'
 import config from 'react-global-configuration'
 import Modal from 'react-responsive-modal'
 import PropTypes from 'prop-types'
+import ReactPaginate from 'react-paginate'
 import RoleSwitch from './RoleSwitch'
+import Pagination from "react-js-pagination"
 
 const styles = theme => ({
+  hide: {
+    display: 'none',
+  }
 })
 
 class UsersIndex extends Component {
@@ -34,6 +39,8 @@ class UsersIndex extends Component {
     mappings: [],
     editingRoles: false,
     userIndex: 1,
+    offset: 0,
+    activePage: 1
   }
 
   loadElements() {
@@ -117,10 +124,42 @@ class UsersIndex extends Component {
     window.location.reload()
   }
 
+  getPageCount() {
+    return this.state.users.length / config.get('elements')
+  }
+
+  getPagination() {
+    let classes = this.props.classes
+    return(
+      <div>
+        <Pagination
+          hideDisabled
+          activePage={this.state.activePage}
+          itemsCountPerPage={config.get('elements')}
+          totalItemsCount={this.state.users.length}
+          onChange={(pageNumber) => this.handlePageChange(pageNumber)}
+        />
+      </div>
+    )
+  }
+
+  handlePageChange(pageNumber) {
+    this.setState({activePage: pageNumber})
+  }
+
+  gridClass(index) {
+    let min = this.state.offset
+    let max = min + config.get('elements')
+    if (min <= index && max > index) {
+      return ''
+    }
+    return this.props.classes.hide
+  }
+
   render() {
     let classes = this.props.classes
 
-    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex } = this.state
+    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset } = this.state
 
     if (loading) {
       return(<div></div>)
@@ -162,8 +201,8 @@ class UsersIndex extends Component {
           <CardContent>
             <Typography variant="display3">Usuarios</Typography>
             <Grid container spacing={24} style={{ padding: 20 }}>
-              {users.map((user, index) => { return(
-                <Grid item xs={12} md={6} lg={4} xl={3}>
+              {users.map((user, index) => {return(
+                <Grid item xs={12} md={6} lg={4} xl={3} className={this.gridClass(index)}>
                   <Card>
                     <CardHeader title={user.lastName + ', ' + user.firstName}/>
                     <CardContent>
@@ -182,6 +221,9 @@ class UsersIndex extends Component {
                   </Card>
                 </Grid>
               )})}
+            </Grid>
+            <Grid>
+              {(this.getPageCount() > 1) ? this.getPagination() : <div></div>}
             </Grid>
           </CardContent>
         </Card>
