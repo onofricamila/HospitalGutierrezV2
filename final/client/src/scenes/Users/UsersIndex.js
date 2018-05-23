@@ -15,7 +15,6 @@ import axios from 'axios'
 import config from 'react-global-configuration'
 import Modal from 'react-responsive-modal'
 import PropTypes from 'prop-types'
-import ReactPaginate from 'react-paginate'
 import RoleSwitch from './RoleSwitch'
 import Pagination from "react-js-pagination"
 
