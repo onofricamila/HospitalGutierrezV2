@@ -7,7 +7,7 @@ import config from 'react-global-configuration';
 class Maintenance extends Component {
 
   render() {
-    let email = config.get('email')
+    let email = config.get('config').email
 
     let body = "Disculpe las molestias, el sitio esta en mantenimiento en " +
                 "este momento. Si lo necesita, puede contactarnos enviando " +

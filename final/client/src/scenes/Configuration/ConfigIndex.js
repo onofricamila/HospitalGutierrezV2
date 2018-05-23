@@ -52,43 +52,33 @@ class ConfigIndex extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: true,
-      config: '',
+      loading: false,
+      config: config.get('config'),
     }
   }
 
+/*
   componentWillMount() {
-    let action = config.get('API') + '/Configurations'
+    let action = config.get('config').api + 'Configurations'
     axios.get(action)
     .then(response => {
       this.setState({ loading: false, config: response.data[0] })
     })
   }
+*/
 
   render() {
-    let loading = this.state.loading
-    if (loading) {
-      return(<div></div>)
-    }
-
     let classes = this.props.classes
     let config = this.state.config
 
-    let title = config.title
-    let email = config.email
-    let elements = config.elements
     let maintenance = config.maintenance
 
-    let articles = [
-      {title: config.title1, description: config.descripcion1},
-      {title: config.title2, description: config.descripcion2},
-      {title: config.title3, description: config.descripcion3}
-    ]
+    let articles = config.articles
 
     let data = [
-      {name: "Titulo", value: title},
-      {name: "Email", value: email},
-      {name: "Elementos", value: elements}
+      {name: "Titulo", value: config.title},
+      {name: "Email", value: config.email},
+      {name: "Elementos", value: config.elements}
     ]
 
     return (

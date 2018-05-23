@@ -63,11 +63,12 @@ class ConfigUpdate extends Component {
       loading: true,
       config: '',
       redirect: false,
+      globalConfig: config.get('config'),
     }
   }
 
   componentWillMount() {
-    axios.get(config.get('API') + 'Configurations')
+    axios.get(config.get('config').api + 'Configurations')
     .then(response => {
       this.setState({ config: response.data[0] })
     })
@@ -84,14 +85,26 @@ class ConfigUpdate extends Component {
     })
   }
 
+  updateGlobalConfig(data) {
+    let prevConfig = this.state.globalConfig
+    data.api = prevConfig.api
+    data.articles = [
+      {title: data.title1, description: data.descripcion1},
+      {title: data.title2, description: data.descripcion2},
+      {title: data.title3, description: data.descripcion3}
+    ]
+    config.set({ config: data }, { freeze: false })
+    this.setState({ loadedConfig: true, configuration: data })
+  }
+
   handleUpdate = () => {
     let configuration = this.state.config
-    let action = config.get('API') + 'Configurations/' + configuration.id + '/replace'
-
+    let action = config.get('config').api + 'Configurations/' + configuration.id + '/replace'
     axios.post(action, configuration)
     .then(response => {
       this.setState({ redirect: true })
     })
+    this.updateGlobalConfig(configuration)
   }
 
   render() {

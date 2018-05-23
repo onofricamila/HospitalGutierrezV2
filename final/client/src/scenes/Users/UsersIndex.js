@@ -124,7 +124,7 @@ class UsersIndex extends Component {
   }
 
   getPageCount() {
-    return this.state.users.length / config.get('elements')
+    return this.state.users.length / config.get('config').elements
   }
 
   getPagination() {
@@ -134,7 +134,7 @@ class UsersIndex extends Component {
         <Pagination
           hideDisabled
           activePage={this.state.activePage}
-          itemsCountPerPage={config.get('elements')}
+          itemsCountPerPage={config.get('config').elements}
           totalItemsCount={this.state.users.length}
           onChange={(pageNumber) => this.handlePageChange(pageNumber)}
         />
@@ -148,7 +148,7 @@ class UsersIndex extends Component {
 
   gridClass(index) {
     let min = this.state.offset
-    let max = min + config.get('elements')
+    let max = min + config.get('config').elements
     if (min <= index && max > index) {
       return ''
     }

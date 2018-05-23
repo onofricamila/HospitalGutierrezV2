@@ -32,23 +32,13 @@ class App extends Component {
   }
 
   loadData(data) {
-    config.set({
-      API: 'http://localhost:3001/api/',
-      title: data.title,
-      email: data.email,
-      elements: data.elements,
-      maintenance: data.maintenance,
-      maintenanceUpdate: false,
-      articles: [
-        {title: data.title1, description: data.descripcion1},
-        {title: data.title2, description: data.descripcion2},
-        {title: data.title3, description: data.descripcion3}
-      ]
-    },
-    {
-      freeze: false
-    })
-
+    data.api = 'http://localhost:3001/api/'
+    data.articles = [
+      {title: data.title1, description: data.descripcion1},
+      {title: data.title2, description: data.descripcion2},
+      {title: data.title3, description: data.descripcion3}
+    ]
+    config.set({ config: data }, { freeze: false })
     this.setState({ loadedConfig: true, configuration: data })
   }
 
