@@ -88,7 +88,7 @@ class UsersEdit extends Component {
   handleUpdate = () => {
     let user = this.state.user
     let accessToken = this.state.accessToken
-    let action = 'http://localhost:3001/api/accounts/' + user.id + '?access_token=' + accessToken
+    let action = 'http://localhost:3001/api/accounts/' + user.id
 
     axios.put(action, user)
     .then(response => {

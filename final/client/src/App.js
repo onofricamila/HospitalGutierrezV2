@@ -4,6 +4,7 @@ import HomePage from "./scenes/Home/Home";
 import PatientsPage from "./scenes/Patients/Patients";
 import ConfigurationPage from "./scenes/Configuration/Configuration";
 import UsersPage from "./scenes/Users/Users";
+import LoginPage from "./scenes/Login/Login";
 import Error404 from "./scenes/Errors/404";
 import Error505 from "./scenes/Errors/505";
 import Maintenance from "./scenes/Errors/Maintenance";
@@ -38,6 +39,7 @@ class App extends Component {
       {title: data.title2, description: data.descripcion2},
       {title: data.title3, description: data.descripcion3}
     ]
+    data.reload = false
     config.set({ config: data }, { freeze: false })
     this.setState({ loadedConfig: true, configuration: data })
   }
@@ -57,7 +59,8 @@ class App extends Component {
           <BrowserRouter basename="/">
             <Layout>
               <Switch>
-                <Route path="/Configuracion" exact component={ConfigurationPage} />
+                <Route path="/Configuracion" component={ConfigurationPage} />
+                <Route path="/Login" exact component={LoginPage} />
                 <Route component={Maintenance} />
               </Switch>
             </Layout>
@@ -72,6 +75,7 @@ class App extends Component {
           <Layout>
             <Switch>
               <Route path="/" exact component={HomePage} />
+              <Route path="/Login" exact component={LoginPage} />
               <Route path="/patients" component={PatientsPage} />
               <Route path="/AccessDenied" exact component={AccessDenied} />
               <Route path="/NoResults" exact component={NoResults} />

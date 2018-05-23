@@ -136,14 +136,15 @@ class UsersIndex extends Component {
           activePage={this.state.activePage}
           itemsCountPerPage={config.get('config').elements}
           totalItemsCount={this.state.users.length}
-          onChange={(pageNumber) => this.handlePageChange(pageNumber)}
+          onChange={(pageNumber) => this.handlePageChange(pageNumber - 1)}
         />
       </div>
     )
   }
 
   handlePageChange(pageNumber) {
-    this.setState({activePage: pageNumber})
+    let offset = config.get('config').elements * pageNumber
+    this.setState({activePage: pageNumber, offset: offset})
   }
 
   gridClass(index) {

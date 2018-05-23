@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import Articles from "./Articles/Articles";
 
+import config from 'react-global-configuration'
+
 const API = 'http://localhost:3001/api/';
 
 class Home extends Component {
@@ -22,7 +24,8 @@ class Home extends Component {
             img: "c6.jpeg",
           }
       ],
-      fetchedArticles: false
+      fetchedArticles: false,
+      configuration: config.get('config')
     };
   }
 
@@ -47,6 +50,10 @@ class Home extends Component {
 
   componentWillMount() {
       this.getArticles();
+  }
+
+  componentDidMount() {
+    this.setState({ config: config.get('config') })
   }
 
 

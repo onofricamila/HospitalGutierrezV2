@@ -93,6 +93,7 @@ class ConfigUpdate extends Component {
       {title: data.title2, description: data.descripcion2},
       {title: data.title3, description: data.descripcion3}
     ]
+    data.reload = false
     config.set({ config: data }, { freeze: false })
     this.setState({ loadedConfig: true, configuration: data })
   }
