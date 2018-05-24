@@ -73,7 +73,6 @@ class UsersNew extends Component {
   }
 
   handleCreate = (session) => {
-    alert('handleCreate')
     let data = this.state.user
     let accessToken = session.accessToken
     let action = 'http://localhost:3001/api/accounts/'
@@ -84,16 +83,15 @@ class UsersNew extends Component {
       lastName: data.lastName,
       username: data.username,
       email: data.email,
-      password: data.pass1,
+      password: data.pass1
     }
 
     axios.post(action, user)
     .then(response => {
-      alert('then: ' + JSON.stringify(response))
       this.setState({ user: {}, redirect: true })
     })
     .catch(err => {
-      alert('catch: ' + JSON.stringify(err))
+      alert('Algo salio mal al crear el usuario')
     })
   }
 

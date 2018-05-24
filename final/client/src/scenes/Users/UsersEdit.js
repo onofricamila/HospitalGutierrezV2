@@ -15,6 +15,9 @@ import { Route, Redirect } from 'react-router'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 
+import SessionContext from '../../SessionContext'
+import ReloadLoggedContext from '../../EditLoggedContext'
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -85,14 +88,16 @@ class UsersEdit extends Component {
     })
   }
 
-  handleUpdate = () => {
+  handleUpdate = (session, reloadLogged) => {
     let user = this.state.user
-    let accessToken = this.state.accessToken
     let action = 'http://localhost:3001/api/accounts/' + user.id
 
     axios.put(action, user)
     .then(response => {
       this.setState({ redirect: true })
+      if (session.user.id == user.id) {
+        reloadLogged()
+      }
     })
   }
 
@@ -243,7 +248,15 @@ class UsersEdit extends Component {
               <Link to={'/Usuarios'}>
                 <Button size="large">Cancelar</Button>
               </Link>
-              <Button size="large" onClick={()=>{this.handleUpdate()}}>Confirmar</Button>
+              <SessionContext.Consumer>
+                {session => { return(
+                  <ReloadLoggedContext.Consumer>
+                    {reloadLogged => {return(
+                      <Button size="large" onClick={()=>{this.handleUpdate(session, reloadLogged)}}>Confirmar</Button>
+                    )}}
+                  </ReloadLoggedContext.Consumer>
+                )}}
+              </SessionContext.Consumer>
             </Grid>
           </CardActions>
         </form>

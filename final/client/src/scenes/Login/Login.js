@@ -92,6 +92,9 @@ class Login extends Component {
       setAuthorizationToken(token)
       this.props.onLogin(res.data)
     })
+    .catch(err => {
+      alert(JSON.stringify(err))
+    })
     this.setState({ redirect: true })
   }
 

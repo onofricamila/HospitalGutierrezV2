@@ -15,6 +15,7 @@ import DocumentTitle from "react-document-title";
 import config from 'react-global-configuration';
 
 import SessionContext from './SessionContext'
+import ReloadLoggedContext from './EditLoggedContext'
 import axios from 'axios'
 import PrivateRoute from './components/CustomRoutes/PrivateRoute'
 import GuestRoute from './components/CustomRoutes/GuestRoute'
@@ -60,8 +61,10 @@ class App extends Component {
     let id = data.userId
     axios.get(this.state.configuration.api + 'accounts/' + id)
     .then(userResponse => {
+      alert('then')
       axios.get(this.state.configuration.api + 'accounts/' + id + '/roles')
       .then(rolesResponse => {
+        alert('thenthen')
         let user = userResponse.data
         let roles = rolesResponse.data.map(role => { return role.name })
         let accessToken = data.id
@@ -71,9 +74,13 @@ class App extends Component {
           roles: roles,
           accessToken: accessToken,
         }
+        alert('newRoles: ' + session.roles)
         this.setState({ session: session })
         localStorage.setItem("session", JSON.stringify(session));
       })
+    })
+    .catch(err => {
+      alert('catch: ' + JSON.stringify(err))
     })
   }
 
@@ -92,6 +99,11 @@ class App extends Component {
     if (!(oldSession === null)) {
       this.setState({ session: JSON.parse(oldSession) })
     }
+  }
+
+  reloadLogged = () => {
+    let data = { userId: this.state.session.user.id, id: this.state.session.accessToken }
+    this.onLogin(data)
   }
 
   loadData(data) {
@@ -140,24 +152,26 @@ class App extends Component {
 
     return (
       <SessionContext.Provider value={this.state.session}>
-        <DocumentTitle title={title}>
-          <BrowserRouter basename="/">
-            <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
-              <Switch>
-                <Route path="/" exact component={HomePage} />
-                <Route path="/patients" component={PatientsPage} />
-                <GuestRoute path="/Login" exact component={LoginPageWProps} />
-                <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
-                <PrivateRoute path="/Usuarios" component={UsersPage} permission="Administrador" />
-                <Route path="/505" exact component={Error505} />
-                <Route path="/AccessDenied" exact component={AccessDenied} />
-                <Route path="/Maintenance" exact component={Maintenance} />
-                <Route path="/NoResults" exact component={NoResults} />
-                <Route component={Error404} />
-              </Switch>
-            </Layout>
-          </BrowserRouter>
-        </DocumentTitle>
+        <ReloadLoggedContext.Provider value={this.reloadLogged.bind(this)}>
+          <DocumentTitle title={title}>
+            <BrowserRouter basename="/">
+              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
+                <Switch>
+                  <Route path="/" exact component={HomePage} />
+                  <Route path="/patients" component={PatientsPage} />
+                  <GuestRoute path="/Login" exact component={LoginPageWProps} />
+                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
+                  <PrivateRoute path="/Usuarios" component={UsersPage} permission="Administrador" />
+                  <Route path="/505" exact component={Error505} />
+                  <Route path="/AccessDenied" exact component={AccessDenied} />
+                  <Route path="/Maintenance" exact component={Maintenance} />
+                  <Route path="/NoResults" exact component={NoResults} />
+                  <Route component={Error404} />
+                </Switch>
+              </Layout>
+            </BrowserRouter>
+          </DocumentTitle>
+        </ReloadLoggedContext.Provider>
       </SessionContext.Provider>
     );
   }

@@ -19,11 +19,11 @@ class RoleSwitch extends Component {
     this.setState({ active: event.target.checked })
   };
 
-  persist() {
+  persist(session, reloadLogged) {
     let { active, role, user, accessToken } = this.state
 
     if (active == this.props.active) {
-      return
+      return new Promise((resolve, reject) => { setTimeout(function() { resolve("¡Éxito!") }, 250) })
     }
 
     if (active) {
@@ -33,13 +33,13 @@ class RoleSwitch extends Component {
         "principalId": user.id,
         "roleId": role.id
       }
-      axios.post(api, mapping).then(function (response) { return })
+      return axios.post(api, mapping)
     }
 
     if (!active) {
       let mapping = this.props.mapping
       let action = 'http://localhost:3001/api/RoleMappings/' + mapping.id + '?access_token=' + accessToken
-      axios.delete(action).then(function (response) { return })
+      return axios.delete(action)
     }
   }
 

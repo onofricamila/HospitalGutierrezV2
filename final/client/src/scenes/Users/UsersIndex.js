@@ -21,6 +21,9 @@ import Pagination from "react-js-pagination"
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 
+import SessionContext from '../../SessionContext'
+import ReloadLoggedContext from '../../EditLoggedContext'
+
 const styles = theme => ({
   hide: {
     display: 'none',
@@ -128,12 +131,16 @@ class UsersIndex extends Component {
     this.setState({ editingRoles: false, userIndex: -1 })
   }
 
-  updateRoles() {
+  updateRoles(session, reloadLogged) {
+    let promises = []
     this.switches.forEach(function(roleSwitch) {
-      roleSwitch.persist()
+      promises.push(roleSwitch.persist(session, reloadLogged))
+    })
+    axios.all(promises).then(res => {
+      reloadLogged()
+      this.loadRoleMappings()
     })
     this.closeRolesModal()
-    window.location.reload()
   }
 
   getPageCount() {
@@ -215,7 +222,15 @@ class UsersIndex extends Component {
               </Grid>
             )})}
           </Grid>
-          <Button size="large" onClick={()=>{this.updateRoles()}}>Confirmar</Button>
+          <SessionContext.Consumer>
+            {session => { return(
+              <ReloadLoggedContext.Consumer>
+                {reloadLogged => {return(
+                  <Button size="large" onClick={()=>{this.updateRoles(session, reloadLogged)}}>Confirmar</Button>
+                )}}
+              </ReloadLoggedContext.Consumer>
+            )}}
+          </SessionContext.Consumer>
           <Button size="large" onClick={()=>{this.closeRolesModal()}}>Cancelar</Button>
         </Modal>
         <Card>
