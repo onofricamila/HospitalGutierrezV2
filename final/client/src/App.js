@@ -88,6 +88,10 @@ class App extends Component {
     fetch('http://localhost:3001/api/Configurations')
       .then(response => response.json())
       .then(data => this.loadData(data[0]));
+    let oldSession = localStorage.getItem('session')
+    if (!(oldSession === null)) {
+      this.setState({ session: JSON.parse(oldSession) })
+    }
   }
 
   loadData(data) {
