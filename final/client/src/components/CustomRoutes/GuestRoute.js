@@ -8,15 +8,15 @@ class GuestRoute extends Component {
   }
 
   getComponent(session) {
-    return session == false
-      ? <Route path={this.props.path} component={this.props.component} />
-      : <Redirect to='/' />
+    return session
+      ? <Redirect to='/' />
+      : <Route path={this.props.path} component={this.props.component} />
   }
 
   render() {
     return(
       <SessionContext.Consumer>
-        {session => ( this.getComponent() )}
+        {session => ( this.getComponent(session) )}
       </SessionContext.Consumer>
     )
   }

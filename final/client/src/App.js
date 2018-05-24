@@ -29,6 +29,7 @@ class App extends Component {
       loadedConfig: false,
       configuration: '',
       session: false,
+      redirect: false,
     }
   }
 
@@ -77,7 +78,8 @@ class App extends Component {
   }
 
   onLogout = () => {
-    this.setState({ session: false })
+    alert('Logout en App')
+    this.setState({ session: false, redirect: true })
     localStorage.removeItem('jwtToken')
     localStorage.removeItem('session')
     delete axios.defaults.headers.common['Authorization']
@@ -119,7 +121,7 @@ class App extends Component {
         <SessionContext.Provider value={this.state.session}>
           <DocumentTitle title={title}>
             <BrowserRouter basename="/">
-              <Layout>
+              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
                 <Switch>
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
                   <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
@@ -137,7 +139,7 @@ class App extends Component {
       <SessionContext.Provider value={this.state.session}>
         <DocumentTitle title={title}>
           <BrowserRouter basename="/">
-            <Layout>
+            <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
               <Switch>
                 <Route path="/" exact component={HomePage} />
                 <Route path="/patients" component={PatientsPage} />
