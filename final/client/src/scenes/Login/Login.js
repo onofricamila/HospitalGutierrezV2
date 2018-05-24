@@ -59,24 +59,6 @@ class Login extends Component {
     }
   }
 
-/*
-  login() {
-    let { configuration, email, password } = this.state
-    let credentials = { email: email, password: password }
-    alert(JSON.stringify(credentials))
-    axios.post(configuration.api + '/accounts/login', credentials)
-    .then(response => {
-      configuration.accessToken = response.data.id
-      configuration.reload = true
-      config.set({ config: configuration }, { freeze: false })
-      this.setState({ configuration: configuration })
-    })
-    .catch(error => {
-      alert('Usuario o contraseña incorrectos')
-    })
-  }
-*/
-
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,

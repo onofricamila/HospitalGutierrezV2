@@ -61,10 +61,8 @@ class App extends Component {
     let id = data.userId
     axios.get(this.state.configuration.api + 'accounts/' + id)
     .then(userResponse => {
-      alert('then')
       axios.get(this.state.configuration.api + 'accounts/' + id + '/roles')
       .then(rolesResponse => {
-        alert('thenthen')
         let user = userResponse.data
         let roles = rolesResponse.data.map(role => { return role.name })
         let accessToken = data.id
@@ -74,13 +72,9 @@ class App extends Component {
           roles: roles,
           accessToken: accessToken,
         }
-        alert('newRoles: ' + session.roles)
         this.setState({ session: session })
         localStorage.setItem("session", JSON.stringify(session));
       })
-    })
-    .catch(err => {
-      alert('catch: ' + JSON.stringify(err))
     })
   }
 

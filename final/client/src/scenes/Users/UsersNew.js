@@ -91,7 +91,7 @@ class UsersNew extends Component {
       this.setState({ user: {}, redirect: true })
     })
     .catch(err => {
-      alert('Algo salio mal al crear el usuario')
+      alert(JSON.stringify(err))
     })
   }
 
