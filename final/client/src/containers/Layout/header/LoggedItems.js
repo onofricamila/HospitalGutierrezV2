@@ -26,7 +26,6 @@ class LoggedItems extends Component {
   }
 
   filteredItems(session) {
-    alert('desde logged items')
     let filteredItems = []
     this.state.items.forEach(item => {
       if (!item.reqRole) { filteredItems.push(item) }

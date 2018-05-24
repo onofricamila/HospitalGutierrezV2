@@ -78,7 +78,6 @@ class App extends Component {
   }
 
   onLogout = () => {
-    alert('Logout en App')
     this.setState({ session: false, redirect: true })
     localStorage.removeItem('jwtToken')
     localStorage.removeItem('session')
