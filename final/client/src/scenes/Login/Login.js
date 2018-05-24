@@ -15,7 +15,7 @@ import axios from 'axios'
 import config from 'react-global-configuration'
 import PropTypes from 'prop-types'
 
-import login from '../../actions/authActions.js'
+import setAuthorizationToken from '../../utils/setAuthorizationToken'
 
 /*
 import CardHeader from '@material-ui/core/CardHeader'
@@ -55,6 +55,7 @@ class Login extends Component {
       password: '',
       errors: {},
       isLoading: false,
+      redirect: false,
     }
   }
 
@@ -84,24 +85,23 @@ class Login extends Component {
 
   submit() {
     let credentials = { email: this.state.email, password: this.state.password }
-    login(credentials)
-    .then(res => { this.context.router.push('/')})
-    .catch(err => { '' })
-/*
-    axios.post(config.get('config').api + '/accounts/login', credentials)
-    .then(response => {
-      let token = response.data.id
+    axios.post('http://localhost:3001/api/accounts/login', credentials)
+    .then(res => {
+      let token = res.data.id
       localStorage.setItem('jwtToken', token)
+      setAuthorizationToken(token)
+      this.props.onLogin(res.data)
     })
-    .catch(error => {
-      this.setState({ isLoading: false })
-    })
-*/
+    this.setState({ redirect: true })
   }
 
   render() {
     let classes = this.props.classes
     let { errors, password, email, isLoading } = this.state
+
+    if (this.state.redirect) {
+      return(<Redirect push to="/"/>)
+    }
 
     return(
       <Grid container spacing={24} style={{ padding: 20 }}>
@@ -154,6 +154,7 @@ class Login extends Component {
 Login.propTypes = {
   classes: PropTypes.object.isRequired,
   login: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired
 }
 
 Login.contextTypes = {

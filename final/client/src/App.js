@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./scenes/Home/Home";
 import PatientsPage from "./scenes/Patients/Patients";
 import ConfigurationPage from "./scenes/Configuration/Configuration";
@@ -14,6 +14,11 @@ import Layout from "./containers/Layout/Layout";
 import DocumentTitle from "react-document-title";
 import config from 'react-global-configuration';
 
+import SessionContext from './SessionContext'
+import axios from 'axios'
+import PrivateRoute from './components/CustomRoutes/PrivateRoute'
+import GuestRoute from './components/CustomRoutes/GuestRoute'
+
 import './App.css';
 
 class App extends Component {
@@ -23,7 +28,59 @@ class App extends Component {
     this.state = {
       loadedConfig: false,
       configuration: '',
+      session: false,
     }
+  }
+
+/*
+  getUser(id) {
+    axios.get(this.state.configuration.api + 'accounts/' + id)
+    .then(res => {
+      this.setState({ user: res.data })
+    })
+  }
+
+  getRoles(id) {
+    axios.get(this.state.configuration.api + 'accounts/' + id + '/roles')
+    .then(res => {
+      let roles = res.data.map(role => { return role.name })
+      this.setState({ roles: roles })
+    })
+  }
+
+  onLogin = (data) => {
+    this.getUser(data.userId)
+    this.getRoles(data.userId)
+    this.setState({ logged: true, accessToken: data.id })
+  }
+*/
+
+  onLogin = (data) => {
+    let id = data.userId
+    axios.get(this.state.configuration.api + 'accounts/' + id)
+    .then(userResponse => {
+      axios.get(this.state.configuration.api + 'accounts/' + id + '/roles')
+      .then(rolesResponse => {
+        let user = userResponse.data
+        let roles = rolesResponse.data.map(role => { return role.name })
+        let accessToken = data.id
+
+        let session = {
+          user: user,
+          roles: roles,
+          accessToken: accessToken,
+        }
+        this.setState({ session: session })
+        localStorage.setItem("session", JSON.stringify(session));
+      })
+    })
+  }
+
+  onLogout = () => {
+    this.setState({ session: false })
+    localStorage.removeItem('jwtToken')
+    localStorage.removeItem('session')
+    delete axios.defaults.headers.common['Authorization']
   }
 
   componentWillMount() {
@@ -53,41 +110,50 @@ class App extends Component {
     let maintenance = this.state.configuration.maintenance
     let title = this.state.configuration.title
 
+    const LoginPageWProps = () => {
+      return (<LoginPage onLogin={this.onLogin.bind(this)}/>)
+    }
+
     if (maintenance) {
       return (
-        <DocumentTitle title={title}>
-          <BrowserRouter basename="/">
-            <Layout>
-              <Switch>
-                <Route path="/Configuracion" component={ConfigurationPage} />
-                <Route path="/Login" exact component={LoginPage} />
-                <Route component={Maintenance} />
-              </Switch>
-            </Layout>
-          </BrowserRouter>
-        </DocumentTitle>
+        <SessionContext.Provider value={this.state.session}>
+          <DocumentTitle title={title}>
+            <BrowserRouter basename="/">
+              <Layout>
+                <Switch>
+                  <GuestRoute path="/Login" exact component={LoginPageWProps} />
+                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
+                  <Route path="/AccessDenied" exact component={AccessDenied} />
+                  <Route component={Maintenance} />
+                </Switch>
+              </Layout>
+            </BrowserRouter>
+          </DocumentTitle>
+        </SessionContext.Provider>
       )
     }
 
     return (
-      <DocumentTitle title={title}>
-        <BrowserRouter basename="/">
-          <Layout>
-            <Switch>
-              <Route path="/" exact component={HomePage} />
-              <Route path="/Login" exact component={LoginPage} />
-              <Route path="/patients" component={PatientsPage} />
-              <Route path="/AccessDenied" exact component={AccessDenied} />
-              <Route path="/NoResults" exact component={NoResults} />
-              <Route path="/Maintenance" exact component={Maintenance} />
-              <Route path="/Configuracion" component={ConfigurationPage} />
-              <Route path="/Usuarios" component={UsersPage} />
-              <Route path="/505" exact component={Error505} />
-              <Route component={Error404} />
-            </Switch>
-          </Layout>
-        </BrowserRouter>
-      </DocumentTitle>
+      <SessionContext.Provider value={this.state.session}>
+        <DocumentTitle title={title}>
+          <BrowserRouter basename="/">
+            <Layout>
+              <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="/patients" component={PatientsPage} />
+                <GuestRoute path="/Login" exact component={LoginPageWProps} />
+                <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
+                <PrivateRoute path="/Usuarios" component={UsersPage} permission="Administrador" />
+                <Route path="/505" exact component={Error505} />
+                <Route path="/AccessDenied" exact component={AccessDenied} />
+                <Route path="/Maintenance" exact component={Maintenance} />
+                <Route path="/NoResults" exact component={NoResults} />
+                <Route component={Error404} />
+              </Switch>
+            </Layout>
+          </BrowserRouter>
+        </DocumentTitle>
+      </SessionContext.Provider>
     );
   }
 }

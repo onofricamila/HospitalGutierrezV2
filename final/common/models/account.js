@@ -95,4 +95,22 @@ module.exports = function(Account) {
       }
     });
   };
+
+  /**
+  * Get user roles
+  * @param {string} id User id
+  * @param {Function(Error, object)} callback
+  */
+
+  Account.getRoles = function(id, callback) {
+    var Role = server.models.Role;
+    var RoleMapping = server.models.RoleMapping;
+
+    let mappings = RoleMapping.find({where: {principalId: id}})
+    let roleIds = mappings.map(function(mapping) {return mapping.roleId})
+
+    let roles = roleIds.map(function(id) {return Role.findById(id).name})
+
+    callback(null, roles);
+  };
 };

@@ -22,7 +22,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    }
+  },
   "acls": [
     {
       "accessType": "*",
@@ -116,6 +123,35 @@
         {
           "path": "/:id/toggleState",
           "verb": "put"
+        }
+      ]
+    },
+    "getRoles": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "string",
+          "required": true,
+          "description": "User id",
+          "http": {
+            "source": "path"
+          }
+        }
+      ],
+      "returns": [
+        {
+          "arg": "response",
+          "type": "object",
+          "root": true,
+          "description": "Response"
+        }
+      ],
+      "description": "Get user roles",
+      "http": [
+        {
+          "path": "/:id/getRoles",
+          "verb": "get"
         }
       ]
     }
