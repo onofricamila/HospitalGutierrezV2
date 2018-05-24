@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import axios from 'axios'
 import config from 'react-global-configuration'
 import Modal from 'react-responsive-modal'
@@ -18,10 +18,22 @@ import PropTypes from 'prop-types'
 import RoleSwitch from './RoleSwitch'
 import Pagination from "react-js-pagination"
 
+import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+
 const styles = theme => ({
   hide: {
     display: 'none',
-  }
+  },
+  button: {
+    margin: theme.spacing.unit,
+    margin: 0,
+    top: 'auto',
+    right: 50,
+    bottom: 50,
+    left: 'auto',
+    position: 'fixed',
+  },
 })
 
 class UsersIndex extends Component {
@@ -39,7 +51,8 @@ class UsersIndex extends Component {
     editingRoles: false,
     userIndex: 1,
     offset: 0,
-    activePage: 1
+    activePage: 1,
+    toNew: false,
   }
 
   loadElements() {
@@ -156,13 +169,21 @@ class UsersIndex extends Component {
     return this.props.classes.hide
   }
 
+  redirectToNew() {
+    this.setState({ toNew: true })
+  }
+
   render() {
     let classes = this.props.classes
 
-    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset } = this.state
+    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset, toNew } = this.state
 
     if (loading) {
       return(<div></div>)
+    }
+
+    if (toNew) {
+      return(<Redirect push to="/Usuarios/new"/>)
     }
 
     let editedUser = {
@@ -226,6 +247,9 @@ class UsersIndex extends Component {
               {(this.getPageCount() > 1) ? this.getPagination() : <div></div>}
             </Grid>
           </CardContent>
+          <Button variant="fab" color="primary" aria-label="add" className={classes.button} onClick={() => {this.redirectToNew()}}>
+            <AddIcon />
+          </Button>
         </Card>
       </div>
     )
