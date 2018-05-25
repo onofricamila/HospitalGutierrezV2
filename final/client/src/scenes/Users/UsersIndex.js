@@ -23,6 +23,7 @@ import Icon from '@material-ui/core/Icon';
 
 import SessionContext from '../../SessionContext'
 import ReloadLoggedContext from '../../EditLoggedContext'
+import UserFilters from './UserFilters'
 
 const styles = theme => ({
   hide: {
@@ -56,6 +57,7 @@ class UsersIndex extends Component {
     offset: 0,
     activePage: 1,
     toNew: false,
+    filteredUsers: [],
   }
 
   loadElements() {
@@ -68,7 +70,7 @@ class UsersIndex extends Component {
   loadUsers() {
     axios.get('http://localhost:3001/api/accounts?access_token=' + this.state.accessToken)
     .then(response => {
-      this.setState({ users: response.data })
+      this.setState({ users: response.data, filteredUsers: response.data })
     })
   }
 
@@ -90,7 +92,7 @@ class UsersIndex extends Component {
     axios.put('http://localhost:3001/api/accounts/' + id + '/toggleState?access_token=' + this.state.accessToken)
     let currUsers = this.state.users
     currUsers[i].active = !currUsers[i].active
-    this.setState({ users: currUsers })
+    this.setState({ users: currUsers, filteredUsers: currUsers })
   }
 
   componentWillMount() {
@@ -144,7 +146,7 @@ class UsersIndex extends Component {
   }
 
   getPageCount() {
-    return this.state.users.length / config.get('config').elements
+    return this.state.filteredUsers.length / config.get('config').elements
   }
 
   getPagination() {
@@ -155,7 +157,7 @@ class UsersIndex extends Component {
           hideDisabled
           activePage={this.state.activePage}
           itemsCountPerPage={config.get('config').elements}
-          totalItemsCount={this.state.users.length}
+          totalItemsCount={this.state.filteredUsers.length}
           onChange={(pageNumber) => this.handlePageChange(pageNumber - 1)}
         />
       </div>
@@ -180,10 +182,23 @@ class UsersIndex extends Component {
     this.setState({ toNew: true })
   }
 
+  filterUsers = (name, active, username, email, filterBy) => {
+    let filteredUsers = this.state.users
+
+    if (filterBy.name) { filteredUsers = filteredUsers.filter(user => (user.lastName + ', ' + user.firstName).includes(name)) }
+    if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active == active) }
+    if (filterBy.username) { filteredUsers = filteredUsers.filter(user => user.username.includes(username)) }
+    if (filterBy.email) { filteredUsers = filteredUsers.filter(user => user.email.includes(email)) }
+
+    if (filteredUsers.length == 0) { filteredUsers = this.state.users }
+
+    this.setState({ filteredUsers: filteredUsers })
+  }
+
   render() {
     let classes = this.props.classes
 
-    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset, toNew } = this.state
+    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset, toNew, filteredUsers } = this.state
 
     if (loading) {
       return(<div></div>)
@@ -236,8 +251,10 @@ class UsersIndex extends Component {
         <Card>
           <CardContent>
             <Typography variant="display3">Usuarios</Typography>
+            <UserFilters filterFunc={this.filterUsers.bind(this)}>
+            </UserFilters>
             <Grid container spacing={24} style={{ padding: 20 }}>
-              {users.map((user, index) => {return(
+              {filteredUsers.map((user, index) => {return(
                 <Grid item xs={12} md={6} lg={4} xl={3} className={this.gridClass(index)}>
                   <Card>
                     <CardHeader title={user.lastName + ', ' + user.firstName}/>
