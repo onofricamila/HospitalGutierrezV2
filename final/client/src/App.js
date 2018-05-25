@@ -133,7 +133,7 @@ class App extends Component {
               <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
                 <Switch>
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
-                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
+                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permissions="Administrador" />
                   <Route path="/AccessDenied" exact component={AccessDenied} />
                   <Route component={Maintenance} />
                 </Switch>
@@ -152,10 +152,10 @@ class App extends Component {
               <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
                 <Switch>
                   <Route path="/" exact component={HomePage} />
-                  <PrivateRoute path="/patients" component={PatientsPage} permission={["Pediatra","Recepcionista","Administrador"]} />
+                  <PrivateRoute path="/patients" component={PatientsPage} permissions={["Pediatra","Recepcionista","Administrador"]} />
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
-                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission={["Administrador"]} />
-                  <PrivateRoute path="/Usuarios" component={UsersPage} permission={["Administrador"]} />
+                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permissions={["Administrador"]} />
+                  <PrivateRoute path="/Usuarios" component={UsersPage} permissions={["Administrador"]} />
                   <Route path="/505" exact component={Error505} />
                   <Route path="/AccessDenied" exact component={AccessDenied} />
                   <Route path="/Maintenance" exact component={Maintenance} />

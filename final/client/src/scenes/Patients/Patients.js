@@ -8,6 +8,7 @@ import ConsultsPage from './Consults/Consults';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
+import AddPropsToRoute from '../../hoc/AddPropsToRoute'
 
 class Patients extends Component{
     state = {
@@ -83,6 +84,9 @@ class Patients extends Component{
 
         const heatingTypes = this.arrayFromStateField('heatingTypes');
 
+        let passingProps = {
+            roles: this.props.roles
+          }
 
 
         return (
@@ -105,8 +109,9 @@ class Patients extends Component{
                     <Route path="/patients/" exact
                         render={ (routeProps) =>
                             <div>
-                                <PatientsListPage
-                                    routeProps={routeProps}
+                                <PatientsListPage 
+                                    roles={this.props.roles}
+                                    routeProps={routeProps} 
                                     documentTypes={documentTypes}/>
                                 <FixedBottomButton path="/patients/new" />
                             </div>
@@ -115,8 +120,9 @@ class Patients extends Component{
                     <Route path="/patients/:id" exact
                         render={ (routeProps) =>
                             <div>
-                                <FullPatientPage
-                                    routeProps={routeProps}
+                                <FullPatientPage 
+                                    roles={this.props.roles}
+                                    routeProps={routeProps} 
                                     documentTypes={documentTypes}
                                     insurances={insurances}
                                     waterTypes={waterTypes}
@@ -136,7 +142,7 @@ class Patients extends Component{
                                     heatingTypes={heatingTypes} />
                             </div>
                         }/>
-                    <Route path="/patients/:id/consults" component={ConsultsPage} />
+                    <Route path="/patients/:id/consults" component={AddPropsToRoute(ConsultsPage, passingProps)} />
                     <Route component={Error404} />
                 </Switch>
             </ Fragment>

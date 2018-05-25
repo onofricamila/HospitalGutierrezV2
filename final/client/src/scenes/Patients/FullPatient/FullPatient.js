@@ -83,7 +83,7 @@ class FullPatient extends Component{
     }
     
     render () {
-        const { classes } = this.props;
+        const { classes, roles } = this.props;
 
         let patient="" ;
 
@@ -157,11 +157,12 @@ class FullPatient extends Component{
                           </List>
                         </CardContent>
                         <CardActions className={classes.actions} disableActionSpacing>
-                            <Button 
+                        {roles.includes('Administrador')? <Button 
                                 color="primary" 
                                 onClick={this.handleDeleteModalClickOpen}>
                                 Borrar
-                            </Button>
+                            </Button> : null
+                        }
                             <Button 
                                 color="primary" 
                                 onClick={this.editPatientHandler}>
