@@ -152,10 +152,10 @@ class App extends Component {
               <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
                 <Switch>
                   <Route path="/" exact component={HomePage} />
-                  <Route path="/patients" component={PatientsPage} />
+                  <PrivateRoute path="/patients" component={PatientsPage} permission={["Pediatra","Recepcionista","Administrador"]} />
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
-                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission="Administrador" />
-                  <PrivateRoute path="/Usuarios" component={UsersPage} permission="Administrador" />
+                  <PrivateRoute path="/Configuracion" component={ConfigurationPage} permission={["Administrador"]} />
+                  <PrivateRoute path="/Usuarios" component={UsersPage} permission={["Administrador"]} />
                   <Route path="/505" exact component={Error505} />
                   <Route path="/AccessDenied" exact component={AccessDenied} />
                   <Route path="/Maintenance" exact component={Maintenance} />
