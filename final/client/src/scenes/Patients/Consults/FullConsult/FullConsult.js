@@ -91,7 +91,7 @@ class FullConsult extends Component{
     }
     
     render () {
-        const { classes } = this.props;
+        const { classes, roles } = this.props;
 
         const {loadedPatient, loadedConsult} = this.state;
 
@@ -180,11 +180,12 @@ class FullConsult extends Component{
                           </List>
                         </CardContent>
                         <CardActions className={classes.actions} disableActionSpacing>
-                            <Button 
-                                color="primary" 
-                                onClick={this.handleDeleteModalClickOpen}>
-                                Borrar
-                            </Button>
+                            {roles.includes('Administrador')? <Button 
+                                    color="primary" 
+                                    onClick={this.handleDeleteModalClickOpen}>
+                                    Borrar
+                                </Button>
+                            : null}
                             <Button 
                                 color="primary" 
                                 onClick={this.editConsulttHandler}>

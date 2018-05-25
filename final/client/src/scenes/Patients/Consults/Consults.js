@@ -27,7 +27,9 @@ class Consults extends Component{
             <Route path="/patients/:idP/consults/:idC" exact 
                 render={ (routeProps) => 
                     <div>
-                        <FullConsultPage routeProps={routeProps} />
+                        <FullConsultPage  
+                            roles={this.props.roles}
+                            routeProps={routeProps} />
                     </div> 
                 }/>
             <Route path="/patients/:idP/consults/update/:idC" exact 
