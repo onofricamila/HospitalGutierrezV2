@@ -2,6 +2,19 @@ import React, { Component } from 'react'
 import { Route, Redirect } from "react-router-dom";
 import SessionContext from '../../SessionContext'
 
+
+
+const AddPropsToRoute = (WrappedComponent, passedProps)=>{
+  return (
+      class Route extends Component{
+          render(){
+              let props = Object.assign({}, this.props, passedProps)
+              return  <WrappedComponent {...props} />
+          }
+      }
+  )
+}
+
 class PrivateRoute extends Component {
   constructor(props) {
     super(props)
@@ -12,8 +25,11 @@ class PrivateRoute extends Component {
   }
 
   canAccess(session) {
+    let passingProps = {
+      roles: session.roles
+    }
     let canAccess = session.roles.some(role => this.props.permissions.includes(role))
-    return canAccess ? <Route path={this.props.path} component={this.props.component} /> : <Redirect to='/AccessDenied' />
+    return canAccess ? <Route path={this.props.path} component={AddPropsToRoute(this.props.component, passingProps)}  roles={session.roles} /> : <Redirect to='/AccessDenied' />
   }
 
   render() {

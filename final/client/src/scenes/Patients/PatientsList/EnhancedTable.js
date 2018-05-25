@@ -161,7 +161,7 @@ class EnhancedTable extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, roles } = this.props;
     const { data, order, orderBy, rowsPerPage, page, filter, deleteModal } = this.state;
     const filteredData = this.filterData(data);
 
@@ -253,11 +253,12 @@ class EnhancedTable extends React.Component {
                         {n.dni}
                       </TableCell> 
                       <TableCell >
-                        <Tooltip title="Delete">
+                       {roles.includes('Administrador')? <Tooltip title="Delete">
                             <DeleteIcon 
                               style={{cursor: 'pointer', fontSize: 18}}
                               onClick={() => this.handleDeleteModalClickOpen(n.lastname + ', ' + n.name, n.id)}/>
-                        </Tooltip>
+                         </Tooltip>
+                        : null } 
                         <Tooltip title="Edit">
                           <Link to={'/patients/update/' + n.id}>    
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />

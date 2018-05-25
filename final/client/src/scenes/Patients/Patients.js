@@ -117,6 +117,7 @@ class Patients extends Component{
                         render={ (routeProps) => 
                             <div>
                                 <PatientsListPage 
+                                    roles={this.props.roles}
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes}/>
                                 <FixedBottomButton path="/patients/new" />
