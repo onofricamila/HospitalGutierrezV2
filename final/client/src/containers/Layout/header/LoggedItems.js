@@ -16,11 +16,11 @@ class LoggedItems extends Component {
     super(props)
     this.state = {
       items: [
-        { path: '/', icon: <HomeIcon /> , text: 'Inicio', reqRole: false },
-        { path: '/patients/', icon: <PeopleIcon /> , text: 'Pacientes', reqRole: false },
-        { path: '/Usuarios', icon: <PeopleOutlineIcon /> , text: 'Usuarios', reqRole: 'Administrador' },
-        { path: '/Reportes', icon: <BubbleChartIcon /> , text: 'Reportes', reqRole: false },
-        { path: '/Configuracion', icon: <SettingsIcon /> , text: 'Configuración', reqRole: 'Administrador' },
+        { path: '/', icon: <HomeIcon /> , text: 'Inicio', reqRoles: [] },
+        { path: '/patients/', icon: <PeopleIcon /> , text: 'Pacientes', reqRoles: ['Pediatra','Recepcionista','Administrador'] },
+        { path: '/Usuarios', icon: <PeopleOutlineIcon /> , text: 'Usuarios', reqRoles: ['Administrador'] },
+        { path: '/Reportes', icon: <BubbleChartIcon /> , text: 'Reportes', reqRoles: [] },
+        { path: '/Configuracion', icon: <SettingsIcon /> , text: 'Configuración', reqRoles: ['Administrador'] },
       ],
     }
   }
@@ -28,8 +28,8 @@ class LoggedItems extends Component {
   filteredItems(session) {
     let filteredItems = []
     this.state.items.forEach(item => {
-      if (!item.reqRole) { filteredItems.push(item) }
-      if (session.roles.includes(item.reqRole)) { filteredItems.push(item) }
+      if (item.reqRoles.length == 0) { filteredItems.push(item) }
+      if ( session.roles.some(role => item.reqRoles.includes(role)) ){ filteredItems.push(item) }
     })
     return filteredItems
   }
