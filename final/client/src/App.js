@@ -13,7 +13,7 @@ import AccessDenied from "./scenes/Errors/AccessDenied";
 import Layout from "./containers/Layout/Layout";
 import DocumentTitle from "react-document-title";
 import config from 'react-global-configuration';
-import ChartsPage from './scenes/Charts/Export'
+import ChartsPage from './scenes/Charts/Charts'
 
 import SessionContext from './SessionContext'
 import ReloadLoggedContext from './EditLoggedContext'
