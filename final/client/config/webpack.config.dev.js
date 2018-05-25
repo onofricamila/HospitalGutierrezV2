@@ -263,6 +263,7 @@ module.exports = {
   },
   node: {
     net: 'empty',
-    dns: 'empty'
+    dns: 'empty',
+    fs: 'empty'
   }
 };
