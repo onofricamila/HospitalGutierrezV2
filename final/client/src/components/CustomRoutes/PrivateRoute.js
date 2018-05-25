@@ -1,19 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Redirect } from "react-router-dom";
 import SessionContext from '../../SessionContext'
-
-
-
-const AddPropsToRoute = (WrappedComponent, passedProps)=>{
-  return (
-      class Route extends Component{
-          render(){
-              let props = Object.assign({}, this.props, passedProps)
-              return  <WrappedComponent {...props} />
-          }
-      }
-  )
-}
+import AddPropsToRoute from '../../hoc/AddPropsToRoute'
 
 class PrivateRoute extends Component {
   constructor(props) {
