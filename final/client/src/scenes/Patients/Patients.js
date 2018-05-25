@@ -20,44 +20,33 @@ class Patients extends Component{
       }
 
     getDocumentTypes(){
-        axiosReferences.get("tipo-documento").then(response => {
-            this.setState({
-            documentTypes: response.data
-            });
-        });
+      fetch('https://api-referencias.proyecto2017.linti.unlp.edu.ar/' + "tipo-documento")
+        .then(response => response.json())
+        .then(data => { this.setState({ documentTypes: data }) })
     }
-    
+
     getInsurances(){
-        axiosReferences.get("obra-social").then(response => {
-            this.setState({
-            insurances: response.data,
-            });
-        });
+      fetch('https://api-referencias.proyecto2017.linti.unlp.edu.ar/' + "obra-social")
+        .then(response => response.json())
+        .then(data => { this.setState({ insurances: data }) })
     }
 
     getHouseTypes(){
-        axiosReferences.get("tipo-vivienda").then(response => {
-            this.setState({
-            houseTypes: response.data,
-            });
-        });
+      fetch('https://api-referencias.proyecto2017.linti.unlp.edu.ar/' + "tipo-vivienda")
+        .then(response => response.json())
+        .then(data => { this.setState({ houseTypes: data }) })
     }
 
     getWaterTypes(){
-        axiosReferences.get("tipo-agua").then(response => {
-            this.setState({
-            waterTypes: response.data,
-            });
-        });
+      fetch('https://api-referencias.proyecto2017.linti.unlp.edu.ar/' + "tipo-agua")
+        .then(response => response.json())
+        .then(data => { this.setState({ waterTypes: data }) })
     }
 
     getHeatingTypes(){
-        axiosReferences.get("tipo-calefaccion").then(response => {
-            this.setState({
-            heatingTypes: response.data,
-            loading: false
-            });
-        });
+      fetch('https://api-referencias.proyecto2017.linti.unlp.edu.ar/' + "tipo-calefaccion")
+        .then(response => response.json())
+        .then(data => { this.setState({ heatingTypes: data, loading: false }) })
     }
 
     componentWillMount = () => {
@@ -77,75 +66,75 @@ class Patients extends Component{
     }
 
     render() {
-    
+
         let show = null;
-        
+
         if (this.state.loading){
                 show = < CircularIndeterminate />
         }
 
         const documentTypes = this.arrayFromStateField('documentTypes');
-        
+
         const insurances = this.arrayFromStateField('insurances');
 
         const waterTypes = this.arrayFromStateField('waterTypes');
 
         const houseTypes = this.arrayFromStateField('houseTypes');
-       
+
         const heatingTypes = this.arrayFromStateField('heatingTypes');
 
-       
+
 
         return (
             <Fragment>
                 {show}
                 <Switch>
-                    <Route path="/patients/new" exact  
-                        render={ (routeProps) => 
+                    <Route path="/patients/new" exact
+                        render={ (routeProps) =>
                             <div>
-                                <CreateOrUpdatePatient 
-                                    routeProps={routeProps} 
-                                    documentTypes={documentTypes} 
+                                <CreateOrUpdatePatient
+                                    routeProps={routeProps}
+                                    documentTypes={documentTypes}
                                     insurances={insurances}
                                     waterTypes={waterTypes}
                                     houseTypes={houseTypes}
                                     heatingTypes={heatingTypes}
                                     />
                             </div>
-                    } /> 
-                    <Route path="/patients/" exact 
-                        render={ (routeProps) => 
+                    } />
+                    <Route path="/patients/" exact
+                        render={ (routeProps) =>
                             <div>
-                                <PatientsListPage 
-                                    routeProps={routeProps} 
+                                <PatientsListPage
+                                    routeProps={routeProps}
                                     documentTypes={documentTypes}/>
                                 <FixedBottomButton path="/patients/new" />
                             </div>
-                        
-                    } /> 
-                    <Route path="/patients/:id" exact 
-                        render={ (routeProps) => 
+
+                    } />
+                    <Route path="/patients/:id" exact
+                        render={ (routeProps) =>
                             <div>
-                                <FullPatientPage 
-                                    routeProps={routeProps} 
+                                <FullPatientPage
+                                    routeProps={routeProps}
                                     documentTypes={documentTypes}
                                     insurances={insurances}
                                     waterTypes={waterTypes}
                                     houseTypes={houseTypes}
                                     heatingTypes={heatingTypes} />
-                            </div> 
+                            </div>
                         }/>
-                    <Route path="/patients/update/:id" exact 
-                        render={ (routeProps) => 
+                    <Route path="/patients/update/:id" exact
+                        render={ (routeProps) =>
                             <div>
                                 <CreateOrUpdatePatient
-                                    routeProps={routeProps} 
+                                    routeProps={routeProps}
                                     documentTypes={documentTypes}
                                     insurances={insurances}
                                     waterTypes={waterTypes}
                                     houseTypes={houseTypes}
                                     heatingTypes={heatingTypes} />
-                            </div> 
+                            </div>
                         }/>
                     <Route path="/patients/:id/consults" component={ConsultsPage} />
                     <Route component={Error404} />
@@ -153,7 +142,7 @@ class Patients extends Component{
             </ Fragment>
         );
     }
-      
+
 }
 
 export default Patients;
