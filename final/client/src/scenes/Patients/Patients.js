@@ -8,6 +8,7 @@ import ConsultsPage from './Consults/Consults';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
+import AddPropsToRoute from '../../hoc/AddPropsToRoute'
 
 class Patients extends Component{
     state = {
@@ -94,7 +95,9 @@ class Patients extends Component{
        
         const heatingTypes = this.arrayFromStateField('heatingTypes');
 
-       
+        let passingProps = {
+            roles: this.props.roles
+          }
 
         return (
             <Fragment>
@@ -149,7 +152,7 @@ class Patients extends Component{
                                     heatingTypes={heatingTypes} />
                             </div> 
                         }/>
-                    <Route path="/patients/:id/consults" component={ConsultsPage} />
+                    <Route path="/patients/:id/consults" component={AddPropsToRoute(ConsultsPage, passingProps)} />
                     <Route component={Error404} />
                 </Switch>
             </ Fragment>

@@ -19,6 +19,7 @@ class Consults extends Component{
                 render={ (routeProps) => 
                     <div>
                         <ConsultsListPage 
+                            roles={this.props.roles}
                             routeProps={routeProps} />
                     </div>
                 
