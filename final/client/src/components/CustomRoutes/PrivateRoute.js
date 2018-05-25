@@ -12,7 +12,7 @@ class PrivateRoute extends Component {
   }
 
   canAccess(session) {
-    let canAccess = session.roles.some(role => this.props.permission.includes(role))
+    let canAccess = session.roles.some(role => this.props.permissions.includes(role))
     return canAccess ? <Route path={this.props.path} component={this.props.component} /> : <Redirect to='/AccessDenied' />
   }
 
