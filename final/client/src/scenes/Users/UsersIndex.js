@@ -267,7 +267,7 @@ class UsersIndex extends Component {
                     <CardActions>
                       <Button size="small" onClick={() => { this.toggleUserState(index, user.id) } }>{(user.active) ? 'Desactivar' : 'Activar'}</Button>
                       <Link to={ '/Usuarios/update/' + user.id }>
-                        <Button size="small">Actualizar</Button>
+                        <Button size="small">Editar</Button>
                       </Link>
                       <Button size="small" onClick={() => { this.openRolesModal(index) }}>Administrar Roles</Button>
                     </CardActions>

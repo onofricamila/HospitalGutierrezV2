@@ -176,7 +176,7 @@ class UsersEdit extends Component {
           <form noValidate autoComplete="off">
           <CardContent>
             <Grid item xl>
-              <Typography variant="display3">Editar Configuracion</Typography>
+              <Typography variant="display3">Editar Usuario</Typography>
               <br></br>
             </Grid>
             <Grid item xl>

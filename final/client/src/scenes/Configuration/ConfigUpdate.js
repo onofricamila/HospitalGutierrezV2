@@ -54,6 +54,9 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
+  card: {
+    maxWidth: 1200,
+  }
 })
 
 class ConfigUpdate extends Component {
@@ -249,18 +252,19 @@ class ConfigUpdate extends Component {
               </Grid>
             </Grid>
           </CardContent>
-          <br/>
-          <CardActions>
-            <Link to={'/Configuracion'}>
-              <Button size="large">Cancelar</Button>
-            </Link>
-            <Button
-              size="large"
-              onClick={ this.handleUpdate }
-            >
-              Confirmar
-            </Button>
-          </CardActions>
+          <Grid item xs={9}>
+            <CardActions>
+              <Link to={'/Configuracion'}>
+                <Button size="large">Cancelar</Button>
+              </Link>
+              <Button
+                size="large"
+                onClick={ this.handleUpdate }
+              >
+                Confirmar
+              </Button>
+            </CardActions>
+          </Grid>
         </form>
         </Card>
       </Grid>
