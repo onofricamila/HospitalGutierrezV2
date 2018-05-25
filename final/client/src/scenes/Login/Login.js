@@ -70,9 +70,20 @@ class Login extends Component {
     axios.post('http://localhost:3001/api/accounts/login', credentials)
     .then(res => {
       let token = res.data.id
-      localStorage.setItem('jwtToken', token)
-      setAuthorizationToken(token)
-      this.props.onLogin(res.data)
+      axios.get('http://localhost:3001/api/accounts/' + res.data.userId + '?access_token=' + token)
+      .then(response => {
+        if (response.data.active) {
+          localStorage.setItem('jwtToken', token)
+          setAuthorizationToken(token)
+          this.props.onLogin(res.data)
+        } else {
+          alert('Usuario inactivo')
+          this.setState({ redirect: true })
+        }
+      })
+      .catch(error => {
+        alert(JSON.stringify(error))
+      })
     })
     .catch(err => {
       alert(JSON.stringify(err))
