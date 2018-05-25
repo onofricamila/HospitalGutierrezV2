@@ -128,6 +128,7 @@ class Patients extends Component{
                         render={ (routeProps) => 
                             <div>
                                 <FullPatientPage 
+                                    roles={this.props.roles}
                                     routeProps={routeProps} 
                                     documentTypes={documentTypes}
                                     insurances={insurances}
