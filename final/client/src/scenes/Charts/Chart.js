@@ -6,7 +6,7 @@ class Chart extends Component{
     render(){
         return(
             <div classNmae='chart'>
-                <Bar
+                <Pie
                     data={this.props.chartData}
                     options={{
                         maintainAspectRatio: true,
