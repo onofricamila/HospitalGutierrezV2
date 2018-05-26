@@ -6,14 +6,17 @@ class Chart extends Component{
     render(){
         return(
             <div classNmae='chart'>
-                <Pie
+                <Bar
                     data={this.props.chartData}
                     options={{
-                        maintainAspectRatio: false,
+                        maintainAspectRatio: true,
                         title: {
                             display: true,
-                            text: 'Cities population',
+                            text: this.props.text,
                             fontSize:20
+                        },
+                        legend: {
+                            display: true,
                         }
                     }}
                 />

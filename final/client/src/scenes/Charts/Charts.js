@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Chart from './Chart'
 import Export from './Export'
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
+import axiosBackend from "../../axios/Backend";
 
 class Charts extends Component{
     state = {
@@ -16,6 +17,7 @@ class Charts extends Component{
                 }
             ],
         },
+        patients: [],
         documentTypes: [],
         insurances: [],
         houseTypes: [],
@@ -30,6 +32,14 @@ class Charts extends Component{
             array[value.id] = value.nombre
         });
         return array
+    }
+
+    getPatients(){
+        axiosBackend.get("patients").then(response => {
+            this.setState({
+            patients: response.data.sort((a, b) => (a.id > b.id ? -1 : 1))
+            });
+          });
     }
 
     getDocumentTypes(){
@@ -62,26 +72,64 @@ class Charts extends Component{
         .then(data => { this.setState({ heatingTypes: data, loading: false }) })
     }
 
-    getdocumentTypesData(){
-        
-    }
-
     componentDidMount(){
-        this.getdocumentTypesData()
+        this.getPatients()
+        this.getDocumentTypes()
         this.getInsurances()
         this.getHouseTypes()
         this.getWaterTypes()
         this.getHeatingTypes()
     }
     
+    arrayAllCerosFrom(labels){
+        let ac = []
+        labels.map( (v,k) => {
+            ac[k] = 0
+        })
+        return ac
+    }
+
     render(){
-        const { loading, documentTypesData, insurancesData, houseTypesData, waterTypesData, heatingTypesData } = this.state
+        /* extraigo vars del estado */
+        const { loading, patients } = this.state
         
+        /* armo todas las labels que voy a necesitar para cada chart */
+        const documentTypesLabels = this.arrayFromStateField('documentTypes');
+
+        const insurancesLabels = this.arrayFromStateField('insurances');
+
+        const waterTypesLabels = this.arrayFromStateField('waterTypes');
+
+        const houseTypesLabels = this.arrayFromStateField('houseTypes');
+
+        const heatingTypesLabels = this.arrayFromStateField('heatingTypes');
+
+        /* inicializo los contadores de cant para cada label en cada chart en 0 */
+        let documentTypesData = this.arrayAllCerosFrom(documentTypesLabels);
+        
+        /* cuento la cant para cada label en cada chart */
+        Object.values(patients).forEach(value => {
+            documentTypesData[value.documentType] = documentTypesData[value.documentType] +1
+        console.log( documentTypesData)
+        });
+            
+        /* armo el objeto a enviar como data en cada chart */
+        let documentTypesCharData = {
+            labels: documentTypesLabels,
+            datasets: [
+                {
+                    label: 'Tipos de Documento',
+                    data: documentTypesData,
+                }
+            ]
+        }
+
+
         let show = <CircularIndeterminate/>
         if(!loading){
             show = (
                 <Export idDivToPrint="test">
-                    <Chart chartData={this.state.mockData}/>
+                    <Chart chartData={documentTypesCharData} text='Tipos de Documento' />
                 </Export>
             )
         }
