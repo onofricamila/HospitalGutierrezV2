@@ -158,14 +158,14 @@ class UsersIndex extends Component {
           activePage={this.state.activePage}
           itemsCountPerPage={config.get('config').elements}
           totalItemsCount={this.state.filteredUsers.length}
-          onChange={(pageNumber) => this.handlePageChange(pageNumber - 1)}
+          onChange={(pageNumber) => this.handlePageChange(pageNumber)}
         />
       </div>
     )
   }
 
   handlePageChange(pageNumber) {
-    let offset = config.get('config').elements * pageNumber
+    let offset = config.get('config').elements * (pageNumber - 1)
     this.setState({activePage: pageNumber, offset: offset})
   }
 
