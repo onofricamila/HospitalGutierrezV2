@@ -10,6 +10,7 @@ import Table, {
 import Paper from 'material-ui/Paper';
 import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
+import BubbleChartIcon from 'material-ui-icons/BubbleChart';
 import EditIcon from 'material-ui-icons/Edit';
 import ListIcon from 'material-ui-icons/List';
 import {Link} from 'react-router-dom';
@@ -267,6 +268,11 @@ class EnhancedTable extends React.Component {
                         <Tooltip title="Health Record">
                           <Link to={n.id +'/consults/'}>    
                             <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
+                          </Link>
+                        </Tooltip>
+                        <Tooltip title="Charts">
+                          <Link to={n.id +'/charts/'}>    
+                            <BubbleChartIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
                       </TableCell>

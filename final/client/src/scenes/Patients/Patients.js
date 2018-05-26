@@ -5,6 +5,7 @@ import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomBut
 import { Route, Switch } from "react-router-dom";
 import FullPatientPage from './FullPatient/FullPatient';
 import ConsultsPage from './Consults/Consults';
+import ChartsPage from './Charts/Charts';
 import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
@@ -143,6 +144,7 @@ class Patients extends Component{
                             </div>
                         }/>
                     <Route path="/patients/:id/consults" component={AddPropsToRoute(ConsultsPage, passingProps)} />
+                    <Route path="/patients/:id/charts" component={ChartsPage} />
                     <Route component={Error404} />
                 </Switch>
             </ Fragment>

@@ -154,9 +154,6 @@ class Charts extends Component{
             value.fridge? fridge++ : null
             value.electricity? electricity++ : null
         });
-        console.log('pets: '+pet)
-        console.log('fridge: '+fridge)
-        console.log('electricity: '+electricity)
 
         /* armo el objeto a enviar como data en cada chart */
         let documentTypesCharData = {
@@ -325,20 +322,6 @@ class Charts extends Component{
                         </TabContainer>
                     </SwipeableViews>
                 </div>
-                   
-
-                    
-
-                    
-
-                    
-
-                    
-
-                   
-
-                   
-
             )
         }
         return show

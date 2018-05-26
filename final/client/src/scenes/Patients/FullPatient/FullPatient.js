@@ -175,6 +175,13 @@ class FullPatient extends Component{
                                     Historia Clinica
                                 </Button>
                             </Link>
+                            <Link to={this.state.loadedPatient.id + '/charts/'}>    
+                                <Button 
+                                    color="primary" 
+                                    >
+                                    Gráficos
+                                </Button>
+                            </Link>
                         </CardActions>
                     </Card>
                     </Grid>
