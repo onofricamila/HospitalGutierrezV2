@@ -10,7 +10,6 @@ class Charts extends Component{
     state = {
         loading: true,
         consults: [],
-        sampleColors: ['rgba(255,99,132,0.6)', 'rgba(0,99,132,0.6)', 'rgba(255,0,132,0.6)', 'rgba(255,99,0,0.6)', 'rgba(0,0,132,0.6)', 'rgba(0,99,0,0.6)'],
         
     }
 
@@ -29,11 +28,54 @@ class Charts extends Component{
 
     render(){
 
-         /* extraigo vars del estado y props */
-         const { loading, consults, sampleColors } = this.state
+        /* extraigo vars del estado y props */
+        const { loading, consults } = this.state
 
+        let weight = []
+        let height = []
+        let ppc = []
+
+        Object.values(consults).forEach(value => {
+            weight.push(value.weight)
+            height.push(value.height)
+            ppc.push(value.PPC)
+        });
+
+        console.log(weight)
+        console.log(height)
+        console.log(ppc)
+
+        /* armo el objeto a enviar como data en cada chart */
+        let weightCharData = {
+            labels: [],
+            datasets: [
+                {
+                    data: weight,
+                }
+            ]
+        }
+
+        let heightCharData = {
+            labels: [],
+            datasets: [
+                {
+                    data: height,
+                }
+            ]
+        }
+
+        let ppcCharData = {
+            labels: [],
+            datasets: [
+                {
+                    data: ppc,
+                }
+            ]
+        }
+
+         /* veo que muestro al renderizar */
          let show = ''
-         
+
          if(!loading){
             if (consults.length == 0){
                 show = 'No presenta consultas cargadas'
@@ -42,18 +84,15 @@ class Charts extends Component{
             show = (
                 <Fragment>
                     <Export idDivToPrint="weight">
-                        {/* <Chart chartData={weightCharData} text='Curva de crecimiento' /> */}
-                        {'lala'}
+                        <Chart chartData={weightCharData} text='Curva de crecimiento' />
                     </Export>
 
                     <Export idDivToPrint="height">
-                        {/* <Chart chartData={heightCharData} text='Curva de talla' /> */}
-                        {'lala'}
+                        <Chart chartData={heightCharData} text='Curva de talla' />
                     </Export>
 
                     <Export idDivToPrint="ppc">
-                        {/* <Chart chartData={ppcCharData} text='Curva de percentil perímetro cefálico' /> */}
-                        {'lala'}
+                        <Chart chartData={ppcCharData} text='Curva de percentil perímetro cefálico' />
                     </Export>
                 </Fragment>
              )

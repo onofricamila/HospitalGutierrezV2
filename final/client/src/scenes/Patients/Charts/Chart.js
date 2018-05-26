@@ -16,7 +16,7 @@ class Chart extends Component{
                             fontSize:20
                         },
                         legend: {
-                            display: true,
+                            display: false,
                         }
                     }}
                 />
