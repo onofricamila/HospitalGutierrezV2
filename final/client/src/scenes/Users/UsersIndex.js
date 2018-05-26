@@ -24,6 +24,7 @@ import Icon from '@material-ui/core/Icon';
 import SessionContext from '../../SessionContext'
 import ReloadLoggedContext from '../../EditLoggedContext'
 import UserFilters from './UserFilters'
+import NoResults from '../Errors/NoResults'
 
 const styles = theme => ({
   hide: {
@@ -58,6 +59,7 @@ class UsersIndex extends Component {
     activePage: 1,
     toNew: false,
     filteredUsers: [],
+    isFiltering: false
   }
 
   loadElements() {
@@ -70,7 +72,7 @@ class UsersIndex extends Component {
   loadUsers() {
     axios.get('http://localhost:3001/api/accounts?access_token=' + this.state.accessToken)
     .then(response => {
-      this.setState({ users: response.data, filteredUsers: response.data })
+      this.setState({ users: response.data, filteredUsers: response.data, loading: false })
     })
   }
 
@@ -100,7 +102,6 @@ class UsersIndex extends Component {
     this.loadUsers()
     this.loadRoles()
     this.loadRoleMappings()
-    this.setState({ loading: false })
   }
 
   userMappings(id) {
@@ -182,17 +183,56 @@ class UsersIndex extends Component {
     this.setState({ toNew: true })
   }
 
+  isFiltering(filterBy) {
+    return (filterBy.name || filterBy.active || filterBy.username || filterBy.email)
+  }
+
   filterUsers = (name, active, username, email, filterBy) => {
     let filteredUsers = this.state.users
 
+    let isFiltering = this.isFiltering(filterBy)
     if (filterBy.name) { filteredUsers = filteredUsers.filter(user => (user.lastName + ', ' + user.firstName).includes(name)) }
     if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active == active) }
     if (filterBy.username) { filteredUsers = filteredUsers.filter(user => user.username.includes(username)) }
     if (filterBy.email) { filteredUsers = filteredUsers.filter(user => user.email.includes(email)) }
 
-    if (filteredUsers.length == 0) { filteredUsers = this.state.users }
+    this.setState({ filteredUsers: filteredUsers, isFiltering: isFiltering })
+  }
 
-    this.setState({ filteredUsers: filteredUsers })
+  getUsers(users) {
+    return users.map((user, index) => {return(
+      <Grid item xs={12} md={6} lg={4} xl={3} className={this.gridClass(index)}>
+        <Card>
+          <CardHeader title={user.lastName + ', ' + user.firstName}/>
+          <CardContent>
+            <Typography variant="body1">Email: {user.email}</Typography>
+            <Typography variant="body1">Usuario: {user.username}</Typography>
+            <Typography variant="body1">Activo: {(user.active) ? 'Si' : 'No'}</Typography>
+            <Typography variant="body1">Roles: { this.userRolesNames(user.id) }</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" onClick={() => { this.toggleUserState(index, user.id) } }>{(user.active) ? 'Desactivar' : 'Activar'}</Button>
+            <Link to={ '/Usuarios/update/' + user.id }>
+              <Button size="small">Editar</Button>
+            </Link>
+            <Button size="small" onClick={() => { this.openRolesModal(index) }}>Administrar Roles</Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    )})
+  }
+
+  getNoResults() {
+    return <Grid item><NoResults></NoResults></Grid>
+  }
+
+  getUserList() {
+    let { isFiltering, users, filteredUsers } = this.state
+    let currentUsers = users
+    if (isFiltering) {
+      currentUsers = filteredUsers
+    }
+    return currentUsers.length > 0 ? this.getUsers(currentUsers) : this.getNoResults()
   }
 
   render() {
@@ -254,26 +294,7 @@ class UsersIndex extends Component {
             <UserFilters filterFunc={this.filterUsers.bind(this)}>
             </UserFilters>
             <Grid container spacing={24} style={{ padding: 20 }}>
-              {filteredUsers.map((user, index) => {return(
-                <Grid item xs={12} md={6} lg={4} xl={3} className={this.gridClass(index)}>
-                  <Card>
-                    <CardHeader title={user.lastName + ', ' + user.firstName}/>
-                    <CardContent>
-                      <Typography variant="body1">Email: {user.email}</Typography>
-                      <Typography variant="body1">Usuario: {user.username}</Typography>
-                      <Typography variant="body1">Activo: {(user.active) ? 'Si' : 'No'}</Typography>
-                      <Typography variant="body1">Roles: { this.userRolesNames(user.id) }</Typography>
-                    </CardContent>
-                    <CardActions>
-                      <Button size="small" onClick={() => { this.toggleUserState(index, user.id) } }>{(user.active) ? 'Desactivar' : 'Activar'}</Button>
-                      <Link to={ '/Usuarios/update/' + user.id }>
-                        <Button size="small">Editar</Button>
-                      </Link>
-                      <Button size="small" onClick={() => { this.openRolesModal(index) }}>Administrar Roles</Button>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              )})}
+              {this.getUserList()}
             </Grid>
             <Grid>
               {(this.getPageCount() > 1) ? this.getPagination() : <div></div>}
