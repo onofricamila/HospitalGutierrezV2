@@ -100,7 +100,7 @@ class Login extends Component {
     }
 
     return(
-      <Grid container spacing={24} style={{ padding: 20 }}>
+      <Grid container spacing={24} style={{ padding: 20 }} justify='center'>
         <Card className={classes.card}>
           <form>
           <CardContent>

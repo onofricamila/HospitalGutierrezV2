@@ -13,6 +13,7 @@ import AccessDenied from "./scenes/Errors/AccessDenied";
 import Layout from "./containers/Layout/Layout";
 import DocumentTitle from "react-document-title";
 import config from 'react-global-configuration';
+import ChartsPage from './scenes/Charts/Charts'
 
 import SessionContext from './SessionContext'
 import ReloadLoggedContext from './EditLoggedContext'
@@ -156,6 +157,7 @@ class App extends Component {
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
                   <PrivateRoute path="/Configuracion" component={ConfigurationPage} permissions={["Administrador"]} />
                   <PrivateRoute path="/Usuarios" component={UsersPage} permissions={["Administrador"]} />
+                  <Route path="/charts" exact component={ChartsPage} />
                   <Route path="/505" exact component={Error505} />
                   <Route path="/AccessDenied" exact component={AccessDenied} />
                   <Route path="/Maintenance" exact component={Maintenance} />

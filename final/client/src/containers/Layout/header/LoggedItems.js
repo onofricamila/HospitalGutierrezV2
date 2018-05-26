@@ -19,7 +19,7 @@ class LoggedItems extends Component {
         { path: '/', icon: <HomeIcon /> , text: 'Inicio', reqRoles: [] },
         { path: '/patients/', icon: <PeopleIcon /> , text: 'Pacientes', reqRoles: ['Pediatra','Recepcionista','Administrador'] },
         { path: '/Usuarios', icon: <PeopleOutlineIcon /> , text: 'Usuarios', reqRoles: ['Administrador'] },
-        { path: '/Reportes', icon: <BubbleChartIcon /> , text: 'Reportes', reqRoles: [] },
+        { path: '/charts', icon: <BubbleChartIcon /> , text: 'Reportes', reqRoles: [] },
         { path: '/Configuracion', icon: <SettingsIcon /> , text: 'Configuración', reqRoles: ['Administrador'] },
       ],
     }

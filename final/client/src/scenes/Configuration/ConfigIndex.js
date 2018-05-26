@@ -82,7 +82,7 @@ class ConfigIndex extends Component {
     ]
 
     return (
-      <div className="container">
+      <Grid container spacing={24} style={{ padding: 20 }} justify='center'>
         <Card className={classes.card}>
           <CardContent>
             <Typography variant="display3">Configuración</Typography>
@@ -129,7 +129,7 @@ class ConfigIndex extends Component {
             </Link>
           </CardActions>
         </Card>
-      </div>
+        </Grid>
     )
   }
 }
