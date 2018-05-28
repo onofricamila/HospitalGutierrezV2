@@ -9,9 +9,6 @@ import Select from 'material-ui/Select';
 import axiosBackend from "../../../../axios/Backend";
 import Grid from 'material-ui/Grid';
 import Button from 'material-ui/Button';
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DatePicker from 'material-ui-pickers/DatePicker';
 import Paper from 'material-ui/Paper';
 import InputAdornment from '@material-ui/core/InputAdornment';
 

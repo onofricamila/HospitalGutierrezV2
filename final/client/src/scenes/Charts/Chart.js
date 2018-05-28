@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import {Bar, Line, Pie} from 'react-chartjs-2'
+import {Pie} from 'react-chartjs-2'
 
 class Chart extends Component{
     
     render(){
         return(
-            <div classNmae='chart'>
+            <div>
                 <Pie
                     data={this.props.chartData}
                     options={{

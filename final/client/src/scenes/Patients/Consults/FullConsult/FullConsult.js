@@ -7,8 +7,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
-import pink from '@material-ui/core/colors/pink';
-import blue from '@material-ui/core/colors/blue';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from 'material-ui/Grid';
 import Moment from 'react-moment';

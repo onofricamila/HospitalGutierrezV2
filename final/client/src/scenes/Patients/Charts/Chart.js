@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Bar, Line, Pie} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 
 class Chart extends Component{
     
@@ -23,7 +23,7 @@ class Chart extends Component{
         }
 
         return(
-            <div classNmae='chart'>
+            <div >
                 <Line
                     data={chartData} 
                     options={{

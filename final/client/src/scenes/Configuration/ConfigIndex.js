@@ -14,13 +14,9 @@ import TableCell from '@material-ui/core/TableCell';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import EditIcon from '@material-ui/icons/Edit';
 import Grid from '@material-ui/core/Grid';
-
 import config from 'react-global-configuration';
 import MaintenanceSwitch from './MaintenanceSwitch.js';
-import Articles from '../Home/Articles/Articles.js';
-import axios from 'axios'
 
 const styles = theme => ({
   card: {

@@ -7,7 +7,6 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardHeader from '@material-ui/core/CardHeader'
 import Grid from '@material-ui/core/Grid'
-import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 
 import { Link, Redirect } from 'react-router-dom'
@@ -19,7 +18,6 @@ import RoleSwitch from './RoleSwitch'
 import Pagination from 'react-paginate';
 
 import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
 
 import SessionContext from '../../SessionContext'
 import ReloadLoggedContext from '../../EditLoggedContext'
@@ -117,13 +115,13 @@ class UsersIndex extends Component {
   }
 
   userMappings(id) {
-     return this.state.mappings.filter(function(mapping) { return(mapping.principalId == id) })
+     return this.state.mappings.filter(function(mapping) { return(mapping.principalId === id) })
   }
 
   userRoles(id) {
     let userMappings = this.userMappings(id)
     let roleIDs = userMappings.map(function(mapping) { return(mapping.roleId) })
-    return this.state.roles.filter(function(role) { return(roleIDs.some(v => role.id == v)) })
+    return this.state.roles.filter(function(role) { return(roleIDs.some(v => role.id === v)) })
   }
 
   userRolesNames(id) {
@@ -134,7 +132,7 @@ class UsersIndex extends Component {
 
   roleMapping(role, mappings) {
     return mappings.find(function(mapping) {
-      return mapping.roleId == role.id
+      return mapping.roleId === role.id
     })
   }
 
@@ -228,7 +226,7 @@ class UsersIndex extends Component {
 
     let isFiltering = this.isFiltering(filterBy)
     if (filterBy.name) { filteredUsers = filteredUsers.filter(user => (user.lastName + ', ' + user.firstName).includes(name)) }
-    if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active == active) }
+    if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active === active) }
     if (filterBy.username) { filteredUsers = filteredUsers.filter(user => user.username.includes(username)) }
     if (filterBy.email) { filteredUsers = filteredUsers.filter(user => user.email.includes(email)) }
     

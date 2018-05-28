@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import Chart from './Chart'
 import Export from './Export'
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';

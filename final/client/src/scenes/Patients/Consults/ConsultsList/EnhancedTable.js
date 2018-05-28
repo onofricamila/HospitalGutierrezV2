@@ -173,7 +173,7 @@ class EnhancedTable extends React.Component {
                       <TableCell className={classes.tableCell}>
                         <Tooltip title="Ver">
                           <Link to={n.id} key={n.id}>    
-                            {new Date(n.date).toLocaleDateString()}
+                          {<Moment format="DD/MM/YYYY">{n.date}</Moment>}
                           </Link>
                         </Tooltip>
                       </TableCell>

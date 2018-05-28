@@ -1,5 +1,4 @@
 import React, { Component, Fragment} from "react";
-import axiosReferences from "../../axios/References";
 import CircularIndeterminate from '../../components/CircularIndeterminate/CircularIndeterminate';
 import FixedBottomButton from '../../components/FixedBottomButton/FixedBottomButton';
 import { Route, Switch } from "react-router-dom";

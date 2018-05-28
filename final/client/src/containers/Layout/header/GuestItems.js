@@ -23,7 +23,7 @@ class GuestItems extends Component {
     return(
       <div>
         {this.state.items.map(item => { return(
-          <Link to={item.path}>
+          <Link to={item.path} key={item.path}>
             <ListItem button>
               <ListItemIcon >
                 {item.icon}

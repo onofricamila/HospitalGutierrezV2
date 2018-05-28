@@ -7,9 +7,6 @@ import PeopleOutlineIcon from 'material-ui-icons/PeopleOutline';
 import SettingsIcon from 'material-ui-icons/Settings';
 import ExitToAppIcon from 'material-ui-icons/ExitToApp';
 import {Link} from 'react-router-dom'
-import Icon from '@material-ui/core/Icon';
-
-import SessionContext from '../../../SessionContext';
 
 class LoggedItems extends Component {
   constructor(props) {
@@ -28,7 +25,7 @@ class LoggedItems extends Component {
   filteredItems(session) {
     let filteredItems = []
     this.state.items.forEach(item => {
-      if (item.reqRoles.length == 0) { filteredItems.push(item) }
+      if (item.reqRoles.length === 0) { filteredItems.push(item) }
       if ( session.roles.some(role => item.reqRoles.includes(role)) ){ filteredItems.push(item) }
     })
     return filteredItems
@@ -38,7 +35,7 @@ class LoggedItems extends Component {
     return(
       <div>
         {this.filteredItems(this.props.session).map(item => { return(
-          <Link to={item.path}>
+          <Link to={item.path} key={item.path}>
             <ListItem button>
               <ListItemIcon >
                 {item.icon}

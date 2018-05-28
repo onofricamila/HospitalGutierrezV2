@@ -1,12 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import Button from 'material-ui/Button';
 
 export default class Export extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   printDocument = () => {
     const input = document.getElementById(this.props.idDivToPrint);
