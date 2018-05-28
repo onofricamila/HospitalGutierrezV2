@@ -39,6 +39,18 @@ const styles = theme => ({
     left: 'auto',
     position: 'fixed',
   },
+
+  li:{
+    display: 'inline-block',
+    borderRadius: 5, 
+    float: 'left',
+    padding: '8px 16px',
+    transition: 'background-color .3s',
+    border: '1px solid #ddd',
+    cursor: 'pointer',
+    margin: 5,
+  },
+  
 })
 
 class UsersIndex extends Component {
@@ -161,8 +173,12 @@ class UsersIndex extends Component {
     let classes = this.props.classes
     return(
       <div>
-        <Pagination previousLabel={"Anterior"}
-               nextLabel={"Siguiente"}
+        <Pagination previousLabel={"<"}
+               activeClassName={classes.activeLi}
+               pageClassName={classes.li}
+               nextClassName={classes.li}
+               previousClassName={classes.li}
+               nextLabel={">"}
                breakLabel={<a href="">...</a>}
                breakClassName={"break-me"}
                pageCount={this.state.filteredUsers.length / config.get('config').elements}
