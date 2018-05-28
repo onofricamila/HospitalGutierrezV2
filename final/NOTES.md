@@ -7,13 +7,14 @@ Camila:
 * 2.4 Modulo de Datos Demograficos
 * 3.1 Modulo de Historia Clinica
 * 3.2 Acceso a API de Referencias
+* 3.4 Reportes
 
 Sebastian:
 * 2.1 Manejo de Sesiones
 * 2.2 Modulo de Usuarios
 * 2.5 Modulo de Configuracion
 * 3.3 API de turnos
-* 3.4 Reportes
+
 
 ## Tips para la DB
 
