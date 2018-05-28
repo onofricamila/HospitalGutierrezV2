@@ -12,7 +12,7 @@ class Consults extends Component{
             <Route path="/patients/:idP/consults/new" exact  
                 render={ (routeProps) => 
                     <div>
-                        <CreateOrUpdateConsult  routeProps={routeProps}/>
+                        <CreateOrUpdateConsult  routeProps={routeProps} user={this.props.user} />
                     </div>
             } /> 
             <Route path="/patients/:idP/consults/" exact 

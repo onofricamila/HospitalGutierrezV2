@@ -14,7 +14,8 @@ class PrivateRoute extends Component {
 
   canAccess(session) {
     let passingProps = {
-      roles: session.roles
+      roles: session.roles,
+      user: session.user.username
     }
     let canAccess = session.roles.some(role => this.props.permissions.includes(role))
     return canAccess ? <Route path={this.props.path} component={AddPropsToRoute(this.props.component, passingProps)}  roles={session.roles} /> : <Redirect to='/AccessDenied' />

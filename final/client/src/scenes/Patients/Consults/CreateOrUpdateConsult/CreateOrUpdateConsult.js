@@ -53,7 +53,7 @@ class BasePatientsForm extends React.Component {
             height: '',
             feeding: '',
             gralObs: '',
-            user: 1,
+            user: this.props.user
         },
         rules: {
             weight: {

@@ -86,7 +86,8 @@ class Patients extends Component{
         const heatingTypes = this.arrayFromStateField('heatingTypes');
 
         let passingProps = {
-            roles: this.props.roles
+            roles: this.props.roles,
+            user: this.props.user
           }
 
 
