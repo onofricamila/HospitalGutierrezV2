@@ -56,40 +56,6 @@ class Charts extends Component{
             }
         });
 
-        /* armo el objeto a enviar como data en cada chart */
-        let weightCharData = {
-            labels: weightLabels,
-            datasets: [
-                {
-                    data: weight,
-                    fill: false,
-                    pointHoverRadius: 5,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    spanGaps: false,
-                    borderColor: 'rgba(255,99,132,0.6)',
-                    pointBorderWidth: 5
-                }
-            ]
-        }
-
-        let heightCharData = {
-            labels: heightLabels,
-            datasets: [
-                {
-                    data: height,
-                }
-            ]
-        }
-
-        let PPCCharData = {
-            labels: PPCLabels,
-            datasets: [
-                {
-                    data: PPC,
-                }
-            ]
-        }
 
          /* veo que muestro al renderizar */
          let show = ''
@@ -102,15 +68,15 @@ class Charts extends Component{
             show = (
                 <Fragment>
                     <Export idDivToPrint="weight">
-                        <Chart chartData={weightCharData} text='Curva de crecimiento' />
+                        <Chart data={weight} text='Curva de crecimiento' labels={weightLabels} label='(Kg)' />
                     </Export>
 
                     <Export idDivToPrint="height">
-                        <Chart chartData={heightCharData} text='Curva de talla' />
+                        <Chart data={height} text='Curva de talla' labels={heightLabels} label='(Cm)'/>
                     </Export>
 
                     <Export idDivToPrint="PPC">
-                        <Chart chartData={PPCCharData} text='Curva de percentil perímetro cefálico' />
+                        <Chart data={PPC} text='Curva de percentil perímetro cefálico' labels={PPCLabels} label='(Cm)' />
                     </Export>
                 </Fragment>
              )
