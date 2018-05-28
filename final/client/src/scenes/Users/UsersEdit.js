@@ -104,7 +104,7 @@ class UsersEdit extends Component {
   passButton() {
     return(
       <Grid item xl>
-        <Button size="large" onClick={()=>{this.displayPassChange()}}>Cambiar contraseña</Button>
+        <Button size="small" color='primary' onClick={()=>{this.displayPassChange()}}>Cambiar contraseña</Button>
       </Grid>
     )
   }
@@ -171,7 +171,7 @@ class UsersEdit extends Component {
     let passChange = this.state.passChange
 
     return(
-      <Grid container spacing={24} style={{ padding: 20 }}>
+      <Grid container spacing={24} style={{ padding: 20 }} justify='center'>
         <Card className={classes.card}>
           <form noValidate autoComplete="off">
           <CardContent>
@@ -180,7 +180,6 @@ class UsersEdit extends Component {
               <br></br>
             </Grid>
             <Grid item xl>
-              <Paper className={classes.paper}>
                 <Grid item>
                   <TextField
                     required
@@ -240,7 +239,6 @@ class UsersEdit extends Component {
                 <Grid item>
                   {(passChange) ? this.passForm() : this.passButton()}
                 </Grid>
-              </Paper>
             </Grid>
           </CardContent>
           <CardActions>
