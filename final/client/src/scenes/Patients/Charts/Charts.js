@@ -37,8 +37,12 @@ class Charts extends Component{
 
         Object.values(consults).forEach(value => {
             weight.push(value.weight)
-            height.push(value.height)
-            ppc.push(value.PPC)
+            if (value.height != 0) {
+                height.push(value.height)  
+            }
+            if (value.PPC != 0) {
+                ppc.push(value.ppc)  
+            }
         });
 
         console.log(weight)
