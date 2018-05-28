@@ -63,7 +63,7 @@ class Charts extends Component{
 
          if(!loading){
             if (consults.length == 0){
-                show = 'No presenta consultas cargadas'
+                show = 'No presenta consultas cargadas.'
             }
             else{
             show = (

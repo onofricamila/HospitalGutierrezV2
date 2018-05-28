@@ -152,7 +152,6 @@ class EnhancedTable extends React.Component {
           open={deleteModal.open} 
           onAgree={() => this.deleteConsultHandler(deleteModal.id)}/>
 
-
       {/* TABLE STRUCTURE */}
       <Paper className={classes.root}>
         <EnhancedTableToolbar />
@@ -222,6 +221,7 @@ class EnhancedTable extends React.Component {
           rowsPerPageOptions={[]}
         />
       </Paper>
+      
       <FixedBottomButton path={'/patients/' + patient.id + '/consults/new'} />
       </Fragment>
     );
