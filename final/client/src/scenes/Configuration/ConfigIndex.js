@@ -43,9 +43,6 @@ const styles = theme => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
-  articleCard: {
-    height: "100%",
-  },
 });
 
 class ConfigIndex extends Component {
@@ -109,14 +106,14 @@ class ConfigIndex extends Component {
               </Table>
             </Paper>
           </CardContent>
-          <Grid container spacing={24} style={{ padding: 20 }}>
+          <Grid container spacing={24} style={{ padding: 20 }} >
             {articles.map(a => {
               return(
-                <Grid item xs={12} sm={4} className="articleCard">
-                  <Card className="articleCard">
+                <Grid item xs={12} sm={4}>
+                  <Card >
                     <CardHeader title={a.title}/>
-                    <CardContent>
-                      <Typography variant="body1">{a.description}</Typography>
+                    <CardContent >
+                      <p style={{height: 300, overflow: 'scroll'}}>{a.description}</p>
                     </CardContent>
                   </Card>
                 </Grid>

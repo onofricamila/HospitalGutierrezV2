@@ -4,7 +4,7 @@ import Export from '../../Charts/Export'
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 import axiosBackend from "../../../axios/Backend";
 import InfoIcon from 'material-ui-icons/Info';
-
+import Moment from 'react-moment';
 
 class Charts extends Component{
     state = {
@@ -35,10 +35,25 @@ class Charts extends Component{
         let height = []
         let ppc = []
 
+        let weightLabels = []
+        let heightLabels = []
+        let ppcLabels = []
+
+        let date
+
         Object.values(consults).forEach(value => {
+            date = new Date(value.date).toLocaleDateString()
+
             weight.push(value.weight)
-            height.push(value.height)
-            ppc.push(value.PPC)
+            weightLabels.push(date)
+            if (value.height != 0) {
+                height.push(value.height)
+                heightLabels.push(date)
+            }
+            if (value.PPC != 0) {
+                ppc.push(value.PPC) 
+                ppcLabels.push(date)
+            }
         });
 
         console.log(weight)
@@ -47,16 +62,23 @@ class Charts extends Component{
 
         /* armo el objeto a enviar como data en cada chart */
         let weightCharData = {
-            labels: [],
+            labels: weightLabels,
             datasets: [
                 {
                     data: weight,
+                    fill: false,
+                    pointHoverRadius: 5,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    spanGaps: false,
+                    borderColor: 'rgba(255,99,132,0.6)',
+                    pointBorderWidth: 5
                 }
             ]
         }
 
         let heightCharData = {
-            labels: [],
+            labels: heightLabels,
             datasets: [
                 {
                     data: height,
@@ -65,7 +87,7 @@ class Charts extends Component{
         }
 
         let ppcCharData = {
-            labels: [],
+            labels: ppcLabels,
             datasets: [
                 {
                     data: ppc,

@@ -7,7 +7,7 @@ class Chart extends Component{
         return(
             <div classNmae='chart'>
                 <Line
-                    data={this.props.chartData}
+                    data={this.props.chartData} 
                     options={{
                         maintainAspectRatio: true,
                         title: {

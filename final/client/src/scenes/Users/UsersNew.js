@@ -104,16 +104,15 @@ class UsersNew extends Component {
     }
 
     return(
-      <Grid container spacing={24} style={{ padding: 20 }}>
+      <Grid container spacing={24} style={{ padding: 20 }} justify='center'>
         <Card className={classes.card}>
           <form noValidate autoComplete="off">
           <CardContent>
             <Grid item xl>
-              <Typography variant="display3">Editar Configuracion</Typography>
+              <Typography variant="display3">Nuevo Usuario</Typography>
               <br></br>
             </Grid>
             <Grid item xl>
-              <Paper className={classes.paper}>
                 <Grid item>
                   <TextField
                     required
@@ -198,7 +197,6 @@ class UsersNew extends Component {
                     }}
                   />
                 </Grid>
-              </Paper>
             </Grid>
           </CardContent>
           <CardActions>
