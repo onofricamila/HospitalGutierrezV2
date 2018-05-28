@@ -51,12 +51,12 @@ class UserFilters extends Component {
 
   filter() {
     let { name, username, email, active } = this.state
-    let activeValue = (active == 'all') ? 'all' : (active == 'active' ? true : false)
+    let activeValue = (active === 'all') ? 'all' : (active === 'active' ? true : false)
     let filterBy = {
-      name: !(name == ''),
-      username: !(username == ''),
-      email: !(email == ''),
-      active: !(activeValue == 'all'),
+      name: !(name === ''),
+      username: !(username === ''),
+      email: !(email === ''),
+      active: !(activeValue === 'all'),
     }
     this.props.filterFunc(name, activeValue, username, email, filterBy)
   }
