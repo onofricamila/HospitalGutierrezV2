@@ -20,7 +20,7 @@ import ReloadLoggedContext from './EditLoggedContext'
 import axios from 'axios'
 import PrivateRoute from './components/CustomRoutes/PrivateRoute'
 import GuestRoute from './components/CustomRoutes/GuestRoute'
-
+import 'moment/locale/es';
 import './App.css';
 
 class App extends Component {

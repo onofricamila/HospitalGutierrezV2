@@ -337,7 +337,6 @@ class BasePatientsForm extends React.Component {
                 disableFuture
                 label="Fecha de nacimiento"
                 format="DD/MM/YYYY"
-                showTodayButton
               />
             </MuiPickersUtilsProvider>
             <FormControl className={classes.formControl} 

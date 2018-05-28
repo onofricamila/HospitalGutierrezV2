@@ -15,7 +15,6 @@ import Moment from 'react-moment';
 import List from '@material-ui/core/List';
 import Item from "../../../../components/ListItem/ListItem";
 import {Link} from 'react-router-dom';
-import 'moment/locale/es';
 
 const styles = theme => ({
     card: {
