@@ -15,7 +15,7 @@
 
 ## Cómo usar la app
 
-1. Antes que nada, debemos correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. Una vez hecho esto, importar (o mejor dicho 'restaurar') la base de datos. Para esto, situados en la carpeta _final_ debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback ./DB`.
+1. Antes que nada, debemos correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. Una vez hecho esto, importar (o mejor dicho 'restaurar') la base de datos. Para esto, situados en la carpeta _'final'_ debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback ./DB`.
 2. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con Loopback.
 3. Situados en la carpeta _'client'_, correr desde una terminal `npm start` para levantar un servidor web en el puerto 3000 y poder usar la aplicacion del fronted, hecha con React.
 
