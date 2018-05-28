@@ -35,13 +35,24 @@ class Charts extends Component{
         let height = []
         let ppc = []
 
+        let weightLabels = []
+        let heightLabels = []
+        let ppcLabels = []
+
+        let date
+
         Object.values(consults).forEach(value => {
+            date = value.date.toLocaleString()
+
             weight.push(value.weight)
+            weightLabels.push(date)
             if (value.height != 0) {
-                height.push(value.height)  
+                height.push(value.height)
+                heightLabels.push(date)
             }
             if (value.PPC != 0) {
-                ppc.push(value.ppc)  
+                ppc.push(value.PPC) 
+                ppcLabels.push(date)
             }
         });
 
@@ -51,16 +62,23 @@ class Charts extends Component{
 
         /* armo el objeto a enviar como data en cada chart */
         let weightCharData = {
-            labels: [],
+            labels: weightLabels,
             datasets: [
                 {
                     data: weight,
+                    fill: false,
+                    pointHoverRadius: 5,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                    spanGaps: false,
+                    borderColor: 'rgba(255,99,132,0.6)',
+                    pointBorderWidth: 5
                 }
             ]
         }
 
         let heightCharData = {
-            labels: [],
+            labels: heightLabels,
             datasets: [
                 {
                     data: height,
@@ -69,7 +87,7 @@ class Charts extends Component{
         }
 
         let ppcCharData = {
-            labels: [],
+            labels: ppcLabels,
             datasets: [
                 {
                     data: ppc,
