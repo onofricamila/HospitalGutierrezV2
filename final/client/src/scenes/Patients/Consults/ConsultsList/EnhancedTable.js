@@ -172,7 +172,7 @@ class EnhancedTable extends React.Component {
                       key={n.id}
                       >
                       <TableCell className={classes.tableCell}>
-                        <Tooltip title="Show">
+                        <Tooltip title="Ver">
                           <Link to={n.id} key={n.id}>    
                             {new Date(n.date).toLocaleDateString()}
                           </Link>
@@ -188,13 +188,13 @@ class EnhancedTable extends React.Component {
                         {n.user}
                       </TableCell> 
                       <TableCell className={classes.tableCell}>
-                      {roles.includes('Administrador')? <Tooltip title="Delete">
+                      {roles.includes('Administrador')? <Tooltip title="Borrar">
                             <DeleteIcon 
                               style={{cursor: 'pointer', fontSize: 18}}
                               onClick={() => this.handleDeleteModalClickOpen(new Date(n.date).toLocaleDateString(), n.id)}/>
                         </Tooltip>
                       : null } 
-                        <Tooltip title="Edit">
+                        <Tooltip title="Editar">
                           <Link to={'update/' + n.id} key={n.id}>    
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>

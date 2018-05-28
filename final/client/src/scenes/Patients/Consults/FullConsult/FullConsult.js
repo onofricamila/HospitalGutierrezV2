@@ -15,6 +15,7 @@ import Moment from 'react-moment';
 import List from '@material-ui/core/List';
 import Item from "../../../../components/ListItem/ListItem";
 import {Link} from 'react-router-dom';
+import 'moment/locale/es';
 
 const styles = theme => ({
     card: {
@@ -131,7 +132,7 @@ class FullConsult extends Component{
                         <CardContent>
                           <List >
                             <Grid item xs={5} className={classes.flexContainer}>
-                                <Item title='Edad: ' value={<Moment to={loadedConsult.date} ago>{loadedPatient.date}</Moment>} />
+                                <Item title='Edad: ' value={<Moment locale="es" to={loadedConsult.date} ago>{loadedPatient.date}</Moment>} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
                                 <Item title='Peso: ' value={loadedConsult.weight + ' Kg'} />

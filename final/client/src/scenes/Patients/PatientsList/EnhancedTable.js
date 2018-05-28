@@ -236,7 +236,7 @@ class EnhancedTable extends React.Component {
                       key={n.id}
                       >
                       <TableCell >
-                        <Tooltip title="Show">
+                        <Tooltip title="Ver">
                           <Link to={n.id} key={n.id}>    
                             {n.name}
                           </Link>
@@ -254,23 +254,23 @@ class EnhancedTable extends React.Component {
                         {n.dni}
                       </TableCell> 
                       <TableCell >
-                       {roles.includes('Administrador')? <Tooltip title="Delete">
+                       {roles.includes('Administrador')? <Tooltip title="Borrar">
                             <DeleteIcon 
                               style={{cursor: 'pointer', fontSize: 18}}
                               onClick={() => this.handleDeleteModalClickOpen(n.lastname + ', ' + n.name, n.id)}/>
                          </Tooltip>
                         : null } 
-                        <Tooltip title="Edit">
+                        <Tooltip title="Editar">
                           <Link to={'/patients/update/' + n.id}>    
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
-                        <Tooltip title="Health Record">
+                        <Tooltip title="Consultas">
                           <Link to={n.id +'/consults/'}>    
                             <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
-                        <Tooltip title="Charts">
+                        <Tooltip title="Gráficos">
                           <Link to={n.id +'/charts/'}>    
                             <BubbleChartIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
