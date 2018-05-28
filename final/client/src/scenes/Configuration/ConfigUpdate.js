@@ -124,7 +124,7 @@ class ConfigUpdate extends Component {
     }
 
     return(
-      <Grid container spacing={24} style={{ padding: 20 }}>
+      <Grid container spacing={24} style={{ padding: 20 }} justify='center'>
         <Card className={classes.card}>
           <form className={classes.container} noValidate autoComplete="off">
           <CardContent>
@@ -172,8 +172,8 @@ class ConfigUpdate extends Component {
                 />
             </Paper>
             <Grid container spacing={24} style={{ padding: 20 }}>
-              <Grid item sm={12} md={6} lg={4} className="articleCard">
-                <Card className="articleCard">
+              <Grid item sm={12} md={6} lg={4}>
+                <Card>
                   <CardContent>
                     <TextField
                       required
@@ -188,6 +188,7 @@ class ConfigUpdate extends Component {
                     />
                     <br/>
                     <TextField
+                      rows="10"
                       id="descripcion1"
                       multiline
                       value={config.descripcion1}
@@ -198,8 +199,8 @@ class ConfigUpdate extends Component {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item sm={12} md={6} lg={4} className="articleCard">
-                <Card className="articleCard">
+              <Grid item sm={12} md={6} lg={4}>
+                <Card>
                   <CardContent>
                     <TextField
                       required
@@ -214,6 +215,7 @@ class ConfigUpdate extends Component {
                     />
                     <br/>
                     <TextField
+                      rows="10"
                       id="descripcion2"
                       multiline
                       value={config.descripcion2}
@@ -224,8 +226,8 @@ class ConfigUpdate extends Component {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item sm={12} md={6} lg={4} className="articleCard">
-                <Card className="articleCard">
+              <Grid item sm={12} md={6} lg={4}>
+                <Card>
                   <CardContent>
                     <TextField
                       required
@@ -240,6 +242,7 @@ class ConfigUpdate extends Component {
                     />
                     <br/>
                     <TextField
+                      rows="10"
                       id="descripcion3"
                       multiline
                       value={config.descripcion3}
