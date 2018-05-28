@@ -33,17 +33,17 @@ class Charts extends Component{
 
         let weight = []
         let height = []
-        let ppc = []
+        let PPC = []
 
         let weightLabels = []
         let heightLabels = []
-        let ppcLabels = []
+        let PPCLabels = []
 
         let date
 
         Object.values(consults).forEach(value => {
             date = new Date(value.date).toLocaleDateString()
-
+            
             weight.push(value.weight)
             weightLabels.push(date)
             if (value.height != 0) {
@@ -51,14 +51,10 @@ class Charts extends Component{
                 heightLabels.push(date)
             }
             if (value.PPC != 0) {
-                ppc.push(value.PPC) 
-                ppcLabels.push(date)
+                PPC.push(value.PPC) 
+                PPCLabels.push(date)
             }
         });
-
-        console.log(weight)
-        console.log(height)
-        console.log(ppc)
 
         /* armo el objeto a enviar como data en cada chart */
         let weightCharData = {
@@ -86,11 +82,11 @@ class Charts extends Component{
             ]
         }
 
-        let ppcCharData = {
-            labels: ppcLabels,
+        let PPCCharData = {
+            labels: PPCLabels,
             datasets: [
                 {
-                    data: ppc,
+                    data: PPC,
                 }
             ]
         }
@@ -113,8 +109,8 @@ class Charts extends Component{
                         <Chart chartData={heightCharData} text='Curva de talla' />
                     </Export>
 
-                    <Export idDivToPrint="ppc">
-                        <Chart chartData={ppcCharData} text='Curva de percentil perímetro cefálico' />
+                    <Export idDivToPrint="PPC">
+                        <Chart chartData={PPCCharData} text='Curva de percentil perímetro cefálico' />
                     </Export>
                 </Fragment>
              )
