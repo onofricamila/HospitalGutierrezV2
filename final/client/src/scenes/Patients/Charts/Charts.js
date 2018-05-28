@@ -115,22 +115,20 @@ class Charts extends Component{
 
             show = (
                 <Fragment>
-                    {diffYears}
-                    {diffWeeks}
                     <Export idDivToPrint="weight">
-                        <Chart data={weight} text='Curva de crecimiento' labels={weightLabels} label='Kg' />
+                        <Chart data={weight} text='Curva de crecimiento en las primeras 13 semanas de vida' labels={weightLabels} label='Kg' />
                     </Export>
                    
                     <div style={{textAlign: 'center', marginTop: 100, marginBottom: 100}}></div>
                     
                     <Export idDivToPrint="height">
-                        <Chart data={height} text='Curva de talla' labels={heightLabels} label='Cm'/>
+                        <Chart data={height} text='Curva de talla en los primeros 2 años de vida' labels={heightLabels} label='Cm'/>
                     </Export>
                     
                     <div style={{textAlign: 'center', marginTop: 100, marginBottom: 100}}></div>
                     
                     <Export idDivToPrint="PPC">
-                        <Chart data={PPC} text='Curva de percentil perímetro cefálico' labels={PPCLabels} label='Cm' />
+                        <Chart data={PPC} text='Curva de PPC en las primeras 13 semanas de vida' labels={PPCLabels} label='Cm' />
                     </Export>
                 </Fragment>
              )
