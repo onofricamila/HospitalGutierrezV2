@@ -15,7 +15,7 @@
 
 ## Cómo usar la app
 
-1. Antes que nada, debemos correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. Una vez hecho esto, importar (o mejor dicho 'restaurar') la base de datos. Para esto, debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback <path hacia dump folder>`.
+1. Antes que nada, debemos correr desde consola `sudo service mongod start` para levantar el servidor de bases de datos. Una vez hecho esto, importar (o mejor dicho 'restaurar') la base de datos. Para esto, situados en la carpeta _final_ debemos correr desde consola el comando `sudo mongorestore -d ProyectoLoopback ./DB`.
 2. Situados en la carpeta _'final'_, correr desde una terminal `node .` para levantar un servidor web en el puerto 3001 y poder usar la API del backend, hecha con Loopback.
 3. Situados en la carpeta _'client'_, correr desde una terminal `npm start` para levantar un servidor web en el puerto 3000 y poder usar la aplicacion del fronted, hecha con React.
 
@@ -48,6 +48,9 @@ Por otro lado, usamos la librería Material UI para mejorar la vista de las pant
 * [Bases](https://material-ui-next.com/getting-started/installation/)
 * [Entendiendo Material UI, tutorial completo](https://www.youtube.com/watch?v=xm4LX5fJKZ8&list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk)
 * [Extendiendo tablas en Material UI](https://www.youtube.com/watch?v=SX_IL7LqSxM)
+
+**Chart.js**
+* [Usando Chart.js con React](https://www.youtube.com/watch?v=Ly-9VTXJlnA&t=295s)
 
 ### Modulos aprovechados
 
