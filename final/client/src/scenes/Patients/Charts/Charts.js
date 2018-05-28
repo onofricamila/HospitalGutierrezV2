@@ -4,7 +4,7 @@ import Export from '../../Charts/Export'
 import CircularIndeterminate from '../../../components/CircularIndeterminate/CircularIndeterminate';
 import axiosBackend from "../../../axios/Backend";
 import InfoIcon from 'material-ui-icons/Info';
-
+import Moment from 'react-moment';
 
 class Charts extends Component{
     state = {
@@ -42,7 +42,7 @@ class Charts extends Component{
         let date
 
         Object.values(consults).forEach(value => {
-            date = value.date.toLocaleString()
+            date = new Date(value.date).toLocaleDateString()
 
             weight.push(value.weight)
             weightLabels.push(date)
