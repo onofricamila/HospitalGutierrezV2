@@ -16,7 +16,7 @@ import config from 'react-global-configuration'
 import Modal from 'react-responsive-modal'
 import PropTypes from 'prop-types'
 import RoleSwitch from './RoleSwitch'
-import Pagination from "react-js-pagination"
+import Pagination from 'react-paginate';
 
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
@@ -150,19 +150,39 @@ class UsersIndex extends Component {
     return this.state.filteredUsers.length / config.get('config').elements
   }
 
+  handlePageClick = (data) => {
+    let selected = data.selected;
+    let offset = Math.ceil(selected * config.get('config').elements);
+
+    this.setState({activePage: selected, offset: offset})
+  };
+
   getPagination() {
     let classes = this.props.classes
     return(
       <div>
-        <Pagination
-          hideDisabled
-          activePage={this.state.activePage}
-          itemsCountPerPage={config.get('config').elements}
-          totalItemsCount={this.state.filteredUsers.length}
-          onChange={(pageNumber) => this.handlePageChange(pageNumber)}
-        />
+        <Pagination previousLabel={"Anterior"}
+               nextLabel={"Siguiente"}
+               breakLabel={<a href="">...</a>}
+               breakClassName={"break-me"}
+               pageCount={this.state.filteredUsers.length / config.get('config').elements}
+               marginPagesDisplayed={2}
+               pageRangeDisplayed={5}
+               onPageChange={this.handlePageClick}
+               containerClassName={"pagination"}
+               subContainerClassName={"pages pagination"}
+               activeClassName={"active"} />
       </div>
     )
+    /*
+            <Pagination
+              hideDisabled
+              activePage={this.state.activePage}
+              itemsCountPerPage={config.get('config').elements}
+              totalItemsCount={this.state.filteredUsers.length}
+              onChange={(pageNumber) => this.handlePageChange(pageNumber)}
+            />
+    */
   }
 
   handlePageChange(pageNumber) {
@@ -195,8 +215,8 @@ class UsersIndex extends Component {
     if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active == active) }
     if (filterBy.username) { filteredUsers = filteredUsers.filter(user => user.username.includes(username)) }
     if (filterBy.email) { filteredUsers = filteredUsers.filter(user => user.email.includes(email)) }
-
-    this.setState({ filteredUsers: filteredUsers, isFiltering: isFiltering })
+    
+    this.setState({ filteredUsers: filteredUsers, isFiltering: isFiltering, activePage: 1, offset: 0 })
   }
 
   getUsers(users) {
