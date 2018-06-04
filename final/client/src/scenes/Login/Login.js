@@ -48,24 +48,103 @@ const styles = theme => ({
 })
 
 class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: '',
-      errors: {},
-      isLoading: false,
-      redirect: false,
-    }
+  state = {
+    email: '',
+    password: '',
+    rules: {
+      email: {
+        required: true,
+        isEmail: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      password: {
+        required: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+    },
+    isLoading: false,
+    redirect: false,
   }
 
   handleChange = name => event => {
+    let currentRules = this.state.rules;
+
     this.setState({
       [name]: event.target.value,
+      rules:{
+        ...currentRules,
+        [name]: {
+          ...currentRules[name],
+          valid: this.validate(name, event.target.value, currentRules[name]),
+          touched: true
+        }
+      },
     })
   }
 
+  validateRequired(value){
+    return typeof value === "string" ?
+              value.trim().length > 0 :
+              false
+  }
+
+  validateEmail(email){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  validate(field, value, rules){
+    if(rules.required){
+      if (!this.validateRequired(value)) {
+        rules.helperText = 'Campo obligatorio';
+        return false;
+      }
+    }
+
+    if(rules.isEmail){
+      if (!this.validateEmail(value)) {
+        rules.helperText = 'Email invalido';
+        return false;
+      }
+    }
+
+    rules.helperText = '';
+    return true;
+  }
+
+  canSubmit(){
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
+
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+
+    if (!formIsValid) {
+      for (let f in currentRules){
+        currentRules[f].touched = true;
+      }
+      this.setState({
+        rules: currentRules
+      })
+      return false;
+    }
+    return true
+  }
+
   submit() {
+    if (!this.canSubmit()) return false
+
     let credentials = { email: this.state.email, password: this.state.password }
     axios.post('http://localhost:3001/api/accounts/login', credentials)
     .then(res => {
@@ -93,7 +172,7 @@ class Login extends Component {
 
   render() {
     let classes = this.props.classes
-    let { errors, password, email, isLoading } = this.state
+    let { password, email, isLoading } = this.state
 
     if (this.state.redirect) {
       return(<Redirect push to="/"/>)
@@ -116,6 +195,8 @@ class Login extends Component {
                     className={classes.textField}
                     onChange={this.handleChange('email')}
                     margin="normal"
+                    error={this.state.rules.email.touched ? !this.state.rules.email.valid : false}
+                    helperText={this.state.rules.email.helperText}
                   />
                 </Grid>
                 <Grid item>
@@ -127,6 +208,8 @@ class Login extends Component {
                     onChange={this.handleChange('password')}
                     type="password"
                     margin="normal"
+                    error={this.state.rules.password.touched ? !this.state.rules.password.valid : false}
+                    helperText={this.state.rules.password.helperText}
                   />
                 </Grid>
             </Grid>
