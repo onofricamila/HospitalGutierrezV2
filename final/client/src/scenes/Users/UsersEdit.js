@@ -4,14 +4,13 @@ import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import Paper from '@material-ui/core/Paper'
 import TextField from '@material-ui/core/TextField'
 import CardActions from '@material-ui/core/CardActions'
 import Button from '@material-ui/core/Button'
 
 import { withStyles } from '@material-ui/core/styles'
 import { Link } from 'react-router-dom'
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 import axios from 'axios'
 import PropTypes from 'prop-types'
 
@@ -56,14 +55,57 @@ const styles = theme => ({
 })
 
 class UsersEdit extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   state = {
-    accessToken: 'AaG5LebNVKhdGwzZ9Jd9VDH6IZ2z428togug2ziBzULmwGkTET9j4mYCveB6k8Gw',
     id: this.props.match.params.id,
-    user: {},
+    user: {
+      lastName: '',
+      firstName: '',
+      email: '',
+      username: '',
+      pass1: '',
+      pass2: '',
+    },
+    rules: {
+      lastName: {
+        required: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      firstName: {
+        required: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      email: {
+        required: true,
+        isEmail: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      username: {
+        required: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      pass1: {
+        required: false,
+        isPass: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      },
+      pass2: {
+        required: false,
+        isPass: true,
+        helperText: '',
+        valid: false,
+        touched: false,
+      }
+    },
     loading: true,
     redirect: false,
     passChange: false,
@@ -71,31 +113,139 @@ class UsersEdit extends Component {
 
   componentWillMount() {
     let id = this.state.id
-    let accessToken = this.state.accessToken
-    axios.get('http://localhost:3001/api/accounts/' + id + '?access_token=' + accessToken)
+    axios.get('http://localhost:3001/api/accounts/' + id)
     .then(response => {
       this.setState({ user: response.data, loading: false })
     })
   }
 
   handleChange = name => event => {
+    let currentRules = this.state.rules;
     let currUser = this.state.user
+
     this.setState({
       user: {
         ...currUser,
         [name]: event.target.value,
-      }
+      },
+      rules:{
+        ...currentRules,
+        [name]: {
+          ...currentRules[name],
+          valid: this.validate(name, event.target.value, currentRules[name]),
+          touched: true
+        }
+      },
     })
   }
 
-  handleUpdate = (session, reloadLogged) => {
+  validateRequired(value){
+    return typeof value === "string" ?
+              value.trim().length > 0 :
+              false
+  }
+
+  validateEmail(email){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  validatePasswords(pass, field){
+    let otherPass = (field == 'pass1') ? this.state.user.pass2 : this.state.user.pass1
+
+    if (otherPass == '') return true
+
+    return pass == otherPass
+  }
+
+  validate(field, value, rules){
+    if(rules.required){
+      if (!this.validateRequired(value)) {
+        rules.helperText = 'Campo obligatorio';
+        return false;
+      }
+    }
+
+    if(rules.isEmail){
+      if (!this.validateEmail(value)) {
+        rules.helperText = 'Email invalido';
+        return false;
+      }
+    }
+
+    if (rules.isPass) {
+      let rule1 = this.state.rules.pass1
+      let rule2 = this.state.rules.pass2
+      if (!this.validatePasswords(value, field)) {
+        rule1.helperText = 'Contraseñas no coinciden';
+        rule2.helperText = 'Contraseñas no coinciden';
+        rule1.valid = false;
+        rule2.valid = false;
+        return false;
+      }
+      if (field == 'pass1' && rule2.helperText == 'Contraseñas no coinciden') {
+        rule2.helperText = '';
+        rule2.valid = true;
+      }
+      if (field == 'pass2' && rule1.helperText == 'Contraseñas no coinciden') {
+        rule1.helperText = '';
+        rule1.valid = true;
+      }
+    }
+
+    rules.helperText = '';
+    return true;
+  }
+
+  canSubmit(){
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
     let user = this.state.user
+
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+
+    if (!formIsValid) {
+      for (let f in currentRules){
+        currentRules[f].touched = true;
+        currentRules[f].valid = this.validate(f, user[f], currentRules[f]);
+      }
+      this.setState({
+        rules: currentRules
+      })
+      return false;
+    }
+    return true
+  }
+
+  handleUpdate = (session, reloadLogged) => {
+    if (!this.canSubmit()) {
+      return false
+    }
+
+    let user = this.state.user
+    let editedUser = {
+      lastName: user.lastName,
+      firstName: user.firstName,
+      email: user.email,
+      username: user.username,
+    }
+    if (this.state.passChange) {
+      editedUser.password = user.pass1
+    }
     let action = 'http://localhost:3001/api/accounts/' + user.id
 
-    axios.put(action, user)
+    axios.put(action, editedUser)
     .then(response => {
       this.setState({ redirect: true })
-      if (session.user.id == user.id) {
+      if (session.user.id === user.id) {
         reloadLogged()
       }
     })
@@ -110,11 +260,17 @@ class UsersEdit extends Component {
   }
 
   displayPassChange() {
-    this.setState({ passChange: true })
+    let rules = this.state.rules
+    rules.pass1.required = true
+    rules.pass2.required = true
+    this.setState({ passChange: true, rules: rules })
   }
 
   hidePassChange() {
-    this.setState({ passChange: false })
+    let rules = this.state.rules
+    rules.pass1.required = false
+    rules.pass2.required = false
+    this.setState({ passChange: false, rules: rules })
   }
 
   passForm() {
@@ -128,10 +284,12 @@ class UsersEdit extends Component {
             className={this.props.classes.textField}
             onChange={this.handleChange('pass1')}
             margin="normal"
-            type="pass"
+            type="password"
             InputLabelProps={{
               shrink: true,
             }}
+            error={this.state.rules.pass1.touched ? !this.state.rules.pass1.valid : false}
+            helperText={this.state.rules.pass1.helperText}
           />
         </Grid>
         <Grid item xl>
@@ -142,10 +300,12 @@ class UsersEdit extends Component {
             className={this.props.classes.textField}
             onChange={this.handleChange('pass2')}
             margin="normal"
-            type="pass"
+            type="password"
             InputLabelProps={{
               shrink: true,
             }}
+            error={this.state.rules.pass2.touched ? !this.state.rules.pass2.valid : false}
+            helperText={this.state.rules.pass2.helperText}
           />
         </Grid>
         <Grid item xl>
@@ -192,6 +352,8 @@ class UsersEdit extends Component {
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    error={this.state.rules.lastName.touched ? !this.state.rules.lastName.valid : false}
+                    helperText={this.state.rules.lastName.helperText}
                   />
                 </Grid>
                 <Grid item>
@@ -206,6 +368,8 @@ class UsersEdit extends Component {
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    error={this.state.rules.firstName.touched ? !this.state.rules.firstName.valid : false}
+                    helperText={this.state.rules.firstName.helperText}
                   />
                 </Grid>
                 <Grid item>
@@ -220,6 +384,8 @@ class UsersEdit extends Component {
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    error={this.state.rules.email.touched ? !this.state.rules.email.valid : false}
+                    helperText={this.state.rules.email.helperText}
                   />
                 </Grid>
                 <Grid item>
@@ -234,6 +400,8 @@ class UsersEdit extends Component {
                     InputLabelProps={{
                       shrink: true,
                     }}
+                    error={this.state.rules.username.touched ? !this.state.rules.username.valid : false}
+                    helperText={this.state.rules.username.helperText}
                   />
                 </Grid>
                 <Grid item>

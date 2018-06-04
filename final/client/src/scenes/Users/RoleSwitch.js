@@ -7,7 +7,7 @@ import axios from 'axios'
 class RoleSwitch extends Component {
   constructor(props) {
     super(props)
-    this.state = { active: props.active, role: props.role, user: props.user, accessToken: props.accessToken }
+    this.state = { active: props.active, role: props.role, user: props.user }
   }
 
   handleChange = name => event => {
@@ -15,14 +15,14 @@ class RoleSwitch extends Component {
   };
 
   persist(session, reloadLogged) {
-    let { active, role, user, accessToken } = this.state
+    let { active, role, user } = this.state
 
     if (active === this.props.active) {
       return new Promise((resolve, reject) => { setTimeout(function() { resolve("¡Éxito!") }, 250) })
     }
 
     if (active) {
-      let api = 'http://localhost:3001/api/RoleMappings?access_token=' + accessToken
+      let api = 'http://localhost:3001/api/RoleMappings'
       let mapping = {
         "principalType": "USER",
         "principalId": user.id,
@@ -33,13 +33,13 @@ class RoleSwitch extends Component {
 
     if (!active) {
       let mapping = this.props.mapping
-      let action = 'http://localhost:3001/api/RoleMappings/' + mapping.id + '?access_token=' + accessToken
+      let action = 'http://localhost:3001/api/RoleMappings/' + mapping.id
       return axios.delete(action)
     }
   }
 
   render() {
-    let { active, role, user, accessToken } = this.state
+    let { active, role } = this.state
 
     return (
       <FormControlLabel

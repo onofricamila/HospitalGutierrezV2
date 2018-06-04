@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"ProyectoLoopback.RoleMapping"}],"uuid":"f17283cc743e44be92e3ad146bd77a35"}
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"ProyectoLoopback.rolemapping"}],"uuid":"888e94b4f4674fa787c963823f2e183d"}

@@ -64,8 +64,6 @@ class ConfigIndex extends Component {
     let classes = this.props.classes
     let config = this.state.config
 
-    let maintenance = config.maintenance
-
     let articles = config.articles
 
     let data = [

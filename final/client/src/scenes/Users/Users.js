@@ -4,6 +4,7 @@ import Error404 from "../Errors/404"
 import UsersNew from "./UsersNew.js"
 import UsersIndex from "./UsersIndex.js"
 import UsersEdit from "./UsersEdit.js"
+import SessionContext from '../../SessionContext'
 
 class Configuration extends Component {
   render() {

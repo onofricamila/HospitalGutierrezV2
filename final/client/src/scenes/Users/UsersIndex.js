@@ -29,7 +29,6 @@ const styles = theme => ({
     display: 'none',
   },
   button: {
-    margin: theme.spacing.unit,
     margin: 0,
     top: 'auto',
     right: 50,
@@ -40,7 +39,7 @@ const styles = theme => ({
 
   li:{
     display: 'inline-block',
-    borderRadius: 5, 
+    borderRadius: 5,
     float: 'left',
     padding: '8px 16px',
     transition: 'background-color .3s',
@@ -48,7 +47,7 @@ const styles = theme => ({
     cursor: 'pointer',
     margin: 5,
   },
-  
+
 })
 
 class UsersIndex extends Component {
@@ -59,7 +58,6 @@ class UsersIndex extends Component {
 
   state = {
     loading: true,
-    accessToken: 'AaG5LebNVKhdGwzZ9Jd9VDH6IZ2z428togug2ziBzULmwGkTET9j4mYCveB6k8Gw',
     users: [],
     roles: [],
     mappings: [],
@@ -73,35 +71,35 @@ class UsersIndex extends Component {
   }
 
   loadElements() {
-    axios.get('http://localhost:3001/api/' + 'Configurations/elements')
+    axios.get('http://localhost:3001/api/Configurations/elements')
     .then(response => {
       this.setState({ elements: response.data.elements })
     })
   }
 
   loadUsers() {
-    axios.get('http://localhost:3001/api/accounts?access_token=' + this.state.accessToken)
+    axios.get('http://localhost:3001/api/accounts')
     .then(response => {
       this.setState({ users: response.data, filteredUsers: response.data, loading: false })
     })
   }
 
   loadRoles() {
-    axios.get('http://localhost:3001/api/Roles?access_token=' + this.state.accessToken)
+    axios.get('http://localhost:3001/api/Roles')
     .then(response => {
       this.setState({ roles: response.data })
     })
   }
 
   loadRoleMappings() {
-    axios.get('http://localhost:3001/api/RoleMappings?access_token=' + this.state.accessToken)
+    axios.get('http://localhost:3001/api/RoleMappings')
     .then(response => {
       this.setState({ mappings: response.data })
     })
   }
 
   toggleUserState(i, id) {
-    axios.put('http://localhost:3001/api/accounts/' + id + '/toggleState?access_token=' + this.state.accessToken)
+    axios.put('http://localhost:3001/api/accounts/' + id + '/toggleState')
     let currUsers = this.state.users
     currUsers[i].active = !currUsers[i].active
     this.setState({ users: currUsers, filteredUsers: currUsers })
@@ -172,7 +170,6 @@ class UsersIndex extends Component {
     return(
       <div>
         <Pagination previousLabel={"<"}
-               activeClassName={classes.activeLi}
                pageClassName={classes.li}
                nextClassName={classes.li}
                previousClassName={classes.li}
@@ -229,7 +226,7 @@ class UsersIndex extends Component {
     if (filterBy.active) { filteredUsers = filteredUsers.filter(user => user.active === active) }
     if (filterBy.username) { filteredUsers = filteredUsers.filter(user => user.username.includes(username)) }
     if (filterBy.email) { filteredUsers = filteredUsers.filter(user => user.email.includes(email)) }
-    
+
     this.setState({ filteredUsers: filteredUsers, isFiltering: isFiltering, activePage: 1, offset: 0 })
   }
 
@@ -272,7 +269,7 @@ class UsersIndex extends Component {
   render() {
     let classes = this.props.classes
 
-    let { loading, accessToken, users, roles, mappings, editingRoles, userIndex, offset, toNew, filteredUsers } = this.state
+    let { loading, users, roles, editingRoles, userIndex, toNew } = this.state
 
     if (loading) {
       return(<div></div>)
@@ -306,7 +303,6 @@ class UsersIndex extends Component {
                   ref={(roleSwitch) => {this.switches[index] = roleSwitch}}
                   active={editedUser.roles.includes(role)}
                   role={role} user={editedUser} mapping={this.roleMapping(role, editedUser.mappings)}
-                  accessToken={accessToken}
                 />
               </Grid>
             )})}

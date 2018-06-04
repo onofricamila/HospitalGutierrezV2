@@ -32,10 +32,6 @@ const styles = theme => ({
 })
 
 class UserFilters extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   state = {
     name: '',
     username: '',

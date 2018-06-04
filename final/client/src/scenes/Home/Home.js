@@ -31,7 +31,7 @@ class Home extends Component {
 
   generateArticles(data) {
       let articles = this.state.articles;
-      data.map((elem, i) => {
+      data.forEach((elem, i) => {
           articles[i].title = elem.title;
           articles[i].text = elem.description;
       })

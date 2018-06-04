@@ -4,10 +4,6 @@ import SessionContext from '../../SessionContext'
 import AddPropsToRoute from '../../hoc/AddPropsToRoute'
 
 class PrivateRoute extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   getComponent(session) {
     return session ? this.canAccess(session) : <Redirect to='/Login' />
   }

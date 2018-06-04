@@ -86,7 +86,7 @@ class Login extends Component {
       })
     })
     .catch(err => {
-      alert(JSON.stringify(err))
+      alert('Usuario o contraseña incorrectos')
     })
     this.setState({ redirect: true })
   }
