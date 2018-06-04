@@ -67,6 +67,64 @@ class ConfigUpdate extends Component {
       config: '',
       redirect: false,
       globalConfig: config.get('config'),
+      rules: {
+        title: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        email: {
+          required: true,
+          helperText: '',
+          isEmail: true,
+          valid: false,
+          touched: false,
+        },
+        elements: {
+          required: true,
+          helperText: '',
+          numeric: true,
+          valid: false,
+          touched: false,
+        },
+        title1: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        descripcion1: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        title2: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        descripcion2: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        title3: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+        descripcion3: {
+          required: true,
+          helperText: '',
+          valid: false,
+          touched: false,
+        },
+      },
     }
   }
 
@@ -79,13 +137,81 @@ class ConfigUpdate extends Component {
   }
 
   handleChange = name => event => {
+    let currentRules = this.state.rules;
     let currConfig = this.state.config
+
     this.setState({
       config: {
         ...currConfig,
         [name]: event.target.value,
-      }
+      },
+      rules:{
+        ...currentRules,
+        [name]: {
+          ...currentRules[name],
+          valid: this.validate(name, event.target.value, currentRules[name]),
+          touched: true
+        }
+      },
     })
+  }
+
+  validateRequired(value){
+    return typeof value === "string" ?
+              value.trim().length > 0 :
+              value.toString().length > 0;
+  }
+
+  validateEmail(email){
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  validate(field, value, rules){
+    if(rules.required){
+      if (!this.validateRequired(value)) {
+        rules.helperText = 'Campo obligatorio';
+        return false;
+      }
+    }
+
+    if(rules.isEmail){
+      if (!this.validateEmail(value)) {
+        rules.helperText = 'Email invalido';
+        return false;
+      }
+    }
+
+    rules.helperText = '';
+    return true;
+  }
+
+  canSubmit(){
+    let formIsValid = true;
+    let currentState = this.state;
+    let currentRules = this.state.rules;
+    let config = this.state.config
+
+    for (let f in currentRules){
+      formIsValid = currentRules[f].valid && formIsValid;
+    }
+
+    this.setState({
+      ...currentState,
+      formIsValid: formIsValid
+    });
+
+    if (!formIsValid) {
+      for (let f in currentRules){
+        currentRules[f].touched = true;
+        currentRules[f].valid = this.validate(f, config[f], currentRules[f]);
+      }
+      this.setState({
+        rules: currentRules
+      })
+      return false;
+    }
+    return true
   }
 
   updateGlobalConfig(data) {
@@ -102,6 +228,8 @@ class ConfigUpdate extends Component {
   }
 
   handleUpdate = () => {
+    if (!this.canSubmit()) return false
+
     let configuration = this.state.config
     let action = config.get('config').api + 'Configurations/' + configuration.id + '/replace'
     axios.post(action, configuration)
@@ -134,7 +262,6 @@ class ConfigUpdate extends Component {
 
             <Paper className={classes.paper}>
                 <TextField
-                  required
                   id="title"
                   label="Titulo"
                   className={classes.textField}
@@ -144,9 +271,10 @@ class ConfigUpdate extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  error={this.state.rules.title.touched ? !this.state.rules.title.valid : false}
+                  helperText={this.state.rules.title.helperText}
                 />
                 <TextField
-                  required
                   id="email"
                   label="Email"
                   className={classes.textField}
@@ -156,9 +284,10 @@ class ConfigUpdate extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  error={this.state.rules.email.touched ? !this.state.rules.email.valid : false}
+                  helperText={this.state.rules.email.helperText}
                 />
                 <TextField
-                  required
                   id="elements"
                   label="Elements"
                   className={classes.numField}
@@ -169,6 +298,8 @@ class ConfigUpdate extends Component {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  error={this.state.rules.elements.touched ? !this.state.rules.elements.valid : false}
+                  helperText={this.state.rules.elements.helperText}
                 />
             </Paper>
             <Grid container spacing={24} style={{ padding: 20 }}>
@@ -176,7 +307,6 @@ class ConfigUpdate extends Component {
                 <Card>
                   <CardContent>
                     <TextField
-                      required
                       id="title1"
                       className={classes.titleField}
                       value={config.title1}
@@ -185,6 +315,8 @@ class ConfigUpdate extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      error={this.state.rules.title1.touched ? !this.state.rules.title1.valid : false}
+                      helperText={this.state.rules.title1.helperText}
                     />
                     <br/>
                     <TextField
@@ -195,6 +327,8 @@ class ConfigUpdate extends Component {
                       onChange={this.handleChange('descripcion1')}
                       className={classes.descField}
                       margin="normal"
+                      error={this.state.rules.descripcion1.touched ? !this.state.rules.descripcion1.valid : false}
+                      helperText={this.state.rules.descripcion1.helperText}
                     />
                   </CardContent>
                 </Card>
@@ -203,7 +337,6 @@ class ConfigUpdate extends Component {
                 <Card>
                   <CardContent>
                     <TextField
-                      required
                       id="title2"
                       className={classes.titleField}
                       value={config.title2}
@@ -212,6 +345,8 @@ class ConfigUpdate extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      error={this.state.rules.title2.touched ? !this.state.rules.title2.valid : false}
+                      helperText={this.state.rules.title2.helperText}
                     />
                     <br/>
                     <TextField
@@ -222,6 +357,8 @@ class ConfigUpdate extends Component {
                       onChange={this.handleChange('descripcion2')}
                       className={classes.descField}
                       margin="normal"
+                      error={this.state.rules.descripcion2.touched ? !this.state.rules.descripcion2.valid : false}
+                      helperText={this.state.rules.descripcion2.helperText}
                     />
                   </CardContent>
                 </Card>
@@ -230,7 +367,6 @@ class ConfigUpdate extends Component {
                 <Card>
                   <CardContent>
                     <TextField
-                      required
                       id="title3"
                       className={classes.titleField}
                       value={config.title3}
@@ -239,6 +375,8 @@ class ConfigUpdate extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      error={this.state.rules.title3.touched ? !this.state.rules.title3.valid : false}
+                      helperText={this.state.rules.title3.helperText}
                     />
                     <br/>
                     <TextField
@@ -249,6 +387,8 @@ class ConfigUpdate extends Component {
                       onChange={this.handleChange('descripcion3')}
                       className={classes.descField}
                       margin="normal"
+                      error={this.state.rules.descripcion3.touched ? !this.state.rules.descripcion3.valid : false}
+                      helperText={this.state.rules.descripcion3.helperText}
                     />
                   </CardContent>
                 </Card>
