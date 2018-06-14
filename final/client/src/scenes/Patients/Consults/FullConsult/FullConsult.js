@@ -173,7 +173,7 @@ class FullConsult extends Component{
                                     value={loadedConsult.gralObs? loadedConsult.gralObs : '- - -'} />
                             </Grid>
                             <Grid item xs={5} className={classes.flexContainer}>
-                                <Item title='Usuario que cargó los datos: ' value={loadedConsult.user}/>
+                                <Item title='Usuario que cargó la consulta: ' value={loadedConsult.user}/>
                             </Grid>
                           </List>
                         </CardContent>
