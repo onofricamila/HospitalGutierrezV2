@@ -9,6 +9,7 @@ import PatientsListPage from './PatientsList/EnhancedTable';
 import CreateOrUpdatePatient from './CreateOrUpdatePatient/CreateOrUpdatePatient';
 import Error404 from "../Errors/404";
 import AddPropsToRoute from '../../hoc/AddPropsToRoute'
+import PrivateRoute from '../../components/CustomRoutes/PrivateRoute'
 
 class Patients extends Component{
     state = {
@@ -143,7 +144,7 @@ class Patients extends Component{
                                     heatingTypes={heatingTypes} />
                             </div>
                         }/>
-                    <Route path="/patients/:id/consults" component={AddPropsToRoute(ConsultsPage, passingProps)} />
+                    <PrivateRoute path="/patients/:id/consults" permissions={["Pediatra","Administrador"]}  component={AddPropsToRoute(ConsultsPage, passingProps)} />
                     <Route path="/patients/:id/charts" component={ChartsPage} />
                     <Route component={Error404} />
                 </Switch>
