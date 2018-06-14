@@ -168,7 +168,7 @@ class FullPatient extends Component{
                                 onClick={this.editPatientHandler}>
                                 Editar
                             </Button>
-                            {roles.includes('Pediatra')? <Link to={this.state.loadedPatient.id + '/consults/'}>    
+                            {(roles.includes('Pediatra') || roles.includes('Administrador'))? <Link to={this.state.loadedPatient.id + '/consults/'}>    
                                 <Button 
                                     color="primary" 
                                     >

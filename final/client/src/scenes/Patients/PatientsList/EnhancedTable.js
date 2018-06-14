@@ -266,7 +266,7 @@ class EnhancedTable extends React.Component {
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
-                        {roles.includes('Pediatra')? <Tooltip title="Consultas">
+                        {(roles.includes('Pediatra') || roles.includes('Administrador'))? <Tooltip title="Consultas">
                             <Link to={n.id +'/consults/'}>    
                               <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
                             </Link>
