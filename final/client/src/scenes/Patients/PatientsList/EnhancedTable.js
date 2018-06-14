@@ -238,7 +238,7 @@ class EnhancedTable extends React.Component {
                       >
                       <TableCell >
                         <Tooltip title="Ver">
-                          <Link to={n.id} key={n.id}>    
+                          <Link to={'/patients/' + n.id} key={n.id}>    
                             {n.name}
                           </Link>
                         </Tooltip>
