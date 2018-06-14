@@ -201,6 +201,7 @@ class EnhancedTable extends React.Component {
                 value={filter.documentType}
                 onChange={this.handleFilterChange('documentType')}
                 >
+                <MenuItem key={'all'} value="">Todos</MenuItem>
                 {this.props.documentTypes.map((docType, index) =>
                   <MenuItem key={index} value={index}>{docType}</MenuItem>
                 )}
