@@ -168,13 +168,15 @@ class FullPatient extends Component{
                                 onClick={this.editPatientHandler}>
                                 Editar
                             </Button>
-                            <Link to={this.state.loadedPatient.id + '/consults/'}>    
+                            {roles.includes('Pediatra')? <Link to={this.state.loadedPatient.id + '/consults/'}>    
                                 <Button 
                                     color="primary" 
                                     >
                                     Historia Clinica
                                 </Button>
                             </Link>
+                            : null
+                            }
                             <Link to={this.state.loadedPatient.id + '/charts/'}>    
                                 <Button 
                                     color="primary" 

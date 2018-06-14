@@ -266,11 +266,12 @@ class EnhancedTable extends React.Component {
                             <EditIcon style={{cursor: 'pointer', fontSize: 18}} />
                           </Link>
                         </Tooltip>
-                        <Tooltip title="Consultas">
-                          <Link to={n.id +'/consults/'}>    
-                            <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
-                          </Link>
-                        </Tooltip>
+                        {roles.includes('Pediatra')? <Tooltip title="Consultas">
+                            <Link to={n.id +'/consults/'}>    
+                              <ListIcon style={{cursor: 'pointer', fontSize: 18}} />
+                            </Link>
+                          </Tooltip>
+                        : null } 
                         <Tooltip title="Gráficos">
                           <Link to={n.id +'/charts/'}>    
                             <BubbleChartIcon style={{cursor: 'pointer', fontSize: 18}} />
