@@ -131,7 +131,7 @@ class App extends Component {
         <SessionContext.Provider value={this.state.session}>
           <DocumentTitle title={title}>
             <BrowserRouter basename="/">
-              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
+              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session} title={title}>
                 <Switch>
                   <GuestRoute path="/Login" exact component={LoginPageWProps} />
                   <PrivateRoute path="/Configuracion" component={ConfigurationPage} permissions="Administrador" />
@@ -150,7 +150,7 @@ class App extends Component {
         <ReloadLoggedContext.Provider value={this.reloadLogged.bind(this)}>
           <DocumentTitle title={title}>
             <BrowserRouter basename="/">
-              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session}>
+              <Layout onLogout={this.onLogout.bind(this)} session={this.state.session} title={title}>
                 <Switch>
                   <Route path="/" exact component={HomePage} />
                   <PrivateRoute path="/patients" component={PatientsPage} permissions={["Pediatra","Recepcionista","Administrador"]} />

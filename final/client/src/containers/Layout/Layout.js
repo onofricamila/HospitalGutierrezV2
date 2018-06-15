@@ -4,7 +4,7 @@ import LabelBottomNavigation from "./footer/LabelBottomNavigation";
 
 const layout = props => (
   <Fragment>
-    <PersistentDrawer title="Hospital Gutierrez" subcontent= {props.children} onLogout={props.onLogout} session={props.session}/>
+    <PersistentDrawer title="Hospital Gutierrez" subcontent= {props.children} onLogout={props.onLogout} session={props.session} title={props.title}/>
     <LabelBottomNavigation />
   </Fragment>
 )

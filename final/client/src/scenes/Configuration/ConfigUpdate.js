@@ -224,6 +224,7 @@ class ConfigUpdate extends Component {
     ]
     data.reload = false
     config.set({ config: data }, { freeze: false })
+    document.title = data.title
     this.setState({ loadedConfig: true, configuration: data })
   }
 

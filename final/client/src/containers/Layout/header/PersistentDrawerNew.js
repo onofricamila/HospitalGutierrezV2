@@ -145,7 +145,7 @@ class PersistentDrawer extends React.Component {
   };
 
   render() {
-    const { classes, theme, onLogout, session } = this.props;
+    const { classes, theme, onLogout, session, title } = this.props;
     const { anchor, open } = this.state;
 
     const drawer = (
@@ -192,7 +192,7 @@ class PersistentDrawer extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap>
-                Hospital Dr. Gutierrez
+                {title}
               </Typography>
             </Toolbar>
           </AppBar>
